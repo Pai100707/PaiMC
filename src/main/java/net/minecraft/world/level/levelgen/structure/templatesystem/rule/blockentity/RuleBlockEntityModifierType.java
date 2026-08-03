@@ -13,6 +13,6 @@ public interface RuleBlockEntityModifierType<P extends RuleBlockEntityModifier> 
    MapCodec<P> codec();
 
    private static <P extends RuleBlockEntityModifier> RuleBlockEntityModifierType<P> register(String $$0, MapCodec<P> $$1) {
-      return (RuleBlockEntityModifierType<P>)Registry.register(BuiltInRegistries.RULE_BLOCK_ENTITY_MODIFIER, $$0, (RuleBlockEntityModifierType<>)() -> $$1);
+      return (RuleBlockEntityModifierType<P>)Registry.register(BuiltInRegistries.RULE_BLOCK_ENTITY_MODIFIER, $$0, (RuleBlockEntityModifierType)() -> $$1);
    }
 }

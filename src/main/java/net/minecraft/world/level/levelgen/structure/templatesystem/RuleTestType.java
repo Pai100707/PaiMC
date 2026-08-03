@@ -15,6 +15,6 @@ public interface RuleTestType<P extends RuleTest> {
    MapCodec<P> codec();
 
    static <P extends RuleTest> RuleTestType<P> register(String $$0, MapCodec<P> $$1) {
-      return (RuleTestType<P>)Registry.register(BuiltInRegistries.RULE_TEST, $$0, (RuleTestType<>)() -> $$1);
+      return (RuleTestType<P>)Registry.register(BuiltInRegistries.RULE_TEST, $$0, (RuleTestType)() -> $$1);
    }
 }

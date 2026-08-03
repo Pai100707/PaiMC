@@ -12,6 +12,6 @@ public interface PosRuleTestType<P extends PosRuleTest> {
    MapCodec<P> codec();
 
    static <P extends PosRuleTest> PosRuleTestType<P> register(String $$0, MapCodec<P> $$1) {
-      return (PosRuleTestType<P>)Registry.register(BuiltInRegistries.POS_RULE_TEST, $$0, (PosRuleTestType<>)() -> $$1);
+      return (PosRuleTestType<P>)Registry.register(BuiltInRegistries.POS_RULE_TEST, $$0, (PosRuleTestType)() -> $$1);
    }
 }

@@ -41,6 +41,6 @@ public interface StructureType<S extends Structure> {
    MapCodec<S> codec();
 
    private static <S extends Structure> StructureType<S> register(String $$0, MapCodec<S> $$1) {
-      return (StructureType<S>)Registry.register(BuiltInRegistries.STRUCTURE_TYPE, $$0, (StructureType<>)() -> $$1);
+      return (StructureType<S>)Registry.register(BuiltInRegistries.STRUCTURE_TYPE, $$0, (StructureType)() -> $$1);
    }
 }

@@ -11,6 +11,6 @@ public interface StructurePlacementType<SP extends StructurePlacement> {
    MapCodec<SP> codec();
 
    private static <SP extends StructurePlacement> StructurePlacementType<SP> register(String $$0, MapCodec<SP> $$1) {
-      return (StructurePlacementType<SP>)Registry.register(BuiltInRegistries.STRUCTURE_PLACEMENT, $$0, (StructurePlacementType<>)() -> $$1);
+      return (StructurePlacementType<SP>)Registry.register(BuiltInRegistries.STRUCTURE_PLACEMENT, $$0, (StructurePlacementType)() -> $$1);
    }
 }

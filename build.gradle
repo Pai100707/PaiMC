@@ -10,6 +10,7 @@ repositories {
 }
 
 dependencies {
+    implementation fileTree(dir: "server/libraries", include: ["**/*.jar"])
 }
 
 java {

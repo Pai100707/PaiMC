@@ -30,6 +30,6 @@ public interface StructureProcessorType<P extends StructureProcessor> {
    MapCodec<P> codec();
 
    static <P extends StructureProcessor> StructureProcessorType<P> register(String $$0, MapCodec<P> $$1) {
-      return (StructureProcessorType<P>)Registry.register(BuiltInRegistries.STRUCTURE_PROCESSOR, $$0, (StructureProcessorType<>)() -> $$1);
+      return (StructureProcessorType<P>)Registry.register(BuiltInRegistries.STRUCTURE_PROCESSOR, $$0, (StructureProcessorType)() -> $$1);
    }
 }

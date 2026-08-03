@@ -14,6 +14,6 @@ public interface StructurePoolElementType<P extends StructurePoolElement> {
    MapCodec<P> codec();
 
    static <P extends StructurePoolElement> StructurePoolElementType<P> register(String $$0, MapCodec<P> $$1) {
-      return (StructurePoolElementType<P>)Registry.register(BuiltInRegistries.STRUCTURE_POOL_ELEMENT, $$0, (StructurePoolElementType<>)() -> $$1);
+      return (StructurePoolElementType<P>)Registry.register(BuiltInRegistries.STRUCTURE_POOL_ELEMENT, $$0, (StructurePoolElementType)() -> $$1);
    }
 }
