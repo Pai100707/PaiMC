@@ -4,11 +4,6 @@ out/
 run/
 logs/
 *.log
-*.jar
-*.class
 .idea/
 .vscode/
-server/*.jar
-server/jar/*.jar
-*.jar
 
