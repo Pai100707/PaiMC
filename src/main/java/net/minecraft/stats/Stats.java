@@ -1,0 +1,110 @@
+package net.minecraft.stats;
+
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
+
+public class Stats {
+   public static final net.minecraft.stats.StatType<Block> BLOCK_MINED = makeRegistryStatType("mined", BuiltInRegistries.BLOCK);
+   public static final net.minecraft.stats.StatType<Item> ITEM_CRAFTED = makeRegistryStatType("crafted", BuiltInRegistries.ITEM);
+   public static final net.minecraft.stats.StatType<Item> ITEM_USED = makeRegistryStatType("used", BuiltInRegistries.ITEM);
+   public static final net.minecraft.stats.StatType<Item> ITEM_BROKEN = makeRegistryStatType("broken", BuiltInRegistries.ITEM);
+   public static final net.minecraft.stats.StatType<Item> ITEM_PICKED_UP = makeRegistryStatType("picked_up", BuiltInRegistries.ITEM);
+   public static final net.minecraft.stats.StatType<Item> ITEM_DROPPED = makeRegistryStatType("dropped", BuiltInRegistries.ITEM);
+   public static final net.minecraft.stats.StatType<EntityType<?>> ENTITY_KILLED = makeRegistryStatType("killed", BuiltInRegistries.ENTITY_TYPE);
+   public static final net.minecraft.stats.StatType<EntityType<?>> ENTITY_KILLED_BY = makeRegistryStatType("killed_by", BuiltInRegistries.ENTITY_TYPE);
+   public static final net.minecraft.stats.StatType<Identifier> CUSTOM = makeRegistryStatType("custom", BuiltInRegistries.CUSTOM_STAT);
+   public static final Identifier LEAVE_GAME = makeCustomStat("leave_game", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier PLAY_TIME = makeCustomStat("play_time", net.minecraft.stats.StatFormatter.TIME);
+   public static final Identifier TOTAL_WORLD_TIME = makeCustomStat("total_world_time", net.minecraft.stats.StatFormatter.TIME);
+   public static final Identifier TIME_SINCE_DEATH = makeCustomStat("time_since_death", net.minecraft.stats.StatFormatter.TIME);
+   public static final Identifier TIME_SINCE_REST = makeCustomStat("time_since_rest", net.minecraft.stats.StatFormatter.TIME);
+   public static final Identifier CROUCH_TIME = makeCustomStat("sneak_time", net.minecraft.stats.StatFormatter.TIME);
+   public static final Identifier WALK_ONE_CM = makeCustomStat("walk_one_cm", net.minecraft.stats.StatFormatter.DISTANCE);
+   public static final Identifier CROUCH_ONE_CM = makeCustomStat("crouch_one_cm", net.minecraft.stats.StatFormatter.DISTANCE);
+   public static final Identifier SPRINT_ONE_CM = makeCustomStat("sprint_one_cm", net.minecraft.stats.StatFormatter.DISTANCE);
+   public static final Identifier WALK_ON_WATER_ONE_CM = makeCustomStat("walk_on_water_one_cm", net.minecraft.stats.StatFormatter.DISTANCE);
+   public static final Identifier FALL_ONE_CM = makeCustomStat("fall_one_cm", net.minecraft.stats.StatFormatter.DISTANCE);
+   public static final Identifier CLIMB_ONE_CM = makeCustomStat("climb_one_cm", net.minecraft.stats.StatFormatter.DISTANCE);
+   public static final Identifier FLY_ONE_CM = makeCustomStat("fly_one_cm", net.minecraft.stats.StatFormatter.DISTANCE);
+   public static final Identifier WALK_UNDER_WATER_ONE_CM = makeCustomStat("walk_under_water_one_cm", net.minecraft.stats.StatFormatter.DISTANCE);
+   public static final Identifier MINECART_ONE_CM = makeCustomStat("minecart_one_cm", net.minecraft.stats.StatFormatter.DISTANCE);
+   public static final Identifier BOAT_ONE_CM = makeCustomStat("boat_one_cm", net.minecraft.stats.StatFormatter.DISTANCE);
+   public static final Identifier PIG_ONE_CM = makeCustomStat("pig_one_cm", net.minecraft.stats.StatFormatter.DISTANCE);
+   public static final Identifier HAPPY_GHAST_ONE_CM = makeCustomStat("happy_ghast_one_cm", net.minecraft.stats.StatFormatter.DISTANCE);
+   public static final Identifier HORSE_ONE_CM = makeCustomStat("horse_one_cm", net.minecraft.stats.StatFormatter.DISTANCE);
+   public static final Identifier AVIATE_ONE_CM = makeCustomStat("aviate_one_cm", net.minecraft.stats.StatFormatter.DISTANCE);
+   public static final Identifier SWIM_ONE_CM = makeCustomStat("swim_one_cm", net.minecraft.stats.StatFormatter.DISTANCE);
+   public static final Identifier STRIDER_ONE_CM = makeCustomStat("strider_one_cm", net.minecraft.stats.StatFormatter.DISTANCE);
+   public static final Identifier NAUTILUS_ONE_CM = makeCustomStat("nautilus_one_cm", net.minecraft.stats.StatFormatter.DISTANCE);
+   public static final Identifier JUMP = makeCustomStat("jump", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier DROP = makeCustomStat("drop", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier DAMAGE_DEALT = makeCustomStat("damage_dealt", net.minecraft.stats.StatFormatter.DIVIDE_BY_TEN);
+   public static final Identifier DAMAGE_DEALT_ABSORBED = makeCustomStat("damage_dealt_absorbed", net.minecraft.stats.StatFormatter.DIVIDE_BY_TEN);
+   public static final Identifier DAMAGE_DEALT_RESISTED = makeCustomStat("damage_dealt_resisted", net.minecraft.stats.StatFormatter.DIVIDE_BY_TEN);
+   public static final Identifier DAMAGE_TAKEN = makeCustomStat("damage_taken", net.minecraft.stats.StatFormatter.DIVIDE_BY_TEN);
+   public static final Identifier DAMAGE_BLOCKED_BY_SHIELD = makeCustomStat("damage_blocked_by_shield", net.minecraft.stats.StatFormatter.DIVIDE_BY_TEN);
+   public static final Identifier DAMAGE_ABSORBED = makeCustomStat("damage_absorbed", net.minecraft.stats.StatFormatter.DIVIDE_BY_TEN);
+   public static final Identifier DAMAGE_RESISTED = makeCustomStat("damage_resisted", net.minecraft.stats.StatFormatter.DIVIDE_BY_TEN);
+   public static final Identifier DEATHS = makeCustomStat("deaths", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier MOB_KILLS = makeCustomStat("mob_kills", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier ANIMALS_BRED = makeCustomStat("animals_bred", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier PLAYER_KILLS = makeCustomStat("player_kills", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier FISH_CAUGHT = makeCustomStat("fish_caught", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier TALKED_TO_VILLAGER = makeCustomStat("talked_to_villager", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier TRADED_WITH_VILLAGER = makeCustomStat("traded_with_villager", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier EAT_CAKE_SLICE = makeCustomStat("eat_cake_slice", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier FILL_CAULDRON = makeCustomStat("fill_cauldron", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier USE_CAULDRON = makeCustomStat("use_cauldron", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier CLEAN_ARMOR = makeCustomStat("clean_armor", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier CLEAN_BANNER = makeCustomStat("clean_banner", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier CLEAN_SHULKER_BOX = makeCustomStat("clean_shulker_box", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier INTERACT_WITH_BREWINGSTAND = makeCustomStat("interact_with_brewingstand", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier INTERACT_WITH_BEACON = makeCustomStat("interact_with_beacon", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier INSPECT_DROPPER = makeCustomStat("inspect_dropper", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier INSPECT_HOPPER = makeCustomStat("inspect_hopper", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier INSPECT_DISPENSER = makeCustomStat("inspect_dispenser", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier PLAY_NOTEBLOCK = makeCustomStat("play_noteblock", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier TUNE_NOTEBLOCK = makeCustomStat("tune_noteblock", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier POT_FLOWER = makeCustomStat("pot_flower", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier TRIGGER_TRAPPED_CHEST = makeCustomStat("trigger_trapped_chest", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier OPEN_ENDERCHEST = makeCustomStat("open_enderchest", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier ENCHANT_ITEM = makeCustomStat("enchant_item", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier PLAY_RECORD = makeCustomStat("play_record", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier INTERACT_WITH_FURNACE = makeCustomStat("interact_with_furnace", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier INTERACT_WITH_CRAFTING_TABLE = makeCustomStat("interact_with_crafting_table", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier OPEN_CHEST = makeCustomStat("open_chest", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier SLEEP_IN_BED = makeCustomStat("sleep_in_bed", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier OPEN_SHULKER_BOX = makeCustomStat("open_shulker_box", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier OPEN_BARREL = makeCustomStat("open_barrel", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier INTERACT_WITH_BLAST_FURNACE = makeCustomStat("interact_with_blast_furnace", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier INTERACT_WITH_SMOKER = makeCustomStat("interact_with_smoker", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier INTERACT_WITH_LECTERN = makeCustomStat("interact_with_lectern", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier INTERACT_WITH_CAMPFIRE = makeCustomStat("interact_with_campfire", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier INTERACT_WITH_CARTOGRAPHY_TABLE = makeCustomStat("interact_with_cartography_table", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier INTERACT_WITH_LOOM = makeCustomStat("interact_with_loom", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier INTERACT_WITH_STONECUTTER = makeCustomStat("interact_with_stonecutter", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier BELL_RING = makeCustomStat("bell_ring", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier RAID_TRIGGER = makeCustomStat("raid_trigger", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier RAID_WIN = makeCustomStat("raid_win", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier INTERACT_WITH_ANVIL = makeCustomStat("interact_with_anvil", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier INTERACT_WITH_GRINDSTONE = makeCustomStat("interact_with_grindstone", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier TARGET_HIT = makeCustomStat("target_hit", net.minecraft.stats.StatFormatter.DEFAULT);
+   public static final Identifier INTERACT_WITH_SMITHING_TABLE = makeCustomStat("interact_with_smithing_table", net.minecraft.stats.StatFormatter.DEFAULT);
+
+   private static Identifier makeCustomStat(String $$0, net.minecraft.stats.StatFormatter $$1) {
+      Identifier $$2 = Identifier.withDefaultNamespace($$0);
+      Registry.register(BuiltInRegistries.CUSTOM_STAT, $$0, $$2);
+      CUSTOM.get($$2, $$1);
+      return $$2;
+   }
+
+   private static <T> net.minecraft.stats.StatType<T> makeRegistryStatType(String $$0, Registry<T> $$1) {
+      Component $$2 = Component.translatable("stat_type.minecraft." + $$0);
+      return (net.minecraft.stats.StatType<T>)Registry.register(BuiltInRegistries.STAT_TYPE, $$0, new net.minecraft.stats.StatType($$1, $$2));
+   }
+}

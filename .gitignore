@@ -8,3 +8,7 @@ logs/
 *.class
 .idea/
 .vscode/
+server/*.jar
+server/jar/*.jar
+*.jar
+

@@ -1,0 +1,24 @@
+package net.minecraft.util.datafix.fixes;
+
+import com.mojang.datafixers.DSL;
+import com.mojang.datafixers.DataFix;
+import com.mojang.datafixers.OpticFinder;
+import com.mojang.datafixers.TypeRewriteRule;
+import com.mojang.datafixers.schemas.Schema;
+import com.mojang.datafixers.types.Type;
+
+public class EquippableAssetRenameFix extends DataFix {
+   public EquippableAssetRenameFix(Schema $$0) {
+      super($$0, true);
+   }
+
+   protected TypeRewriteRule makeRule() {
+      Type<?> $$0 = this.getInputSchema().getType(References.DATA_COMPONENTS);
+      OpticFinder<?> $$1 = $$0.findField("minecraft:equippable");
+      return this.fixTypeEverywhereTyped(
+         "equippable asset rename fix",
+         $$0,
+         $$1x -> $$1x.updateTyped($$1, $$0xx -> $$0xx.update(DSL.remainderFinder(), $$0xxx -> $$0xxx.renameField("model", "asset_id")))
+      );
+   }
+}
