@@ -13,6 +13,6 @@ public interface FloatProviderType<P extends FloatProvider> {
    MapCodec<P> codec();
 
    static <P extends FloatProvider> FloatProviderType<P> register(String $$0, MapCodec<P> $$1) {
-      return (FloatProviderType<P>)Registry.register(BuiltInRegistries.FLOAT_PROVIDER_TYPE, $$0, (FloatProviderType<>)() -> $$1);
+      return (FloatProviderType<P>)Registry.register(BuiltInRegistries.FLOAT_PROVIDER_TYPE, $$0, (FloatProviderType<P>)() -> $$1);
    }
 }
