@@ -32,7 +32,6 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier.Operation;
 import net.minecraft.world.entity.player.Player;
 import org.apache.commons.lang3.function.TriConsumer;
-import org.jspecify.annotations.Nullable;
 
 public record ItemAttributeModifiers(List<ItemAttributeModifiers.Entry> modifiers) {
    public static final ItemAttributeModifiers EMPTY = new ItemAttributeModifiers(List.of());
@@ -146,7 +145,7 @@ public record ItemAttributeModifiers(List<ItemAttributeModifiers.Entry> modifier
 
       ItemAttributeModifiers.Display.Type type();
 
-      void apply(Consumer<Component> var1, @Nullable Player var2, Holder<Attribute> var3, AttributeModifier var4);
+      void apply(Consumer<Component> var1, Player var2, Holder<Attribute> var3, AttributeModifier var4);
 
       public record Default() implements ItemAttributeModifiers.Display {
          static final ItemAttributeModifiers.Display.Default INSTANCE = new ItemAttributeModifiers.Display.Default();
@@ -159,7 +158,7 @@ public record ItemAttributeModifiers(List<ItemAttributeModifiers.Entry> modifier
          }
 
          @Override
-         public void apply(Consumer<Component> $$0, @Nullable Player $$1, Holder<Attribute> $$2, AttributeModifier $$3) {
+         public void apply(Consumer<Component> $$0, Player $$1, Holder<Attribute> $$2, AttributeModifier $$3) {
             double $$4 = $$3.amount();
             boolean $$5 = false;
             if ($$1 != null) {
@@ -229,7 +228,7 @@ public record ItemAttributeModifiers(List<ItemAttributeModifiers.Entry> modifier
          }
 
          @Override
-         public void apply(Consumer<Component> $$0, @Nullable Player $$1, Holder<Attribute> $$2, AttributeModifier $$3) {
+         public void apply(Consumer<Component> $$0, Player $$1, Holder<Attribute> $$2, AttributeModifier $$3) {
          }
       }
 
@@ -248,7 +247,7 @@ public record ItemAttributeModifiers(List<ItemAttributeModifiers.Entry> modifier
          }
 
          @Override
-         public void apply(Consumer<Component> $$0, @Nullable Player $$1, Holder<Attribute> $$2, AttributeModifier $$3) {
+         public void apply(Consumer<Component> $$0, Player $$1, Holder<Attribute> $$2, AttributeModifier $$3) {
             $$0.accept(this.component);
          }
       }

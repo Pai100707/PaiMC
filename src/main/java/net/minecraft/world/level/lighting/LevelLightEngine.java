@@ -4,15 +4,14 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.SectionPos;
 import net.minecraft.world.level.chunk.DataLayer;
 import net.minecraft.world.level.chunk.LightChunkGetter;
-import org.jspecify.annotations.Nullable;
 
 public class LevelLightEngine implements LightEventListener {
    public static final int LIGHT_SECTION_PADDING = 1;
    public static final LevelLightEngine EMPTY = new LevelLightEngine();
    protected final net.minecraft.world.level.LevelHeightAccessor levelHeightAccessor;
-   @Nullable
+   
    private final LightEngine<?, ?> blockEngine;
-   @Nullable
+   
    private final LightEngine<?, ?> skyEngine;
 
    public LevelLightEngine(LightChunkGetter $$0, boolean $$1, boolean $$2) {
@@ -122,7 +121,7 @@ public class LevelLightEngine implements LightEventListener {
       return LayerLightSectionStorage.SectionType.EMPTY;
    }
 
-   public void queueSectionData(net.minecraft.world.level.LightLayer $$0, SectionPos $$1, @Nullable DataLayer $$2) {
+   public void queueSectionData(net.minecraft.world.level.LightLayer $$0, SectionPos $$1, DataLayer $$2) {
       if ($$0 == net.minecraft.world.level.LightLayer.BLOCK) {
          if (this.blockEngine != null) {
             this.blockEngine.queueSectionData($$1.asLong(), $$2);

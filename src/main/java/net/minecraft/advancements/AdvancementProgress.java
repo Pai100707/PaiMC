@@ -20,7 +20,6 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.Util;
-import org.jspecify.annotations.Nullable;
 
 public class AdvancementProgress implements Comparable<net.minecraft.advancements.AdvancementProgress> {
    private static final DateTimeFormatter OBTAINED_TIME_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss Z", Locale.ROOT);
@@ -115,7 +114,7 @@ public class AdvancementProgress implements Comparable<net.minecraft.advancement
       return new net.minecraft.advancements.AdvancementProgress($$1);
    }
 
-   @Nullable
+   
    public net.minecraft.advancements.CriterionProgress getCriterion(String $$0) {
       return this.criteria.get($$0);
    }
@@ -135,7 +134,7 @@ public class AdvancementProgress implements Comparable<net.minecraft.advancement
       }
    }
 
-   @Nullable
+   
    public Component getProgressText() {
       if (this.criteria.isEmpty()) {
          return null;
@@ -178,7 +177,7 @@ public class AdvancementProgress implements Comparable<net.minecraft.advancement
       return $$0;
    }
 
-   @Nullable
+   
    public Instant getFirstProgressDate() {
       return this.criteria
          .values()

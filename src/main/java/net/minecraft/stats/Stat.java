@@ -8,7 +8,6 @@ import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.scores.criteria.ObjectiveCriteria;
-import org.jspecify.annotations.Nullable;
 
 public class Stat<T> extends ObjectiveCriteria {
    public static final StreamCodec<RegistryFriendlyByteBuf, net.minecraft.stats.Stat<?>> STREAM_CODEC = ByteBufCodecs.registry(Registries.STAT_TYPE)
@@ -28,7 +27,7 @@ public class Stat<T> extends ObjectiveCriteria {
       return locationToKey(BuiltInRegistries.STAT_TYPE.getKey($$0)) + ":" + locationToKey($$0.getRegistry().getKey($$1));
    }
 
-   private static String locationToKey(@Nullable Identifier $$0) {
+   private static String locationToKey(Identifier $$0) {
       return $$0.toString().replace(':', '.');
    }
 

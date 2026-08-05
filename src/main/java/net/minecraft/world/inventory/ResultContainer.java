@@ -6,11 +6,10 @@ import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
-import org.jspecify.annotations.Nullable;
 
 public class ResultContainer implements Container, net.minecraft.world.inventory.RecipeCraftingHolder {
    private final NonNullList<ItemStack> itemStacks = NonNullList.withSize(1, ItemStack.EMPTY);
-   @Nullable
+   
    private RecipeHolder<?> recipeUsed;
 
    public int getContainerSize() {
@@ -55,11 +54,11 @@ public class ResultContainer implements Container, net.minecraft.world.inventory
    }
 
    @Override
-   public void setRecipeUsed(@Nullable RecipeHolder<?> $$0) {
+   public void setRecipeUsed(RecipeHolder<?> $$0) {
       this.recipeUsed = $$0;
    }
 
-   @Nullable
+   
    @Override
    public RecipeHolder<?> getRecipeUsed() {
       return this.recipeUsed;

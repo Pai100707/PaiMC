@@ -12,7 +12,6 @@ import net.minecraft.world.item.crafting.display.RecipeDisplay;
 import net.minecraft.world.item.crafting.display.ShapelessCraftingRecipeDisplay;
 import net.minecraft.world.item.crafting.display.SlotDisplay;
 import net.minecraft.world.level.Level;
-import org.jspecify.annotations.Nullable;
 
 public class TransmuteRecipe implements CraftingRecipe {
    final String group;
@@ -20,7 +19,7 @@ public class TransmuteRecipe implements CraftingRecipe {
    final Ingredient input;
    final Ingredient material;
    final TransmuteResult result;
-   @Nullable
+   
    private PlacementInfo placementInfo;
 
    public TransmuteRecipe(String $$0, CraftingBookCategory $$1, Ingredient $$2, Ingredient $$3, TransmuteResult $$4) {

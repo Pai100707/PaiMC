@@ -11,7 +11,6 @@ import net.minecraft.util.thread.PriorityConsecutiveExecutor;
 import net.minecraft.util.thread.TaskScheduler;
 import net.minecraft.util.thread.StrictQueue.RunnableWithPriority;
 import net.minecraft.world.level.ChunkPos;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class ChunkTaskDispatcher implements ChunkHolder.LevelChangeListener, AutoCloseable {
@@ -95,7 +94,7 @@ public class ChunkTaskDispatcher implements ChunkHolder.LevelChangeListener, Aut
    protected void onRelease(long $$0) {
    }
 
-   @Nullable
+   
    protected ChunkTaskPriorityQueue.TasksForChunk popTasks() {
       return this.queue.pop();
    }

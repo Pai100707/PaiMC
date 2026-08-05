@@ -12,7 +12,6 @@ import net.minecraft.network.protocol.PacketType;
 import net.minecraft.world.scores.PlayerTeam;
 import net.minecraft.world.scores.Team.CollisionRule;
 import net.minecraft.world.scores.Team.Visibility;
-import org.jspecify.annotations.Nullable;
 
 public class ClientboundSetPlayerTeamPacket implements Packet<ClientGamePacketListener> {
    public static final StreamCodec<net.minecraft.network.RegistryFriendlyByteBuf, ClientboundSetPlayerTeamPacket> STREAM_CODEC = Packet.codec(
@@ -92,7 +91,7 @@ public class ClientboundSetPlayerTeamPacket implements Packet<ClientGamePacketLi
       return $$0 == 0 || $$0 == 2;
    }
 
-   @Nullable
+   
    public ClientboundSetPlayerTeamPacket.Action getPlayerAction() {
       return switch (this.method) {
          case 0, 3 -> ClientboundSetPlayerTeamPacket.Action.ADD;
@@ -101,7 +100,7 @@ public class ClientboundSetPlayerTeamPacket implements Packet<ClientGamePacketLi
       };
    }
 
-   @Nullable
+   
    public ClientboundSetPlayerTeamPacket.Action getTeamAction() {
       return switch (this.method) {
          case 0 -> ClientboundSetPlayerTeamPacket.Action.ADD;

@@ -37,7 +37,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class RedStoneWireBlock extends Block {
    public static final MapCodec<RedStoneWireBlock> CODEC = simpleCodec(RedStoneWireBlock::new);
@@ -253,7 +252,7 @@ public class RedStoneWireBlock extends Block {
       return $$2.isFaceSturdy($$0, $$1, Direction.UP) || $$2.is(Blocks.HOPPER);
    }
 
-   private void updatePowerStrength(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, @Nullable Orientation $$3, boolean $$4) {
+   private void updatePowerStrength(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, Orientation $$3, boolean $$4) {
       if (useExperimentalEvaluator($$0)) {
          new ExperimentalRedstoneWireEvaluator(this).updatePowerStrength($$0, $$1, $$2, $$3, $$4);
       } else {
@@ -319,7 +318,7 @@ public class RedStoneWireBlock extends Block {
    }
 
    @Override
-   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, @Nullable Orientation $$4, boolean $$5) {
+   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, Orientation $$4, boolean $$5) {
       if (!$$1.isClientSide()) {
          if ($$3 != this || !useExperimentalEvaluator($$1)) {
             if ($$0.canSurvive($$1, $$2)) {
@@ -361,7 +360,7 @@ public class RedStoneWireBlock extends Block {
       return shouldConnectTo($$0, null);
    }
 
-   protected static boolean shouldConnectTo(BlockState $$0, @Nullable Direction $$1) {
+   protected static boolean shouldConnectTo(BlockState $$0, Direction $$1) {
       if ($$0.is(Blocks.REDSTONE_WIRE)) {
          return true;
       } else if ($$0.is(Blocks.REPEATER)) {

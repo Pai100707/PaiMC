@@ -34,7 +34,6 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.storage.TagValueOutput;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class CampfireBlockEntity extends BlockEntity implements Clearable {
@@ -172,7 +171,7 @@ public class CampfireBlockEntity extends BlockEntity implements Clearable {
       return var4;
    }
 
-   public boolean placeFood(ServerLevel $$0, @Nullable LivingEntity $$1, ItemStack $$2) {
+   public boolean placeFood(ServerLevel $$0, LivingEntity $$1, ItemStack $$2) {
       for (int $$3 = 0; $$3 < this.items.size(); $$3++) {
          ItemStack $$4 = (ItemStack)this.items.get($$3);
          if ($$4.isEmpty()) {

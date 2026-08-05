@@ -6,13 +6,12 @@ import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
-import org.jspecify.annotations.Nullable;
 
 public interface SculkBehaviour {
    SculkBehaviour DEFAULT = new SculkBehaviour() {
       @Override
       public boolean attemptSpreadVein(
-         net.minecraft.world.level.LevelAccessor $$0, BlockPos $$1, BlockState $$2, @Nullable Collection<Direction> $$3, boolean $$4
+         net.minecraft.world.level.LevelAccessor $$0, BlockPos $$1, BlockState $$2, Collection<Direction> $$3, boolean $$4
       ) {
          if ($$3 == null) {
             return ((SculkVeinBlock)Blocks.SCULK_VEIN).getSameSpaceSpreader().spreadAll($$0.getBlockState($$1), $$0, $$1, $$4) > 0L;
@@ -48,7 +47,7 @@ public interface SculkBehaviour {
    }
 
    default boolean attemptSpreadVein(
-      net.minecraft.world.level.LevelAccessor $$0, BlockPos $$1, BlockState $$2, @Nullable Collection<Direction> $$3, boolean $$4
+      net.minecraft.world.level.LevelAccessor $$0, BlockPos $$1, BlockState $$2, Collection<Direction> $$3, boolean $$4
    ) {
       return ((MultifaceSpreadeableBlock)Blocks.SCULK_VEIN).getSpreader().spreadAll($$2, $$0, $$1, $$4) > 0L;
    }

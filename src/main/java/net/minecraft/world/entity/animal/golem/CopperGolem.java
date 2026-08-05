@@ -44,7 +44,6 @@ import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class CopperGolem extends AbstractGolem implements net.minecraft.world.entity.ContainerUser, net.minecraft.world.entity.Shearable {
    private static final long IGNORE_WEATHERING_TICK = -2L;
@@ -63,9 +62,9 @@ public class CopperGolem extends AbstractGolem implements net.minecraft.world.en
    private static final EntityDataAccessor<CopperGolemState> COPPER_GOLEM_STATE = SynchedEntityData.defineId(
       CopperGolem.class, EntityDataSerializers.COPPER_GOLEM_STATE
    );
-   @Nullable
+   
    private BlockPos openedChestPos;
-   @Nullable
+   
    private UUID lastLightningBoltUUID;
    private long nextWeatheringTick = -1L;
    private int idleAnimationStartTick = 0;
@@ -361,13 +360,13 @@ public class CopperGolem extends AbstractGolem implements net.minecraft.world.en
       this.playSpawnSound();
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       this.playSpawnSound();
       return super.finalizeSpawn($$0, $$1, $$2, $$3);

@@ -41,7 +41,6 @@ import net.minecraft.world.level.block.LightBlock;
 import net.minecraft.world.level.block.SuspiciousEffectHolder;
 import net.minecraft.world.level.block.TestBlock;
 import net.minecraft.world.level.block.state.properties.TestBlockMode;
-import org.jspecify.annotations.Nullable;
 
 public class CreativeModeTabs {
    private static final Identifier INVENTORY_BACKGROUND = net.minecraft.world.item.CreativeModeTab.createTextureLocation("inventory");
@@ -63,7 +62,7 @@ public class CreativeModeTabs {
    private static final Comparator<Holder<PaintingVariant>> PAINTING_COMPARATOR = Comparator.comparing(
       Holder::value, Comparator.comparingInt(PaintingVariant::area).thenComparing(PaintingVariant::width)
    );
-   @Nullable
+   
    private static net.minecraft.world.item.CreativeModeTab.ItemDisplayParameters CACHED_PARAMETERS;
 
    private static ResourceKey<net.minecraft.world.item.CreativeModeTab> createKey(String $$0) {

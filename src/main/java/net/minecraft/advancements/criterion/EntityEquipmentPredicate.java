@@ -14,7 +14,6 @@ import net.minecraft.world.entity.raid.Raid;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.entity.BannerPattern;
-import org.jspecify.annotations.Nullable;
 
 public record EntityEquipmentPredicate(
    Optional<ItemPredicate> head,
@@ -57,7 +56,7 @@ public record EntityEquipmentPredicate(
          .build();
    }
 
-   public boolean matches(@Nullable Entity $$0) {
+   public boolean matches(Entity $$0) {
       if ($$0 instanceof LivingEntity $$1) {
          if (this.head.isPresent() && !this.head.get().test($$1.getItemBySlot(EquipmentSlot.HEAD))) {
             return false;

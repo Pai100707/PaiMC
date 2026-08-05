@@ -8,7 +8,6 @@ import net.minecraft.util.parsing.packrat.DelayedException;
 import net.minecraft.util.parsing.packrat.NamedRule;
 import net.minecraft.util.parsing.packrat.ParseState;
 import net.minecraft.util.parsing.packrat.Rule;
-import org.jspecify.annotations.Nullable;
 
 public abstract class ResourceLookupRule<C, V> implements Rule<StringReader, V>, ResourceSuggestion {
    private final NamedRule<StringReader, Identifier> idParser;
@@ -21,7 +20,7 @@ public abstract class ResourceLookupRule<C, V> implements Rule<StringReader, V>,
       this.error = DelayedException.create(Identifier.ERROR_INVALID);
    }
 
-   @Nullable
+   
    @Override
    public V parse(ParseState<StringReader> $$0) {
       $$0.input().skipWhitespace();

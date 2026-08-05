@@ -23,7 +23,6 @@ import net.minecraft.world.item.component.Tool;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class MaceItem extends net.minecraft.world.item.Item {
    private static final int DEFAULT_ATTACK_DAMAGE = 5;
@@ -150,7 +149,7 @@ public class MaceItem extends net.minecraft.world.item.Item {
       return $$0.fallDistance > 1.5 && !$$0.isFallFlying();
    }
 
-   @Nullable
+   
    @Override
    public DamageSource getItemDamageSource(LivingEntity $$0) {
       return canSmashAttack($$0) ? $$0.damageSources().mace($$0) : super.getItemDamageSource($$0);

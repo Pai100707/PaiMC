@@ -7,7 +7,6 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.level.storage.loot.LootContext;
-import org.jspecify.annotations.Nullable;
 
 public class BredAnimalsTrigger extends SimpleCriterionTrigger<BredAnimalsTrigger.TriggerInstance> {
    @Override
@@ -15,7 +14,7 @@ public class BredAnimalsTrigger extends SimpleCriterionTrigger<BredAnimalsTrigge
       return BredAnimalsTrigger.TriggerInstance.CODEC;
    }
 
-   public void trigger(ServerPlayer $$0, Animal $$1, Animal $$2, @Nullable AgeableMob $$3) {
+   public void trigger(ServerPlayer $$0, Animal $$1, Animal $$2, AgeableMob $$3) {
       LootContext $$4 = EntityPredicate.createContext($$0, $$1);
       LootContext $$5 = EntityPredicate.createContext($$0, $$2);
       LootContext $$6 = $$3 != null ? EntityPredicate.createContext($$0, $$3) : null;
@@ -59,7 +58,7 @@ public class BredAnimalsTrigger extends SimpleCriterionTrigger<BredAnimalsTrigge
             );
       }
 
-      public boolean matches(LootContext $$0, LootContext $$1, @Nullable LootContext $$2) {
+      public boolean matches(LootContext $$0, LootContext $$1, LootContext $$2) {
          return !this.child.isPresent() || $$2 != null && this.child.get().matches($$2)
             ? matches(this.parent, $$0) && matches(this.partner, $$1) || matches(this.parent, $$1) && matches(this.partner, $$0)
             : false;

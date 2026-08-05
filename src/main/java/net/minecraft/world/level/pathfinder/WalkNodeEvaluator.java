@@ -27,7 +27,6 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class WalkNodeEvaluator extends NodeEvaluator {
    public static final double SPACE_BETWEEN_WALL_POSTS = 0.5;
@@ -151,11 +150,11 @@ public class WalkNodeEvaluator extends NodeEvaluator {
       return $$2;
    }
 
-   protected boolean isNeighborValid(@Nullable Node $$0, Node $$1) {
+   protected boolean isNeighborValid(Node $$0, Node $$1) {
       return $$0 != null && !$$0.closed && ($$0.costMalus >= 0.0F || $$1.costMalus < 0.0F);
    }
 
-   protected boolean isDiagonalValid(Node $$0, @Nullable Node $$1, @Nullable Node $$2) {
+   protected boolean isDiagonalValid(Node $$0, Node $$1, Node $$2) {
       if ($$2 == null || $$1 == null || $$2.y > $$0.y || $$1.y > $$0.y) {
          return false;
       } else if ($$1.type != PathType.WALKABLE_DOOR && $$2.type != PathType.WALKABLE_DOOR) {
@@ -166,7 +165,7 @@ public class WalkNodeEvaluator extends NodeEvaluator {
       }
    }
 
-   protected boolean isDiagonalValid(@Nullable Node $$0) {
+   protected boolean isDiagonalValid(Node $$0) {
       if ($$0 == null || $$0.closed) {
          return false;
       } else {
@@ -211,7 +210,7 @@ public class WalkNodeEvaluator extends NodeEvaluator {
       return false;
    }
 
-   @Nullable
+   
    protected Node findAcceptedNode(int $$0, int $$1, int $$2, int $$3, double $$4, Direction $$5, PathType $$6) {
       Node $$7 = null;
       MutableBlockPos $$8 = new MutableBlockPos();
@@ -278,7 +277,7 @@ public class WalkNodeEvaluator extends NodeEvaluator {
       return $$4;
    }
 
-   @Nullable
+   
    private Node tryJumpOn(int $$0, int $$1, int $$2, int $$3, double $$4, Direction $$5, PathType $$6, MutableBlockPos $$7) {
       Node $$8 = this.findAcceptedNode($$0, $$1 + 1, $$2, $$3 - 1, $$4, $$5, $$6);
       if ($$8 == null) {
@@ -303,8 +302,8 @@ public class WalkNodeEvaluator extends NodeEvaluator {
       }
    }
 
-   @Nullable
-   private Node tryFindFirstNonWaterBelow(int $$0, int $$1, int $$2, @Nullable Node $$3) {
+   
+   private Node tryFindFirstNonWaterBelow(int $$0, int $$1, int $$2, Node $$3) {
       $$1--;
 
       while ($$1 > this.mob.level().getMinY()) {

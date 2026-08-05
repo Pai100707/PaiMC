@@ -26,7 +26,6 @@ import net.minecraft.world.level.pathfinder.WalkNodeEvaluator;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.scores.PlayerTeam;
-import org.jspecify.annotations.Nullable;
 
 public abstract class TamableAnimal extends Animal implements net.minecraft.world.entity.OwnableEntity {
    public static final int TELEPORT_WHEN_DISTANCE_IS_SQ = 144;
@@ -146,18 +145,18 @@ public abstract class TamableAnimal extends Animal implements net.minecraft.worl
       }
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> getOwnerReference() {
       return (net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity>)((Optional)this.entityData.get(DATA_OWNERUUID_ID))
          .orElse(null);
    }
 
-   public void setOwner(@Nullable net.minecraft.world.entity.LivingEntity $$0) {
+   public void setOwner(net.minecraft.world.entity.LivingEntity $$0) {
       this.entityData.set(DATA_OWNERUUID_ID, Optional.ofNullable($$0).map(net.minecraft.world.entity.EntityReference::of));
    }
 
-   public void setOwnerReference(@Nullable net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> $$0) {
+   public void setOwnerReference(net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> $$0) {
       this.entityData.set(DATA_OWNERUUID_ID, Optional.ofNullable($$0));
    }
 
@@ -182,7 +181,7 @@ public abstract class TamableAnimal extends Animal implements net.minecraft.worl
       return true;
    }
 
-   @Nullable
+   
    @Override
    public PlayerTeam getTeam() {
       PlayerTeam $$0 = super.getTeam();

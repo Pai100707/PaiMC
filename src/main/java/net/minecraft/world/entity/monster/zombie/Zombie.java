@@ -51,7 +51,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 
 public class Zombie extends Monster {
    private static final Identifier SPEED_MODIFIER_BABY_ID = Identifier.withDefaultNamespace("baby");
@@ -437,13 +436,13 @@ public class Zombie extends Monster {
       return $$1.is(Items.GLOW_INK_SAC) ? false : super.wantsToPickUp($$0, $$1);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       RandomSource $$4 = $$0.getRandom();
       $$3 = super.finalizeSpawn($$0, $$1, $$2, $$3);

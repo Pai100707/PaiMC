@@ -30,7 +30,6 @@ import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSeriali
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootTable;
-import org.jspecify.annotations.Nullable;
 
 public class MineshaftPieces {
    private static final int DEFAULT_SHAFT_WIDTH = 3;
@@ -41,7 +40,7 @@ public class MineshaftPieces {
    private static final int MAX_DEPTH = 8;
    public static final int MAGIC_START_Y = 50;
 
-   @Nullable
+   
    private static MineshaftPieces.MineShaftPiece createRandomShaftPiece(
       StructurePieceAccessor $$0, RandomSource $$1, int $$2, int $$3, int $$4, Direction $$5, int $$6, MineshaftStructure.Type $$7
    ) {
@@ -66,7 +65,7 @@ public class MineshaftPieces {
       return null;
    }
 
-   @Nullable
+   
    static MineshaftPieces.MineShaftPiece generateAndAddPiece(
       StructurePiece $$0, StructurePieceAccessor $$1, RandomSource $$2, int $$3, int $$4, int $$5, Direction $$6, int $$7
    ) {
@@ -121,7 +120,7 @@ public class MineshaftPieces {
          }
       }
 
-      @Nullable
+      
       public static BoundingBox findCorridorSize(StructurePieceAccessor $$0, RandomSource $$1, int $$2, int $$3, int $$4, Direction $$5) {
          for (int $$6 = $$1.nextInt(3) + 2; $$6 > 0; $$6--) {
             int $$7 = $$6 * 5;
@@ -510,13 +509,13 @@ public class MineshaftPieces {
          $$1.store("D", Direction.LEGACY_ID_CODEC_2D, this.direction);
       }
 
-      public MineShaftCrossing(int $$0, BoundingBox $$1, @Nullable Direction $$2, MineshaftStructure.Type $$3) {
+      public MineShaftCrossing(int $$0, BoundingBox $$1, Direction $$2, MineshaftStructure.Type $$3) {
          super(StructurePieceType.MINE_SHAFT_CROSSING, $$0, $$3, $$1);
          this.direction = $$2;
          this.isTwoFloored = $$1.getYSpan() > 3;
       }
 
-      @Nullable
+      
       public static BoundingBox findCrossing(StructurePieceAccessor $$0, RandomSource $$1, int $$2, int $$3, int $$4, Direction $$5) {
          int $$6;
          if ($$1.nextInt(4) == 0) {
@@ -1015,7 +1014,7 @@ public class MineshaftPieces {
          super(StructurePieceType.MINE_SHAFT_STAIRS, $$0);
       }
 
-      @Nullable
+      
       public static BoundingBox findStairs(StructurePieceAccessor $$0, RandomSource $$1, int $$2, int $$3, int $$4, Direction $$5) {
          BoundingBox $$9 = switch ($$5) {
             default -> new BoundingBox(0, -5, -8, 2, 2, 0);

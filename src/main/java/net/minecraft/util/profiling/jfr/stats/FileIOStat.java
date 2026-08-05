@@ -5,9 +5,8 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
-import org.jspecify.annotations.Nullable;
 
-public record FileIOStat(Duration duration, @Nullable String path, long bytes) {
+public record FileIOStat(Duration duration, String path, long bytes) {
    public static FileIOStat.Summary summary(Duration $$0, List<FileIOStat> $$1) {
       long $$2 = $$1.stream().mapToLong($$0x -> $$0x.bytes).sum();
       return new FileIOStat.Summary(

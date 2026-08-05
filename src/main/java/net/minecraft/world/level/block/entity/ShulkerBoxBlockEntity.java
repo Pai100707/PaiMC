@@ -29,7 +29,6 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class ShulkerBoxBlockEntity extends RandomizableContainerBlockEntity implements WorldlyContainer {
    public static final int COLUMNS = 9;
@@ -46,10 +45,10 @@ public class ShulkerBoxBlockEntity extends RandomizableContainerBlockEntity impl
    private ShulkerBoxBlockEntity.AnimationStatus animationStatus = ShulkerBoxBlockEntity.AnimationStatus.CLOSED;
    private float progress;
    private float progressOld;
-   @Nullable
+   
    private final DyeColor color;
 
-   public ShulkerBoxBlockEntity(@Nullable DyeColor $$0, BlockPos $$1, BlockState $$2) {
+   public ShulkerBoxBlockEntity(DyeColor $$0, BlockPos $$1, BlockState $$2) {
       super(BlockEntityType.SHULKER_BOX, $$1, $$2);
       this.color = $$0;
    }
@@ -225,7 +224,7 @@ public class ShulkerBoxBlockEntity extends RandomizableContainerBlockEntity impl
       return SLOTS;
    }
 
-   public boolean canPlaceItemThroughFace(int $$0, ItemStack $$1, @Nullable Direction $$2) {
+   public boolean canPlaceItemThroughFace(int $$0, ItemStack $$1, Direction $$2) {
       return !(Block.byItem($$1.getItem()) instanceof ShulkerBoxBlock);
    }
 
@@ -237,7 +236,7 @@ public class ShulkerBoxBlockEntity extends RandomizableContainerBlockEntity impl
       return Mth.lerp($$0, this.progressOld, this.progress);
    }
 
-   @Nullable
+   
    public DyeColor getColor() {
       return this.color;
    }

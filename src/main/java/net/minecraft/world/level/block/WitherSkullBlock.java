@@ -20,13 +20,12 @@ import net.minecraft.world.level.block.state.pattern.BlockInWorld;
 import net.minecraft.world.level.block.state.pattern.BlockPattern;
 import net.minecraft.world.level.block.state.pattern.BlockPatternBuilder;
 import net.minecraft.world.level.block.state.predicate.BlockStatePredicate;
-import org.jspecify.annotations.Nullable;
 
 public class WitherSkullBlock extends SkullBlock {
    public static final MapCodec<WitherSkullBlock> CODEC = simpleCodec(WitherSkullBlock::new);
-   @Nullable
+   
    private static BlockPattern witherPatternFull;
-   @Nullable
+   
    private static BlockPattern witherPatternBase;
 
    @Override
@@ -39,7 +38,7 @@ public class WitherSkullBlock extends SkullBlock {
    }
 
    @Override
-   public void setPlacedBy(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, @Nullable LivingEntity $$3, ItemStack $$4) {
+   public void setPlacedBy(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, LivingEntity $$3, ItemStack $$4) {
       checkSpawn($$0, $$1);
    }
 

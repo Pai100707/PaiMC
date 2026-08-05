@@ -34,7 +34,6 @@ import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.util.DependencySorter;
 import net.minecraft.util.StrictJsonParser;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class TagLoader<T> {
@@ -95,13 +94,13 @@ public class TagLoader<T> {
    public Map<Identifier, List<T>> build(Map<Identifier, List<net.minecraft.tags.TagLoader.EntryWithSource>> $$0) {
       final Map<Identifier, List<T>> $$1 = new HashMap<>();
       net.minecraft.tags.TagEntry.Lookup<T> $$2 = new net.minecraft.tags.TagEntry.Lookup<T>() {
-         @Nullable
+         
          @Override
          public T element(Identifier $$0, boolean $$1x) {
             return (T)TagLoader.this.elementLookup.get($$0, $$1).orElse(null);
          }
 
-         @Nullable
+         
          @Override
          public Collection<T> tag(Identifier $$0) {
             return $$1.get($$0);
@@ -163,7 +162,7 @@ public class TagLoader<T> {
       return $$2;
    }
 
-   @Nullable
+   
    private static PendingTags<?> findTagsForRegistry(List<PendingTags<?>> $$0, ResourceKey<? extends Registry<?>> $$1) {
       for (PendingTags<?> $$2 : $$0) {
          if ($$2.key() == $$1) {

@@ -5,7 +5,6 @@ import com.google.common.escape.Escapers;
 import com.mojang.datafixers.schemas.Schema;
 import com.mojang.serialization.Dynamic;
 import java.util.Optional;
-import org.jspecify.annotations.Nullable;
 
 public class LockComponentPredicateFix extends DataComponentRemainderFix {
    public static final Escaper ESCAPER = Escapers.builder().addEscape('"', "\\\"").addEscape('\\', "\\\\").build();
@@ -14,13 +13,13 @@ public class LockComponentPredicateFix extends DataComponentRemainderFix {
       super($$0, "LockComponentPredicateFix", "minecraft:lock");
    }
 
-   @Nullable
+   
    @Override
    protected <T> Dynamic<T> fixComponent(Dynamic<T> $$0) {
       return fixLock($$0);
    }
 
-   @Nullable
+   
    public static <T> Dynamic<T> fixLock(Dynamic<T> $$0) {
       Optional<String> $$1 = $$0.asString().result();
       if ($$1.isEmpty()) {

@@ -224,7 +224,6 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class ServerGamePacketListenerImpl
@@ -254,7 +253,7 @@ public class ServerGamePacketListenerImpl
    private double lastGoodX;
    private double lastGoodY;
    private double lastGoodZ;
-   @Nullable
+   
    private Entity lastVehicle;
    private double vehicleFirstGoodX;
    private double vehicleFirstGoodY;
@@ -262,7 +261,7 @@ public class ServerGamePacketListenerImpl
    private double vehicleLastGoodX;
    private double vehicleLastGoodY;
    private double vehicleLastGoodZ;
-   @Nullable
+   
    private Vec3 awaitingPositionFromClient;
    private int awaitingTeleport;
    private int awaitingTeleportTime;
@@ -273,7 +272,7 @@ public class ServerGamePacketListenerImpl
    private int receivedMovePacketCount;
    private int knownMovePacketCount;
    private boolean receivedMovementThisTick;
-   @Nullable
+   
    private RemoteChatSession chatSession;
    private Decoder signedMessageDecoder;
    private final LastSeenMessagesValidator lastSeenMessages = new LastSeenMessagesValidator(20);

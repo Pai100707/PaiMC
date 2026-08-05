@@ -9,7 +9,6 @@ import java.util.function.Predicate;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
-import org.jspecify.annotations.Nullable;
 
 public class BlockPattern {
    private final Predicate<BlockInWorld>[][][] pattern;
@@ -51,13 +50,13 @@ public class BlockPattern {
    }
 
    @VisibleForTesting
-   @Nullable
+   
    public BlockPattern.BlockPatternMatch matches(net.minecraft.world.level.LevelReader $$0, BlockPos $$1, Direction $$2, Direction $$3) {
       LoadingCache<BlockPos, BlockInWorld> $$4 = createLevelCache($$0, false);
       return this.matches($$1, $$2, $$3, $$4);
    }
 
-   @Nullable
+   
    private BlockPattern.BlockPatternMatch matches(BlockPos $$0, Direction $$1, Direction $$2, LoadingCache<BlockPos, BlockInWorld> $$3) {
       for (int $$4 = 0; $$4 < this.width; $$4++) {
          for (int $$5 = 0; $$5 < this.height; $$5++) {
@@ -72,7 +71,7 @@ public class BlockPattern {
       return new BlockPattern.BlockPatternMatch($$0, $$1, $$2, $$3, this.width, this.height, this.depth);
    }
 
-   @Nullable
+   
    public BlockPattern.BlockPatternMatch find(net.minecraft.world.level.LevelReader $$0, BlockPos $$1) {
       LoadingCache<BlockPos, BlockInWorld> $$2 = createLevelCache($$0, false);
       int $$3 = Math.max(Math.max(this.width, this.height), this.depth);

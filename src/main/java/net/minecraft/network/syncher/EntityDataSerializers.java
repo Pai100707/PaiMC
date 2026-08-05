@@ -40,7 +40,6 @@ import net.minecraft.world.level.block.WeatheringCopper.WeatherState;
 import net.minecraft.world.level.block.state.BlockState;
 import org.joml.Quaternionfc;
 import org.joml.Vector3fc;
-import org.jspecify.annotations.Nullable;
 
 public class EntityDataSerializers {
    private static final CrudeIncrementalIntIdentityHashBiMap<EntityDataSerializer<?>> SERIALIZERS = CrudeIncrementalIntIdentityHashBiMap.create(16);
@@ -133,7 +132,7 @@ public class EntityDataSerializers {
       SERIALIZERS.add($$0);
    }
 
-   @Nullable
+   
    public static EntityDataSerializer<?> getSerializer(int $$0) {
       return (EntityDataSerializer<?>)SERIALIZERS.byId($$0);
    }

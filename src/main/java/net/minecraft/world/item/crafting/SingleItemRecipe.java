@@ -8,13 +8,12 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.level.Level;
-import org.jspecify.annotations.Nullable;
 
 public abstract class SingleItemRecipe implements Recipe<SingleRecipeInput> {
    private final Ingredient input;
    private final net.minecraft.world.item.ItemStack result;
    private final String group;
-   @Nullable
+   
    private PlacementInfo placementInfo;
 
    public SingleItemRecipe(String $$0, Ingredient $$1, net.minecraft.world.item.ItemStack $$2) {

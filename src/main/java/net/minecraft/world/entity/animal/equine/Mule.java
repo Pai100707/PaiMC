@@ -5,7 +5,6 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.level.Level;
-import org.jspecify.annotations.Nullable;
 
 public class Mule extends AbstractChestedHorse {
    public Mule(net.minecraft.world.entity.EntityType<? extends Mule> $$0, Level $$1) {
@@ -47,7 +46,7 @@ public class Mule extends AbstractChestedHorse {
       this.playSound(SoundEvents.MULE_CHEST, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.AgeableMob getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       return net.minecraft.world.entity.EntityType.MULE.create($$0, net.minecraft.world.entity.EntitySpawnReason.BREEDING);

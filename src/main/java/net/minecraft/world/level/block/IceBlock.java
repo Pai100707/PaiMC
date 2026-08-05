@@ -12,7 +12,6 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jspecify.annotations.Nullable;
 
 public class IceBlock extends HalfTransparentBlock {
    public static final MapCodec<IceBlock> CODEC = simpleCodec(IceBlock::new);
@@ -31,7 +30,7 @@ public class IceBlock extends HalfTransparentBlock {
    }
 
    @Override
-   public void playerDestroy(net.minecraft.world.level.Level $$0, Player $$1, BlockPos $$2, BlockState $$3, @Nullable BlockEntity $$4, ItemStack $$5) {
+   public void playerDestroy(net.minecraft.world.level.Level $$0, Player $$1, BlockPos $$2, BlockState $$3, BlockEntity $$4, ItemStack $$5) {
       super.playerDestroy($$0, $$1, $$2, $$3, $$4, $$5);
       if (!EnchantmentHelper.hasTag($$5, EnchantmentTags.PREVENTS_ICE_MELTING)) {
          if ((Boolean)$$0.environmentAttributes().getValue(EnvironmentAttributes.WATER_EVAPORATES, $$2)) {

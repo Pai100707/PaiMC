@@ -3,11 +3,10 @@ package net.minecraft.world.entity.ai.goal;
 import java.util.EnumSet;
 import net.minecraft.world.entity.ai.util.DefaultRandomPos;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class MoveTowardsTargetGoal extends Goal {
    private final net.minecraft.world.entity.PathfinderMob mob;
-   @Nullable
+   
    private net.minecraft.world.entity.LivingEntity target;
    private double wantedX;
    private double wantedY;

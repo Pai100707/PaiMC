@@ -7,7 +7,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.trading.Merchant;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.item.trading.MerchantOffers;
-import org.jspecify.annotations.Nullable;
 
 public class ClientSideMerchant implements Merchant {
    private final Player source;
@@ -22,7 +21,7 @@ public class ClientSideMerchant implements Merchant {
       return this.source;
    }
 
-   public void setTradingPlayer(@Nullable Player $$0) {
+   public void setTradingPlayer(Player $$0) {
    }
 
    public MerchantOffers getOffers() {

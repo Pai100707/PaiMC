@@ -5,7 +5,6 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.WeakHashMap;
 import java.util.stream.Collectors;
-import org.jspecify.annotations.Nullable;
 
 public class MetricsRegistry {
    public static final MetricsRegistry INSTANCE = new MetricsRegistry();
@@ -64,7 +63,7 @@ public class MetricsRegistry {
       }
 
       @Override
-      public boolean equals(@Nullable Object $$0) {
+      public boolean equals(Object $$0) {
          if (this == $$0) {
             return true;
          } else if ($$0 == null || this.getClass() != $$0.getClass()) {

@@ -18,7 +18,6 @@ import net.minecraft.server.jsonrpc.internalapi.MinecraftApi;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.players.IpBanListEntry;
 import net.minecraft.util.ExtraCodecs;
-import org.jspecify.annotations.Nullable;
 
 public class IpBanlistService {
    private static final String BAN_SOURCE = "Management server";
@@ -97,7 +96,7 @@ public class IpBanlistService {
          return new IpBanlistService.IpBan($$0.getIpAddress(), this.reason().orElse(null), this.source().orElse("Management server"), this.expires());
       }
 
-      @Nullable
+      
       IpBanlistService.IpBan toIpBan() {
          return !this.ip().isEmpty() && InetAddresses.isInetAddress(this.ip().get())
             ? new IpBanlistService.IpBan(this.ip().get(), this.reason().orElse(null), this.source().orElse("Management server"), this.expires())
@@ -105,7 +104,7 @@ public class IpBanlistService {
       }
    }
 
-   record IpBan(String ip, @Nullable String reason, String source, Optional<Instant> expires) {
+   record IpBan(String ip, String reason, String source, Optional<Instant> expires) {
       static IpBanlistService.IpBan from(IpBanListEntry $$0) {
          return new IpBanlistService.IpBan(
             Objects.requireNonNull($$0.getUser()), $$0.getReason(), $$0.getSource(), Optional.ofNullable($$0.getExpires()).map(Date::toInstant)

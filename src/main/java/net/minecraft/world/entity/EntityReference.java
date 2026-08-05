@@ -14,7 +14,6 @@ import net.minecraft.world.level.entity.UUIDLookup;
 import net.minecraft.world.level.entity.UniquelyIdentifyable;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 
 public final class EntityReference<StoredEntityType extends UniquelyIdentifyable> {
    private static final Codec<? extends net.minecraft.world.entity.EntityReference<?>> CODEC = UUIDUtil.CODEC
@@ -39,8 +38,8 @@ public final class EntityReference<StoredEntityType extends UniquelyIdentifyable
       this.entity = Either.left($$0);
    }
 
-   @Nullable
-   public static <T extends UniquelyIdentifyable> net.minecraft.world.entity.EntityReference<T> of(@Nullable T $$0) {
+   
+   public static <T extends UniquelyIdentifyable> net.minecraft.world.entity.EntityReference<T> of(T $$0) {
       return $$0 != null ? new net.minecraft.world.entity.EntityReference<>($$0) : null;
    }
 
@@ -52,7 +51,7 @@ public final class EntityReference<StoredEntityType extends UniquelyIdentifyable
       return (UUID)this.entity.map($$0 -> $$0, UniquelyIdentifyable::getUUID);
    }
 
-   @Nullable
+   
    public StoredEntityType getEntity(UUIDLookup<? extends UniquelyIdentifyable> $$0, Class<StoredEntityType> $$1) {
       Optional<StoredEntityType> $$2 = this.entity.right();
       if ($$2.isPresent()) {
@@ -76,13 +75,13 @@ public final class EntityReference<StoredEntityType extends UniquelyIdentifyable
       return null;
    }
 
-   @Nullable
+   
    public StoredEntityType getEntity(Level $$0, Class<StoredEntityType> $$1) {
       return Player.class.isAssignableFrom($$1) ? this.getEntity($$0::getPlayerInAnyDimension, $$1) : this.getEntity($$0::getEntityInAnyDimension, $$1);
    }
 
-   @Nullable
-   private StoredEntityType resolve(@Nullable UniquelyIdentifyable $$0, Class<StoredEntityType> $$1) {
+   
+   private StoredEntityType resolve(UniquelyIdentifyable $$0, Class<StoredEntityType> $$1) {
       return $$0 != null && $$1.isAssignableFrom($$0.getClass()) ? $$1.cast($$0) : null;
    }
 
@@ -94,44 +93,44 @@ public final class EntityReference<StoredEntityType extends UniquelyIdentifyable
       $$0.store($$1, UUIDUtil.CODEC, this.getUUID());
    }
 
-   public static void store(@Nullable net.minecraft.world.entity.EntityReference<?> $$0, ValueOutput $$1, String $$2) {
+   public static void store(net.minecraft.world.entity.EntityReference<?> $$0, ValueOutput $$1, String $$2) {
       if ($$0 != null) {
          $$0.store($$1, $$2);
       }
    }
 
-   @Nullable
+   
    public static <StoredEntityType extends UniquelyIdentifyable> StoredEntityType get(
-      @Nullable net.minecraft.world.entity.EntityReference<StoredEntityType> $$0, Level $$1, Class<StoredEntityType> $$2
+      net.minecraft.world.entity.EntityReference<StoredEntityType> $$0, Level $$1, Class<StoredEntityType> $$2
    ) {
       return $$0 != null ? $$0.getEntity($$1, $$2) : null;
    }
 
-   @Nullable
+   
    public static net.minecraft.world.entity.Entity getEntity(
-      @Nullable net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.Entity> $$0, Level $$1
+      net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.Entity> $$0, Level $$1
    ) {
       return get($$0, $$1, net.minecraft.world.entity.Entity.class);
    }
 
-   @Nullable
+   
    public static net.minecraft.world.entity.LivingEntity getLivingEntity(
-      @Nullable net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> $$0, Level $$1
+      net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> $$0, Level $$1
    ) {
       return get($$0, $$1, net.minecraft.world.entity.LivingEntity.class);
    }
 
-   @Nullable
-   public static Player getPlayer(@Nullable net.minecraft.world.entity.EntityReference<Player> $$0, Level $$1) {
+   
+   public static Player getPlayer(net.minecraft.world.entity.EntityReference<Player> $$0, Level $$1) {
       return get($$0, $$1, Player.class);
    }
 
-   @Nullable
+   
    public static <StoredEntityType extends UniquelyIdentifyable> net.minecraft.world.entity.EntityReference<StoredEntityType> read(ValueInput $$0, String $$1) {
       return (net.minecraft.world.entity.EntityReference<StoredEntityType>)$$0.read($$1, codec()).orElse(null);
    }
 
-   @Nullable
+   
    public static <StoredEntityType extends UniquelyIdentifyable> net.minecraft.world.entity.EntityReference<StoredEntityType> readWithOldOwnerConversion(
       ValueInput $$0, String $$1, Level $$2
    ) {

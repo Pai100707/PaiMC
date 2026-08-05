@@ -32,7 +32,6 @@ import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
-import org.jspecify.annotations.Nullable;
 
 public class ZombifiedPiglin extends Zombie implements net.minecraft.world.entity.NeutralMob {
    private static final net.minecraft.world.entity.EntityDimensions BABY_DIMENSIONS = net.minecraft.world.entity.EntityType.ZOMBIFIED_PIGLIN
@@ -47,7 +46,7 @@ public class ZombifiedPiglin extends Zombie implements net.minecraft.world.entit
    private int playFirstAngerSoundIn;
    private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
    private long persistentAngerEndTime;
-   @Nullable
+   
    private net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> persistentAngerTarget;
    private static final int ALERT_RANGE_Y = 10;
    private static final UniformInt ALERT_INTERVAL = TimeUtil.rangeOfSeconds(4, 6);
@@ -144,7 +143,7 @@ public class ZombifiedPiglin extends Zombie implements net.minecraft.world.entit
    }
 
    @Override
-   public void setTarget(@Nullable net.minecraft.world.entity.LivingEntity $$0) {
+   public void setTarget(net.minecraft.world.entity.LivingEntity $$0) {
       if (this.getTarget() == null && $$0 != null) {
          this.playFirstAngerSoundIn = FIRST_ANGER_SOUND_DELAY.sample(this.random);
          this.ticksUntilNextAlert = ALERT_INTERVAL.sample(this.random);
@@ -196,7 +195,7 @@ public class ZombifiedPiglin extends Zombie implements net.minecraft.world.entit
    }
 
    @Override
-   public void setPersistentAngerTarget(@Nullable net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> $$0) {
+   public void setPersistentAngerTarget(net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> $$0) {
       this.persistentAngerTarget = $$0;
    }
 
@@ -225,7 +224,7 @@ public class ZombifiedPiglin extends Zombie implements net.minecraft.world.entit
       this.getAttribute(Attributes.SPAWN_REINFORCEMENTS_CHANCE).setBaseValue(0.0);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> getPersistentAngerTarget() {
       return this.persistentAngerTarget;

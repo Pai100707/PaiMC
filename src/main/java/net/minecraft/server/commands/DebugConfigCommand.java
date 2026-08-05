@@ -20,7 +20,6 @@ import net.minecraft.network.protocol.common.ClientboundShowDialogPacket;
 import net.minecraft.server.dialog.Dialog;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.network.ServerConfigurationPacketListenerImpl;
-import org.jspecify.annotations.Nullable;
 
 public class DebugConfigCommand {
    public static void register(CommandDispatcher<CommandSourceStack> $$0, CommandBuildContext $$1) {
@@ -81,7 +80,7 @@ public class DebugConfigCommand {
       return 1;
    }
 
-   @Nullable
+   
    private static ServerConfigurationPacketListenerImpl findConfigPlayer(net.minecraft.server.MinecraftServer $$0, UUID $$1) {
       for (Connection $$2 : $$0.getConnection().getConnections()) {
          if ($$2.getPacketListener() instanceof ServerConfigurationPacketListenerImpl $$3 && $$3.getOwner().id().equals($$1)) {

@@ -17,7 +17,6 @@ import net.minecraft.util.FileUtil;
 import net.minecraft.util.MemoryReserve;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.ArrayUtils;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class CrashReport {
@@ -26,7 +25,7 @@ public class CrashReport {
    private final String title;
    private final Throwable exception;
    private final List<CrashReportCategory> details = Lists.newArrayList();
-   @Nullable
+   
    private Path saveFile;
    private boolean trackingStackTrace = true;
    private StackTraceElement[] uncategorizedStackTrace = new StackTraceElement[0];
@@ -132,7 +131,7 @@ public class CrashReport {
       return this.getFriendlyReport($$0, List.of());
    }
 
-   @Nullable
+   
    public Path getSaveFile() {
       return this.saveFile;
    }

@@ -7,12 +7,11 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.SectionPos;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jspecify.annotations.Nullable;
 
 public class BulkSectionAccess implements AutoCloseable {
    private final net.minecraft.world.level.LevelAccessor level;
    private final Long2ObjectMap<LevelChunkSection> acquiredSections = new Long2ObjectOpenHashMap();
-   @Nullable
+   
    private LevelChunkSection lastSection;
    private long lastSectionKey;
 
@@ -20,7 +19,7 @@ public class BulkSectionAccess implements AutoCloseable {
       this.level = $$0;
    }
 
-   @Nullable
+   
    public LevelChunkSection getSection(BlockPos $$0) {
       int $$1 = this.level.getSectionIndex($$0.getY());
       if ($$1 >= 0 && $$1 < this.level.getSectionsCount()) {

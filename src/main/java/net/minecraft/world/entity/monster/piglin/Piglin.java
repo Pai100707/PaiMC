@@ -51,7 +51,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 
 public class Piglin extends AbstractPiglin implements CrossbowAttackMob, InventoryCarrier {
    private static final EntityDataAccessor<Boolean> DATA_BABY_ID = SynchedEntityData.defineId(Piglin.class, EntityDataSerializers.BOOLEAN);
@@ -195,13 +194,13 @@ public class Piglin extends AbstractPiglin implements CrossbowAttackMob, Invento
       return !$$1.getBlockState($$3.below()).is(Blocks.NETHER_WART_BLOCK);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       RandomSource $$4 = $$0.getRandom();
       if ($$2 != net.minecraft.world.entity.EntitySpawnReason.STRUCTURE) {
@@ -326,7 +325,7 @@ public class Piglin extends AbstractPiglin implements CrossbowAttackMob, Invento
          : new ItemStack(this.random.nextInt(10) == 0 ? Items.GOLDEN_SPEAR : Items.GOLDEN_SWORD);
    }
 
-   @Nullable
+   
    @Override
    public TagKey<Item> getPreferredWeaponType() {
       return this.isBaby() ? null : ItemTags.PIGLIN_PREFERRED_WEAPONS;
@@ -449,7 +448,7 @@ public class Piglin extends AbstractPiglin implements CrossbowAttackMob, Invento
       return $$1 != 1 && !$$2.isEmpty() ? this.getTopPassenger($$2.getFirst(), $$1 - 1) : $$0;
    }
 
-   @Nullable
+   
    @Override
    protected SoundEvent getAmbientSound() {
       return this.level().isClientSide() ? null : PiglinAi.getSoundForCurrentActivity(this).orElse(null);

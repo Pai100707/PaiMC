@@ -21,7 +21,6 @@ import java.util.Objects;
 import net.minecraft.server.notifications.NotificationService;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.util.Util;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public abstract class StoredUserList<K, V extends StoredUserEntry<K>> {
@@ -58,7 +57,7 @@ public abstract class StoredUserList<K, V extends StoredUserEntry<K>> {
       }
    }
 
-   @Nullable
+   
    public V get(K $$0) {
       this.removeExpired();
       return this.map.get(this.getKeyForUser($$0));

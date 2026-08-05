@@ -20,18 +20,17 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.ticks.ContainerSingleItem.BlockContainerSingleItem;
-import org.jspecify.annotations.Nullable;
 
 public class DecoratedPotBlockEntity extends BlockEntity implements RandomizableContainer, BlockContainerSingleItem {
    public static final String TAG_SHERDS = "sherds";
    public static final String TAG_ITEM = "item";
    public static final int EVENT_POT_WOBBLES = 1;
    public long wobbleStartedAtTick;
-   @Nullable
+   
    public DecoratedPotBlockEntity.WobbleStyle lastWobbleStyle;
    private PotDecorations decorations;
    private ItemStack item = ItemStack.EMPTY;
-   @Nullable
+   
    protected ResourceKey<LootTable> lootTable;
    protected long lootTableSeed;
 
@@ -86,12 +85,12 @@ public class DecoratedPotBlockEntity extends BlockEntity implements Randomizable
       return $$1;
    }
 
-   @Nullable
+   
    public ResourceKey<LootTable> getLootTable() {
       return this.lootTable;
    }
 
-   public void setLootTable(@Nullable ResourceKey<LootTable> $$0) {
+   public void setLootTable(ResourceKey<LootTable> $$0) {
       this.lootTable = $$0;
    }
 

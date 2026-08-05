@@ -4,7 +4,6 @@ import net.minecraft.world.level.chunk.status.ChunkPyramid;
 import net.minecraft.world.level.chunk.status.ChunkStatus;
 import net.minecraft.world.level.chunk.status.ChunkStep;
 import org.jetbrains.annotations.Contract;
-import org.jspecify.annotations.Nullable;
 
 public class ChunkLevel {
    private static final int FULL_CHUNK_LEVEL = 33;
@@ -14,14 +13,14 @@ public class ChunkLevel {
    public static final int RADIUS_AROUND_FULL_CHUNK = FULL_CHUNK_STEP.accumulatedDependencies().getRadius();
    public static final int MAX_LEVEL = 33 + RADIUS_AROUND_FULL_CHUNK;
 
-   @Nullable
+   
    public static ChunkStatus generationStatus(int $$0) {
       return getStatusAroundFullChunk($$0 - 33, null);
    }
 
    @Contract("_,!null->!null;_,_->_")
-   @Nullable
-   public static ChunkStatus getStatusAroundFullChunk(int $$0, @Nullable ChunkStatus $$1) {
+   
+   public static ChunkStatus getStatusAroundFullChunk(int $$0, ChunkStatus $$1) {
       if ($$0 > RADIUS_AROUND_FULL_CHUNK) {
          return $$1;
       } else {

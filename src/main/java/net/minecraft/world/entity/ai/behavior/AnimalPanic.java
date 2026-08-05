@@ -19,7 +19,6 @@ import net.minecraft.world.entity.ai.util.AirAndWaterRandomPos;
 import net.minecraft.world.entity.ai.util.LandRandomPos;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class AnimalPanic<E extends net.minecraft.world.entity.PathfinderMob> extends Behavior<E> {
    private static final int PANIC_MIN_DURATION = 100;
@@ -82,7 +81,7 @@ public class AnimalPanic<E extends net.minecraft.world.entity.PathfinderMob> ext
       }
    }
 
-   @Nullable
+   
    private Vec3 getPanicPos(E $$0, ServerLevel $$1) {
       if ($$0.isOnFire()) {
          Optional<Vec3> $$2 = this.lookForWater($$1, $$0).map(Vec3::atBottomCenterOf);

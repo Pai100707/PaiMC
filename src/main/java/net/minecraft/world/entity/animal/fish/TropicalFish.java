@@ -40,7 +40,6 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 
 public class TropicalFish extends AbstractSchoolingFish {
    public static final TropicalFish.Variant DEFAULT_VARIANT = new TropicalFish.Variant(TropicalFish.Pattern.KOB, DyeColor.WHITE, DyeColor.WHITE);
@@ -160,7 +159,7 @@ public class TropicalFish extends AbstractSchoolingFish {
       this.setPackedVariant(packVariant($$2, $$3, $$0));
    }
 
-   @Nullable
+   
    @Override
    public <T> T get(DataComponentType<? extends T> $$0) {
       if ($$0 == DataComponents.TROPICAL_FISH_PATTERN) {
@@ -229,13 +228,13 @@ public class TropicalFish extends AbstractSchoolingFish {
       return SoundEvents.TROPICAL_FISH_FLOP;
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       $$3 = super.finalizeSpawn($$0, $$1, $$2, $$3);
       RandomSource $$4 = $$0.getRandom();

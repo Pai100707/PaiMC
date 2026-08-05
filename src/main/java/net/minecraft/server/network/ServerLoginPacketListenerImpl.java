@@ -42,7 +42,6 @@ import net.minecraft.util.CryptException;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.StringUtil;
 import org.apache.commons.lang3.Validate;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class ServerLoginPacketListenerImpl implements ServerLoginPacketListener, TickablePacketListener {
@@ -55,9 +54,9 @@ public class ServerLoginPacketListenerImpl implements ServerLoginPacketListener,
    final ServerActivityMonitor serverActivityMonitor;
    private volatile ServerLoginPacketListenerImpl.State state = ServerLoginPacketListenerImpl.State.HELLO;
    private int tick;
-   @Nullable
+   
    String requestedUsername;
-   @Nullable
+   
    private GameProfile authenticatedProfile;
    private final String serverId = "";
    private final boolean transferred;
@@ -212,7 +211,7 @@ public class ServerLoginPacketListenerImpl implements ServerLoginPacketListener,
             }
          }
 
-         @Nullable
+         
          private InetAddress getAddress() {
             SocketAddress $$0x = ServerLoginPacketListenerImpl.this.connection.getRemoteAddress();
             return ServerLoginPacketListenerImpl.this.server.getPreventProxyConnections() && $$0x instanceof InetSocketAddress

@@ -9,7 +9,6 @@ import java.util.stream.Stream;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.TagKey;
-import org.jspecify.annotations.Nullable;
 
 public interface Holder<T> {
    T value();
@@ -114,15 +113,15 @@ public interface Holder<T> {
 
    public static class Reference<T> implements net.minecraft.core.Holder<T> {
       private final net.minecraft.core.HolderOwner<T> owner;
-      @Nullable
+      
       private Set<TagKey<T>> tags;
       private final net.minecraft.core.Holder.Reference.Type type;
-      @Nullable
+      
       private ResourceKey<T> key;
-      @Nullable
+      
       private T value;
 
-      protected Reference(net.minecraft.core.Holder.Reference.Type $$0, net.minecraft.core.HolderOwner<T> $$1, @Nullable ResourceKey<T> $$2, @Nullable T $$3) {
+      protected Reference(net.minecraft.core.Holder.Reference.Type $$0, net.minecraft.core.HolderOwner<T> $$1, ResourceKey<T> $$2, T $$3) {
          this.owner = $$1;
          this.type = $$0;
          this.key = $$2;
@@ -134,7 +133,7 @@ public interface Holder<T> {
       }
 
       @Deprecated
-      public static <T> net.minecraft.core.Holder.Reference<T> createIntrusive(net.minecraft.core.HolderOwner<T> $$0, @Nullable T $$1) {
+      public static <T> net.minecraft.core.Holder.Reference<T> createIntrusive(net.minecraft.core.HolderOwner<T> $$0, T $$1) {
          return new net.minecraft.core.Holder.Reference<>(net.minecraft.core.Holder.Reference.Type.INTRUSIVE, $$0, null, $$1);
       }
 

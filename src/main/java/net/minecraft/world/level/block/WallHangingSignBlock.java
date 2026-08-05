@@ -31,7 +31,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class WallHangingSignBlock extends SignBlock {
    public static final MapCodec<WallHangingSignBlock> CODEC = RecordCodecBuilder.mapCodec(
@@ -96,7 +95,7 @@ public class WallHangingSignBlock extends SignBlock {
          : $$4.isFaceSturdy($$0, $$2, $$3, SupportType.FULL);
    }
 
-   @Nullable
+   
    @Override
    public BlockState getStateForPlacement(BlockPlaceContext $$0) {
       BlockState $$1 = this.defaultBlockState();
@@ -163,7 +162,7 @@ public class WallHangingSignBlock extends SignBlock {
       return false;
    }
 
-   @Nullable
+   
    @Override
    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(net.minecraft.world.level.Level $$0, BlockState $$1, BlockEntityType<T> $$2) {
       return createTickerHelper($$2, BlockEntityType.HANGING_SIGN, SignBlockEntity::tick);

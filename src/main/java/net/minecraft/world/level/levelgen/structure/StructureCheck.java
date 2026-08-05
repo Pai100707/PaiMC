@@ -31,7 +31,6 @@ import net.minecraft.world.level.chunk.storage.SimpleRegionStorage;
 import net.minecraft.world.level.levelgen.RandomState;
 import net.minecraft.world.level.levelgen.structure.placement.StructurePlacement;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class StructureCheck {
@@ -111,7 +110,7 @@ public class StructureCheck {
          .isPresent();
    }
 
-   @Nullable
+   
    private StructureCheckResult tryLoadFromStorage(net.minecraft.world.level.ChunkPos $$0, Structure $$1, boolean $$2, long $$3) {
       CollectFields $$4 = new CollectFields(
          new FieldSelector[]{
@@ -156,7 +155,7 @@ public class StructureCheck {
       }
    }
 
-   @Nullable
+   
    private Object2IntMap<Structure> loadStructures(CompoundTag $$0) {
       Optional<CompoundTag> $$1 = $$0.getCompound("structures").flatMap($$0x -> $$0x.getCompound("starts"));
       if ($$1.isEmpty()) {

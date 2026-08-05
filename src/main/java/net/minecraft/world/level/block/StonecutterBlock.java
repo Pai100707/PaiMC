@@ -20,7 +20,6 @@ import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class StonecutterBlock extends Block {
    public static final MapCodec<StonecutterBlock> CODEC = simpleCodec(StonecutterBlock::new);
@@ -53,7 +52,7 @@ public class StonecutterBlock extends Block {
       return InteractionResult.SUCCESS;
    }
 
-   @Nullable
+   
    @Override
    protected MenuProvider getMenuProvider(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2) {
       return new SimpleMenuProvider(($$2x, $$3, $$4) -> new StonecutterMenu($$2x, $$3, ContainerLevelAccess.create($$1, $$2)), CONTAINER_TITLE);

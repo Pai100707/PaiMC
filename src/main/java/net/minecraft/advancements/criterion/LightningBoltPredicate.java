@@ -7,7 +7,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public record LightningBoltPredicate(MinMaxBounds.Ints blocksSetOnFire, Optional<EntityPredicate> entityStruck) implements EntitySubPredicate {
    public static final MapCodec<LightningBoltPredicate> CODEC = RecordCodecBuilder.mapCodec(
@@ -28,7 +27,7 @@ public record LightningBoltPredicate(MinMaxBounds.Ints blocksSetOnFire, Optional
    }
 
    @Override
-   public boolean matches(Entity $$0, ServerLevel $$1, @Nullable Vec3 $$2) {
+   public boolean matches(Entity $$0, ServerLevel $$1, Vec3 $$2) {
       return !($$0 instanceof LightningBolt $$3)
          ? false
          : this.blocksSetOnFire.matches($$3.getBlocksSetOnFire())

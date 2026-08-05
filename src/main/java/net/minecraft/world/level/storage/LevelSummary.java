@@ -9,7 +9,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.util.StringUtil;
 import org.apache.commons.lang3.StringUtils;
-import org.jspecify.annotations.Nullable;
 
 public class LevelSummary implements Comparable<LevelSummary> {
    public static final Component PLAY_WORLD = Component.translatable("selectWorld.select");
@@ -20,7 +19,7 @@ public class LevelSummary implements Comparable<LevelSummary> {
    private final boolean locked;
    private final boolean experimental;
    private final Path icon;
-   @Nullable
+   
    private Component info;
 
    public LevelSummary(net.minecraft.world.level.LevelSettings $$0, LevelVersion $$1, String $$2, boolean $$3, boolean $$4, boolean $$5, Path $$6) {

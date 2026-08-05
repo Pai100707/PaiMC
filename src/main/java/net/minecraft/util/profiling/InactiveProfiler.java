@@ -5,7 +5,6 @@ import java.util.Set;
 import java.util.function.Supplier;
 import net.minecraft.util.profiling.metrics.MetricCategory;
 import org.apache.commons.lang3.tuple.Pair;
-import org.jspecify.annotations.Nullable;
 
 public class InactiveProfiler implements ProfileCollector {
    public static final InactiveProfiler INSTANCE = new InactiveProfiler();
@@ -68,7 +67,7 @@ public class InactiveProfiler implements ProfileCollector {
       return EmptyProfileResults.EMPTY;
    }
 
-   @Nullable
+   
    @Override
    public ActiveProfiler.PathEntry getEntry(String $$0) {
       return null;

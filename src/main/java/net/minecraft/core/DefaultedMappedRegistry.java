@@ -5,7 +5,6 @@ import java.util.Optional;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.RandomSource;
-import org.jspecify.annotations.Nullable;
 
 public class DefaultedMappedRegistry<T> extends net.minecraft.core.MappedRegistry<T> implements net.minecraft.core.DefaultedRegistry<T> {
    private final Identifier defaultKey;
@@ -27,7 +26,7 @@ public class DefaultedMappedRegistry<T> extends net.minecraft.core.MappedRegistr
    }
 
    @Override
-   public int getId(@Nullable T $$0) {
+   public int getId(T $$0) {
       int $$1 = super.getId($$0);
       return $$1 == -1 ? super.getId(this.defaultValue.value()) : $$1;
    }
@@ -39,13 +38,13 @@ public class DefaultedMappedRegistry<T> extends net.minecraft.core.MappedRegistr
    }
 
    @Override
-   public T getValue(@Nullable Identifier $$0) {
+   public T getValue(Identifier $$0) {
       T $$1 = super.getValue($$0);
       return $$1 == null ? this.defaultValue.value() : $$1;
    }
 
    @Override
-   public Optional<T> getOptional(@Nullable Identifier $$0) {
+   public Optional<T> getOptional(Identifier $$0) {
       return Optional.ofNullable(super.getValue($$0));
    }
 

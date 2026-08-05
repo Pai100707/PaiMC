@@ -29,7 +29,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.status.ChunkStatus;
 import net.minecraft.world.level.levelgen.Heightmap;
-import org.jspecify.annotations.Nullable;
 
 public class BlendingData {
    private static final double BLENDING_DENSITY_FACTOR = 0.1;
@@ -76,8 +75,8 @@ public class BlendingData {
       this.areaWithOldGeneration = net.minecraft.world.level.LevelHeightAccessor.create($$4, $$5);
    }
 
-   @Nullable
-   public static BlendingData unpack(@Nullable BlendingData.Packed $$0) {
+   
+   public static BlendingData unpack(BlendingData.Packed $$0) {
       return $$0 == null ? null : new BlendingData($$0.minSection(), $$0.maxSection(), $$0.heights());
    }
 
@@ -98,7 +97,7 @@ public class BlendingData {
       );
    }
 
-   @Nullable
+   
    public static BlendingData getOrUpdateBlendingData(WorldGenRegion $$0, int $$1, int $$2) {
       ChunkAccess $$3 = $$0.getChunk($$1, $$2);
       BlendingData $$4 = $$3.getBlendingData();
@@ -269,7 +268,7 @@ public class BlendingData {
       }
    }
 
-   private double getDensity(@Nullable double[] $$0, int $$1) {
+   private double getDensity(double[] $$0, int $$1) {
       if ($$0 == null) {
          return Double.MAX_VALUE;
       } else {

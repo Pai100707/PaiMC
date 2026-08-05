@@ -47,7 +47,6 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class Creaking extends Monster {
    private static final EntityDataAccessor<Boolean> CAN_MOVE = SynchedEntityData.defineId(Creaking.class, EntityDataSerializers.BOOLEAN);
@@ -378,7 +377,7 @@ public class Creaking extends Monster {
       this.entityData.set(HOME_POS, Optional.of($$0));
    }
 
-   @Nullable
+   
    public BlockPos getHomePos() {
       return (BlockPos)((Optional)this.entityData.get(HOME_POS)).orElse(null);
    }
@@ -428,7 +427,7 @@ public class Creaking extends Monster {
       this.playSound(SoundEvents.CREAKING_STEP, 0.15F, 1.0F);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.LivingEntity getTarget() {
       return this.getTargetFromBrain();

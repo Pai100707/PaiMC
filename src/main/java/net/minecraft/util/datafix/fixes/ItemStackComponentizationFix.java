@@ -21,7 +21,6 @@ import java.util.stream.Stream;
 import net.minecraft.util.datafix.ExtraDataFixUtils;
 import net.minecraft.util.datafix.LegacyComponentDataFixUtils;
 import net.minecraft.util.datafix.schemas.NamespacedSchema;
-import org.jspecify.annotations.Nullable;
 
 public class ItemStackComponentizationFix extends DataFix {
    private static final int HIDE_ENCHANTMENTS = 1;
@@ -530,7 +529,7 @@ public class ItemStackComponentizationFix extends DataFix {
       $$0.setComponent("minecraft:written_book_content", $$5);
    }
 
-   @Nullable
+   
    private static Dynamic<?> fixBookPages(ItemStackComponentizationFix.ItemStackData $$0, Dynamic<?> $$1) {
       List<String> $$2 = $$0.removeTag("pages").asList($$0x -> $$0x.asString(""));
       Map<String, String> $$3 = $$0.removeTag("filtered_pages").asMap($$0x -> $$0x.asString("0"), $$0x -> $$0x.asString(""));
@@ -647,7 +646,7 @@ public class ItemStackComponentizationFix extends DataFix {
       return $$0.length() > 16 ? false : $$0.chars().filter($$0x -> $$0x <= 32 || $$0x >= 127).findAny().isEmpty();
    }
 
-   @Nullable
+   
    private static Dynamic<?> fixProfileProperties(OptionalDynamic<?> $$0) {
       Map<String, List<Pair<String, Optional<String>>>> $$1 = $$0.asMap($$0x -> $$0x.asString(""), $$0x -> $$0x.asList($$0xx -> {
          String $$1x = $$0xx.get("Value").asString("");

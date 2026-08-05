@@ -20,7 +20,6 @@ import net.minecraft.world.level.portal.TeleportTransition;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class ThrownEnderpearl extends ThrowableItemProjectile {
    private long ticketTimer = 0L;
@@ -39,7 +38,7 @@ public class ThrownEnderpearl extends ThrowableItemProjectile {
    }
 
    @Override
-   protected void setOwner(@Nullable net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.Entity> $$0) {
+   protected void setOwner(net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.Entity> $$0) {
       this.deregisterFromCurrentOwner();
       super.setOwner($$0);
       this.registerToCurrentOwner();
@@ -57,7 +56,7 @@ public class ThrownEnderpearl extends ThrowableItemProjectile {
       }
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.Entity getOwner() {
       return this.owner != null && this.level() instanceof ServerLevel $$0
@@ -65,7 +64,7 @@ public class ThrownEnderpearl extends ThrowableItemProjectile {
          : super.getOwner();
    }
 
-   @Nullable
+   
    private static net.minecraft.world.entity.Entity findOwnerIncludingDeadPlayer(ServerLevel $$0, UUID $$1) {
       net.minecraft.world.entity.Entity $$2 = $$0.getEntityInAnyDimension($$1);
       return (net.minecraft.world.entity.Entity)($$2 != null ? $$2 : $$0.getServer().getPlayerList().getPlayer($$1));
@@ -188,7 +187,7 @@ public class ThrownEnderpearl extends ThrowableItemProjectile {
       $$0.playSound(null, $$1.x, $$1.y, $$1.z, SoundEvents.PLAYER_TELEPORT, SoundSource.PLAYERS);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.Entity teleport(TeleportTransition $$0) {
       net.minecraft.world.entity.Entity $$1 = super.teleport($$0);

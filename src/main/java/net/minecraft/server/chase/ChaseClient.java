@@ -24,7 +24,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
 import org.apache.commons.io.IOUtils;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class ChaseClient {
@@ -34,9 +33,9 @@ public class ChaseClient {
    private final int serverPort;
    private final net.minecraft.server.MinecraftServer server;
    private volatile boolean wantsToRun;
-   @Nullable
+   
    private Socket socket;
-   @Nullable
+   
    private Thread thread;
 
    public ChaseClient(String $$0, int $$1, net.minecraft.server.MinecraftServer $$2) {

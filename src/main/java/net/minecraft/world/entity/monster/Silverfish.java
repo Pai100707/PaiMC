@@ -26,10 +26,9 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.InfestedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gamerules.GameRules;
-import org.jspecify.annotations.Nullable;
 
 public class Silverfish extends Monster {
-   @Nullable
+   
    private Silverfish.SilverfishWakeUpFriendsGoal friendsGoal;
 
    public Silverfish(net.minecraft.world.entity.EntityType<? extends Silverfish> $$0, Level $$1) {
@@ -125,7 +124,7 @@ public class Silverfish extends Monster {
    }
 
    static class SilverfishMergeWithStoneGoal extends RandomStrollGoal {
-      @Nullable
+      
       private Direction selectedDirection;
       private boolean doMerge;
 

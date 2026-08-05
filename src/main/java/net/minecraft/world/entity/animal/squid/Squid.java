@@ -21,7 +21,6 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class Squid extends AgeableWaterCreature {
    public float xBodyRot;
@@ -87,7 +86,7 @@ public class Squid extends AgeableWaterCreature {
       return net.minecraft.world.entity.Entity.MovementEmission.EVENTS;
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.AgeableMob getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       return net.minecraft.world.entity.EntityType.SQUID.create($$0, net.minecraft.world.entity.EntitySpawnReason.BREEDING);
@@ -213,13 +212,13 @@ public class Squid extends AgeableWaterCreature {
       return this.movementVector.lengthSqr() > 1.0E-5F;
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       net.minecraft.world.entity.SpawnGroupData $$4 = Objects.requireNonNullElseGet(
          $$3, () -> new net.minecraft.world.entity.AgeableMob.AgeableMobGroupData(0.05F)

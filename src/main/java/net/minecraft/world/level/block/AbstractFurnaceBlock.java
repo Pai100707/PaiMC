@@ -20,7 +20,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.BlockHitResult;
-import org.jspecify.annotations.Nullable;
 
 public abstract class AbstractFurnaceBlock extends BaseEntityBlock {
    public static final EnumProperty<Direction> FACING = HorizontalDirectionalBlock.FACING;
@@ -80,7 +79,7 @@ public abstract class AbstractFurnaceBlock extends BaseEntityBlock {
       $$0.add(FACING, LIT);
    }
 
-   @Nullable
+   
    protected static <T extends BlockEntity> BlockEntityTicker<T> createFurnaceTicker(
       net.minecraft.world.level.Level $$0, BlockEntityType<T> $$1, BlockEntityType<? extends AbstractFurnaceBlockEntity> $$2
    ) {

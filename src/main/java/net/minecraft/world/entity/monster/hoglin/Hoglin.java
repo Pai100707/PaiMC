@@ -42,7 +42,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 
 public class Hoglin extends Animal implements Enemy, HoglinBase {
    private static final EntityDataAccessor<Boolean> DATA_IMMUNE_TO_ZOMBIFICATION = SynchedEntityData.defineId(Hoglin.class, EntityDataSerializers.BOOLEAN);
@@ -200,13 +199,13 @@ public class Hoglin extends Animal implements Enemy, HoglinBase {
       return !$$1.getBlockState($$3.below()).is(Blocks.NETHER_WART_BLOCK);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       if ($$0.getRandom().nextFloat() < 0.2F) {
          this.setBaby(true);
@@ -325,7 +324,7 @@ public class Hoglin extends Animal implements Enemy, HoglinBase {
       return this.isAdult() && !this.cannotBeHunted;
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.AgeableMob getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       Hoglin $$2 = net.minecraft.world.entity.EntityType.HOGLIN.create($$0, net.minecraft.world.entity.EntitySpawnReason.BREEDING);
@@ -376,7 +375,7 @@ public class Hoglin extends Animal implements Enemy, HoglinBase {
       this.playSound(SoundEvents.HOGLIN_STEP, 0.15F, 1.0F);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.LivingEntity getTarget() {
       return this.getTargetFromBrain();

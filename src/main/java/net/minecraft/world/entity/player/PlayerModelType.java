@@ -7,7 +7,6 @@ import java.util.function.Function;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.util.StringRepresentable;
-import org.jspecify.annotations.Nullable;
 
 public enum PlayerModelType implements StringRepresentable {
    SLIM("slim", "slim"),
@@ -24,7 +23,7 @@ public enum PlayerModelType implements StringRepresentable {
       this.legacyServicesId = $$1;
    }
 
-   public static PlayerModelType byLegacyServicesName(@Nullable String $$0) {
+   public static PlayerModelType byLegacyServicesName(String $$0) {
       return Objects.requireNonNullElse(NAME_LOOKUP.apply($$0), WIDE);
    }
 

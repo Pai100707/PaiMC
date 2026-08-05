@@ -5,11 +5,10 @@ import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
 import net.minecraft.world.entity.ai.navigation.GroundPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.level.pathfinder.PathType;
-import org.jspecify.annotations.Nullable;
 
 public class FollowOwnerGoal extends Goal {
    private final net.minecraft.world.entity.TamableAnimal tamable;
-   @Nullable
+   
    private net.minecraft.world.entity.LivingEntity owner;
    private final double speedModifier;
    private final PathNavigation navigation;

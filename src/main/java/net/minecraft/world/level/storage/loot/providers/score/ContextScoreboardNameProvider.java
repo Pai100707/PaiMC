@@ -7,7 +7,6 @@ import java.util.Set;
 import net.minecraft.util.context.ContextKey;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.scores.ScoreHolder;
-import org.jspecify.annotations.Nullable;
 
 public record ContextScoreboardNameProvider(LootContext.EntityTarget target) implements ScoreboardNameProvider {
    public static final MapCodec<ContextScoreboardNameProvider> CODEC = RecordCodecBuilder.mapCodec(
@@ -26,7 +25,7 @@ public record ContextScoreboardNameProvider(LootContext.EntityTarget target) imp
       return ScoreboardNameProviders.CONTEXT;
    }
 
-   @Nullable
+   
    @Override
    public ScoreHolder getScoreHolder(LootContext $$0) {
       return $$0.getOptionalParameter(this.target.contextParam());

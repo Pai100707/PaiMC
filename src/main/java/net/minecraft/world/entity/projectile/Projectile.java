@@ -30,32 +30,31 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.HitResult.Type;
-import org.jspecify.annotations.Nullable;
 
 public abstract class Projectile extends net.minecraft.world.entity.Entity implements net.minecraft.world.entity.TraceableEntity {
    private static final boolean DEFAULT_LEFT_OWNER = false;
    private static final boolean DEFAULT_HAS_BEEN_SHOT = false;
-   @Nullable
+   
    protected net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.Entity> owner;
    private boolean leftOwner = false;
    private boolean leftOwnerChecked;
    private boolean hasBeenShot = false;
-   @Nullable
+   
    private net.minecraft.world.entity.Entity lastDeflectedBy;
 
    protected Projectile(net.minecraft.world.entity.EntityType<? extends Projectile> $$0, Level $$1) {
       super($$0, $$1);
    }
 
-   protected void setOwner(@Nullable net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.Entity> $$0) {
+   protected void setOwner(net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.Entity> $$0) {
       this.owner = $$0;
    }
 
-   public void setOwner(@Nullable net.minecraft.world.entity.Entity $$0) {
+   public void setOwner(net.minecraft.world.entity.Entity $$0) {
       this.setOwner(net.minecraft.world.entity.EntityReference.of($$0));
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.Entity getOwner() {
       return net.minecraft.world.entity.EntityReference.getEntity(this.owner, this.level());
@@ -244,8 +243,8 @@ public abstract class Projectile extends net.minecraft.world.entity.Entity imple
 
    public boolean deflect(
       ProjectileDeflection $$0,
-      @Nullable net.minecraft.world.entity.Entity $$1,
-      @Nullable net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.Entity> $$2,
+      net.minecraft.world.entity.Entity $$1,
+      net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.Entity> $$2,
       boolean $$3
    ) {
       $$0.deflect(this, $$1, this.random);

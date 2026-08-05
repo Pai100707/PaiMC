@@ -5,7 +5,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class Gizmos {
    static final ThreadLocal<net.minecraft.gizmos.GizmoCollector> collector = new ThreadLocal<>();
@@ -105,7 +104,7 @@ public class Gizmos {
    }
 
    public static class TemporaryCollection implements AutoCloseable {
-      @Nullable
+      
       private final net.minecraft.gizmos.GizmoCollector old = net.minecraft.gizmos.Gizmos.collector.get();
       private boolean closed;
 

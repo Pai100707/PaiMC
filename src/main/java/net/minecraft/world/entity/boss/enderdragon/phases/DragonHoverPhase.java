@@ -3,10 +3,9 @@ package net.minecraft.world.entity.boss.enderdragon.phases;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class DragonHoverPhase extends AbstractDragonPhaseInstance {
-   @Nullable
+   
    private Vec3 targetLocation;
 
    public DragonHoverPhase(EnderDragon $$0) {
@@ -35,7 +34,7 @@ public class DragonHoverPhase extends AbstractDragonPhaseInstance {
       return 1.0F;
    }
 
-   @Nullable
+   
    @Override
    public Vec3 getFlyTargetLocation() {
       return this.targetLocation;

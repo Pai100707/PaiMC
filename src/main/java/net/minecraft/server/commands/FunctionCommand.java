@@ -38,7 +38,6 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.server.commands.data.DataAccessor;
 import net.minecraft.server.commands.data.DataCommands;
 import net.minecraft.server.permissions.LevelBasedPermissionSet;
-import org.jspecify.annotations.Nullable;
 
 public class FunctionCommand {
    private static final DynamicCommandExceptionType ERROR_ARGUMENT_NOT_COMPOUND = new DynamicCommandExceptionType(
@@ -85,7 +84,7 @@ public class FunctionCommand {
                ((RequiredArgumentBuilder)((RequiredArgumentBuilder)Commands.argument("name", FunctionArgument.functions())
                         .suggests(SUGGEST_FUNCTION)
                         .executes(new FunctionCommand.FunctionCustomExecutor() {
-                           @Nullable
+                           
                            @Override
                            protected CompoundTag arguments(CommandContext<CommandSourceStack> $$0) {
                               return null;
@@ -117,7 +116,7 @@ public class FunctionCommand {
 
    public static <T extends ExecutionCommandSource<T>> void queueFunctions(
       Collection<CommandFunction<T>> $$0,
-      @Nullable CompoundTag $$1,
+      CompoundTag $$1,
       T $$2,
       T $$3,
       ExecutionControl<T> $$4,
@@ -132,7 +131,7 @@ public class FunctionCommand {
    }
 
    private static <T extends ExecutionCommandSource<T>> void instantiateAndQueueFunctions(
-      @Nullable CompoundTag $$0,
+      CompoundTag $$0,
       ExecutionControl<T> $$1,
       CommandDispatcher<T> $$2,
       T $$3,
@@ -159,7 +158,7 @@ public class FunctionCommand {
    }
 
    private static <T extends ExecutionCommandSource<T>> void queueFunctionsAsReturn(
-      Collection<CommandFunction<T>> $$0, @Nullable CompoundTag $$1, T $$2, T $$3, ExecutionControl<T> $$4, FunctionCommand.Callbacks<T> $$5
+      Collection<CommandFunction<T>> $$0, CompoundTag $$1, T $$2, T $$3, ExecutionControl<T> $$4, FunctionCommand.Callbacks<T> $$5
    ) throws CommandSyntaxException {
       CommandDispatcher<T> $$6 = $$2.dispatcher();
       T $$7 = (T)$$3.clearCallbacks();
@@ -175,7 +174,7 @@ public class FunctionCommand {
    }
 
    private static <T extends ExecutionCommandSource<T>> void queueFunctionsNoReturn(
-      Collection<CommandFunction<T>> $$0, @Nullable CompoundTag $$1, T $$2, T $$3, ExecutionControl<T> $$4, FunctionCommand.Callbacks<T> $$5
+      Collection<CommandFunction<T>> $$0, CompoundTag $$1, T $$2, T $$3, ExecutionControl<T> $$4, FunctionCommand.Callbacks<T> $$5
    ) throws CommandSyntaxException {
       CommandDispatcher<T> $$6 = $$2.dispatcher();
       T $$7 = (T)$$3.clearCallbacks();
@@ -226,7 +225,7 @@ public class FunctionCommand {
    }
 
    abstract static class FunctionCustomExecutor extends WithErrorHandling<CommandSourceStack> implements CommandAdapter<CommandSourceStack> {
-      @Nullable
+      
       protected abstract CompoundTag arguments(CommandContext<CommandSourceStack> var1) throws CommandSyntaxException;
 
       public void runGuarded(CommandSourceStack $$0, ContextChain<CommandSourceStack> $$1, ChainModifiers $$2, ExecutionControl<CommandSourceStack> $$3) throws CommandSyntaxException {

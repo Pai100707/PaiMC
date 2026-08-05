@@ -9,18 +9,17 @@ import net.minecraft.world.entity.projectile.hurtingprojectile.DragonFireball;
 import net.minecraft.world.level.pathfinder.Node;
 import net.minecraft.world.level.pathfinder.Path;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class DragonStrafePlayerPhase extends AbstractDragonPhaseInstance {
    private static final Logger LOGGER = LogUtils.getLogger();
    private static final int FIREBALL_CHARGE_AMOUNT = 5;
    private int fireballCharge;
-   @Nullable
+   
    private Path currentPath;
-   @Nullable
+   
    private Vec3 targetLocation;
-   @Nullable
+   
    private net.minecraft.world.entity.LivingEntity attackTarget;
    private boolean holdingPatternClockwise;
 
@@ -174,7 +173,7 @@ public class DragonStrafePlayerPhase extends AbstractDragonPhaseInstance {
       }
    }
 
-   @Nullable
+   
    @Override
    public Vec3 getFlyTargetLocation() {
       return this.targetLocation;

@@ -6,11 +6,10 @@ import io.netty.handler.codec.MessageToMessageDecoder;
 import java.util.List;
 import net.minecraft.network.protocol.BundlerInfo;
 import net.minecraft.network.protocol.Packet;
-import org.jspecify.annotations.Nullable;
 
 public class PacketBundlePacker extends MessageToMessageDecoder<Packet<?>> {
    private final BundlerInfo bundlerInfo;
-   @Nullable
+   
    private BundlerInfo.Bundler currentBundler;
 
    public PacketBundlePacker(BundlerInfo $$0) {

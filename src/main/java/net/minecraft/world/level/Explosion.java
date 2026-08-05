@@ -7,15 +7,14 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.PrimedTnt;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public interface Explosion {
-   static DamageSource getDefaultDamageSource(net.minecraft.world.level.Level $$0, @Nullable Entity $$1) {
+   static DamageSource getDefaultDamageSource(net.minecraft.world.level.Level $$0, Entity $$1) {
       return $$0.damageSources().explosion($$1, getIndirectSourceEntity($$1));
    }
 
-   @Nullable
-   static LivingEntity getIndirectSourceEntity(@Nullable Entity $$0) {
+   
+   static LivingEntity getIndirectSourceEntity(Entity $$0) {
       return switch ($$0) {
          case PrimedTnt $$1 -> $$1.getOwner();
          case LivingEntity $$2 -> $$2;
@@ -28,10 +27,10 @@ public interface Explosion {
 
    net.minecraft.world.level.Explosion.BlockInteraction getBlockInteraction();
 
-   @Nullable
+   
    LivingEntity getIndirectSourceEntity();
 
-   @Nullable
+   
    Entity getDirectSourceEntity();
 
    float radius();

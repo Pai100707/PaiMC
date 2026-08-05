@@ -29,7 +29,6 @@ import org.joml.Matrix4fc;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
 import org.joml.Vector3fc;
-import org.jspecify.annotations.Nullable;
 
 public enum Direction implements StringRepresentable {
    DOWN(0, 1, -1, "down", net.minecraft.core.Direction.AxisDirection.NEGATIVE, net.minecraft.core.Direction.Axis.Y, new net.minecraft.core.Vec3i(0, -1, 0)),
@@ -292,7 +291,7 @@ public enum Direction implements StringRepresentable {
       return this.axis;
    }
 
-   @Nullable
+   
    public static net.minecraft.core.Direction byName(String $$0) {
       return (net.minecraft.core.Direction)CODEC.byName($$0);
    }
@@ -349,8 +348,8 @@ public enum Direction implements StringRepresentable {
    }
 
    @Contract("_,_,_,!null->!null;_,_,_,_->_")
-   @Nullable
-   public static net.minecraft.core.Direction getNearest(int $$0, int $$1, int $$2, @Nullable net.minecraft.core.Direction $$3) {
+   
+   public static net.minecraft.core.Direction getNearest(int $$0, int $$1, int $$2, net.minecraft.core.Direction $$3) {
       int $$4 = Math.abs($$0);
       int $$5 = Math.abs($$1);
       int $$6 = Math.abs($$2);
@@ -366,8 +365,8 @@ public enum Direction implements StringRepresentable {
    }
 
    @Contract("_,!null->!null;_,_->_")
-   @Nullable
-   public static net.minecraft.core.Direction getNearest(net.minecraft.core.Vec3i $$0, @Nullable net.minecraft.core.Direction $$1) {
+   
+   public static net.minecraft.core.Direction getNearest(net.minecraft.core.Vec3i $$0, net.minecraft.core.Direction $$1) {
       return getNearest($$0.getX(), $$0.getY(), $$0.getZ(), $$1);
    }
 
@@ -505,7 +504,7 @@ public enum Direction implements StringRepresentable {
          this.name = $$0;
       }
 
-      @Nullable
+      
       public static net.minecraft.core.Direction.Axis byName(String $$0) {
          return (net.minecraft.core.Direction.Axis)CODEC.byName($$0);
       }
@@ -539,7 +538,7 @@ public enum Direction implements StringRepresentable {
          return (net.minecraft.core.Direction.Axis)Util.getRandom(VALUES, $$0);
       }
 
-      public boolean test(@Nullable net.minecraft.core.Direction $$0) {
+      public boolean test(net.minecraft.core.Direction $$0) {
          return $$0 != null && $$0.getAxis() == this;
       }
 
@@ -619,7 +618,7 @@ public enum Direction implements StringRepresentable {
          return (net.minecraft.core.Direction.Axis)Util.getRandom(this.axis, $$0);
       }
 
-      public boolean test(@Nullable net.minecraft.core.Direction $$0) {
+      public boolean test(net.minecraft.core.Direction $$0) {
          return $$0 != null && $$0.getAxis().getPlane() == this;
       }
 

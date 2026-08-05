@@ -10,7 +10,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class CollectingNeighborUpdater implements NeighborUpdater {
@@ -20,7 +19,7 @@ public class CollectingNeighborUpdater implements NeighborUpdater {
    private final ArrayDeque<CollectingNeighborUpdater.NeighborUpdates> stack = new ArrayDeque<>();
    private final List<CollectingNeighborUpdater.NeighborUpdates> addedThisLayer = new ArrayList<>();
    private int count = 0;
-   @Nullable
+   
    private Consumer<BlockPos> debugListener;
 
    public CollectingNeighborUpdater(net.minecraft.world.level.Level $$0, int $$1) {
@@ -28,7 +27,7 @@ public class CollectingNeighborUpdater implements NeighborUpdater {
       this.maxChainedNeighborUpdates = $$1;
    }
 
-   public void setDebugListener(@Nullable Consumer<BlockPos> $$0) {
+   public void setDebugListener(Consumer<BlockPos> $$0) {
       this.debugListener = $$0;
    }
 
@@ -38,17 +37,17 @@ public class CollectingNeighborUpdater implements NeighborUpdater {
    }
 
    @Override
-   public void neighborChanged(BlockPos $$0, Block $$1, @Nullable Orientation $$2) {
+   public void neighborChanged(BlockPos $$0, Block $$1, Orientation $$2) {
       this.addAndRun($$0, new CollectingNeighborUpdater.SimpleNeighborUpdate($$0, $$1, $$2));
    }
 
    @Override
-   public void neighborChanged(BlockState $$0, BlockPos $$1, Block $$2, @Nullable Orientation $$3, boolean $$4) {
+   public void neighborChanged(BlockState $$0, BlockPos $$1, Block $$2, Orientation $$3, boolean $$4) {
       this.addAndRun($$1, new CollectingNeighborUpdater.FullNeighborUpdate($$0, $$1.immutable(), $$2, $$3, $$4));
    }
 
    @Override
-   public void updateNeighborsAtExceptFromFacing(BlockPos $$0, Block $$1, @Nullable Direction $$2, @Nullable Orientation $$3) {
+   public void updateNeighborsAtExceptFromFacing(BlockPos $$0, Block $$1, Direction $$2, Orientation $$3) {
       this.addAndRun($$0, new CollectingNeighborUpdater.MultiNeighborUpdate($$0.immutable(), $$1, $$3, $$2));
    }
 
@@ -98,7 +97,7 @@ public class CollectingNeighborUpdater implements NeighborUpdater {
       }
    }
 
-   record FullNeighborUpdate(BlockState state, BlockPos pos, Block block, @Nullable Orientation orientation, boolean movedByPiston)
+   record FullNeighborUpdate(BlockState state, BlockPos pos, Block block, Orientation orientation, boolean movedByPiston)
       implements CollectingNeighborUpdater.NeighborUpdates {
       @Override
       public boolean runNext(net.minecraft.world.level.Level $$0) {
@@ -115,13 +114,13 @@ public class CollectingNeighborUpdater implements NeighborUpdater {
    static final class MultiNeighborUpdate implements CollectingNeighborUpdater.NeighborUpdates {
       private final BlockPos sourcePos;
       private final Block sourceBlock;
-      @Nullable
+      
       private Orientation orientation;
-      @Nullable
+      
       private final Direction skipDirection;
       private int idx = 0;
 
-      MultiNeighborUpdate(BlockPos $$0, Block $$1, @Nullable Orientation $$2, @Nullable Direction $$3) {
+      MultiNeighborUpdate(BlockPos $$0, Block $$1, Orientation $$2, Direction $$3) {
          this.sourcePos = $$0;
          this.sourceBlock = $$1;
          this.orientation = $$2;
@@ -184,7 +183,7 @@ public class CollectingNeighborUpdater implements NeighborUpdater {
       }
    }
 
-   record SimpleNeighborUpdate(BlockPos pos, Block block, @Nullable Orientation orientation) implements CollectingNeighborUpdater.NeighborUpdates {
+   record SimpleNeighborUpdate(BlockPos pos, Block block, Orientation orientation) implements CollectingNeighborUpdater.NeighborUpdates {
       @Override
       public boolean runNext(net.minecraft.world.level.Level $$0) {
          BlockState $$1 = $$0.getBlockState(this.pos);

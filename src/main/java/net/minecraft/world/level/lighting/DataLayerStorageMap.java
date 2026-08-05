@@ -2,7 +2,6 @@ package net.minecraft.world.level.lighting;
 
 import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
 import net.minecraft.world.level.chunk.DataLayer;
-import org.jspecify.annotations.Nullable;
 
 public abstract class DataLayerStorageMap<M extends DataLayerStorageMap<M>> {
    private static final int CACHE_SIZE = 2;
@@ -30,7 +29,7 @@ public abstract class DataLayerStorageMap<M extends DataLayerStorageMap<M>> {
       return this.map.containsKey($$0);
    }
 
-   @Nullable
+   
    public DataLayer getLayer(long $$0) {
       if (this.cacheEnabled) {
          for (int $$1 = 0; $$1 < 2; $$1++) {
@@ -58,7 +57,7 @@ public abstract class DataLayerStorageMap<M extends DataLayerStorageMap<M>> {
       }
    }
 
-   @Nullable
+   
    public DataLayer removeLayer(long $$0) {
       return (DataLayer)this.map.remove($$0);
    }

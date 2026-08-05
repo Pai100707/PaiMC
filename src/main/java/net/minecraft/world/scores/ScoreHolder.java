@@ -3,7 +3,6 @@ package net.minecraft.world.scores;
 import com.mojang.authlib.GameProfile;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.HoverEvent.ShowText;
-import org.jspecify.annotations.Nullable;
 
 public interface ScoreHolder {
    String WILDCARD_NAME = "*";
@@ -16,7 +15,7 @@ public interface ScoreHolder {
 
    String getScoreboardName();
 
-   @Nullable
+   
    default Component getDisplayName() {
       return null;
    }

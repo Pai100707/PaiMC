@@ -30,7 +30,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.HitResult.Type;
-import org.jspecify.annotations.Nullable;
 
 public class LongJump extends Behavior<Breeze> {
    private static final int REQUIRED_AIR_BLOCKS_ABOVE = 4;
@@ -176,7 +175,7 @@ public class LongJump extends Behavior<Breeze> {
       return $$1 && ($$2 || $$3);
    }
 
-   @Nullable
+   
    private static BlockPos snapToSurface(net.minecraft.world.entity.LivingEntity $$0, Vec3 $$1) {
       ClipContext $$2 = new ClipContext($$1, $$1.relative(Direction.DOWN, 10.0), Block.COLLIDER, Fluid.NONE, $$0);
       HitResult $$3 = $$0.level().clip($$2);

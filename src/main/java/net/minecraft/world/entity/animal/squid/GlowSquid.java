@@ -17,7 +17,6 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 
 public class GlowSquid extends Squid {
    private static final EntityDataAccessor<Integer> DATA_DARK_TICKS_REMAINING = SynchedEntityData.defineId(GlowSquid.class, EntityDataSerializers.INT);
@@ -38,7 +37,7 @@ public class GlowSquid extends Squid {
       $$0.define(DATA_DARK_TICKS_REMAINING, 0);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.AgeableMob getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       return net.minecraft.world.entity.EntityType.GLOW_SQUID.create($$0, net.minecraft.world.entity.EntitySpawnReason.BREEDING);

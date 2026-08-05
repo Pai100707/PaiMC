@@ -6,7 +6,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jspecify.annotations.Nullable;
 
 public class MultifaceSpreader {
    public static final MultifaceSpreader.SpreadType[] DEFAULT_SPREAD_ORDER = new MultifaceSpreader.SpreadType[]{
@@ -98,7 +97,7 @@ public class MultifaceSpreader {
          this.block = $$0;
       }
 
-      @Nullable
+      
       @Override
       public BlockState getStateForPlacement(BlockState $$0, net.minecraft.world.level.BlockGetter $$1, BlockPos $$2, Direction $$3) {
          return this.block.getStateForPlacement($$0, $$1, $$2, $$3);
@@ -116,7 +115,7 @@ public class MultifaceSpreader {
    }
 
    public interface SpreadConfig {
-      @Nullable
+      
       BlockState getStateForPlacement(BlockState var1, net.minecraft.world.level.BlockGetter var2, BlockPos var3, Direction var4);
 
       boolean canSpreadInto(net.minecraft.world.level.BlockGetter var1, BlockPos var2, MultifaceSpreader.SpreadPos var3);

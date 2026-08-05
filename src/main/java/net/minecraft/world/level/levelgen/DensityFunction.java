@@ -8,7 +8,6 @@ import net.minecraft.resources.RegistryFileCodec;
 import net.minecraft.util.KeyDispatchDataCodec;
 import net.minecraft.world.level.levelgen.blending.Blender;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
-import org.jspecify.annotations.Nullable;
 
 public interface DensityFunction {
    Codec<DensityFunction> DIRECT_CODEC = DensityFunctions.DIRECT_CODEC;
@@ -79,7 +78,7 @@ public interface DensityFunction {
       }
    }
 
-   public record NoiseHolder(Holder<NormalNoise.NoiseParameters> noiseData, @Nullable NormalNoise noise) {
+   public record NoiseHolder(Holder<NormalNoise.NoiseParameters> noiseData, NormalNoise noise) {
       public static final Codec<DensityFunction.NoiseHolder> CODEC = NormalNoise.NoiseParameters.CODEC
          .xmap($$0 -> new DensityFunction.NoiseHolder($$0, null), DensityFunction.NoiseHolder::noiseData);
 

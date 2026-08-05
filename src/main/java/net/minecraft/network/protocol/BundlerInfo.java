@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
-import org.jspecify.annotations.Nullable;
 
 public interface BundlerInfo {
    int BUNDLE_SIZE_LIMIT = 4096;
@@ -25,13 +24,13 @@ public interface BundlerInfo {
             }
          }
 
-         @Nullable
+         
          @Override
          public BundlerInfo.Bundler startPacketBundling(Packet<?> $$0x) {
             return $$0 == $$2 ? new BundlerInfo.Bundler() {
                private final List<Packet<? super T>> bundlePackets = new ArrayList<>();
 
-               @Nullable
+               
                @Override
                public Packet<?> addPacket(Packet<?> $$0x) {
                   if ($$0 == $$2) {
@@ -50,11 +49,11 @@ public interface BundlerInfo {
 
    void unbundlePacket(Packet<?> var1, Consumer<Packet<?>> var2);
 
-   @Nullable
+   
    BundlerInfo.Bundler startPacketBundling(Packet<?> var1);
 
    public interface Bundler {
-      @Nullable
+      
       Packet<?> addPacket(Packet<?> var1);
    }
 }

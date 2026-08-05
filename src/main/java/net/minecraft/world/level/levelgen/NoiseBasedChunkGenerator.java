@@ -42,7 +42,6 @@ import net.minecraft.world.level.levelgen.blending.Blender;
 import net.minecraft.world.level.levelgen.carver.CarvingContext;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import org.apache.commons.lang3.mutable.MutableObject;
-import org.jspecify.annotations.Nullable;
 
 public final class NoiseBasedChunkGenerator extends ChunkGenerator {
    public static final MapCodec<NoiseBasedChunkGenerator> CODEC = RecordCodecBuilder.mapCodec(
@@ -154,8 +153,8 @@ public final class NoiseBasedChunkGenerator extends ChunkGenerator {
       RandomState $$1,
       int $$2,
       int $$3,
-      @Nullable MutableObject<net.minecraft.world.level.NoiseColumn> $$4,
-      @Nullable Predicate<BlockState> $$5
+      MutableObject<net.minecraft.world.level.NoiseColumn> $$4,
+      Predicate<BlockState> $$5
    ) {
       NoiseSettings $$6 = ((NoiseGeneratorSettings)this.settings.value()).noiseSettings().clampToHeightAccessor($$0);
       int $$7 = $$6.getCellHeight();

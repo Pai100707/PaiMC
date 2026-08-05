@@ -47,7 +47,6 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 
 public class Pillager extends AbstractIllager implements CrossbowAttackMob, InventoryCarrier {
    private static final EntityDataAccessor<Boolean> IS_CHARGING_CROSSBOW = SynchedEntityData.defineId(Pillager.class, EntityDataSerializers.BOOLEAN);
@@ -147,13 +146,13 @@ public class Pillager extends AbstractIllager implements CrossbowAttackMob, Inve
       return 1;
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       RandomSource $$4 = $$0.getRandom();
       this.populateDefaultEquipmentSlots($$4, $$1);
@@ -222,7 +221,7 @@ public class Pillager extends AbstractIllager implements CrossbowAttackMob, Inve
       return this.hasActiveRaid() && $$0.is(Items.WHITE_BANNER);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SlotAccess getSlot(int $$0) {
       int $$1 = $$0 - 300;

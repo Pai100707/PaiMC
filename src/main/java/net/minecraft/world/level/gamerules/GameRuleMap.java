@@ -9,7 +9,6 @@ import java.util.Set;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 import net.minecraft.core.registries.BuiltInRegistries;
-import org.jspecify.annotations.Nullable;
 
 public final class GameRuleMap {
    public static final Codec<GameRuleMap> CODEC = Codec.dispatchedMap(BuiltInRegistries.GAME_RULE.byNameCodec(), GameRule::valueCodec)
@@ -42,7 +41,7 @@ public final class GameRuleMap {
       return this.map.containsKey($$0);
    }
 
-   @Nullable
+   
    public <T> T get(GameRule<T> $$0) {
       return (T)this.map.get($$0);
    }
@@ -51,7 +50,7 @@ public final class GameRuleMap {
       this.map.put($$0, $$1);
    }
 
-   @Nullable
+   
    public <T> T remove(GameRule<T> $$0) {
       return (T)this.map.remove($$0);
    }

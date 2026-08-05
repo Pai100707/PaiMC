@@ -22,7 +22,6 @@ import net.minecraft.world.level.levelgen.Heightmap.Types;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class Bat extends AmbientCreature {
    public static final float FLAP_LENGTH_SECONDS = 0.5F;
@@ -33,7 +32,7 @@ public class Bat extends AmbientCreature {
    private static final byte DEFAULT_FLAGS = 0;
    public final net.minecraft.world.entity.AnimationState flyAnimationState = new net.minecraft.world.entity.AnimationState();
    public final net.minecraft.world.entity.AnimationState restAnimationState = new net.minecraft.world.entity.AnimationState();
-   @Nullable
+   
    private BlockPos targetPosition;
 
    public Bat(net.minecraft.world.entity.EntityType<? extends Bat> $$0, Level $$1) {
@@ -64,7 +63,7 @@ public class Bat extends AmbientCreature {
       return super.getVoicePitch() * 0.95F;
    }
 
-   @Nullable
+   
    @Override
    public SoundEvent getAmbientSound() {
       return this.isResting() && this.random.nextInt(4) != 0 ? null : SoundEvents.BAT_AMBIENT;

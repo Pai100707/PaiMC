@@ -39,7 +39,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public abstract class AbstractFurnaceBlockEntity extends BaseContainerBlockEntity implements WorldlyContainer, RecipeCraftingHolder, StackedContentsCompatible {
    protected static final int SLOT_INPUT = 0;
@@ -203,7 +202,7 @@ public abstract class AbstractFurnaceBlockEntity extends BaseContainerBlockEntit
    }
 
    private static boolean canBurn(
-      RegistryAccess $$0, @Nullable RecipeHolder<? extends AbstractCookingRecipe> $$1, SingleRecipeInput $$2, NonNullList<ItemStack> $$3, int $$4
+      RegistryAccess $$0, RecipeHolder<? extends AbstractCookingRecipe> $$1, SingleRecipeInput $$2, NonNullList<ItemStack> $$3, int $$4
    ) {
       if (!((ItemStack)$$3.get(0)).isEmpty() && $$1 != null) {
          ItemStack $$5 = ((AbstractCookingRecipe)$$1.value()).assemble($$2, $$0);
@@ -225,7 +224,7 @@ public abstract class AbstractFurnaceBlockEntity extends BaseContainerBlockEntit
    }
 
    private static boolean burn(
-      RegistryAccess $$0, @Nullable RecipeHolder<? extends AbstractCookingRecipe> $$1, SingleRecipeInput $$2, NonNullList<ItemStack> $$3, int $$4
+      RegistryAccess $$0, RecipeHolder<? extends AbstractCookingRecipe> $$1, SingleRecipeInput $$2, NonNullList<ItemStack> $$3, int $$4
    ) {
       if ($$1 != null && canBurn($$0, $$1, $$2, $$3, $$4)) {
          ItemStack $$5 = (ItemStack)$$3.get(0);
@@ -265,7 +264,7 @@ public abstract class AbstractFurnaceBlockEntity extends BaseContainerBlockEntit
       }
    }
 
-   public boolean canPlaceItemThroughFace(int $$0, ItemStack $$1, @Nullable Direction $$2) {
+   public boolean canPlaceItemThroughFace(int $$0, ItemStack $$1, Direction $$2) {
       return this.canPlaceItem($$0, $$1);
    }
 
@@ -311,14 +310,14 @@ public abstract class AbstractFurnaceBlockEntity extends BaseContainerBlockEntit
       }
    }
 
-   public void setRecipeUsed(@Nullable RecipeHolder<?> $$0) {
+   public void setRecipeUsed(RecipeHolder<?> $$0) {
       if ($$0 != null) {
          ResourceKey<Recipe<?>> $$1 = $$0.id();
          this.recipesUsed.addTo($$1, 1);
       }
    }
 
-   @Nullable
+   
    public RecipeHolder<?> getRecipeUsed() {
       return null;
    }

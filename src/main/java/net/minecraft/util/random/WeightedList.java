@@ -12,13 +12,12 @@ import java.util.Optional;
 import java.util.function.Function;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
-import org.jspecify.annotations.Nullable;
 
 public final class WeightedList<E> {
    private static final int FLAT_THRESHOLD = 64;
    private final int totalWeight;
    private final List<Weighted<E>> items;
-   @Nullable
+   
    private final WeightedList.Selector<E> selector;
 
    WeightedList(List<? extends Weighted<E>> $$0) {
@@ -115,7 +114,7 @@ public final class WeightedList<E> {
    }
 
    @Override
-   public boolean equals(@Nullable Object $$0) {
+   public boolean equals(Object $$0) {
       if (this == $$0) {
          return true;
       } else {

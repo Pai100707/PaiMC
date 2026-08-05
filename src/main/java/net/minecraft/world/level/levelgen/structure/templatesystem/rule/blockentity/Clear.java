@@ -3,14 +3,13 @@ package net.minecraft.world.level.levelgen.structure.templatesystem.rule.blocken
 import com.mojang.serialization.MapCodec;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.RandomSource;
-import org.jspecify.annotations.Nullable;
 
 public class Clear implements RuleBlockEntityModifier {
    private static final Clear INSTANCE = new Clear();
    public static final MapCodec<Clear> CODEC = MapCodec.unit(INSTANCE);
 
    @Override
-   public CompoundTag apply(RandomSource $$0, @Nullable CompoundTag $$1) {
+   public CompoundTag apply(RandomSource $$0, CompoundTag $$1) {
       return new CompoundTag();
    }
 

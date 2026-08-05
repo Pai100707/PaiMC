@@ -25,7 +25,6 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class PlaySoundCommand {
    private static final SimpleCommandExceptionType ERROR_TOO_FAR = new SimpleCommandExceptionType(Component.translatable("commands.playsound.failed"));
@@ -148,7 +147,7 @@ public class PlaySoundCommand {
          );
    }
 
-   private static Collection<ServerPlayer> getCallingPlayerAsCollection(@Nullable ServerPlayer $$0) {
+   private static Collection<ServerPlayer> getCallingPlayerAsCollection(ServerPlayer $$0) {
       return $$0 != null ? List.of($$0) : List.of();
    }
 

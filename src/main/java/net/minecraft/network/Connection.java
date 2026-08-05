@@ -50,7 +50,6 @@ import net.minecraft.server.network.EventLoopGroupHolder;
 import net.minecraft.util.Mth;
 import net.minecraft.util.Util;
 import net.minecraft.util.debugchart.LocalSampleLogger;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.Marker;
 import org.slf4j.MarkerFactory;
@@ -68,11 +67,11 @@ public class Connection extends SimpleChannelInboundHandler<Packet<?>> {
    private final Queue<Consumer<net.minecraft.network.Connection>> pendingActions = Queues.newConcurrentLinkedQueue();
    private Channel channel;
    private SocketAddress address;
-   @Nullable
+   
    private volatile net.minecraft.network.PacketListener disconnectListener;
-   @Nullable
+   
    private volatile net.minecraft.network.PacketListener packetListener;
-   @Nullable
+   
    private net.minecraft.network.DisconnectionDetails disconnectionDetails;
    private boolean encrypted;
    private boolean disconnectionHandled;
@@ -82,9 +81,9 @@ public class Connection extends SimpleChannelInboundHandler<Packet<?>> {
    private float averageSentPackets;
    private int tickCount;
    private boolean handlingFault;
-   @Nullable
+   
    private volatile net.minecraft.network.DisconnectionDetails delayedDisconnect;
-   @Nullable
+   
    net.minecraft.network.BandwidthDebugMonitor bandwidthDebugMonitor;
 
    public Connection(PacketFlow $$0) {
@@ -276,11 +275,11 @@ public class Connection extends SimpleChannelInboundHandler<Packet<?>> {
       this.send($$0, null);
    }
 
-   public void send(Packet<?> $$0, @Nullable ChannelFutureListener $$1) {
+   public void send(Packet<?> $$0, ChannelFutureListener $$1) {
       this.send($$0, $$1, true);
    }
 
-   public void send(Packet<?> $$0, @Nullable ChannelFutureListener $$1, boolean $$2) {
+   public void send(Packet<?> $$0, ChannelFutureListener $$1, boolean $$2) {
       if (this.isConnected()) {
          this.flushQueue();
          this.sendPacket($$0, $$1, $$2);
@@ -298,7 +297,7 @@ public class Connection extends SimpleChannelInboundHandler<Packet<?>> {
       }
    }
 
-   private void sendPacket(Packet<?> $$0, @Nullable ChannelFutureListener $$1, boolean $$2) {
+   private void sendPacket(Packet<?> $$0, ChannelFutureListener $$1, boolean $$2) {
       this.sentPackets++;
       if (this.channel.eventLoop().inEventLoop()) {
          this.doSendPacket($$0, $$1, $$2);
@@ -307,7 +306,7 @@ public class Connection extends SimpleChannelInboundHandler<Packet<?>> {
       }
    }
 
-   private void doSendPacket(Packet<?> $$0, @Nullable ChannelFutureListener $$1, boolean $$2) {
+   private void doSendPacket(Packet<?> $$0, ChannelFutureListener $$1, boolean $$2) {
       if ($$1 != null) {
          ChannelFuture $$3 = $$2 ? this.channel.writeAndFlush($$0) : this.channel.write($$0);
          $$3.addListener($$1);
@@ -414,7 +413,7 @@ public class Connection extends SimpleChannelInboundHandler<Packet<?>> {
       return this.receiving.getOpposite();
    }
 
-   public static net.minecraft.network.Connection connectToServer(InetSocketAddress $$0, EventLoopGroupHolder $$1, @Nullable LocalSampleLogger $$2) {
+   public static net.minecraft.network.Connection connectToServer(InetSocketAddress $$0, EventLoopGroupHolder $$1, LocalSampleLogger $$2) {
       net.minecraft.network.Connection $$3 = new net.minecraft.network.Connection(PacketFlow.CLIENTBOUND);
       if ($$2 != null) {
          $$3.setBandwidthLogger($$2);
@@ -456,7 +455,7 @@ public class Connection extends SimpleChannelInboundHandler<Packet<?>> {
       }).addLast("packet_handler", this);
    }
 
-   public static void configureSerialization(ChannelPipeline $$0, PacketFlow $$1, boolean $$2, @Nullable net.minecraft.network.BandwidthDebugMonitor $$3) {
+   public static void configureSerialization(ChannelPipeline $$0, PacketFlow $$1, boolean $$2, net.minecraft.network.BandwidthDebugMonitor $$3) {
       PacketFlow $$4 = $$1.getOpposite();
       boolean $$5 = $$1 == PacketFlow.SERVERBOUND;
       boolean $$6 = $$4 == PacketFlow.SERVERBOUND;
@@ -481,7 +480,7 @@ public class Connection extends SimpleChannelInboundHandler<Packet<?>> {
       return (ChannelOutboundHandler)($$0 ? new net.minecraft.network.LocalFrameEncoder() : new net.minecraft.network.Varint21LengthFieldPrepender());
    }
 
-   private static ChannelInboundHandler createFrameDecoder(@Nullable net.minecraft.network.BandwidthDebugMonitor $$0, boolean $$1) {
+   private static ChannelInboundHandler createFrameDecoder(net.minecraft.network.BandwidthDebugMonitor $$0, boolean $$1) {
       if (!$$1) {
          return new net.minecraft.network.Varint21FrameDecoder($$0);
       } else {
@@ -523,12 +522,12 @@ public class Connection extends SimpleChannelInboundHandler<Packet<?>> {
       return this.channel == null;
    }
 
-   @Nullable
+   
    public net.minecraft.network.PacketListener getPacketListener() {
       return this.packetListener;
    }
 
-   @Nullable
+   
    public net.minecraft.network.DisconnectionDetails getDisconnectionDetails() {
       return this.disconnectionDetails;
    }

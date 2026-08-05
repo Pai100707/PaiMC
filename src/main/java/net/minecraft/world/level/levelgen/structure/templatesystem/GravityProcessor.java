@@ -6,7 +6,6 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.levelgen.Heightmap;
-import org.jspecify.annotations.Nullable;
 
 public class GravityProcessor extends StructureProcessor {
    public static final MapCodec<GravityProcessor> CODEC = RecordCodecBuilder.mapCodec(
@@ -24,7 +23,7 @@ public class GravityProcessor extends StructureProcessor {
       this.offset = $$1;
    }
 
-   @Nullable
+   
    @Override
    public StructureTemplate.StructureBlockInfo processBlock(
       net.minecraft.world.level.LevelReader $$0,

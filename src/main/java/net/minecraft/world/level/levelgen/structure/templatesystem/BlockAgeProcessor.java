@@ -12,7 +12,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Half;
-import org.jspecify.annotations.Nullable;
 
 public class BlockAgeProcessor extends StructureProcessor {
    public static final MapCodec<BlockAgeProcessor> CODEC = Codec.FLOAT.fieldOf("mossiness").xmap(BlockAgeProcessor::new, $$0 -> $$0.mossiness);
@@ -28,7 +27,7 @@ public class BlockAgeProcessor extends StructureProcessor {
       this.mossiness = $$0;
    }
 
-   @Nullable
+   
    @Override
    public StructureTemplate.StructureBlockInfo processBlock(
       net.minecraft.world.level.LevelReader $$0,
@@ -57,7 +56,7 @@ public class BlockAgeProcessor extends StructureProcessor {
       return $$9 != null ? new StructureTemplate.StructureBlockInfo($$8, $$9, $$4.nbt()) : $$4;
    }
 
-   @Nullable
+   
    private BlockState maybeReplaceFullStoneBlock(RandomSource $$0) {
       if ($$0.nextFloat() >= 0.5F) {
          return null;
@@ -68,7 +67,7 @@ public class BlockAgeProcessor extends StructureProcessor {
       }
    }
 
-   @Nullable
+   
    private BlockState maybeReplaceStairs(BlockState $$0, RandomSource $$1) {
       if ($$1.nextFloat() >= 0.5F) {
          return null;
@@ -78,17 +77,17 @@ public class BlockAgeProcessor extends StructureProcessor {
       }
    }
 
-   @Nullable
+   
    private BlockState maybeReplaceSlab(BlockState $$0, RandomSource $$1) {
       return $$1.nextFloat() < this.mossiness ? Blocks.MOSSY_STONE_BRICK_SLAB.withPropertiesOf($$0) : null;
    }
 
-   @Nullable
+   
    private BlockState maybeReplaceWall(BlockState $$0, RandomSource $$1) {
       return $$1.nextFloat() < this.mossiness ? Blocks.MOSSY_STONE_BRICK_WALL.withPropertiesOf($$0) : null;
    }
 
-   @Nullable
+   
    private BlockState maybeReplaceObsidian(RandomSource $$0) {
       return $$0.nextFloat() < 0.15F ? Blocks.CRYING_OBSIDIAN.defaultBlockState() : null;
    }

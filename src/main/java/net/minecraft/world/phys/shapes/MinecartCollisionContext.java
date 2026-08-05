@@ -6,12 +6,11 @@ import net.minecraft.world.level.CollisionGetter;
 import net.minecraft.world.level.block.BaseRailBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.RailShape;
-import org.jspecify.annotations.Nullable;
 
 public class MinecartCollisionContext extends EntityCollisionContext {
-   @Nullable
+   
    private BlockPos ingoreBelow;
-   @Nullable
+   
    private BlockPos slopeIgnore;
 
    protected MinecartCollisionContext(AbstractMinecart $$0, boolean $$1) {

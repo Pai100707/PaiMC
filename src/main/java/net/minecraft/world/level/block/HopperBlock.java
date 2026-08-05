@@ -35,7 +35,6 @@ import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class HopperBlock extends BaseEntityBlock {
    public static final MapCodec<HopperBlock> CODEC = simpleCodec(HopperBlock::new);
@@ -90,7 +89,7 @@ public class HopperBlock extends BaseEntityBlock {
       return new HopperBlockEntity($$0, $$1);
    }
 
-   @Nullable
+   
    @Override
    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(net.minecraft.world.level.Level $$0, BlockState $$1, BlockEntityType<T> $$2) {
       return $$0.isClientSide() ? null : createTickerHelper($$2, BlockEntityType.HOPPER, HopperBlockEntity::pushItemsTick);
@@ -114,7 +113,7 @@ public class HopperBlock extends BaseEntityBlock {
    }
 
    @Override
-   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, @Nullable Orientation $$4, boolean $$5) {
+   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, Orientation $$4, boolean $$5) {
       this.checkPoweredState($$1, $$2, $$0);
    }
 

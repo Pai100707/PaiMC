@@ -11,7 +11,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.AttachFace;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
-import org.jspecify.annotations.Nullable;
 
 public abstract class FaceAttachedHorizontalDirectionalBlock extends HorizontalDirectionalBlock {
    public static final EnumProperty<AttachFace> FACE = BlockStateProperties.ATTACH_FACE;
@@ -33,7 +32,7 @@ public abstract class FaceAttachedHorizontalDirectionalBlock extends HorizontalD
       return $$0.getBlockState($$3).isFaceSturdy($$0, $$3, $$2.getOpposite());
    }
 
-   @Nullable
+   
    @Override
    public BlockState getStateForPlacement(BlockPlaceContext $$0) {
       for (Direction $$1 : $$0.getNearestLookingDirections()) {

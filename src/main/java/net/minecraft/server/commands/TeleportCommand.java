@@ -30,7 +30,6 @@ import net.minecraft.world.entity.Relative;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class TeleportCommand {
    private static final SimpleCommandExceptionType INVALID_POSITION = new SimpleCommandExceptionType(
@@ -175,7 +174,7 @@ public class TeleportCommand {
    }
 
    private static int teleportToPos(
-      CommandSourceStack $$0, Collection<? extends Entity> $$1, ServerLevel $$2, Coordinates $$3, @Nullable Coordinates $$4, @Nullable LookAt $$5
+      CommandSourceStack $$0, Collection<? extends Entity> $$1, ServerLevel $$2, Coordinates $$3, Coordinates $$4, LookAt $$5
    ) throws CommandSyntaxException {
       Vec3 $$6 = $$3.getPosition($$0);
       Vec2 $$7 = $$4 == null ? null : $$4.getRotation($$0);
@@ -209,7 +208,7 @@ public class TeleportCommand {
       return $$1.size();
    }
 
-   private static Set<Relative> getRelatives(Coordinates $$0, @Nullable Coordinates $$1, boolean $$2) {
+   private static Set<Relative> getRelatives(Coordinates $$0, Coordinates $$1, boolean $$2) {
       Set<Relative> $$3 = Relative.direction($$0.isXRelative(), $$0.isYRelative(), $$0.isZRelative());
       Set<Relative> $$4 = $$2 ? Relative.position($$0.isXRelative(), $$0.isYRelative(), $$0.isZRelative()) : Set.of();
       Set<Relative> $$5 = $$1 == null ? Relative.ROTATION : Relative.rotation($$1.isYRelative(), $$1.isXRelative());
@@ -221,7 +220,7 @@ public class TeleportCommand {
    }
 
    private static void performTeleport(
-      CommandSourceStack $$0, Entity $$1, ServerLevel $$2, double $$3, double $$4, double $$5, Set<Relative> $$6, float $$7, float $$8, @Nullable LookAt $$9
+      CommandSourceStack $$0, Entity $$1, ServerLevel $$2, double $$3, double $$4, double $$5, Set<Relative> $$6, float $$7, float $$8, LookAt $$9
    ) throws CommandSyntaxException {
       BlockPos $$10 = BlockPos.containing($$3, $$4, $$5);
       if (!Level.isInSpawnableBounds($$10)) {

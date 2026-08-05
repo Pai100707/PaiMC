@@ -5,7 +5,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos.MutableBlockPos;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Mob;
-import org.jspecify.annotations.Nullable;
 
 public class AmphibiousNodeEvaluator extends WalkNodeEvaluator {
    private final boolean prefersShallowSwimming;
@@ -80,7 +79,7 @@ public class AmphibiousNodeEvaluator extends WalkNodeEvaluator {
       return $$2;
    }
 
-   private boolean isVerticalNeighborValid(@Nullable Node $$0, Node $$1) {
+   private boolean isVerticalNeighborValid(Node $$0, Node $$1) {
       return this.isNeighborValid($$0, $$1) && $$0.type == PathType.WATER;
    }
 

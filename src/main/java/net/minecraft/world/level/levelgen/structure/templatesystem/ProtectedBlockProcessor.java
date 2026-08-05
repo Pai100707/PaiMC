@@ -6,7 +6,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import org.jspecify.annotations.Nullable;
 
 public class ProtectedBlockProcessor extends StructureProcessor {
    public final TagKey<Block> cannotReplace;
@@ -18,7 +17,7 @@ public class ProtectedBlockProcessor extends StructureProcessor {
       this.cannotReplace = $$0;
    }
 
-   @Nullable
+   
    @Override
    public StructureTemplate.StructureBlockInfo processBlock(
       net.minecraft.world.level.LevelReader $$0,

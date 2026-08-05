@@ -10,7 +10,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.redstone.Orientation;
-import org.jspecify.annotations.Nullable;
 
 public class RedstoneLampBlock extends Block {
    public static final MapCodec<RedstoneLampBlock> CODEC = simpleCodec(RedstoneLampBlock::new);
@@ -26,14 +25,14 @@ public class RedstoneLampBlock extends Block {
       this.registerDefaultState(this.defaultBlockState().setValue(LIT, false));
    }
 
-   @Nullable
+   
    @Override
    public BlockState getStateForPlacement(BlockPlaceContext $$0) {
       return this.defaultBlockState().setValue(LIT, $$0.getLevel().hasNeighborSignal($$0.getClickedPos()));
    }
 
    @Override
-   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, @Nullable Orientation $$4, boolean $$5) {
+   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, Orientation $$4, boolean $$5) {
       if (!$$1.isClientSide()) {
          boolean $$6 = $$0.getValue(LIT);
          if ($$6 != $$1.hasNeighborSignal($$2)) {

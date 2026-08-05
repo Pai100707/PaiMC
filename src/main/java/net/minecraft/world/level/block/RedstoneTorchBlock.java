@@ -17,7 +17,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.redstone.ExperimentalRedstoneUtils;
 import net.minecraft.world.level.redstone.Orientation;
-import org.jspecify.annotations.Nullable;
 
 public class RedstoneTorchBlock extends BaseTorchBlock {
    public static final MapCodec<RedstoneTorchBlock> CODEC = simpleCodec(RedstoneTorchBlock::new);
@@ -90,7 +89,7 @@ public class RedstoneTorchBlock extends BaseTorchBlock {
    }
 
    @Override
-   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, @Nullable Orientation $$4, boolean $$5) {
+   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, Orientation $$4, boolean $$5) {
       if ($$0.getValue(LIT) == this.hasNeighborSignal($$1, $$2, $$0) && !$$1.getBlockTicks().willTickThisTick($$2, this)) {
          $$1.scheduleTick($$2, this, 2);
       }
@@ -140,7 +139,7 @@ public class RedstoneTorchBlock extends BaseTorchBlock {
       return false;
    }
 
-   @Nullable
+   
    protected Orientation randomOrientation(net.minecraft.world.level.Level $$0, BlockState $$1) {
       return ExperimentalRedstoneUtils.initialOrientation($$0, null, Direction.UP);
    }

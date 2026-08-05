@@ -5,16 +5,15 @@ import java.util.Map;
 import java.util.Optional;
 import net.minecraft.util.StringUtil;
 import net.minecraft.world.level.block.Block;
-import org.jspecify.annotations.Nullable;
 
 public class BlockFamily {
    private final Block baseBlock;
    final Map<net.minecraft.data.BlockFamily.Variant, Block> variants = Maps.newHashMap();
    boolean generateModel = true;
    boolean generateRecipe = true;
-   @Nullable
+   
    String recipeGroupPrefix;
-   @Nullable
+   
    String recipeUnlockedBy;
 
    BlockFamily(Block $$0) {

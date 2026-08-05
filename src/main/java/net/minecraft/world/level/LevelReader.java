@@ -22,14 +22,13 @@ import net.minecraft.world.level.chunk.status.ChunkStatus;
 import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.phys.AABB;
-import org.jspecify.annotations.Nullable;
 
 public interface LevelReader
    extends net.minecraft.world.level.BlockAndTintGetter,
    net.minecraft.world.level.CollisionGetter,
    net.minecraft.world.level.SignalGetter,
    BiomeManager.NoiseBiomeSource {
-   @Nullable
+   
    ChunkAccess getChunk(int var1, int var2, ChunkStatus var3, boolean var4);
 
    @Deprecated
@@ -139,7 +138,7 @@ public interface LevelReader
       return this.getChunk($$0, $$1, $$2, true);
    }
 
-   @Nullable
+   
    @Override
    default net.minecraft.world.level.BlockGetter getChunkForCollisions(int $$0, int $$1) {
       return this.getChunk($$0, $$1, ChunkStatus.EMPTY, false);

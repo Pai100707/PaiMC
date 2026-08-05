@@ -57,7 +57,6 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class Panda extends Animal {
    private static final EntityDataAccessor<Integer> UNHAPPY_COUNTER = SynchedEntityData.defineId(Panda.class, EntityDataSerializers.INT);
@@ -234,7 +233,7 @@ public class Panda extends Animal {
       this.setHiddenGene($$0.read("HiddenGene", Panda.Gene.CODEC).orElse(Panda.Gene.NORMAL));
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.AgeableMob getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       Panda $$2 = net.minecraft.world.entity.EntityType.PANDA.create($$0, net.minecraft.world.entity.EntitySpawnReason.BREEDING);
@@ -542,13 +541,13 @@ public class Panda extends Animal {
       return super.hurtServer($$0, $$1, $$2);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       RandomSource $$4 = $$0.getRandom();
       this.setMainGene(Panda.Gene.getRandom($$4));
@@ -561,7 +560,7 @@ public class Panda extends Animal {
       return super.finalizeSpawn($$0, $$1, $$2, $$3);
    }
 
-   public void setGeneFromParents(Panda $$0, @Nullable Panda $$1) {
+   public void setGeneFromParents(Panda $$0, Panda $$1) {
       if ($$1 == null) {
          if (this.random.nextBoolean()) {
             this.setMainGene($$0.getOneOfGenesRandomly());
@@ -650,7 +649,7 @@ public class Panda extends Animal {
       }
    }
 
-   @Nullable
+   
    @Override
    protected SoundEvent getAmbientSound() {
       if (this.isAggressive()) {
@@ -670,13 +669,13 @@ public class Panda extends Animal {
       return $$0.is(ItemTags.PANDA_FOOD);
    }
 
-   @Nullable
+   
    @Override
    protected SoundEvent getDeathSound() {
       return SoundEvents.PANDA_DEATH;
    }
 
-   @Nullable
+   
    @Override
    protected SoundEvent getHurtSound(DamageSource $$0) {
       return SoundEvents.PANDA_HURT;

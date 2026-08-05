@@ -21,7 +21,6 @@ import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.levelgen.DensityFunction;
 import net.minecraft.world.level.levelgen.DensityFunctions;
-import org.jspecify.annotations.Nullable;
 
 public class Climate {
    private static final boolean DEBUG_SLOW_BIOME_SEARCH = false;
@@ -121,7 +120,7 @@ public class Climate {
          return $$1 > 0L ? $$1 : Math.max($$2, 0L);
       }
 
-      public Climate.Parameter span(@Nullable Climate.Parameter $$0) {
+      public Climate.Parameter span(Climate.Parameter $$0) {
          return $$0 == null ? this : new Climate.Parameter(Math.min(this.min, $$0.min()), Math.max(this.max, $$0.max()));
       }
    }
@@ -374,7 +373,7 @@ public class Climate {
          }
 
          @Override
-         protected Climate.RTree.Leaf<T> search(long[] $$0, @Nullable Climate.RTree.Leaf<T> $$1, Climate.DistanceMetric<T> $$2) {
+         protected Climate.RTree.Leaf<T> search(long[] $$0, Climate.RTree.Leaf<T> $$1, Climate.DistanceMetric<T> $$2) {
             return this;
          }
       }
@@ -386,7 +385,7 @@ public class Climate {
             this.parameterSpace = $$0.toArray(new Climate.Parameter[0]);
          }
 
-         protected abstract Climate.RTree.Leaf<T> search(long[] var1, @Nullable Climate.RTree.Leaf<T> var2, Climate.DistanceMetric<T> var3);
+         protected abstract Climate.RTree.Leaf<T> search(long[] var1, Climate.RTree.Leaf<T> var2, Climate.DistanceMetric<T> var3);
 
          protected long distance(long[] $$0) {
             long $$1 = 0L;
@@ -417,7 +416,7 @@ public class Climate {
          }
 
          @Override
-         protected Climate.RTree.Leaf<T> search(long[] $$0, @Nullable Climate.RTree.Leaf<T> $$1, Climate.DistanceMetric<T> $$2) {
+         protected Climate.RTree.Leaf<T> search(long[] $$0, Climate.RTree.Leaf<T> $$1, Climate.DistanceMetric<T> $$2) {
             long $$3 = $$1 == null ? Long.MAX_VALUE : $$2.distance($$1, $$0);
             Climate.RTree.Leaf<T> $$4 = $$1;
 

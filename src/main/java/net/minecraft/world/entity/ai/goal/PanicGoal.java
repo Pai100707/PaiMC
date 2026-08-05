@@ -10,7 +10,6 @@ import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.ai.util.DefaultRandomPos;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class PanicGoal extends Goal {
    public static final int WATER_CHECK_DISTANCE_VERTICAL = 1;
@@ -92,7 +91,7 @@ public class PanicGoal extends Goal {
       return !this.mob.getNavigation().isDone();
    }
 
-   @Nullable
+   
    protected BlockPos lookForWater(BlockGetter $$0, net.minecraft.world.entity.Entity $$1, int $$2) {
       BlockPos $$3 = $$1.blockPosition();
       return !$$0.getBlockState($$3).getCollisionShape($$0, $$3).isEmpty()

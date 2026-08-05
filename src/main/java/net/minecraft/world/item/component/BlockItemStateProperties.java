@@ -17,7 +17,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.Property;
-import org.jspecify.annotations.Nullable;
 
 public record BlockItemStateProperties(Map<String, String> properties) implements TooltipProvider {
    public static final BlockItemStateProperties EMPTY = new BlockItemStateProperties(Map.of());
@@ -38,7 +37,7 @@ public record BlockItemStateProperties(Map<String, String> properties) implement
       return this.with($$0, (T)$$1.getValue($$0));
    }
 
-   @Nullable
+   
    public <T extends Comparable<T>> T get(Property<T> $$0) {
       String $$1 = this.properties.get($$0.getName());
       return (T)($$1 == null ? null : $$0.getValue($$1).orElse(null));

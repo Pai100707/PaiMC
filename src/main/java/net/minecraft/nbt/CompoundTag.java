@@ -21,7 +21,6 @@ import java.util.Map.Entry;
 import java.util.function.BiConsumer;
 import net.minecraft.CrashReport;
 import net.minecraft.CrashReportCategory;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public final class CompoundTag implements net.minecraft.nbt.Tag {
@@ -229,7 +228,7 @@ public final class CompoundTag implements net.minecraft.nbt.Tag {
       return this.tags.size();
    }
 
-   @Nullable
+   
    public net.minecraft.nbt.Tag put(String $$0, net.minecraft.nbt.Tag $$1) {
       return this.tags.put($$0, $$1);
    }
@@ -278,7 +277,7 @@ public final class CompoundTag implements net.minecraft.nbt.Tag {
       this.tags.put($$0, net.minecraft.nbt.ByteTag.valueOf($$1));
    }
 
-   @Nullable
+   
    public net.minecraft.nbt.Tag get(String $$0) {
       return this.tags.get($$0);
    }
@@ -383,7 +382,7 @@ public final class CompoundTag implements net.minecraft.nbt.Tag {
       return this.getByteOr($$0, (byte)($$1 ? 1 : 0)) != 0;
    }
 
-   @Nullable
+   
    public net.minecraft.nbt.Tag remove(String $$0) {
       return this.tags.remove($$0);
    }
@@ -503,7 +502,7 @@ public final class CompoundTag implements net.minecraft.nbt.Tag {
       this.store($$0, $$1, net.minecraft.nbt.NbtOps.INSTANCE, $$2);
    }
 
-   public <T> void storeNullable(String $$0, Codec<T> $$1, @Nullable T $$2) {
+   public <T> void storeNullable(String $$0, Codec<T> $$1, T $$2) {
       if ($$2 != null) {
          this.store($$0, $$1, $$2);
       }
@@ -513,7 +512,7 @@ public final class CompoundTag implements net.minecraft.nbt.Tag {
       this.put($$0, (net.minecraft.nbt.Tag)$$1.encodeStart($$2, $$3).getOrThrow());
    }
 
-   public <T> void storeNullable(String $$0, Codec<T> $$1, DynamicOps<net.minecraft.nbt.Tag> $$2, @Nullable T $$3) {
+   public <T> void storeNullable(String $$0, Codec<T> $$1, DynamicOps<net.minecraft.nbt.Tag> $$2, T $$3) {
       if ($$3 != null) {
          this.store($$0, $$1, $$2, $$3);
       }

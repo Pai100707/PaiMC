@@ -5,7 +5,6 @@ import java.util.function.Consumer;
 import net.minecraft.util.Mth;
 import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class InterpolationHandler {
    public static final int DEFAULT_INTERPOLATION_STEPS = 3;
@@ -14,11 +13,11 @@ public class InterpolationHandler {
    private final net.minecraft.world.entity.InterpolationHandler.InterpolationData interpolationData = new net.minecraft.world.entity.InterpolationHandler.InterpolationData(
       0, Vec3.ZERO, 0.0F, 0.0F
    );
-   @Nullable
+   
    private Vec3 previousTickPosition;
-   @Nullable
+   
    private Vec2 previousTickRot;
-   @Nullable
+   
    private final Consumer<net.minecraft.world.entity.InterpolationHandler> onInterpolationStart;
 
    public InterpolationHandler(net.minecraft.world.entity.Entity $$0) {
@@ -29,11 +28,11 @@ public class InterpolationHandler {
       this($$0, $$1, null);
    }
 
-   public InterpolationHandler(net.minecraft.world.entity.Entity $$0, @Nullable Consumer<net.minecraft.world.entity.InterpolationHandler> $$1) {
+   public InterpolationHandler(net.minecraft.world.entity.Entity $$0, Consumer<net.minecraft.world.entity.InterpolationHandler> $$1) {
       this($$0, 3, $$1);
    }
 
-   public InterpolationHandler(net.minecraft.world.entity.Entity $$0, int $$1, @Nullable Consumer<net.minecraft.world.entity.InterpolationHandler> $$2) {
+   public InterpolationHandler(net.minecraft.world.entity.Entity $$0, int $$1, Consumer<net.minecraft.world.entity.InterpolationHandler> $$2) {
       this.interpolationSteps = $$1;
       this.entity = $$0;
       this.onInterpolationStart = $$2;

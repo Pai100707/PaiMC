@@ -21,7 +21,6 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.apache.commons.lang3.mutable.MutableInt;
-import org.jspecify.annotations.Nullable;
 
 public class PortalShape {
    private static final int MIN_WIDTH = 2;
@@ -78,7 +77,7 @@ public class PortalShape {
       }
    }
 
-   @Nullable
+   
    private static BlockPos calculateBottomLeft(net.minecraft.world.level.BlockGetter $$0, Direction $$1, BlockPos $$2) {
       int $$3 = Math.max($$0.getMinY(), $$2.getY() - 21);
 

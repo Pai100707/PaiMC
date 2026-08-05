@@ -1,6 +1,5 @@
 package net.minecraft.util.parsing.packrat;
 
-import org.jspecify.annotations.Nullable;
 
 public abstract class CachedParseState<S> implements ParseState<S> {
    private CachedParseState.PositionCache[] positionCache = new CachedParseState.PositionCache[256];
@@ -24,7 +23,7 @@ public abstract class CachedParseState<S> implements ParseState<S> {
       return this.errorCollector;
    }
 
-   @Nullable
+   
    @Override
    public <T> T parse(NamedRule<S, T> $$0) {
       int $$1 = this.mark();
@@ -107,7 +106,7 @@ public abstract class CachedParseState<S> implements ParseState<S> {
       return this.silent;
    }
 
-   record CacheEntry<T>(@Nullable T value, int markAfterParse) {
+   record CacheEntry<T>(T value, int markAfterParse) {
       public static final CachedParseState.CacheEntry<?> NEGATIVE = new CachedParseState.CacheEntry(null, -1);
 
       public static <T> CachedParseState.CacheEntry<T> negativeEntry() {
@@ -147,7 +146,7 @@ public abstract class CachedParseState<S> implements ParseState<S> {
          return $$1;
       }
 
-      @Nullable
+      
       public <T> CachedParseState.CacheEntry<T> getValue(int $$0) {
          return (CachedParseState.CacheEntry<T>)this.atomCache[$$0 + 1];
       }
@@ -170,7 +169,7 @@ public abstract class CachedParseState<S> implements ParseState<S> {
          return CachedParseState.this.scope();
       }
 
-      @Nullable
+      
       @Override
       public <T> T parse(NamedRule<S, T> $$0) {
          return CachedParseState.this.parse($$0);

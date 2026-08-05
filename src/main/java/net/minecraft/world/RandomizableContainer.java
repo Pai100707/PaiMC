@@ -16,16 +16,15 @@ import net.minecraft.world.level.storage.loot.LootParams.Builder;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public interface RandomizableContainer extends Container {
    String LOOT_TABLE_TAG = "LootTable";
    String LOOT_TABLE_SEED_TAG = "LootTableSeed";
 
-   @Nullable
+   
    ResourceKey<LootTable> getLootTable();
 
-   void setLootTable(@Nullable ResourceKey<LootTable> var1);
+   void setLootTable(ResourceKey<LootTable> var1);
 
    default void setLootTable(ResourceKey<LootTable> $$0, long $$1) {
       this.setLootTable($$0);
@@ -38,7 +37,7 @@ public interface RandomizableContainer extends Container {
 
    BlockPos getBlockPos();
 
-   @Nullable
+   
    Level getLevel();
 
    static void setBlockEntityLootTable(BlockGetter $$0, RandomSource $$1, BlockPos $$2, ResourceKey<LootTable> $$3) {
@@ -69,7 +68,7 @@ public interface RandomizableContainer extends Container {
       }
    }
 
-   default void unpackLootTable(@Nullable Player $$0) {
+   default void unpackLootTable(Player $$0) {
       Level $$1 = this.getLevel();
       BlockPos $$2 = this.getBlockPos();
       ResourceKey<LootTable> $$3 = this.getLootTable();

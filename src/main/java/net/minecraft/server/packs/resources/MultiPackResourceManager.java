@@ -13,7 +13,6 @@ import java.util.stream.Stream;
 import net.minecraft.resources.Identifier;
 import net.minecraft.server.packs.PackResources;
 import net.minecraft.server.packs.PackType;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class MultiPackResourceManager implements CloseableResourceManager {
@@ -55,7 +54,7 @@ public class MultiPackResourceManager implements CloseableResourceManager {
       this.namespacedManagers = $$2;
    }
 
-   @Nullable
+   
    private ResourceFilterSection getPackFilterSection(PackResources $$0) {
       try {
          return $$0.getMetadataSection(ResourceFilterSection.TYPE);

@@ -5,7 +5,6 @@ import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import net.minecraft.util.parsing.packrat.DelayedException;
 import net.minecraft.util.parsing.packrat.ParseState;
 import net.minecraft.util.parsing.packrat.Rule;
-import org.jspecify.annotations.Nullable;
 
 public abstract class NumberRunParseRule implements Rule<StringReader, String> {
    private final DelayedException<CommandSyntaxException> noValueError;
@@ -16,7 +15,7 @@ public abstract class NumberRunParseRule implements Rule<StringReader, String> {
       this.underscoreNotAllowedError = $$1;
    }
 
-   @Nullable
+   
    public String parse(ParseState<StringReader> $$0) {
       StringReader $$1 = $$0.input();
       $$1.skipWhitespace();

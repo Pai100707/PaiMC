@@ -14,7 +14,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.level.redstone.Orientation;
-import org.jspecify.annotations.Nullable;
 
 public abstract class AbstractSkullBlock extends BaseEntityBlock {
    public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
@@ -34,7 +33,7 @@ public abstract class AbstractSkullBlock extends BaseEntityBlock {
       return new SkullBlockEntity($$0, $$1);
    }
 
-   @Nullable
+   
    @Override
    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(net.minecraft.world.level.Level $$0, BlockState $$1, BlockEntityType<T> $$2) {
       if ($$0.isClientSide()) {
@@ -67,7 +66,7 @@ public abstract class AbstractSkullBlock extends BaseEntityBlock {
    }
 
    @Override
-   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, @Nullable Orientation $$4, boolean $$5) {
+   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, Orientation $$4, boolean $$5) {
       if (!$$1.isClientSide()) {
          boolean $$6 = $$1.hasNeighborSignal($$2);
          if ($$6 != $$0.getValue(POWERED)) {

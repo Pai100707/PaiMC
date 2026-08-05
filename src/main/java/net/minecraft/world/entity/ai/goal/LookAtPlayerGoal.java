@@ -5,12 +5,11 @@ import java.util.function.Predicate;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.player.Player;
-import org.jspecify.annotations.Nullable;
 
 public class LookAtPlayerGoal extends Goal {
    public static final float DEFAULT_PROBABILITY = 0.02F;
    protected final net.minecraft.world.entity.Mob mob;
-   @Nullable
+   
    protected net.minecraft.world.entity.Entity lookAt;
    protected final float lookDistance;
    private int lookTime;

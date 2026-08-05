@@ -17,7 +17,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.storage.TagValueOutput;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public record NbtPredicate(CompoundTag tag) {
@@ -35,7 +34,7 @@ public record NbtPredicate(CompoundTag tag) {
       return this.matches(getEntityTagToCompare($$0));
    }
 
-   public boolean matches(@Nullable Tag $$0) {
+   public boolean matches(Tag $$0) {
       return $$0 != null && NbtUtils.compareNbt(this.tag, $$0, true);
    }
 

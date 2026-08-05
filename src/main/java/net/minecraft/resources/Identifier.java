@@ -11,7 +11,6 @@ import net.minecraft.IdentifierException;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
-import org.jspecify.annotations.Nullable;
 
 public final class Identifier implements Comparable<net.minecraft.resources.Identifier> {
    public static final Codec<net.minecraft.resources.Identifier> CODEC = Codec.STRING
@@ -51,12 +50,12 @@ public final class Identifier implements Comparable<net.minecraft.resources.Iden
       return new net.minecraft.resources.Identifier("minecraft", assertValidPath("minecraft", $$0));
    }
 
-   @Nullable
+   
    public static net.minecraft.resources.Identifier tryParse(String $$0) {
       return tryBySeparator($$0, ':');
    }
 
-   @Nullable
+   
    public static net.minecraft.resources.Identifier tryBuild(String $$0, String $$1) {
       return isValidNamespace($$0) && isValidPath($$1) ? new net.minecraft.resources.Identifier($$0, $$1) : null;
    }
@@ -76,7 +75,7 @@ public final class Identifier implements Comparable<net.minecraft.resources.Iden
       }
    }
 
-   @Nullable
+   
    public static net.minecraft.resources.Identifier tryBySeparator(String $$0, char $$1) {
       int $$2 = $$0.indexOf($$1);
       if ($$2 >= 0) {

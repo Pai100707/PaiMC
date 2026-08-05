@@ -27,7 +27,6 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.tags.TagLoader.LoadResult;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.Util;
-import org.jspecify.annotations.Nullable;
 
 public class MappedRegistry<T> implements net.minecraft.core.WritableRegistry<T> {
    private final ResourceKey<? extends net.minecraft.core.Registry<T>> key;
@@ -41,7 +40,7 @@ public class MappedRegistry<T> implements net.minecraft.core.WritableRegistry<T>
    private final Map<TagKey<T>, net.minecraft.core.HolderSet.Named<T>> frozenTags = new IdentityHashMap<>();
    net.minecraft.core.MappedRegistry.TagSet<T> allTags = net.minecraft.core.MappedRegistry.TagSet.unbound();
    private boolean frozen;
-   @Nullable
+   
    private Map<T, net.minecraft.core.Holder.Reference<T>> unregisteredIntrusiveHolders;
 
    @Override
@@ -117,7 +116,7 @@ public class MappedRegistry<T> implements net.minecraft.core.WritableRegistry<T>
       }
    }
 
-   @Nullable
+   
    @Override
    public Identifier getKey(T $$0) {
       net.minecraft.core.Holder.Reference<T> $$1 = this.byValue.get($$0);
@@ -130,17 +129,17 @@ public class MappedRegistry<T> implements net.minecraft.core.WritableRegistry<T>
    }
 
    @Override
-   public int getId(@Nullable T $$0) {
+   public int getId(T $$0) {
       return this.toId.getInt($$0);
    }
 
-   @Nullable
+   
    @Override
-   public T getValue(@Nullable ResourceKey<T> $$0) {
+   public T getValue(ResourceKey<T> $$0) {
       return getValueFromNullable(this.byKey.get($$0));
    }
 
-   @Nullable
+   
    @Override
    public T byId(int $$0) {
       return (T)($$0 >= 0 && $$0 < this.byId.size() ? ((net.minecraft.core.Holder.Reference)this.byId.get($$0)).value() : null);
@@ -203,15 +202,15 @@ public class MappedRegistry<T> implements net.minecraft.core.WritableRegistry<T>
       return Iterators.transform(this.byId.iterator(), net.minecraft.core.Holder::value);
    }
 
-   @Nullable
+   
    @Override
-   public T getValue(@Nullable Identifier $$0) {
+   public T getValue(Identifier $$0) {
       net.minecraft.core.Holder.Reference<T> $$1 = this.byLocation.get($$0);
       return getValueFromNullable($$1);
    }
 
-   @Nullable
-   private static <T> T getValueFromNullable(@Nullable net.minecraft.core.Holder.Reference<T> $$0) {
+   
+   private static <T> T getValueFromNullable(net.minecraft.core.Holder.Reference<T> $$0) {
       return $$0 != null ? $$0.value() : null;
    }
 

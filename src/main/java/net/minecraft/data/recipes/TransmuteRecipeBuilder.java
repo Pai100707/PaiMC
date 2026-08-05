@@ -14,7 +14,6 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.TransmuteRecipe;
 import net.minecraft.world.item.crafting.TransmuteResult;
-import org.jspecify.annotations.Nullable;
 
 public class TransmuteRecipeBuilder implements RecipeBuilder {
    private final RecipeCategory category;
@@ -22,7 +21,7 @@ public class TransmuteRecipeBuilder implements RecipeBuilder {
    private final Ingredient input;
    private final Ingredient material;
    private final Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
-   @Nullable
+   
    private String group;
 
    private TransmuteRecipeBuilder(RecipeCategory $$0, Holder<Item> $$1, Ingredient $$2, Ingredient $$3) {
@@ -41,7 +40,7 @@ public class TransmuteRecipeBuilder implements RecipeBuilder {
       return this;
    }
 
-   public TransmuteRecipeBuilder group(@Nullable String $$0) {
+   public TransmuteRecipeBuilder group(String $$0) {
       this.group = $$0;
       return this;
    }

@@ -5,7 +5,6 @@ import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.PacketType;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
-import org.jspecify.annotations.Nullable;
 
 public class ClientboundEntityEventPacket implements Packet<ClientGamePacketListener> {
    public static final StreamCodec<net.minecraft.network.FriendlyByteBuf, ClientboundEntityEventPacket> STREAM_CODEC = Packet.codec(
@@ -38,7 +37,7 @@ public class ClientboundEntityEventPacket implements Packet<ClientGamePacketList
       $$0.handleEntityEvent(this);
    }
 
-   @Nullable
+   
    public Entity getEntity(Level $$0) {
       return $$0.getEntity(this.entityId);
    }

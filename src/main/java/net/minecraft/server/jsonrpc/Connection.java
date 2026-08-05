@@ -34,7 +34,6 @@ import net.minecraft.server.jsonrpc.methods.RemoteRpcErrorException;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.util.Util;
 import org.jetbrains.annotations.Contract;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class Connection extends SimpleChannelInboundHandler<JsonElement> {
@@ -135,9 +134,9 @@ public class Connection extends SimpleChannelInboundHandler<JsonElement> {
    }
 
    @Contract("_,_,false->null;_,_,true->!null")
-   @Nullable
+   
    private <Params, Result> CompletableFuture<Result> sendRequest(
-      Reference<? extends OutgoingRpcMethod<Params, ? extends Result>> $$0, @Nullable Params $$1, boolean $$2
+      Reference<? extends OutgoingRpcMethod<Params, ? extends Result>> $$0, Params $$1, boolean $$2
    ) {
       List<JsonElement> $$3 = $$1 != null ? List.of(Objects.requireNonNull(((OutgoingRpcMethod)$$0.value()).encodeParams($$1))) : List.of();
       if ($$2) {
@@ -154,7 +153,7 @@ public class Connection extends SimpleChannelInboundHandler<JsonElement> {
    }
 
    @VisibleForTesting
-   @Nullable
+   
    JsonObject handleJsonObject(JsonObject $$0) {
       try {
          JsonElement $$1 = JsonRPCUtils.getRequestId($$0);
@@ -193,8 +192,8 @@ public class Connection extends SimpleChannelInboundHandler<JsonElement> {
       return GsonHelper.isNumberValue($$0);
    }
 
-   @Nullable
-   private JsonObject handleIncomingRequest(@Nullable JsonElement $$0, String $$1, @Nullable JsonElement $$2) {
+   
+   private JsonObject handleIncomingRequest(JsonElement $$0, String $$1, JsonElement $$2) {
       boolean $$3 = $$0 != null;
 
       try {
@@ -216,8 +215,8 @@ public class Connection extends SimpleChannelInboundHandler<JsonElement> {
       }
    }
 
-   @Nullable
-   public JsonElement dispatchIncomingRequest(String $$0, @Nullable JsonElement $$1) {
+   
+   public JsonElement dispatchIncomingRequest(String $$0, JsonElement $$1) {
       Identifier $$2 = Identifier.tryParse($$0);
       if ($$2 == null) {
          throw new InvalidRequestJsonRpcException("Failed to parse method value: " + $$0);
@@ -250,8 +249,8 @@ public class Connection extends SimpleChannelInboundHandler<JsonElement> {
       }
    }
 
-   @Nullable
-   private JsonObject handleError(@Nullable JsonElement $$0, JsonObject $$1) {
+   
+   private JsonObject handleError(JsonElement $$0, JsonObject $$1) {
       if ($$0 != null && isValidResponseId($$0)) {
          PendingRpcRequest<?> $$2 = (PendingRpcRequest<?>)this.pendingRequests.remove($$0.getAsInt());
          if ($$2 != null) {

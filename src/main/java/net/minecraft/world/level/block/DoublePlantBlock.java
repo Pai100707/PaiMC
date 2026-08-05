@@ -18,7 +18,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.material.Fluids;
-import org.jspecify.annotations.Nullable;
 
 public class DoublePlantBlock extends VegetationBlock {
    public static final MapCodec<DoublePlantBlock> CODEC = simpleCodec(DoublePlantBlock::new);
@@ -55,7 +54,7 @@ public class DoublePlantBlock extends VegetationBlock {
       }
    }
 
-   @Nullable
+   
    @Override
    public BlockState getStateForPlacement(BlockPlaceContext $$0) {
       BlockPos $$1 = $$0.getClickedPos();
@@ -64,7 +63,7 @@ public class DoublePlantBlock extends VegetationBlock {
    }
 
    @Override
-   public void setPlacedBy(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, @Nullable LivingEntity $$3, ItemStack $$4) {
+   public void setPlacedBy(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, LivingEntity $$3, ItemStack $$4) {
       BlockPos $$5 = $$1.above();
       $$0.setBlock($$5, copyWaterloggedFrom($$0, $$5, this.defaultBlockState().setValue(HALF, DoubleBlockHalf.UPPER)), 3);
    }
@@ -103,7 +102,7 @@ public class DoublePlantBlock extends VegetationBlock {
    }
 
    @Override
-   public void playerDestroy(net.minecraft.world.level.Level $$0, Player $$1, BlockPos $$2, BlockState $$3, @Nullable BlockEntity $$4, ItemStack $$5) {
+   public void playerDestroy(net.minecraft.world.level.Level $$0, Player $$1, BlockPos $$2, BlockState $$3, BlockEntity $$4, ItemStack $$5) {
       super.playerDestroy($$0, $$1, $$2, Blocks.AIR.defaultBlockState(), $$4, $$5);
    }
 

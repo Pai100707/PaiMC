@@ -100,7 +100,6 @@ import net.minecraft.world.level.block.state.pattern.BlockInWorld;
 import net.minecraft.world.level.gameevent.GameEvent;
 import org.apache.commons.lang3.function.TriConsumer;
 import org.apache.commons.lang3.mutable.MutableBoolean;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public final class ItemStack implements DataComponentHolder {
@@ -173,10 +172,10 @@ public final class ItemStack implements DataComponentHolder {
    private int count;
    private int popTime;
    @Deprecated
-   @Nullable
+   
    private final net.minecraft.world.item.Item item;
    final PatchedDataComponentMap components;
-   @Nullable
+   
    private Entity entityRepresentation;
 
    public static DataResult<net.minecraft.world.item.ItemStack> validateStrict(net.minecraft.world.item.ItemStack $$0) {
@@ -287,7 +286,7 @@ public final class ItemStack implements DataComponentHolder {
       this.components = $$2;
    }
 
-   private ItemStack(@Nullable Void $$0) {
+   private ItemStack(Void $$0) {
       this.item = null;
       this.components = new PatchedDataComponentMap(DataComponentMap.EMPTY);
    }
@@ -458,14 +457,14 @@ public final class ItemStack implements DataComponentHolder {
       return this.isDamageableItem() && this.getDamageValue() >= this.getMaxDamage() - 1;
    }
 
-   public void hurtAndBreak(int $$0, ServerLevel $$1, @Nullable ServerPlayer $$2, Consumer<net.minecraft.world.item.Item> $$3) {
+   public void hurtAndBreak(int $$0, ServerLevel $$1, ServerPlayer $$2, Consumer<net.minecraft.world.item.Item> $$3) {
       int $$4 = this.processDurabilityChange($$0, $$1, $$2);
       if ($$4 != 0) {
          this.applyDamage(this.getDamageValue() + $$4, $$2, $$3);
       }
    }
 
-   private int processDurabilityChange(int $$0, ServerLevel $$1, @Nullable ServerPlayer $$2) {
+   private int processDurabilityChange(int $$0, ServerLevel $$1, ServerPlayer $$2) {
       if (!this.isDamageableItem()) {
          return 0;
       } else if ($$2 != null && $$2.hasInfiniteMaterials()) {
@@ -475,7 +474,7 @@ public final class ItemStack implements DataComponentHolder {
       }
    }
 
-   private void applyDamage(int $$0, @Nullable ServerPlayer $$1, Consumer<net.minecraft.world.item.Item> $$2) {
+   private void applyDamage(int $$0, ServerPlayer $$1, Consumer<net.minecraft.world.item.Item> $$2) {
       if ($$1 != null) {
          CriteriaTriggers.ITEM_DURABILITY_CHANGED.trigger($$1, this, $$0);
       }
@@ -690,7 +689,7 @@ public final class ItemStack implements DataComponentHolder {
       return CODEC.lenientOptionalFieldOf($$0).xmap($$0x -> $$0x.orElse(EMPTY), $$0x -> $$0x.isEmpty() ? Optional.empty() : Optional.of($$0x));
    }
 
-   public static int hashItemAndComponents(@Nullable net.minecraft.world.item.ItemStack $$0) {
+   public static int hashItemAndComponents(net.minecraft.world.item.ItemStack $$0) {
       if ($$0 != null) {
          int $$1 = 31 + $$0.getItem().hashCode();
          return 31 * $$1 + $$0.getComponents().hashCode();
@@ -715,7 +714,7 @@ public final class ItemStack implements DataComponentHolder {
       return this.getCount() + " " + this.getItem();
    }
 
-   public void inventoryTick(Level $$0, Entity $$1, @Nullable EquipmentSlot $$2) {
+   public void inventoryTick(Level $$0, Entity $$1, EquipmentSlot $$2) {
       if (this.popTime > 0) {
          this.popTime--;
       }
@@ -763,12 +762,12 @@ public final class ItemStack implements DataComponentHolder {
       return this.getItem().useOnRelease(this);
    }
 
-   @Nullable
-   public <T> T set(DataComponentType<T> $$0, @Nullable T $$1) {
+   
+   public <T> T set(DataComponentType<T> $$0, T $$1) {
       return (T)this.components.set($$0, $$1);
    }
 
-   @Nullable
+   
    public <T> T set(TypedDataComponent<T> $$0) {
       return (T)this.components.set($$0);
    }
@@ -777,18 +776,18 @@ public final class ItemStack implements DataComponentHolder {
       this.set($$0, $$1.get($$0));
    }
 
-   @Nullable
+   
    public <T, U> T update(DataComponentType<T> $$0, T $$1, U $$2, BiFunction<T, U, T> $$3) {
       return this.set($$0, $$3.apply((T)this.getOrDefault($$0, $$1), $$2));
    }
 
-   @Nullable
+   
    public <T> T update(DataComponentType<T> $$0, T $$1, UnaryOperator<T> $$2) {
       T $$3 = (T)this.getOrDefault($$0, $$1);
       return this.set($$0, $$2.apply($$3));
    }
 
-   @Nullable
+   
    public <T> T remove(DataComponentType<? extends T> $$0) {
       return (T)this.components.remove($$0);
    }
@@ -816,7 +815,7 @@ public final class ItemStack implements DataComponentHolder {
       return $$0 != null ? $$0 : this.getItemName();
    }
 
-   @Nullable
+   
    public Component getCustomName() {
       Component $$0 = (Component)this.get(DataComponents.CUSTOM_NAME);
       if ($$0 != null) {
@@ -860,7 +859,7 @@ public final class ItemStack implements DataComponentHolder {
       }
    }
 
-   public List<Component> getTooltipLines(net.minecraft.world.item.Item.TooltipContext $$0, @Nullable Player $$1, net.minecraft.world.item.TooltipFlag $$2) {
+   public List<Component> getTooltipLines(net.minecraft.world.item.Item.TooltipContext $$0, Player $$1, net.minecraft.world.item.TooltipFlag $$2) {
       TooltipDisplay $$3 = (TooltipDisplay)this.getOrDefault(DataComponents.TOOLTIP_DISPLAY, TooltipDisplay.DEFAULT);
       if (!$$2.isCreative() && $$3.hideTooltip()) {
          boolean $$4 = this.getItem().shouldPrintOpWarning(this, $$1);
@@ -876,7 +875,7 @@ public final class ItemStack implements DataComponentHolder {
    public void addDetailsToTooltip(
       net.minecraft.world.item.Item.TooltipContext $$0,
       TooltipDisplay $$1,
-      @Nullable Player $$2,
+      Player $$2,
       net.minecraft.world.item.TooltipFlag $$3,
       Consumer<Component> $$4
    ) {
@@ -956,7 +955,7 @@ public final class ItemStack implements DataComponentHolder {
       }
    }
 
-   private void addAttributeTooltips(Consumer<Component> $$0, TooltipDisplay $$1, @Nullable Player $$2) {
+   private void addAttributeTooltips(Consumer<Component> $$0, TooltipDisplay $$1, Player $$2) {
       if ($$1.shows(DataComponents.ATTRIBUTE_MODIFIERS)) {
          for (EquipmentSlotGroup $$3 : EquipmentSlotGroup.values()) {
             MutableBoolean $$4 = new MutableBoolean(true);
@@ -1018,18 +1017,18 @@ public final class ItemStack implements DataComponentHolder {
       return this.entityRepresentation instanceof ItemFrame;
    }
 
-   public void setEntityRepresentation(@Nullable Entity $$0) {
+   public void setEntityRepresentation(Entity $$0) {
       if (!this.isEmpty()) {
          this.entityRepresentation = $$0;
       }
    }
 
-   @Nullable
+   
    public ItemFrame getFrame() {
       return this.entityRepresentation instanceof ItemFrame ? (ItemFrame)this.getEntityRepresentation() : null;
    }
 
-   @Nullable
+   
    public Entity getEntityRepresentation() {
       return !this.isEmpty() ? this.entityRepresentation : null;
    }
@@ -1104,13 +1103,13 @@ public final class ItemStack implements DataComponentHolder {
       this.grow(-$$0);
    }
 
-   public void consume(int $$0, @Nullable LivingEntity $$1) {
+   public void consume(int $$0, LivingEntity $$1) {
       if ($$1 == null || !$$1.hasInfiniteMaterials()) {
          this.shrink($$0);
       }
    }
 
-   public net.minecraft.world.item.ItemStack consumeAndReturn(int $$0, @Nullable LivingEntity $$1) {
+   public net.minecraft.world.item.ItemStack consumeAndReturn(int $$0, LivingEntity $$1) {
       net.minecraft.world.item.ItemStack $$2 = this.copyWithCount($$0);
       this.consume($$0, $$1);
       return $$2;

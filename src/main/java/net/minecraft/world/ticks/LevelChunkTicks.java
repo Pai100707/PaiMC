@@ -11,16 +11,15 @@ import java.util.function.BiConsumer;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 import net.minecraft.core.BlockPos;
-import org.jspecify.annotations.Nullable;
 
 public class LevelChunkTicks<T> implements net.minecraft.world.ticks.SerializableTickContainer<T>, net.minecraft.world.ticks.TickContainerAccess<T> {
    private final Queue<net.minecraft.world.ticks.ScheduledTick<T>> tickQueue = new PriorityQueue<>(net.minecraft.world.ticks.ScheduledTick.DRAIN_ORDER);
-   @Nullable
+   
    private List<net.minecraft.world.ticks.SavedTick<T>> pendingTicks;
    private final Set<net.minecraft.world.ticks.ScheduledTick<?>> ticksPerPosition = new ObjectOpenCustomHashSet(
       net.minecraft.world.ticks.ScheduledTick.UNIQUE_TICK_HASH
    );
-   @Nullable
+   
    private BiConsumer<net.minecraft.world.ticks.LevelChunkTicks<T>, net.minecraft.world.ticks.ScheduledTick<T>> onTickAdded;
 
    public LevelChunkTicks() {
@@ -34,16 +33,16 @@ public class LevelChunkTicks<T> implements net.minecraft.world.ticks.Serializabl
       }
    }
 
-   public void setOnTickAdded(@Nullable BiConsumer<net.minecraft.world.ticks.LevelChunkTicks<T>, net.minecraft.world.ticks.ScheduledTick<T>> $$0) {
+   public void setOnTickAdded(BiConsumer<net.minecraft.world.ticks.LevelChunkTicks<T>, net.minecraft.world.ticks.ScheduledTick<T>> $$0) {
       this.onTickAdded = $$0;
    }
 
-   @Nullable
+   
    public net.minecraft.world.ticks.ScheduledTick<T> peek() {
       return this.tickQueue.peek();
    }
 
-   @Nullable
+   
    public net.minecraft.world.ticks.ScheduledTick<T> poll() {
       net.minecraft.world.ticks.ScheduledTick<T> $$0 = this.tickQueue.poll();
       if ($$0 != null) {

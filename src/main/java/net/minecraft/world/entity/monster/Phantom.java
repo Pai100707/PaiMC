@@ -31,14 +31,13 @@ import net.minecraft.world.level.levelgen.Heightmap.Types;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class Phantom extends net.minecraft.world.entity.Mob implements Enemy {
    public static final float FLAP_DEGREES_PER_TICK = 7.448451F;
    public static final int TICKS_PER_FLAP = Mth.ceil(24.166098F);
    private static final EntityDataAccessor<Integer> ID_SIZE = SynchedEntityData.defineId(Phantom.class, EntityDataSerializers.INT);
    Vec3 moveTargetPoint = Vec3.ZERO;
-   @Nullable
+   
    BlockPos anchorPoint;
    Phantom.AttackPhase attackPhase = Phantom.AttackPhase.CIRCLE;
 
@@ -147,7 +146,7 @@ public class Phantom extends net.minecraft.world.entity.Mob implements Enemy {
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       this.anchorPoint = this.blockPosition().above(5);
       this.setPhantomSize(0);

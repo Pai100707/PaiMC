@@ -17,7 +17,6 @@ import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.StructureMode;
 import net.minecraft.world.level.redstone.Orientation;
 import net.minecraft.world.phys.BlockHitResult;
-import org.jspecify.annotations.Nullable;
 
 public class StructureBlock extends BaseEntityBlock implements GameMasterBlock {
    public static final MapCodec<StructureBlock> CODEC = simpleCodec(StructureBlock::new);
@@ -49,7 +48,7 @@ public class StructureBlock extends BaseEntityBlock implements GameMasterBlock {
    }
 
    @Override
-   public void setPlacedBy(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, @Nullable LivingEntity $$3, ItemStack $$4) {
+   public void setPlacedBy(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, LivingEntity $$3, ItemStack $$4) {
       if (!$$0.isClientSide()) {
          if ($$3 != null) {
             BlockEntity $$5 = $$0.getBlockEntity($$1);
@@ -66,7 +65,7 @@ public class StructureBlock extends BaseEntityBlock implements GameMasterBlock {
    }
 
    @Override
-   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, @Nullable Orientation $$4, boolean $$5) {
+   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, Orientation $$4, boolean $$5) {
       if ($$1 instanceof ServerLevel) {
          if ($$1.getBlockEntity($$2) instanceof StructureBlockEntity $$7) {
             boolean $$8 = $$1.hasNeighborSignal($$2);

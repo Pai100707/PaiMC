@@ -26,7 +26,6 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 
 public class Horse extends AbstractHorse {
    private static final EntityDataAccessor<Integer> DATA_ID_TYPE_VARIANT = SynchedEntityData.defineId(Horse.class, EntityDataSerializers.INT);
@@ -90,7 +89,7 @@ public class Horse extends AbstractHorse {
       this.setTypeVariant($$0.getId() & 0xFF | this.getTypeVariant() & -256);
    }
 
-   @Nullable
+   
    @Override
    public <T> T get(DataComponentType<? extends T> $$0) {
       return $$0 == DataComponents.HORSE_VARIANT ? castComponentValue((DataComponentType<T>)$$0, this.getVariant()) : super.get($$0);
@@ -180,7 +179,7 @@ public class Horse extends AbstractHorse {
       }
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.AgeableMob getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       if ($$1 instanceof Donkey) {
@@ -232,13 +231,13 @@ public class Horse extends AbstractHorse {
       this.doHurtEquipment($$0, $$1, new net.minecraft.world.entity.EquipmentSlot[]{net.minecraft.world.entity.EquipmentSlot.BODY});
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       RandomSource $$4 = $$0.getRandom();
       Variant $$5;

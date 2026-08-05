@@ -28,7 +28,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
-import org.jspecify.annotations.Nullable;
 
 public class SurfaceRules {
    public static final SurfaceRules.ConditionSource ON_FLOOR = stoneDepthCheck(0, false, CaveSurface.FLOOR);
@@ -445,7 +444,7 @@ public class SurfaceRules {
    abstract static class LazyCondition implements SurfaceRules.Condition {
       protected final SurfaceRules.Context context;
       private long lastUpdate;
-      @Nullable
+      
       Boolean result;
 
       protected LazyCondition(SurfaceRules.Context $$0) {
@@ -569,7 +568,7 @@ public class SurfaceRules {
    }
 
    record SequenceRule(List<SurfaceRules.SurfaceRule> rules) implements SurfaceRules.SurfaceRule {
-      @Nullable
+      
       @Override
       public BlockState tryApply(int $$0, int $$1, int $$2) {
          for (SurfaceRules.SurfaceRule $$3 : this.rules) {
@@ -672,7 +671,7 @@ public class SurfaceRules {
    }
 
    protected interface SurfaceRule {
-      @Nullable
+      
       BlockState tryApply(int var1, int var2, int var3);
    }
 
@@ -692,7 +691,7 @@ public class SurfaceRules {
    }
 
    record TestRule(SurfaceRules.Condition condition, SurfaceRules.SurfaceRule followup) implements SurfaceRules.SurfaceRule {
-      @Nullable
+      
       @Override
       public BlockState tryApply(int $$0, int $$1, int $$2) {
          return !this.condition.test() ? null : this.followup.tryApply($$0, $$1, $$2);

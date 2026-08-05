@@ -10,7 +10,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.CollisionGetter;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FluidState;
-import org.jspecify.annotations.Nullable;
 
 public interface CollisionContext {
    static CollisionContext empty() {
@@ -34,7 +33,7 @@ public interface CollisionContext {
       return new EntityCollisionContext($$0, $$1, false);
    }
 
-   static CollisionContext placementContext(@Nullable Player $$0) {
+   static CollisionContext placementContext(Player $$0) {
       return new EntityCollisionContext(
          $$0 != null ? $$0.isDescending() : false,
          true,
@@ -45,7 +44,7 @@ public interface CollisionContext {
       );
    }
 
-   static CollisionContext withPosition(@Nullable Entity $$0, double $$1) {
+   static CollisionContext withPosition(Entity $$0, double $$1) {
       return new EntityCollisionContext(
          $$0 != null ? $$0.isDescending() : false,
          true,

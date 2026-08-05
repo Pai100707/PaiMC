@@ -8,7 +8,6 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.templatesystem.rule.blockentity.Passthrough;
 import net.minecraft.world.level.levelgen.structure.templatesystem.rule.blockentity.RuleBlockEntityModifier;
-import org.jspecify.annotations.Nullable;
 
 public class ProcessorRule {
    public static final Passthrough DEFAULT_BLOCK_ENTITY_MODIFIER = Passthrough.INSTANCE;
@@ -54,8 +53,8 @@ public class ProcessorRule {
       return this.outputState;
    }
 
-   @Nullable
-   public CompoundTag getOutputTag(RandomSource $$0, @Nullable CompoundTag $$1) {
+   
+   public CompoundTag getOutputTag(RandomSource $$0, CompoundTag $$1) {
       return this.blockEntityModifier.apply($$0, $$1);
    }
 }

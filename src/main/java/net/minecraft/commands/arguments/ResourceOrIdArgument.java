@@ -37,7 +37,6 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.functions.LootItemFunction;
 import net.minecraft.world.level.storage.loot.functions.LootItemFunctions;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import org.jspecify.annotations.Nullable;
 
 public class ResourceOrIdArgument<T> implements ArgumentType<Holder<T>> {
    private static final Collection<String> EXAMPLES = List.of("foo", "foo:bar", "012", "{}", "true");
@@ -118,12 +117,12 @@ public class ResourceOrIdArgument<T> implements ArgumentType<Holder<T>> {
       return (Holder<T>)$$0.getArgument($$1, Holder.class);
    }
 
-   @Nullable
+   
    public Holder<T> parse(StringReader $$0) throws CommandSyntaxException {
       return this.parse($$0, this.grammar, OPS);
    }
 
-   @Nullable
+   
    private <O> Holder<T> parse(StringReader $$0, Grammar<ResourceOrIdArgument.Result<T, O>> $$1, DynamicOps<O> $$2) throws CommandSyntaxException {
       ResourceOrIdArgument.Result<T, O> $$3 = (ResourceOrIdArgument.Result<T, O>)$$1.parseForCommands($$0);
       return this.elementLookup.isEmpty() ? null : $$3.parse($$0, this.registryLookup, $$2, this.codec, (RegistryLookup<T>)this.elementLookup.get());

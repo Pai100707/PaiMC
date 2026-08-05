@@ -16,7 +16,6 @@ import net.minecraft.network.chat.ComponentUtils;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.util.HttpUtil;
 import net.minecraft.world.level.GameType;
-import org.jspecify.annotations.Nullable;
 
 public class PublishCommand {
    private static final SimpleCommandExceptionType ERROR_FAILED = new SimpleCommandExceptionType(Component.translatable("commands.publish.failed"));
@@ -62,7 +61,7 @@ public class PublishCommand {
       );
    }
 
-   private static int publish(CommandSourceStack $$0, int $$1, boolean $$2, @Nullable GameType $$3) throws CommandSyntaxException {
+   private static int publish(CommandSourceStack $$0, int $$1, boolean $$2, GameType $$3) throws CommandSyntaxException {
       if ($$0.getServer().isPublished()) {
          throw ERROR_ALREADY_PUBLISHED.create($$0.getServer().getPort());
       } else if (!$$0.getServer().publishServer($$3, $$2, $$1)) {

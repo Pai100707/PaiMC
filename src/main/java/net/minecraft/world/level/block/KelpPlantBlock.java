@@ -10,7 +10,6 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.Shapes;
-import org.jspecify.annotations.Nullable;
 
 public class KelpPlantBlock extends GrowingPlantBodyBlock implements LiquidBlockContainer {
    public static final MapCodec<KelpPlantBlock> CODEC = simpleCodec(KelpPlantBlock::new);
@@ -40,7 +39,7 @@ public class KelpPlantBlock extends GrowingPlantBodyBlock implements LiquidBlock
    }
 
    @Override
-   public boolean canPlaceLiquid(@Nullable LivingEntity $$0, net.minecraft.world.level.BlockGetter $$1, BlockPos $$2, BlockState $$3, Fluid $$4) {
+   public boolean canPlaceLiquid(LivingEntity $$0, net.minecraft.world.level.BlockGetter $$1, BlockPos $$2, BlockState $$3, Fluid $$4) {
       return false;
    }
 

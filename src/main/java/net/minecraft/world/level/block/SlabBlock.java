@@ -22,7 +22,6 @@ import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class SlabBlock extends Block implements SimpleWaterloggedBlock {
    public static final MapCodec<SlabBlock> CODEC = simpleCodec(SlabBlock::new);
@@ -60,7 +59,7 @@ public class SlabBlock extends Block implements SimpleWaterloggedBlock {
       };
    }
 
-   @Nullable
+   
    @Override
    public BlockState getStateForPlacement(BlockPlaceContext $$0) {
       BlockPos $$1 = $$0.getClickedPos();
@@ -103,7 +102,7 @@ public class SlabBlock extends Block implements SimpleWaterloggedBlock {
    }
 
    @Override
-   public boolean canPlaceLiquid(@Nullable LivingEntity $$0, net.minecraft.world.level.BlockGetter $$1, BlockPos $$2, BlockState $$3, Fluid $$4) {
+   public boolean canPlaceLiquid(LivingEntity $$0, net.minecraft.world.level.BlockGetter $$1, BlockPos $$2, BlockState $$3, Fluid $$4) {
       return $$3.getValue(TYPE) != SlabType.DOUBLE ? SimpleWaterloggedBlock.super.canPlaceLiquid($$0, $$1, $$2, $$3, $$4) : false;
    }
 

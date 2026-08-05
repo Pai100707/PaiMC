@@ -26,7 +26,6 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class ExperienceOrb extends net.minecraft.world.entity.Entity {
    protected static final EntityDataAccessor<Integer> DATA_VALUE = SynchedEntityData.defineId(
@@ -44,7 +43,7 @@ public class ExperienceOrb extends net.minecraft.world.entity.Entity {
    private int age = 0;
    private int health = 5;
    private int count = 1;
-   @Nullable
+   
    private Player followingPlayer;
    private final net.minecraft.world.entity.InterpolationHandler interpolation = new net.minecraft.world.entity.InterpolationHandler(this);
 

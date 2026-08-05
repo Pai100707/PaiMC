@@ -19,7 +19,6 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public abstract class AbstractCandleBlock extends Block {
    public static final int LIGHT_PER_CANDLE = 3;
@@ -77,7 +76,7 @@ public abstract class AbstractCandleBlock extends Block {
       $$0.addParticle(ParticleTypes.SMALL_FLAME, $$1.x, $$1.y, $$1.z, 0.0, 0.0, 0.0);
    }
 
-   public static void extinguish(@Nullable Player $$0, BlockState $$1, net.minecraft.world.level.LevelAccessor $$2, BlockPos $$3) {
+   public static void extinguish(Player $$0, BlockState $$1, net.minecraft.world.level.LevelAccessor $$2, BlockPos $$3) {
       setLit($$2, $$1, $$3, false);
       if ($$1.getBlock() instanceof AbstractCandleBlock) {
          ((AbstractCandleBlock)$$1.getBlock())

@@ -30,7 +30,6 @@ import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import net.minecraft.WorldVersion;
 import org.apache.commons.lang3.mutable.MutableInt;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class HashCache {
@@ -182,7 +181,7 @@ public class HashCache {
 
    record ProviderCache(String version, ImmutableMap<Path, HashCode> data) {
 
-      @Nullable
+      
       public HashCode get(Path $$0) {
          return (HashCode)this.data.get($$0);
       }

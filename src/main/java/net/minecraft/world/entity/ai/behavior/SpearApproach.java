@@ -5,7 +5,6 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.memory.MemoryStatus;
-import org.jspecify.annotations.Nullable;
 
 public class SpearApproach extends Behavior<net.minecraft.world.entity.PathfinderMob> {
    double speedModifierWhenRepositioning;
@@ -31,7 +30,7 @@ public class SpearApproach extends Behavior<net.minecraft.world.entity.Pathfinde
       super.start($$0, $$1, $$2);
    }
 
-   @Nullable
+   
    private net.minecraft.world.entity.LivingEntity getTarget(net.minecraft.world.entity.PathfinderMob $$0) {
       return $$0.getBrain().getMemory(MemoryModuleType.ATTACK_TARGET).orElse(null);
    }

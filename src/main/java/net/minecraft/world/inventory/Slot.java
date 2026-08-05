@@ -5,7 +5,6 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import org.jspecify.annotations.Nullable;
 
 public class Slot {
    private final int slot;
@@ -78,7 +77,7 @@ public class Slot {
       return Math.min(this.getMaxStackSize(), $$0.getMaxStackSize());
    }
 
-   @Nullable
+   
    public Identifier getNoItemIcon() {
       return null;
    }

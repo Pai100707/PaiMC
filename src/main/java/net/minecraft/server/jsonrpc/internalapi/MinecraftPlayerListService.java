@@ -8,12 +8,11 @@ import net.minecraft.server.jsonrpc.methods.ClientInfo;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.players.NameAndId;
 import net.minecraft.util.Util;
-import org.jspecify.annotations.Nullable;
 
 public interface MinecraftPlayerListService {
    List<ServerPlayer> getPlayers();
 
-   @Nullable
+   
    ServerPlayer getPlayer(UUID var1);
 
    default CompletableFuture<Optional<NameAndId>> getUser(Optional<UUID> $$0, Optional<String> $$1) {
@@ -39,7 +38,7 @@ public interface MinecraftPlayerListService {
 
    List<ServerPlayer> getPlayersWithAddress(String var1);
 
-   @Nullable
+   
    ServerPlayer getPlayerByName(String var1);
 
    void remove(ServerPlayer var1, ClientInfo var2);

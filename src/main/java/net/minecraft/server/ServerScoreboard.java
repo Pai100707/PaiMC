@@ -24,7 +24,6 @@ import net.minecraft.world.scores.ScoreHolder;
 import net.minecraft.world.scores.Scoreboard;
 import net.minecraft.world.scores.ScoreboardSaveData;
 import net.minecraft.world.scores.ScoreboardSaveData.Packed;
-import org.jspecify.annotations.Nullable;
 
 public class ServerScoreboard extends Scoreboard {
    private final net.minecraft.server.MinecraftServer server;
@@ -84,7 +83,7 @@ public class ServerScoreboard extends Scoreboard {
       this.setDirty();
    }
 
-   public void setDisplayObjective(DisplaySlot $$0, @Nullable Objective $$1) {
+   public void setDisplayObjective(DisplaySlot $$0, Objective $$1) {
       Objective $$2 = this.getDisplayObjective($$0);
       super.setDisplayObjective($$0, $$1);
       if ($$2 != $$1 && $$2 != null) {

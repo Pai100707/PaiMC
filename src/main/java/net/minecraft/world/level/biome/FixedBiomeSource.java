@@ -10,7 +10,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
-import org.jspecify.annotations.Nullable;
 
 public class FixedBiomeSource extends BiomeSource implements BiomeManager.NoiseBiomeSource {
    public static final MapCodec<FixedBiomeSource> CODEC = Biome.CODEC.fieldOf("biome").xmap(FixedBiomeSource::new, $$0 -> $$0.biome).stable();
@@ -40,7 +39,7 @@ public class FixedBiomeSource extends BiomeSource implements BiomeManager.NoiseB
       return this.biome;
    }
 
-   @Nullable
+   
    @Override
    public Pair<BlockPos, Holder<Biome>> findBiomeHorizontal(
       int $$0, int $$1, int $$2, int $$3, int $$4, Predicate<Holder<Biome>> $$5, RandomSource $$6, boolean $$7, Climate.Sampler $$8
@@ -54,7 +53,7 @@ public class FixedBiomeSource extends BiomeSource implements BiomeManager.NoiseB
       }
    }
 
-   @Nullable
+   
    @Override
    public Pair<BlockPos, Holder<Biome>> findClosestBiome3d(
       BlockPos $$0, int $$1, int $$2, int $$3, Predicate<Holder<Biome>> $$4, Climate.Sampler $$5, net.minecraft.world.level.LevelReader $$6

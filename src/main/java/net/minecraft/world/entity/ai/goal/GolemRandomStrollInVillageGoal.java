@@ -10,7 +10,6 @@ import net.minecraft.world.entity.ai.village.poi.PoiManager;
 import net.minecraft.world.entity.ai.village.poi.PoiRecord;
 import net.minecraft.world.entity.npc.villager.Villager;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class GolemRandomStrollInVillageGoal extends RandomStrollGoal {
    private static final int POI_SECTION_SCAN_RADIUS = 2;
@@ -22,7 +21,7 @@ public class GolemRandomStrollInVillageGoal extends RandomStrollGoal {
       super($$0, $$1, 240, false);
    }
 
-   @Nullable
+   
    @Override
    protected Vec3 getPosition() {
       float $$0 = this.mob.level().random.nextFloat();
@@ -46,12 +45,12 @@ public class GolemRandomStrollInVillageGoal extends RandomStrollGoal {
       }
    }
 
-   @Nullable
+   
    private Vec3 getPositionTowardsAnywhere() {
       return LandRandomPos.getPos(this.mob, 10, 7);
    }
 
-   @Nullable
+   
    private Vec3 getPositionTowardsVillagerWhoWantsGolem() {
       ServerLevel $$0 = (ServerLevel)this.mob.level();
       List<Villager> $$1 = $$0.getEntities(net.minecraft.world.entity.EntityType.VILLAGER, this.mob.getBoundingBox().inflate(32.0), this::doesVillagerWantGolem);
@@ -64,7 +63,7 @@ public class GolemRandomStrollInVillageGoal extends RandomStrollGoal {
       }
    }
 
-   @Nullable
+   
    private Vec3 getPositionTowardsPoi() {
       SectionPos $$0 = this.getRandomVillageSection();
       if ($$0 == null) {
@@ -75,14 +74,14 @@ public class GolemRandomStrollInVillageGoal extends RandomStrollGoal {
       }
    }
 
-   @Nullable
+   
    private SectionPos getRandomVillageSection() {
       ServerLevel $$0 = (ServerLevel)this.mob.level();
       List<SectionPos> $$1 = SectionPos.cube(SectionPos.of(this.mob), 2).filter($$1x -> $$0.sectionsToVillage($$1x) == 0).collect(Collectors.toList());
       return $$1.isEmpty() ? null : $$1.get($$0.random.nextInt($$1.size()));
    }
 
-   @Nullable
+   
    private BlockPos getRandomPoiWithinSection(SectionPos $$0) {
       ServerLevel $$1 = (ServerLevel)this.mob.level();
       PoiManager $$2 = $$1.getPoiManager();

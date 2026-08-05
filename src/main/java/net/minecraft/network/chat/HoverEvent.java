@@ -14,7 +14,6 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.ItemStack;
-import org.jspecify.annotations.Nullable;
 
 public interface HoverEvent {
    Codec<HoverEvent> CODEC = HoverEvent.Action.CODEC.dispatch("action", HoverEvent::action, $$0 -> $$0.codec);
@@ -68,10 +67,10 @@ public interface HoverEvent {
       public final EntityType<?> type;
       public final UUID uuid;
       public final Optional<Component> name;
-      @Nullable
+      
       private List<Component> linesCache;
 
-      public EntityTooltipInfo(EntityType<?> $$0, UUID $$1, @Nullable Component $$2) {
+      public EntityTooltipInfo(EntityType<?> $$0, UUID $$1, Component $$2) {
          this($$0, $$1, Optional.ofNullable($$2));
       }
 

@@ -11,7 +11,6 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Stream;
-import org.jspecify.annotations.Nullable;
 
 public final class ListTag extends AbstractList<net.minecraft.nbt.Tag> implements net.minecraft.nbt.CollectionTag {
    private static final String WRAPPER_MARKER = "";
@@ -323,7 +322,7 @@ public final class ListTag extends AbstractList<net.minecraft.nbt.Tag> implement
       return this.getNullable($$0) instanceof net.minecraft.nbt.StringTag(String var8) ? var8 : $$1;
    }
 
-   @Nullable
+   
    private net.minecraft.nbt.Tag getNullable(int $$0) {
       return $$0 >= 0 && $$0 < this.list.size() ? this.list.get($$0) : null;
    }

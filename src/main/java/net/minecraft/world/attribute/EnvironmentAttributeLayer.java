@@ -1,7 +1,6 @@
 package net.minecraft.world.attribute;
 
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public sealed interface EnvironmentAttributeLayer<Value>
    permits net.minecraft.world.attribute.EnvironmentAttributeLayer.Constant,
@@ -14,7 +13,7 @@ public sealed interface EnvironmentAttributeLayer<Value>
 
    @FunctionalInterface
    public non-sealed interface Positional<Value> extends net.minecraft.world.attribute.EnvironmentAttributeLayer<Value> {
-      Value applyPositional(Value var1, Vec3 var2, @Nullable net.minecraft.world.attribute.SpatialAttributeInterpolator var3);
+      Value applyPositional(Value var1, Vec3 var2, net.minecraft.world.attribute.SpatialAttributeInterpolator var3);
    }
 
    @FunctionalInterface

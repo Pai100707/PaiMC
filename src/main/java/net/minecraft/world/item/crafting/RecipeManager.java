@@ -33,7 +33,6 @@ import net.minecraft.world.item.crafting.display.RecipeDisplay;
 import net.minecraft.world.item.crafting.display.RecipeDisplayEntry;
 import net.minecraft.world.item.crafting.display.RecipeDisplayId;
 import net.minecraft.world.level.Level;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class RecipeManager extends SimplePreparableReloadListener<RecipeMap> implements RecipeAccess {
@@ -124,14 +123,14 @@ public class RecipeManager extends SimplePreparableReloadListener<RecipeMap> imp
    }
 
    public <I extends RecipeInput, T extends Recipe<I>> Optional<RecipeHolder<T>> getRecipeFor(
-      RecipeType<T> $$0, I $$1, Level $$2, @Nullable ResourceKey<Recipe<?>> $$3
+      RecipeType<T> $$0, I $$1, Level $$2, ResourceKey<Recipe<?>> $$3
    ) {
       RecipeHolder<T> $$4 = $$3 != null ? this.byKeyTyped($$0, $$3) : null;
       return this.getRecipeFor($$0, $$1, $$2, $$4);
    }
 
    public <I extends RecipeInput, T extends Recipe<I>> Optional<RecipeHolder<T>> getRecipeFor(
-      RecipeType<T> $$0, I $$1, Level $$2, @Nullable RecipeHolder<T> $$3
+      RecipeType<T> $$0, I $$1, Level $$2, RecipeHolder<T> $$3
    ) {
       return $$3 != null && $$3.value().matches($$1, $$2) ? Optional.of($$3) : this.getRecipeFor($$0, $$1, $$2);
    }
@@ -144,7 +143,7 @@ public class RecipeManager extends SimplePreparableReloadListener<RecipeMap> imp
       return Optional.ofNullable(this.recipes.byKey($$0));
    }
 
-   @Nullable
+   
    private <T extends Recipe<?>> RecipeHolder<T> byKeyTyped(RecipeType<T> $$0, ResourceKey<Recipe<?>> $$1) {
       RecipeHolder<?> $$2 = this.recipes.byKey($$1);
       return (RecipeHolder<T>)($$2 != null && $$2.value().getType().equals($$0) ? $$2 : null);
@@ -172,7 +171,7 @@ public class RecipeManager extends SimplePreparableReloadListener<RecipeMap> imp
       return this.recipes.values();
    }
 
-   @Nullable
+   
    public RecipeManager.ServerDisplayInfo getRecipeFromDisplay(RecipeDisplayId $$0) {
       int $$1 = $$0.index();
       return $$1 >= 0 && $$1 < this.allDisplays.size() ? this.allDisplays.get($$1) : null;
@@ -193,7 +192,7 @@ public class RecipeManager extends SimplePreparableReloadListener<RecipeMap> imp
 
    public static <I extends RecipeInput, T extends Recipe<I>> RecipeManager.CachedCheck<I, T> createCheck(final RecipeType<T> $$0) {
       return new RecipeManager.CachedCheck<I, T>() {
-         @Nullable
+         
          private ResourceKey<Recipe<?>> lastRecipe;
 
          @Override

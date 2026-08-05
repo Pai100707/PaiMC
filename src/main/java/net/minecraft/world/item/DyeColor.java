@@ -20,7 +20,6 @@ import net.minecraft.world.item.crafting.CraftingRecipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.material.MapColor;
 import org.jetbrains.annotations.Contract;
-import org.jspecify.annotations.Nullable;
 
 public enum DyeColor implements StringRepresentable {
    WHITE(0, "white", 16383998, MapColor.SNOW, 15790320, 16777215),
@@ -97,13 +96,13 @@ public enum DyeColor implements StringRepresentable {
    }
 
    @Contract("_,!null->!null;_,null->_")
-   @Nullable
-   public static net.minecraft.world.item.DyeColor byName(String $$0, @Nullable net.minecraft.world.item.DyeColor $$1) {
+   
+   public static net.minecraft.world.item.DyeColor byName(String $$0, net.minecraft.world.item.DyeColor $$1) {
       net.minecraft.world.item.DyeColor $$2 = (net.minecraft.world.item.DyeColor)CODEC.byName($$0);
       return $$2 != null ? $$2 : $$1;
    }
 
-   @Nullable
+   
    public static net.minecraft.world.item.DyeColor byFireworkColor(int $$0) {
       return (net.minecraft.world.item.DyeColor)BY_FIREWORK_COLOR.get($$0);
    }

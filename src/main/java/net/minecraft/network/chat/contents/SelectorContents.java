@@ -14,7 +14,6 @@ import net.minecraft.network.chat.FormattedText;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.Style;
 import net.minecraft.world.entity.Entity;
-import org.jspecify.annotations.Nullable;
 
 public record SelectorContents(SelectorPattern selector, Optional<Component> separator) implements ComponentContents {
    public static final MapCodec<SelectorContents> MAP_CODEC = RecordCodecBuilder.mapCodec(
@@ -31,7 +30,7 @@ public record SelectorContents(SelectorPattern selector, Optional<Component> sep
    }
 
    @Override
-   public MutableComponent resolve(@Nullable CommandSourceStack $$0, @Nullable Entity $$1, int $$2) throws CommandSyntaxException {
+   public MutableComponent resolve(CommandSourceStack $$0, Entity $$1, int $$2) throws CommandSyntaxException {
       if ($$0 == null) {
          return Component.empty();
       } else {

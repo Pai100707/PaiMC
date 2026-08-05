@@ -14,7 +14,6 @@ import net.minecraft.util.CommonLinks;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
-import org.jspecify.annotations.Nullable;
 
 public class CombatTracker {
    public static final int RESET_DAMAGE_STATUS_TIME = 100;
@@ -60,7 +59,7 @@ public class CombatTracker {
          : Component.translatable($$3, new Object[]{this.mob.getDisplayName(), $$1});
    }
 
-   private Component getFallMessage(net.minecraft.world.damagesource.CombatEntry $$0, @Nullable Entity $$1) {
+   private Component getFallMessage(net.minecraft.world.damagesource.CombatEntry $$0, Entity $$1) {
       net.minecraft.world.damagesource.DamageSource $$2 = $$0.source();
       if (!$$2.is(DamageTypeTags.IS_FALL) && !$$2.is(DamageTypeTags.ALWAYS_MOST_SIGNIFICANT_FALL)) {
          Component $$4 = getDisplayName($$1);
@@ -81,8 +80,8 @@ public class CombatTracker {
       }
    }
 
-   @Nullable
-   private static Component getDisplayName(@Nullable Entity $$0) {
+   
+   private static Component getDisplayName(Entity $$0) {
       return $$0 == null ? null : $$0.getDisplayName();
    }
 
@@ -106,7 +105,7 @@ public class CombatTracker {
       }
    }
 
-   @Nullable
+   
    private net.minecraft.world.damagesource.CombatEntry getMostSignificantFall() {
       net.minecraft.world.damagesource.CombatEntry $$0 = null;
       net.minecraft.world.damagesource.CombatEntry $$1 = null;

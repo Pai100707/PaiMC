@@ -6,7 +6,6 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jspecify.annotations.Nullable;
 
 public record FallLocation(String id) {
    public static final net.minecraft.world.damagesource.FallLocation GENERIC = new net.minecraft.world.damagesource.FallLocation("generic");
@@ -32,7 +31,7 @@ public record FallLocation(String id) {
       }
    }
 
-   @Nullable
+   
    public static net.minecraft.world.damagesource.FallLocation getCurrentFallLocation(LivingEntity $$0) {
       Optional<BlockPos> $$1 = $$0.getLastClimbablePos();
       if ($$1.isPresent()) {

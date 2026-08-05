@@ -4,16 +4,15 @@ import java.util.function.Predicate;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.ItemStack;
-import org.jspecify.annotations.Nullable;
 
 public class UseItemGoal<T extends net.minecraft.world.entity.Mob> extends Goal {
    private final T mob;
    private final ItemStack item;
    private final Predicate<? super T> canUseSelector;
-   @Nullable
+   
    private final SoundEvent finishUsingSound;
 
-   public UseItemGoal(T $$0, ItemStack $$1, @Nullable SoundEvent $$2, Predicate<? super T> $$3) {
+   public UseItemGoal(T $$0, ItemStack $$1, SoundEvent $$2, Predicate<? super T> $$3) {
       this.mob = $$0;
       this.item = $$1;
       this.finishUsingSound = $$2;

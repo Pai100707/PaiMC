@@ -7,7 +7,6 @@ import net.minecraft.world.entity.boss.enderdragon.EndCrystal;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public abstract class AbstractDragonPhaseInstance implements DragonPhaseInstance {
    protected final EnderDragon dragon;
@@ -30,7 +29,7 @@ public abstract class AbstractDragonPhaseInstance implements DragonPhaseInstance
    }
 
    @Override
-   public void onCrystalDestroyed(EndCrystal $$0, BlockPos $$1, DamageSource $$2, @Nullable Player $$3) {
+   public void onCrystalDestroyed(EndCrystal $$0, BlockPos $$1, DamageSource $$2, Player $$3) {
    }
 
    @Override
@@ -46,7 +45,7 @@ public abstract class AbstractDragonPhaseInstance implements DragonPhaseInstance
       return 0.6F;
    }
 
-   @Nullable
+   
    @Override
    public Vec3 getFlyTargetLocation() {
       return null;

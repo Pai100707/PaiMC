@@ -4,7 +4,6 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.commons.lang3.StringUtils;
-import org.jspecify.annotations.Nullable;
 
 public class StringUtil {
    private static final Pattern STRIP_COLOR_PATTERN = Pattern.compile("(?i)\\u00A7[0-9A-FK-OR]");
@@ -24,7 +23,7 @@ public class StringUtil {
       return STRIP_COLOR_PATTERN.matcher($$0).replaceAll("");
    }
 
-   public static boolean isNullOrEmpty(@Nullable String $$0) {
+   public static boolean isNullOrEmpty(String $$0) {
       return StringUtils.isEmpty($$0);
    }
 
@@ -89,7 +88,7 @@ public class StringUtil {
       return Character.isWhitespace($$0) || Character.isSpaceChar($$0);
    }
 
-   public static boolean isBlank(@Nullable String $$0) {
+   public static boolean isBlank(String $$0) {
       return $$0 != null && !$$0.isEmpty() ? $$0.chars().allMatch(net.minecraft.util.StringUtil::isWhitespace) : true;
    }
 }

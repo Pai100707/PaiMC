@@ -28,7 +28,6 @@ import net.minecraft.util.profiling.jfr.stats.PacketIdentification;
 import net.minecraft.util.profiling.jfr.stats.StructureGenStat;
 import net.minecraft.util.profiling.jfr.stats.ThreadAllocationStat;
 import net.minecraft.util.profiling.jfr.stats.TickTimeStat;
-import org.jspecify.annotations.Nullable;
 
 public class JfrStatsParser {
    private Instant recordingStarted = Instant.EPOCH;
@@ -48,7 +47,7 @@ public class JfrStatsParser {
    private final List<ThreadAllocationStat> threadAllocationStats = new ArrayList<>();
    private final List<FpsStat> fps = new ArrayList<>();
    private final List<TickTimeStat> serverTickTimes = new ArrayList<>();
-   @Nullable
+   
    private Duration worldCreationDuration = null;
 
    private JfrStatsParser(Stream<RecordedEvent> $$0) {

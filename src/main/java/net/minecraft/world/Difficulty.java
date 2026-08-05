@@ -9,7 +9,6 @@ import net.minecraft.util.ByIdMap;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.util.ByIdMap.OutOfBoundsStrategy;
 import net.minecraft.util.StringRepresentable.EnumCodec;
-import org.jspecify.annotations.Nullable;
 
 public enum Difficulty implements StringRepresentable {
    PEACEFUL(0, "peaceful"),
@@ -45,7 +44,7 @@ public enum Difficulty implements StringRepresentable {
       return BY_ID.apply($$0);
    }
 
-   @Nullable
+   
    public static Difficulty byName(String $$0) {
       return (Difficulty)CODEC.byName($$0);
    }

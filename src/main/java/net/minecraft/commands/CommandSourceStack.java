@@ -46,7 +46,6 @@ import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class CommandSourceStack
    implements net.minecraft.commands.ExecutionCommandSource<net.minecraft.commands.CommandSourceStack>,
@@ -61,7 +60,7 @@ public class CommandSourceStack
    private final Component displayName;
    private final MinecraftServer server;
    private final boolean silent;
-   @Nullable
+   
    private final Entity entity;
    private final net.minecraft.commands.CommandResultCallback resultCallback;
    private final EntityAnchorArgument.Anchor anchor;
@@ -78,7 +77,7 @@ public class CommandSourceStack
       String $$5,
       Component $$6,
       MinecraftServer $$7,
-      @Nullable Entity $$8
+      Entity $$8
    ) {
       this(
          $$0,
@@ -107,7 +106,7 @@ public class CommandSourceStack
       String $$5,
       Component $$6,
       MinecraftServer $$7,
-      @Nullable Entity $$8,
+      Entity $$8,
       boolean $$9,
       net.minecraft.commands.CommandResultCallback $$10,
       EntityAnchorArgument.Anchor $$11,
@@ -390,7 +389,7 @@ public class CommandSourceStack
       return this.level;
    }
 
-   @Nullable
+   
    public Entity getEntity() {
       return this.entity;
    }
@@ -411,7 +410,7 @@ public class CommandSourceStack
       }
    }
 
-   @Nullable
+   
    public ServerPlayer getPlayer() {
       return this.entity instanceof ServerPlayer $$0 ? $$0 : null;
    }
@@ -578,7 +577,7 @@ public class CommandSourceStack
    }
 
    @Override
-   public void handleError(CommandExceptionType $$0, Message $$1, boolean $$2, @Nullable TraceCallbacks $$3) {
+   public void handleError(CommandExceptionType $$0, Message $$1, boolean $$2, TraceCallbacks $$3) {
       if ($$3 != null) {
          $$3.onError($$1.getString());
       }

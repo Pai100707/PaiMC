@@ -16,7 +16,6 @@ import net.minecraft.world.item.component.LodestoneTracker;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
-import org.jspecify.annotations.Nullable;
 
 public class CompassItem extends net.minecraft.world.item.Item {
    private static final Component LODESTONE_COMPASS_NAME = Component.translatable("item.minecraft.lodestone_compass");
@@ -31,7 +30,7 @@ public class CompassItem extends net.minecraft.world.item.Item {
    }
 
    @Override
-   public void inventoryTick(net.minecraft.world.item.ItemStack $$0, ServerLevel $$1, Entity $$2, @Nullable EquipmentSlot $$3) {
+   public void inventoryTick(net.minecraft.world.item.ItemStack $$0, ServerLevel $$1, Entity $$2, EquipmentSlot $$3) {
       LodestoneTracker $$4 = (LodestoneTracker)$$0.get(DataComponents.LODESTONE_TRACKER);
       if ($$4 != null) {
          LodestoneTracker $$5 = $$4.tick($$1);

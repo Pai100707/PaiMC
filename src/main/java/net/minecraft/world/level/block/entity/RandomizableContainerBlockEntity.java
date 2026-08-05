@@ -14,10 +14,9 @@ import net.minecraft.world.item.component.SeededContainerLoot;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.level.storage.loot.LootTable;
-import org.jspecify.annotations.Nullable;
 
 public abstract class RandomizableContainerBlockEntity extends BaseContainerBlockEntity implements RandomizableContainer {
-   @Nullable
+   
    protected ResourceKey<LootTable> lootTable;
    protected long lootTableSeed = 0L;
 
@@ -25,12 +24,12 @@ public abstract class RandomizableContainerBlockEntity extends BaseContainerBloc
       super($$0, $$1, $$2);
    }
 
-   @Nullable
+   
    public ResourceKey<LootTable> getLootTable() {
       return this.lootTable;
    }
 
-   public void setLootTable(@Nullable ResourceKey<LootTable> $$0) {
+   public void setLootTable(ResourceKey<LootTable> $$0) {
       this.lootTable = $$0;
    }
 
@@ -77,7 +76,7 @@ public abstract class RandomizableContainerBlockEntity extends BaseContainerBloc
       return super.canOpen($$0) && (this.lootTable == null || !$$0.isSpectator());
    }
 
-   @Nullable
+   
    @Override
    public AbstractContainerMenu createMenu(int $$0, Inventory $$1, Player $$2) {
       if (this.canOpen($$2)) {

@@ -17,7 +17,6 @@ import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
 import net.minecraft.util.ProblemReporter.Collector;
 import net.minecraft.util.profiling.ProfilerFiller;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class ServerAdvancementManager extends SimpleJsonResourceReloadListener<Advancement> {
@@ -58,7 +57,7 @@ public class ServerAdvancementManager extends SimpleJsonResourceReloadListener<A
       }
    }
 
-   @Nullable
+   
    public AdvancementHolder get(Identifier $$0) {
       return this.advancements.get($$0);
    }

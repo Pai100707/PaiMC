@@ -30,7 +30,6 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.HitResult.Type;
-import org.jspecify.annotations.Nullable;
 
 public class FireworkRocketEntity extends Projectile implements ItemSupplier {
    private static final EntityDataAccessor<ItemStack> DATA_ID_FIREWORKS_ITEM = SynchedEntityData.defineId(
@@ -45,7 +44,7 @@ public class FireworkRocketEntity extends Projectile implements ItemSupplier {
    private static final boolean DEFAULT_SHOT_AT_ANGLE = false;
    private int life = 0;
    private int lifetime = 0;
-   @Nullable
+   
    private net.minecraft.world.entity.LivingEntity attachedToEntity;
 
    public FireworkRocketEntity(net.minecraft.world.entity.EntityType<? extends FireworkRocketEntity> $$0, Level $$1) {
@@ -67,7 +66,7 @@ public class FireworkRocketEntity extends Projectile implements ItemSupplier {
       this.lifetime = 10 * $$5 + this.random.nextInt(6) + this.random.nextInt(7);
    }
 
-   public FireworkRocketEntity(Level $$0, @Nullable net.minecraft.world.entity.Entity $$1, double $$2, double $$3, double $$4, ItemStack $$5) {
+   public FireworkRocketEntity(Level $$0, net.minecraft.world.entity.Entity $$1, double $$2, double $$3, double $$4, ItemStack $$5) {
       this($$0, $$2, $$3, $$4, $$5);
       this.setOwner($$1);
    }

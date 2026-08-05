@@ -28,7 +28,6 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.gameevent.GameEvent.Context;
 import net.minecraft.world.level.storage.TagValueOutput;
 import net.minecraft.world.phys.shapes.CollisionContext;
-import org.jspecify.annotations.Nullable;
 
 public class BlockItem extends net.minecraft.world.item.Item {
    @Deprecated
@@ -90,7 +89,7 @@ public class BlockItem extends net.minecraft.world.item.Item {
       return $$0.getSoundType().getPlaceSound();
    }
 
-   @Nullable
+   
    public BlockPlaceContext updatePlacementContext(BlockPlaceContext $$0) {
       return $$0;
    }
@@ -103,11 +102,11 @@ public class BlockItem extends net.minecraft.world.item.Item {
       }
    }
 
-   protected boolean updateCustomBlockEntityTag(BlockPos $$0, Level $$1, @Nullable Player $$2, net.minecraft.world.item.ItemStack $$3, BlockState $$4) {
+   protected boolean updateCustomBlockEntityTag(BlockPos $$0, Level $$1, Player $$2, net.minecraft.world.item.ItemStack $$3, BlockState $$4) {
       return updateCustomBlockEntityTag($$1, $$2, $$0, $$3);
    }
 
-   @Nullable
+   
    protected BlockState getPlacementState(BlockPlaceContext $$0) {
       BlockState $$1 = this.getBlock().getStateForPlacement($$0);
       return $$1 != null && this.canPlace($$0, $$1) ? $$1 : null;
@@ -141,7 +140,7 @@ public class BlockItem extends net.minecraft.world.item.Item {
       return $$0.getLevel().setBlock($$0.getClickedPos(), $$1, 11);
    }
 
-   public static boolean updateCustomBlockEntityTag(Level $$0, @Nullable Player $$1, BlockPos $$2, net.minecraft.world.item.ItemStack $$3) {
+   public static boolean updateCustomBlockEntityTag(Level $$0, Player $$1, BlockPos $$2, net.minecraft.world.item.ItemStack $$3) {
       if ($$0.isClientSide()) {
          return false;
       } else {
@@ -167,7 +166,7 @@ public class BlockItem extends net.minecraft.world.item.Item {
    }
 
    @Override
-   public boolean shouldPrintOpWarning(net.minecraft.world.item.ItemStack $$0, @Nullable Player $$1) {
+   public boolean shouldPrintOpWarning(net.minecraft.world.item.ItemStack $$0, Player $$1) {
       if ($$1 != null && $$1.permissions().hasPermission(Permissions.COMMANDS_GAMEMASTER)) {
          TypedEntityData<BlockEntityType<?>> $$2 = (TypedEntityData<BlockEntityType<?>>)$$0.get(DataComponents.BLOCK_ENTITY_DATA);
          if ($$2 != null) {

@@ -20,7 +20,6 @@ import net.minecraft.world.level.chunk.DataLayer;
 import net.minecraft.world.level.chunk.LevelChunkSection;
 import net.minecraft.world.level.chunk.LightChunkGetter;
 import net.minecraft.world.level.lighting.LevelLightEngine;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class ThreadedLevelLightEngine extends LevelLightEngine implements AutoCloseable {
@@ -94,7 +93,7 @@ public class ThreadedLevelLightEngine extends LevelLightEngine implements AutoCl
       );
    }
 
-   public void queueSectionData(LightLayer $$0, SectionPos $$1, @Nullable DataLayer $$2) {
+   public void queueSectionData(LightLayer $$0, SectionPos $$1, DataLayer $$2) {
       this.addTask(
          $$1.x(),
          $$1.z(),

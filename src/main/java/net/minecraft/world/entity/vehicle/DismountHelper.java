@@ -14,7 +14,6 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class DismountHelper {
    public static int[][] offsetsForDirection(Direction $$0) {
@@ -75,7 +74,7 @@ public class DismountHelper {
       return Double.POSITIVE_INFINITY;
    }
 
-   @Nullable
+   
    public static Vec3 findSafeDismountLocation(net.minecraft.world.entity.EntityType<?> $$0, CollisionGetter $$1, BlockPos $$2, boolean $$3) {
       if ($$3 && $$0.isBlockDangerous($$1.getBlockState($$2))) {
          return null;

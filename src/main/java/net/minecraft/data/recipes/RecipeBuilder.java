@@ -9,14 +9,13 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.CraftingBookCategory;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.ItemLike;
-import org.jspecify.annotations.Nullable;
 
 public interface RecipeBuilder {
    Identifier ROOT_RECIPE_ADVANCEMENT = Identifier.withDefaultNamespace("recipes/root");
 
    RecipeBuilder unlockedBy(String var1, Criterion<?> var2);
 
-   RecipeBuilder group(@Nullable String var1);
+   RecipeBuilder group(String var1);
 
    Item getResult();
 

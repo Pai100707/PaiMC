@@ -14,7 +14,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.SectionPos;
 import net.minecraft.world.level.chunk.DataLayer;
 import net.minecraft.world.level.chunk.LightChunkGetter;
-import org.jspecify.annotations.Nullable;
 
 public abstract class LayerLightSectionStorage<M extends DataLayerStorageMap<M>> {
    private final net.minecraft.world.level.LightLayer layer;
@@ -43,17 +42,17 @@ public abstract class LayerLightSectionStorage<M extends DataLayerStorageMap<M>>
       return this.getDataLayer($$0, true) != null;
    }
 
-   @Nullable
+   
    protected DataLayer getDataLayer(long $$0, boolean $$1) {
       return this.getDataLayer($$1 ? this.updatingSectionData : this.visibleSectionData, $$0);
    }
 
-   @Nullable
+   
    protected DataLayer getDataLayer(M $$0, long $$1) {
       return $$0.getLayer($$1);
    }
 
-   @Nullable
+   
    protected DataLayer getDataLayerToWrite(long $$0) {
       DataLayer $$1 = this.updatingSectionData.getLayer($$0);
       if ($$1 == null) {
@@ -69,7 +68,7 @@ public abstract class LayerLightSectionStorage<M extends DataLayerStorageMap<M>>
       }
    }
 
-   @Nullable
+   
    public DataLayer getDataLayerData(long $$0) {
       DataLayer $$1 = (DataLayer)this.queuedSections.get($$0);
       return $$1 != null ? $$1 : this.getDataLayer($$0, false);
@@ -202,7 +201,7 @@ public abstract class LayerLightSectionStorage<M extends DataLayerStorageMap<M>>
       }
    }
 
-   protected void queueSectionData(long $$0, @Nullable DataLayer $$1) {
+   protected void queueSectionData(long $$0, DataLayer $$1) {
       if ($$1 != null) {
          this.queuedSections.put($$0, $$1);
          this.hasInconsistencies = true;

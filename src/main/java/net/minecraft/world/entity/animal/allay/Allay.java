@@ -66,7 +66,6 @@ import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class Allay extends net.minecraft.world.entity.PathfinderMob implements InventoryCarrier, VibrationSystem {
    private static final Vec3i ITEM_PICKUP_REACH = new Vec3i(1, 1, 1);
@@ -105,7 +104,7 @@ public class Allay extends net.minecraft.world.entity.PathfinderMob implements I
    private final User vibrationUser;
    private final DynamicGameEventListener<Allay.JukeboxListener> dynamicJukeboxListener;
    private final SimpleContainer inventory = new SimpleContainer(1);
-   @Nullable
+   
    private BlockPos jukeboxPos;
    private long duplicationCooldown = 0L;
    private float holdingItemAnimationTicks;
@@ -180,7 +179,7 @@ public class Allay extends net.minecraft.world.entity.PathfinderMob implements I
       return this.isLikedPlayer($$0) || super.considersEntityAsAlly($$0);
    }
 
-   private boolean isLikedPlayer(@Nullable net.minecraft.world.entity.Entity $$0) {
+   private boolean isLikedPlayer(net.minecraft.world.entity.Entity $$0) {
       if (!($$0 instanceof Player $$1)) {
          return false;
       } else {
@@ -587,8 +586,8 @@ public class Allay extends net.minecraft.world.entity.PathfinderMob implements I
          ServerLevel $$0,
          BlockPos $$1,
          Holder<GameEvent> $$2,
-         @Nullable net.minecraft.world.entity.Entity $$3,
-         @Nullable net.minecraft.world.entity.Entity $$4,
+         net.minecraft.world.entity.Entity $$3,
+         net.minecraft.world.entity.Entity $$4,
          float $$5
       ) {
          if ($$2.is(GameEvent.NOTE_BLOCK_PLAY)) {

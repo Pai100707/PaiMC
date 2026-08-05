@@ -10,7 +10,6 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.level.ItemLike;
-import org.jspecify.annotations.Nullable;
 
 public class CreativeModeTab {
    static final Identifier DEFAULT_BACKGROUND = createTextureLocation("items");
@@ -22,7 +21,7 @@ public class CreativeModeTab {
    private final net.minecraft.world.item.CreativeModeTab.Row row;
    private final int column;
    private final net.minecraft.world.item.CreativeModeTab.Type type;
-   @Nullable
+   
    private net.minecraft.world.item.ItemStack iconItemStack;
    private Collection<net.minecraft.world.item.ItemStack> displayItems = net.minecraft.world.item.ItemStackLinkedSet.createTypeAndComponentsSet();
    private Set<net.minecraft.world.item.ItemStack> displayItemsSearchTab = net.minecraft.world.item.ItemStackLinkedSet.createTypeAndComponentsSet();

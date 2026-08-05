@@ -23,7 +23,6 @@ import java.time.Instant;
 import java.util.Map;
 import java.util.OptionalLong;
 import org.apache.commons.io.IOUtils;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class HttpUtil {
@@ -37,7 +36,7 @@ public class HttpUtil {
       URL $$1,
       Map<String, String> $$2,
       HashFunction $$3,
-      @Nullable HashCode $$4,
+      HashCode $$4,
       int $$5,
       Proxy $$6,
       net.minecraft.util.HttpUtil.DownloadProgressListener $$7

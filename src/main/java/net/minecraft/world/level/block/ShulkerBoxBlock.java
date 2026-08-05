@@ -35,7 +35,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class ShulkerBoxBlock extends BaseEntityBlock {
    public static final MapCodec<ShulkerBoxBlock> CODEC = RecordCodecBuilder.mapCodec(
@@ -45,7 +44,7 @@ public class ShulkerBoxBlock extends BaseEntityBlock {
    public static final Map<Direction, VoxelShape> SHAPES_OPEN_SUPPORT = Shapes.rotateAll(Block.boxZ(16.0, 0.0, 1.0));
    public static final EnumProperty<Direction> FACING = DirectionalBlock.FACING;
    public static final Identifier CONTENTS = Identifier.withDefaultNamespace("contents");
-   @Nullable
+   
    private final DyeColor color;
 
    @Override
@@ -53,7 +52,7 @@ public class ShulkerBoxBlock extends BaseEntityBlock {
       return CODEC;
    }
 
-   public ShulkerBoxBlock(@Nullable DyeColor $$0, BlockBehaviour.Properties $$1) {
+   public ShulkerBoxBlock(DyeColor $$0, BlockBehaviour.Properties $$1) {
       super($$1);
       this.color = $$0;
       this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.UP));
@@ -64,7 +63,7 @@ public class ShulkerBoxBlock extends BaseEntityBlock {
       return new ShulkerBoxBlockEntity(this.color, $$0, $$1);
    }
 
-   @Nullable
+   
    @Override
    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(net.minecraft.world.level.Level $$0, BlockState $$1, BlockEntityType<T> $$2) {
       return createTickerHelper($$2, BlockEntityType.SHULKER_BOX, ShulkerBoxBlockEntity::tick);
@@ -164,7 +163,7 @@ public class ShulkerBoxBlock extends BaseEntityBlock {
       return AbstractContainerMenu.getRedstoneSignalFromBlockEntity($$1.getBlockEntity($$2));
    }
 
-   public static Block getBlockByColor(@Nullable DyeColor $$0) {
+   public static Block getBlockByColor(DyeColor $$0) {
       if ($$0 == null) {
          return Blocks.SHULKER_BOX;
       } else {
@@ -190,12 +189,12 @@ public class ShulkerBoxBlock extends BaseEntityBlock {
       }
    }
 
-   @Nullable
+   
    public DyeColor getColor() {
       return this.color;
    }
 
-   public static ItemStack getColoredItemStack(@Nullable DyeColor $$0) {
+   public static ItemStack getColoredItemStack(DyeColor $$0) {
       return new ItemStack(getBlockByColor($$0));
    }
 

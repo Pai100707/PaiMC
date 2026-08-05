@@ -4,7 +4,6 @@ import com.mojang.logging.LogUtils;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class LoggedPrintStream extends PrintStream {
@@ -17,16 +16,16 @@ public class LoggedPrintStream extends PrintStream {
    }
 
    @Override
-   public void println(@Nullable String $$0) {
+   public void println(String $$0) {
       this.logLine($$0);
    }
 
    @Override
-   public void println(@Nullable Object $$0) {
+   public void println(Object $$0) {
       this.logLine(String.valueOf($$0));
    }
 
-   protected void logLine(@Nullable String $$0) {
+   protected void logLine(String $$0) {
       LOGGER.info("[{}]: {}", this.name, $$0);
    }
 }

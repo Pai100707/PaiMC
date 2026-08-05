@@ -10,7 +10,6 @@ import com.mojang.datafixers.schemas.Schema;
 import com.mojang.datafixers.types.Type;
 import com.mojang.serialization.Dynamic;
 import java.util.Map;
-import org.jspecify.annotations.Nullable;
 
 public class ScoreboardDisplaySlotFix extends DataFix {
    private static final Map<String, String> SLOT_RENAMES = ImmutableMap.builder()
@@ -39,7 +38,7 @@ public class ScoreboardDisplaySlotFix extends DataFix {
       super($$0, false);
    }
 
-   @Nullable
+   
    private static String rename(String $$0) {
       return SLOT_RENAMES.get($$0);
    }

@@ -4,7 +4,6 @@ import com.google.common.annotations.VisibleForTesting;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import org.jspecify.annotations.Nullable;
 
 public final class Scope {
    private static final int NOT_FOUND = -1;
@@ -157,7 +156,7 @@ public final class Scope {
       assert this.validateStructure();
    }
 
-   public <T> void put(Atom<T> $$0, @Nullable T $$1) {
+   public <T> void put(Atom<T> $$0, T $$1) {
       int $$2 = this.valueIndex($$0);
       if ($$2 != -1) {
          this.stack[$$2] = $$1;
@@ -171,7 +170,7 @@ public final class Scope {
       assert this.validateStructure();
    }
 
-   @Nullable
+   
    public <T> T get(Atom<T> $$0) {
       int $$1 = this.valueIndex($$0);
       return (T)($$1 != -1 ? this.stack[$$1] : null);
@@ -192,7 +191,7 @@ public final class Scope {
    }
 
    @SafeVarargs
-   @Nullable
+   
    public final <T> T getAny(Atom<? extends T>... $$0) {
       int $$1 = this.valueIndexForAny($$0);
       return (T)($$1 != -1 ? this.stack[$$1] : null);

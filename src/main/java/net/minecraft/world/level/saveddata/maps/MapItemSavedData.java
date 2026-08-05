@@ -36,7 +36,6 @@ import net.minecraft.world.item.component.MapItemColor;
 import net.minecraft.world.item.component.MapDecorations.Entry;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.world.level.saveddata.SavedDataType;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class MapItemSavedData extends SavedData {
@@ -239,12 +238,12 @@ public class MapItemSavedData extends SavedData {
 
    private void addDecoration(
       Holder<MapDecorationType> $$0,
-      @Nullable net.minecraft.world.level.LevelAccessor $$1,
+      net.minecraft.world.level.LevelAccessor $$1,
       String $$2,
       double $$3,
       double $$4,
       double $$5,
-      @Nullable Component $$6
+      Component $$6
    ) {
       int $$7 = 1 << this.scale;
       float $$8 = (float)($$3 - this.centerX) / $$7;
@@ -269,9 +268,9 @@ public class MapItemSavedData extends SavedData {
       }
    }
 
-   @Nullable
+   
    private MapItemSavedData.MapDecorationLocation calculateDecorationLocationAndType(
-      Holder<MapDecorationType> $$0, @Nullable net.minecraft.world.level.LevelAccessor $$1, double $$2, float $$3, float $$4
+      Holder<MapDecorationType> $$0, net.minecraft.world.level.LevelAccessor $$1, double $$2, float $$3, float $$4
    ) {
       byte $$5 = clampMapCoordinate($$3);
       byte $$6 = clampMapCoordinate($$4);
@@ -285,9 +284,9 @@ public class MapItemSavedData extends SavedData {
       }
    }
 
-   @Nullable
+   
    private Pair<Holder<MapDecorationType>, Byte> playerDecorationTypeAndRotation(
-      Holder<MapDecorationType> $$0, @Nullable net.minecraft.world.level.LevelAccessor $$1, double $$2, float $$3, float $$4
+      Holder<MapDecorationType> $$0, net.minecraft.world.level.LevelAccessor $$1, double $$2, float $$3, float $$4
    ) {
       if (isInsideMap($$3, $$4)) {
          return Pair.of($$0, this.calculateRotation($$1, $$2));
@@ -297,7 +296,7 @@ public class MapItemSavedData extends SavedData {
       }
    }
 
-   private byte calculateRotation(@Nullable net.minecraft.world.level.LevelAccessor $$0, double $$1) {
+   private byte calculateRotation(net.minecraft.world.level.LevelAccessor $$0, double $$1) {
       if (this.dimension == net.minecraft.world.level.Level.NETHER && $$0 != null) {
          int $$2 = (int)($$0.getGameTime() / 10L);
          return (byte)($$2 * $$2 * 34187121 + $$2 * 121 >> 15 & 15);
@@ -312,7 +311,7 @@ public class MapItemSavedData extends SavedData {
       return $$0 >= -63.0F && $$1 >= -63.0F && $$0 <= 63.0F && $$1 <= 63.0F;
    }
 
-   @Nullable
+   
    private Holder<MapDecorationType> decorationTypeForPlayerOutsideMap(float $$0, float $$1) {
       int $$2 = 320;
       boolean $$3 = Math.abs($$0) < 320.0F && Math.abs($$1) < 320.0F;
@@ -332,7 +331,7 @@ public class MapItemSavedData extends SavedData {
       }
    }
 
-   @Nullable
+   
    public Packet<?> getUpdatePacket(MapId $$0, Player $$1) {
       MapItemSavedData.HoldingPlayer $$2 = this.carriedByPlayers.get($$1);
       return $$2 == null ? null : $$2.nextUpdatePacket($$0);
@@ -498,7 +497,7 @@ public class MapItemSavedData extends SavedData {
          return new MapItemSavedData.MapPatch($$0, $$1, $$2, $$3, $$4);
       }
 
-      @Nullable
+      
       Packet<?> nextUpdatePacket(MapId $$0) {
          MapItemSavedData.MapPatch $$1;
          if (this.dirtyData) {

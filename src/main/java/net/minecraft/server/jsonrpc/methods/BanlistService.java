@@ -19,7 +19,6 @@ import net.minecraft.server.players.NameAndId;
 import net.minecraft.server.players.UserBanListEntry;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.Util;
-import org.jspecify.annotations.Nullable;
 
 public class BanlistService {
    private static final String BAN_SOURCE = "Management server";
@@ -92,7 +91,7 @@ public class BanlistService {
       return get($$0);
    }
 
-   record UserBan(NameAndId player, @Nullable String reason, String source, Optional<Instant> expires) {
+   record UserBan(NameAndId player, String reason, String source, Optional<Instant> expires) {
       static BanlistService.UserBan from(UserBanListEntry $$0) {
          return new BanlistService.UserBan(
             Objects.requireNonNull($$0.getUser()), $$0.getReason(), $$0.getSource(), Optional.ofNullable($$0.getExpires()).map(Date::toInstant)

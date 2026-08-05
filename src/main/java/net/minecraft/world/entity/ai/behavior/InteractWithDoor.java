@@ -21,7 +21,6 @@ import net.minecraft.world.level.pathfinder.Node;
 import net.minecraft.world.level.pathfinder.Path;
 import org.apache.commons.lang3.mutable.MutableInt;
 import org.apache.commons.lang3.mutable.MutableObject;
-import org.jspecify.annotations.Nullable;
 
 public class InteractWithDoor {
    private static final int COOLDOWN_BEFORE_RERUNNING_IN_SAME_NODE = 20;
@@ -81,8 +80,8 @@ public class InteractWithDoor {
    public static void closeDoorsThatIHaveOpenedOrPassedThrough(
       ServerLevel $$0,
       net.minecraft.world.entity.LivingEntity $$1,
-      @Nullable Node $$2,
-      @Nullable Node $$3,
+      Node $$2,
+      Node $$3,
       Set<GlobalPos> $$4,
       Optional<List<net.minecraft.world.entity.LivingEntity>> $$5
    ) {

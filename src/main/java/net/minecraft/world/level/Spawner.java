@@ -8,12 +8,11 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.component.TypedEntityData;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import org.jspecify.annotations.Nullable;
 
 public interface Spawner {
    void setEntityId(EntityType<?> var1, RandomSource var2);
 
-   static void appendHoverText(@Nullable TypedEntityData<BlockEntityType<?>> $$0, Consumer<Component> $$1, String $$2) {
+   static void appendHoverText(TypedEntityData<BlockEntityType<?>> $$0, Consumer<Component> $$1, String $$2) {
       Component $$3 = getSpawnEntityDisplayName($$0, $$2);
       if ($$3 != null) {
          $$1.accept($$3);
@@ -24,8 +23,8 @@ public interface Spawner {
       }
    }
 
-   @Nullable
-   static Component getSpawnEntityDisplayName(@Nullable TypedEntityData<BlockEntityType<?>> $$0, String $$1) {
+   
+   static Component getSpawnEntityDisplayName(TypedEntityData<BlockEntityType<?>> $$0, String $$1) {
       return $$0 == null
          ? null
          : (Component)$$0.getUnsafe()

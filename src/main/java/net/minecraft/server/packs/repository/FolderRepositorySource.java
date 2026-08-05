@@ -23,7 +23,6 @@ import net.minecraft.util.FileUtil;
 import net.minecraft.world.level.validation.ContentValidationException;
 import net.minecraft.world.level.validation.DirectoryValidator;
 import net.minecraft.world.level.validation.ForbiddenSymlinkInfo;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class FolderRepositorySource implements RepositorySource {
@@ -93,7 +92,7 @@ public class FolderRepositorySource implements RepositorySource {
          super($$0);
       }
 
-      @Nullable
+      
       protected Pack.ResourcesSupplier createZipPack(Path $$0) {
          FileSystem $$1 = $$0.getFileSystem();
          if ($$1 != FileSystems.getDefault() && !($$1 instanceof LinkFileSystem)) {

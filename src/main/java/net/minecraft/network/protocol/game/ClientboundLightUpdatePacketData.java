@@ -11,7 +11,6 @@ import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.chunk.DataLayer;
 import net.minecraft.world.level.lighting.LevelLightEngine;
-import org.jspecify.annotations.Nullable;
 
 public class ClientboundLightUpdatePacketData {
    private static final StreamCodec<ByteBuf, byte[]> DATA_LAYER_STREAM_CODEC = ByteBufCodecs.byteArray(2048);
@@ -22,7 +21,7 @@ public class ClientboundLightUpdatePacketData {
    private final List<byte[]> skyUpdates;
    private final List<byte[]> blockUpdates;
 
-   public ClientboundLightUpdatePacketData(ChunkPos $$0, LevelLightEngine $$1, @Nullable BitSet $$2, @Nullable BitSet $$3) {
+   public ClientboundLightUpdatePacketData(ChunkPos $$0, LevelLightEngine $$1, BitSet $$2, BitSet $$3) {
       this.skyYMask = new BitSet();
       this.blockYMask = new BitSet();
       this.emptySkyYMask = new BitSet();

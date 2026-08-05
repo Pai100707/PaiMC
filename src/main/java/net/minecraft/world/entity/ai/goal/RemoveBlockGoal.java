@@ -17,7 +17,6 @@ import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.status.ChunkStatus;
 import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class RemoveBlockGoal extends MoveToBlockGoal {
    private final Block blockToRemove;
@@ -119,7 +118,7 @@ public class RemoveBlockGoal extends MoveToBlockGoal {
       }
    }
 
-   @Nullable
+   
    private BlockPos getPosWithBlock(BlockPos $$0, BlockGetter $$1) {
       if ($$1.getBlockState($$0).is(this.blockToRemove)) {
          return $$0;

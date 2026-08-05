@@ -13,7 +13,6 @@ import net.minecraft.util.ByIdMap.OutOfBoundsStrategy;
 import net.minecraft.util.StringRepresentable.EnumCodec;
 import net.minecraft.world.entity.player.Abilities;
 import org.jetbrains.annotations.Contract;
-import org.jspecify.annotations.Nullable;
 
 public enum GameType implements StringRepresentable {
    SURVIVAL(0, "survival"),
@@ -106,17 +105,17 @@ public enum GameType implements StringRepresentable {
    }
 
    @Contract("_,!null->!null;_,null->_")
-   @Nullable
-   public static net.minecraft.world.level.GameType byName(String $$0, @Nullable net.minecraft.world.level.GameType $$1) {
+   
+   public static net.minecraft.world.level.GameType byName(String $$0, net.minecraft.world.level.GameType $$1) {
       net.minecraft.world.level.GameType $$2 = (net.minecraft.world.level.GameType)CODEC.byName($$0);
       return $$2 != null ? $$2 : $$1;
    }
 
-   public static int getNullableId(@Nullable net.minecraft.world.level.GameType $$0) {
+   public static int getNullableId(net.minecraft.world.level.GameType $$0) {
       return $$0 != null ? $$0.id : -1;
    }
 
-   @Nullable
+   
    public static net.minecraft.world.level.GameType byNullableId(int $$0) {
       return $$0 == -1 ? null : byId($$0);
    }

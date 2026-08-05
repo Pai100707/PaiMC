@@ -6,7 +6,6 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import java.util.UUID;
 import net.minecraft.core.UUIDUtil;
-import org.jspecify.annotations.Nullable;
 
 public record NameAndId(UUID id, String name) {
    public static final Codec<NameAndId> CODEC = RecordCodecBuilder.create(
@@ -22,7 +21,7 @@ public record NameAndId(UUID id, String name) {
       this($$0.id(), $$0.name());
    }
 
-   @Nullable
+   
    public static NameAndId fromJson(JsonObject $$0) {
       if ($$0.has("uuid") && $$0.has("name")) {
          String $$1 = $$0.get("uuid").getAsString();

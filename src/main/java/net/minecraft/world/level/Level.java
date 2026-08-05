@@ -84,7 +84,6 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.scores.Scoreboard;
 import org.apache.commons.lang3.mutable.MutableBoolean;
-import org.jspecify.annotations.Nullable;
 
 public abstract class Level implements net.minecraft.world.level.LevelAccessor, AutoCloseable {
    public static final Codec<ResourceKey<net.minecraft.world.level.Level>> RESOURCE_KEY_CODEC = ResourceKey.codec(Registries.DIMENSION);
@@ -159,7 +158,7 @@ public abstract class Level implements net.minecraft.world.level.LevelAccessor, 
       return this.isClientSide;
    }
 
-   @Nullable
+   
    @Override
    public MinecraftServer getServer() {
       return null;
@@ -199,7 +198,7 @@ public abstract class Level implements net.minecraft.world.level.LevelAccessor, 
       return (LevelChunk)this.getChunk($$0, $$1, ChunkStatus.FULL);
    }
 
-   @Nullable
+   
    @Override
    public ChunkAccess getChunk(int $$0, int $$1, ChunkStatus $$2, boolean $$3) {
       ChunkAccess $$4 = this.getChunkSource().getChunk($$0, $$1, $$2, $$3);
@@ -272,7 +271,7 @@ public abstract class Level implements net.minecraft.world.level.LevelAccessor, 
    }
 
    @Override
-   public boolean destroyBlock(BlockPos $$0, boolean $$1, @Nullable Entity $$2, int $$3) {
+   public boolean destroyBlock(BlockPos $$0, boolean $$1, Entity $$2, int $$3) {
       BlockState $$4 = this.getBlockState($$0);
       if ($$4.isAir()) {
          return false;
@@ -308,16 +307,16 @@ public abstract class Level implements net.minecraft.world.level.LevelAccessor, 
    public void setBlocksDirty(BlockPos $$0, BlockState $$1, BlockState $$2) {
    }
 
-   public void updateNeighborsAt(BlockPos $$0, Block $$1, @Nullable Orientation $$2) {
+   public void updateNeighborsAt(BlockPos $$0, Block $$1, Orientation $$2) {
    }
 
-   public void updateNeighborsAtExceptFromFacing(BlockPos $$0, Block $$1, Direction $$2, @Nullable Orientation $$3) {
+   public void updateNeighborsAtExceptFromFacing(BlockPos $$0, Block $$1, Direction $$2, Orientation $$3) {
    }
 
-   public void neighborChanged(BlockPos $$0, Block $$1, @Nullable Orientation $$2) {
+   public void neighborChanged(BlockPos $$0, Block $$1, Orientation $$2) {
    }
 
-   public void neighborChanged(BlockState $$0, BlockPos $$1, Block $$2, @Nullable Orientation $$3, boolean $$4) {
+   public void neighborChanged(BlockState $$0, BlockPos $$1, Block $$2, Orientation $$3, boolean $$4) {
    }
 
    @Override
@@ -375,33 +374,33 @@ public abstract class Level implements net.minecraft.world.level.LevelAccessor, 
    }
 
    @Override
-   public void playSound(@Nullable Entity $$0, BlockPos $$1, SoundEvent $$2, SoundSource $$3, float $$4, float $$5) {
+   public void playSound(Entity $$0, BlockPos $$1, SoundEvent $$2, SoundSource $$3, float $$4, float $$5) {
       this.playSound($$0, $$1.getX() + 0.5, $$1.getY() + 0.5, $$1.getZ() + 0.5, $$2, $$3, $$4, $$5);
    }
 
    public abstract void playSeededSound(
-      @Nullable Entity var1, double var2, double var4, double var6, Holder<SoundEvent> var8, SoundSource var9, float var10, float var11, long var12
+      Entity var1, double var2, double var4, double var6, Holder<SoundEvent> var8, SoundSource var9, float var10, float var11, long var12
    );
 
-   public void playSeededSound(@Nullable Entity $$0, double $$1, double $$2, double $$3, SoundEvent $$4, SoundSource $$5, float $$6, float $$7, long $$8) {
+   public void playSeededSound(Entity $$0, double $$1, double $$2, double $$3, SoundEvent $$4, SoundSource $$5, float $$6, float $$7, long $$8) {
       this.playSeededSound($$0, $$1, $$2, $$3, BuiltInRegistries.SOUND_EVENT.wrapAsHolder($$4), $$5, $$6, $$7, $$8);
    }
 
-   public abstract void playSeededSound(@Nullable Entity var1, Entity var2, Holder<SoundEvent> var3, SoundSource var4, float var5, float var6, long var7);
+   public abstract void playSeededSound(Entity var1, Entity var2, Holder<SoundEvent> var3, SoundSource var4, float var5, float var6, long var7);
 
-   public void playSound(@Nullable Entity $$0, double $$1, double $$2, double $$3, SoundEvent $$4, SoundSource $$5) {
+   public void playSound(Entity $$0, double $$1, double $$2, double $$3, SoundEvent $$4, SoundSource $$5) {
       this.playSound($$0, $$1, $$2, $$3, $$4, $$5, 1.0F, 1.0F);
    }
 
-   public void playSound(@Nullable Entity $$0, double $$1, double $$2, double $$3, SoundEvent $$4, SoundSource $$5, float $$6, float $$7) {
+   public void playSound(Entity $$0, double $$1, double $$2, double $$3, SoundEvent $$4, SoundSource $$5, float $$6, float $$7) {
       this.playSeededSound($$0, $$1, $$2, $$3, $$4, $$5, $$6, $$7, this.threadSafeRandom.nextLong());
    }
 
-   public void playSound(@Nullable Entity $$0, double $$1, double $$2, double $$3, Holder<SoundEvent> $$4, SoundSource $$5, float $$6, float $$7) {
+   public void playSound(Entity $$0, double $$1, double $$2, double $$3, Holder<SoundEvent> $$4, SoundSource $$5, float $$6, float $$7) {
       this.playSeededSound($$0, $$1, $$2, $$3, $$4, $$5, $$6, $$7, this.threadSafeRandom.nextLong());
    }
 
-   public void playSound(@Nullable Entity $$0, Entity $$1, SoundEvent $$2, SoundSource $$3, float $$4, float $$5) {
+   public void playSound(Entity $$0, Entity $$1, SoundEvent $$2, SoundSource $$3, float $$4, float $$5) {
       this.playSeededSound($$0, $$1, BuiltInRegistries.SOUND_EVENT.wrapAsHolder($$2), $$3, $$4, $$5, this.threadSafeRandom.nextLong());
    }
 
@@ -480,7 +479,7 @@ public abstract class Level implements net.minecraft.world.level.LevelAccessor, 
       return this.shouldTickBlocksAt(net.minecraft.world.level.ChunkPos.asLong($$0));
    }
 
-   public void explode(@Nullable Entity $$0, double $$1, double $$2, double $$3, float $$4, net.minecraft.world.level.Level.ExplosionInteraction $$5) {
+   public void explode(Entity $$0, double $$1, double $$2, double $$3, float $$4, net.minecraft.world.level.Level.ExplosionInteraction $$5) {
       this.explode(
          $$0,
          net.minecraft.world.level.Explosion.getDefaultDamageSource(this, $$0),
@@ -499,7 +498,7 @@ public abstract class Level implements net.minecraft.world.level.LevelAccessor, 
    }
 
    public void explode(
-      @Nullable Entity $$0, double $$1, double $$2, double $$3, float $$4, boolean $$5, net.minecraft.world.level.Level.ExplosionInteraction $$6
+      Entity $$0, double $$1, double $$2, double $$3, float $$4, boolean $$5, net.minecraft.world.level.Level.ExplosionInteraction $$6
    ) {
       this.explode(
          $$0,
@@ -519,9 +518,9 @@ public abstract class Level implements net.minecraft.world.level.LevelAccessor, 
    }
 
    public void explode(
-      @Nullable Entity $$0,
-      @Nullable DamageSource $$1,
-      @Nullable net.minecraft.world.level.ExplosionDamageCalculator $$2,
+      Entity $$0,
+      DamageSource $$1,
+      net.minecraft.world.level.ExplosionDamageCalculator $$2,
       Vec3 $$3,
       float $$4,
       boolean $$5,
@@ -545,9 +544,9 @@ public abstract class Level implements net.minecraft.world.level.LevelAccessor, 
    }
 
    public void explode(
-      @Nullable Entity $$0,
-      @Nullable DamageSource $$1,
-      @Nullable net.minecraft.world.level.ExplosionDamageCalculator $$2,
+      Entity $$0,
+      DamageSource $$1,
+      net.minecraft.world.level.ExplosionDamageCalculator $$2,
       double $$3,
       double $$4,
       double $$5,
@@ -573,9 +572,9 @@ public abstract class Level implements net.minecraft.world.level.LevelAccessor, 
    }
 
    public abstract void explode(
-      @Nullable Entity var1,
-      @Nullable DamageSource var2,
-      @Nullable net.minecraft.world.level.ExplosionDamageCalculator var3,
+      Entity var1,
+      DamageSource var2,
+      net.minecraft.world.level.ExplosionDamageCalculator var3,
       double var4,
       double var6,
       double var8,
@@ -590,7 +589,7 @@ public abstract class Level implements net.minecraft.world.level.LevelAccessor, 
 
    public abstract String gatherChunkSourceStats();
 
-   @Nullable
+   
    @Override
    public BlockEntity getBlockEntity(BlockPos $$0) {
       if (!this.isInValidBounds($$0)) {
@@ -670,14 +669,14 @@ public abstract class Level implements net.minecraft.world.level.LevelAccessor, 
       this.getChunkSource().close();
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.level.BlockGetter getChunkForCollisions(int $$0, int $$1) {
       return this.getChunk($$0, $$1, ChunkStatus.FULL, false);
    }
 
    @Override
-   public List<Entity> getEntities(@Nullable Entity $$0, AABB $$1, Predicate<? super Entity> $$2) {
+   public List<Entity> getEntities(Entity $$0, AABB $$1, Predicate<? super Entity> $$2) {
       Profiler.get().incrementCounter("getEntities");
       List<Entity> $$3 = Lists.newArrayList();
       this.getEntities().get($$1, $$3x -> {
@@ -760,20 +759,20 @@ public abstract class Level implements net.minecraft.world.level.LevelAccessor, 
       return this.getEntities($$0, $$1, EntitySelector.pushableBy($$0));
    }
 
-   @Nullable
+   
    public abstract Entity getEntity(int var1);
 
-   @Nullable
+   
    public Entity getEntity(UUID $$0) {
       return (Entity)this.getEntities().get($$0);
    }
 
-   @Nullable
+   
    public Entity getEntityInAnyDimension(UUID $$0) {
       return this.getEntity($$0);
    }
 
-   @Nullable
+   
    public Player getPlayerInAnyDimension(UUID $$0) {
       return this.getPlayerByUUID($$0);
    }
@@ -863,7 +862,7 @@ public abstract class Level implements net.minecraft.world.level.LevelAccessor, 
       }
    }
 
-   @Nullable
+   
    public abstract MapItemSavedData getMapData(MapId var1);
 
    public void globalLevelEvent(int $$0, BlockPos $$1, int $$2) {

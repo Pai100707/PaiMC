@@ -1,7 +1,6 @@
 package net.minecraft.util.parsing.packrat;
 
 import java.util.Optional;
-import org.jspecify.annotations.Nullable;
 
 public interface ParseState<S> {
    Scope scope();
@@ -21,7 +20,7 @@ public interface ParseState<S> {
       }
    }
 
-   @Nullable
+   
    <T> T parse(NamedRule<S, T> var1);
 
    S input();

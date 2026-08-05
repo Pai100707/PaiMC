@@ -5,7 +5,6 @@ import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.PacketType;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
-import org.jspecify.annotations.Nullable;
 
 public class ClientboundSetCameraPacket implements Packet<ClientGamePacketListener> {
    public static final StreamCodec<net.minecraft.network.FriendlyByteBuf, ClientboundSetCameraPacket> STREAM_CODEC = Packet.codec(
@@ -34,7 +33,7 @@ public class ClientboundSetCameraPacket implements Packet<ClientGamePacketListen
       $$0.handleSetCamera(this);
    }
 
-   @Nullable
+   
    public Entity getEntity(Level $$0) {
       return $$0.getEntity(this.cameraId);
    }

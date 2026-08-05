@@ -27,7 +27,6 @@ import net.minecraft.util.Util;
 import net.minecraft.util.HttpUtil.DownloadProgressListener;
 import net.minecraft.util.eventlog.JsonEventLog;
 import net.minecraft.util.thread.ConsecutiveExecutor;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class DownloadQueue implements AutoCloseable {
@@ -109,7 +108,7 @@ public class DownloadQueue implements AutoCloseable {
       }
    }
 
-   public record DownloadRequest(URL url, @Nullable HashCode hash) {
+   public record DownloadRequest(URL url, HashCode hash) {
    }
 
    record FileInfoEntry(String name, long size) {

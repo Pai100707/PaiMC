@@ -10,7 +10,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.ColumnFeatureConfiguration;
-import org.jspecify.annotations.Nullable;
 
 public class BasaltColumnsFeature extends Feature<ColumnFeatureConfiguration> {
    private static final ImmutableList<Block> CANNOT_PLACE_ON = ImmutableList.of(
@@ -91,7 +90,7 @@ public class BasaltColumnsFeature extends Feature<ColumnFeatureConfiguration> {
       return $$5;
    }
 
-   @Nullable
+   
    private static BlockPos findSurface(net.minecraft.world.level.LevelAccessor $$0, int $$1, MutableBlockPos $$2, int $$3) {
       while ($$2.getY() > $$0.getMinY() + 1 && $$3 > 0) {
          $$3--;
@@ -115,7 +114,7 @@ public class BasaltColumnsFeature extends Feature<ColumnFeatureConfiguration> {
       }
    }
 
-   @Nullable
+   
    private static BlockPos findAir(net.minecraft.world.level.LevelAccessor $$0, MutableBlockPos $$1, int $$2) {
       while ($$1.getY() <= $$0.getMaxY() && $$2 > 0) {
          $$2--;

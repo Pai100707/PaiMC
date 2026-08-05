@@ -32,7 +32,6 @@ import net.minecraft.network.RateKickingConnection;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.PacketFlow;
 import net.minecraft.network.protocol.common.ClientboundDisconnectPacket;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class ServerConnectionListener {
@@ -47,7 +46,7 @@ public class ServerConnectionListener {
       this.running = true;
    }
 
-   public void startTcpServerListener(@Nullable InetAddress $$0, int $$1) throws IOException {
+   public void startTcpServerListener(InetAddress $$0, int $$1) throws IOException {
       synchronized (this.channels) {
          EventLoopGroupHolder $$2 = EventLoopGroupHolder.remote(this.server.useNativeTransport());
          this.channels

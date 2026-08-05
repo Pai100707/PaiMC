@@ -14,7 +14,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import org.jspecify.annotations.Nullable;
 
 public interface Container extends Clearable, SlotProvider, Iterable<ItemStack> {
    float DEFAULT_DISTANCE_BUFFER = 4.0F;
@@ -101,7 +100,7 @@ public interface Container extends Clearable, SlotProvider, Iterable<ItemStack> 
       }
    }
 
-   @Nullable
+   
    default SlotAccess getSlot(final int $$0) {
       return $$0 >= 0 && $$0 < this.getContainerSize() ? new SlotAccess() {
          public ItemStack get() {

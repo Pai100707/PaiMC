@@ -15,17 +15,16 @@ import java.util.function.Consumer;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
-import org.jspecify.annotations.Nullable;
 
 public class NullOps implements DynamicOps<net.minecraft.util.Unit> {
    public static final net.minecraft.util.NullOps INSTANCE = new net.minecraft.util.NullOps();
    private static final MapLike<net.minecraft.util.Unit> EMPTY_MAP = new MapLike<net.minecraft.util.Unit>() {
-      @Nullable
+      
       public net.minecraft.util.Unit get(net.minecraft.util.Unit $$0) {
          return null;
       }
 
-      @Nullable
+      
       public net.minecraft.util.Unit get(String $$0) {
          return null;
       }

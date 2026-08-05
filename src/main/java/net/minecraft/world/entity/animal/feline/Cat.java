@@ -61,7 +61,6 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.phys.AABB;
-import org.jspecify.annotations.Nullable;
 
 public class Cat extends net.minecraft.world.entity.TamableAnimal {
    public static final double TEMPT_SPEED_MOD = 0.6;
@@ -73,9 +72,9 @@ public class Cat extends net.minecraft.world.entity.TamableAnimal {
    private static final EntityDataAccessor<Integer> DATA_COLLAR_COLOR = SynchedEntityData.defineId(Cat.class, EntityDataSerializers.INT);
    private static final ResourceKey<CatVariant> DEFAULT_VARIANT = CatVariants.BLACK;
    private static final DyeColor DEFAULT_COLLAR_COLOR = DyeColor.RED;
-   @Nullable
+   
    private Cat.CatAvoidEntityGoal<Player> avoidPlayersGoal;
-   @Nullable
+   
    private TemptGoal temptGoal;
    private float lieDownAmount;
    private float lieDownAmountO;
@@ -118,7 +117,7 @@ public class Cat extends net.minecraft.world.entity.TamableAnimal {
       this.entityData.set(DATA_VARIANT_ID, $$0);
    }
 
-   @Nullable
+   
    @Override
    public <T> T get(DataComponentType<? extends T> $$0) {
       if ($$0 == DataComponents.CAT_VARIANT) {
@@ -215,7 +214,7 @@ public class Cat extends net.minecraft.world.entity.TamableAnimal {
       }
    }
 
-   @Nullable
+   
    @Override
    protected SoundEvent getAmbientSound() {
       if (this.isTame()) {
@@ -324,7 +323,7 @@ public class Cat extends net.minecraft.world.entity.TamableAnimal {
       return Mth.lerp($$0, this.relaxStateOneAmountO, this.relaxStateOneAmount);
    }
 
-   @Nullable
+   
    public Cat getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       Cat $$2 = net.minecraft.world.entity.EntityType.CAT.create($$0, net.minecraft.world.entity.EntitySpawnReason.BREEDING);
       if ($$2 != null && $$1 instanceof Cat $$3) {
@@ -355,13 +354,13 @@ public class Cat extends net.minecraft.world.entity.TamableAnimal {
       }
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       $$3 = super.finalizeSpawn($$0, $$1, $$2, $$3);
       VariantUtils.<CatVariant>selectVariantToSpawn(SpawnContext.create($$0, this.blockPosition()), Registries.CAT_VARIANT).ifPresent(this::setVariant);
@@ -486,9 +485,9 @@ public class Cat extends net.minecraft.world.entity.TamableAnimal {
 
    static class CatRelaxOnOwnerGoal extends Goal {
       private final Cat cat;
-      @Nullable
+      
       private Player ownerPlayer;
-      @Nullable
+      
       private BlockPos goalPos;
       private int onBedTicks;
 
@@ -612,7 +611,7 @@ public class Cat extends net.minecraft.world.entity.TamableAnimal {
    }
 
    static class CatTemptGoal extends TemptGoal {
-      @Nullable
+      
       private Player selectedPlayer;
       private final Cat cat;
 

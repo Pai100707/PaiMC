@@ -33,7 +33,6 @@ import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.storage.TagValueInput;
 import net.minecraft.world.level.storage.TagValueOutput;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class CloneCommands {
@@ -307,7 +306,7 @@ public class CloneCommands {
    record CloneBlockEntityInfo(CompoundTag tag, DataComponentMap components) {
    }
 
-   record CloneBlockInfo(BlockPos pos, BlockState state, @Nullable CloneCommands.CloneBlockEntityInfo blockEntityInfo, BlockState previousStateAtDestination) {
+   record CloneBlockInfo(BlockPos pos, BlockState state, CloneCommands.CloneBlockEntityInfo blockEntityInfo, BlockState previousStateAtDestination) {
    }
 
    record DimensionAndPosition(ServerLevel dimension, BlockPos position) {

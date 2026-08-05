@@ -27,7 +27,6 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class EventLogDirectory {
@@ -56,7 +55,7 @@ public class EventLogDirectory {
       return var2;
    }
 
-   @Nullable
+   
    private EventLogDirectory.File parseFile(Path $$0) {
       String $$1 = $$0.getFileName().toString();
       int $$2 = $$1.indexOf(46);
@@ -125,7 +124,7 @@ public class EventLogDirectory {
    }
 
    public record CompressedFile(Path path, EventLogDirectory.FileId id) implements EventLogDirectory.File {
-      @Nullable
+      
       @Override
       public Reader openReader() throws IOException {
          return !Files.exists(this.path)
@@ -144,7 +143,7 @@ public class EventLogDirectory {
 
       EventLogDirectory.FileId id();
 
-      @Nullable
+      
       Reader openReader() throws IOException;
 
       EventLogDirectory.CompressedFile compress() throws IOException;
@@ -153,7 +152,7 @@ public class EventLogDirectory {
    public record FileId(LocalDate date, int index) {
       private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.BASIC_ISO_DATE;
 
-      @Nullable
+      
       public static EventLogDirectory.FileId parse(String $$0) {
          int $$1 = $$0.indexOf("-");
          if ($$1 == -1) {
@@ -240,7 +239,7 @@ public class EventLogDirectory {
          return FileChannel.open(this.path, StandardOpenOption.WRITE, StandardOpenOption.READ);
       }
 
-      @Nullable
+      
       @Override
       public Reader openReader() throws IOException {
          return Files.exists(this.path) ? Files.newBufferedReader(this.path) : null;

@@ -40,7 +40,6 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public abstract class AbstractMinecart extends VehicleEntity {
    private static final Vec3 LOWERED_PASSENGER_ATTACHMENT = new Vec3(0.0, 0.0, 0.0);
@@ -120,7 +119,7 @@ public abstract class AbstractMinecart extends VehicleEntity {
       this.zo = $$2;
    }
 
-   @Nullable
+   
    public static <T extends AbstractMinecart> T createMinecart(
       Level $$0,
       double $$1,
@@ -129,7 +128,7 @@ public abstract class AbstractMinecart extends VehicleEntity {
       net.minecraft.world.entity.EntityType<T> $$4,
       net.minecraft.world.entity.EntitySpawnReason $$5,
       ItemStack $$6,
-      @Nullable Player $$7
+      Player $$7
    ) {
       T $$8 = (T)$$4.create($$0, $$5);
       if ($$8 != null) {

@@ -98,7 +98,6 @@ import net.minecraft.world.scores.DisplaySlot;
 import net.minecraft.world.scores.Objective;
 import net.minecraft.world.scores.PlayerTeam;
 import net.minecraft.world.scores.Team;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public abstract class PlayerList {
@@ -317,7 +316,7 @@ public abstract class PlayerList {
       this.broadcastAll(new ClientboundPlayerInfoRemovePacket(List.of($$0.getUUID())));
    }
 
-   @Nullable
+   
    public Component canPlayerLogin(SocketAddress $$0, NameAndId $$1) {
       if (this.bans.isBanned($$1)) {
          UserBanListEntry $$2 = this.bans.get($$1);
@@ -550,7 +549,7 @@ public abstract class PlayerList {
       return this.ops.contains($$0) || this.server.isSingleplayerOwner($$0) && this.server.getWorldData().isAllowCommands() || this.allowCommandsForAllPlayers;
    }
 
-   @Nullable
+   
    public ServerPlayer getPlayerByName(String $$0) {
       int $$1 = this.players.size();
 
@@ -564,7 +563,7 @@ public abstract class PlayerList {
       return null;
    }
 
-   public void broadcast(@Nullable Player $$0, double $$1, double $$2, double $$3, double $$4, ResourceKey<Level> $$5, Packet<?> $$6) {
+   public void broadcast(Player $$0, double $$1, double $$2, double $$3, double $$4, ResourceKey<Level> $$5, Packet<?> $$6) {
       for (int $$7 = 0; $$7 < this.players.size(); $$7++) {
          ServerPlayer $$8 = this.players.get($$7);
          if ($$8 != $$0 && $$8.level().dimension() == $$5) {
@@ -660,7 +659,7 @@ public abstract class PlayerList {
       return this.server;
    }
 
-   @Nullable
+   
    public CompoundTag getSingleplayerData() {
       return null;
    }
@@ -698,7 +697,7 @@ public abstract class PlayerList {
       this.broadcastChatMessage($$0, $$1::shouldFilterMessageTo, $$1, $$2);
    }
 
-   private void broadcastChatMessage(PlayerChatMessage $$0, Predicate<ServerPlayer> $$1, @Nullable ServerPlayer $$2, Bound $$3) {
+   private void broadcastChatMessage(PlayerChatMessage $$0, Predicate<ServerPlayer> $$1, ServerPlayer $$2, Bound $$3) {
       boolean $$4 = this.verifyChatTrusted($$0);
       this.server.logChatMessage($$0.decoratedContent(), $$3, $$4 ? null : "Not Secure");
       OutgoingChatMessage $$5 = OutgoingChatMessage.create($$0);
@@ -785,12 +784,12 @@ public abstract class PlayerList {
       return this.players;
    }
 
-   @Nullable
+   
    public ServerPlayer getPlayer(UUID $$0) {
       return this.playersByUUID.get($$0);
    }
 
-   @Nullable
+   
    public ServerPlayer getPlayer(String $$0) {
       for (ServerPlayer $$1 : this.players) {
          if ($$1.getGameProfile().name().equalsIgnoreCase($$0)) {

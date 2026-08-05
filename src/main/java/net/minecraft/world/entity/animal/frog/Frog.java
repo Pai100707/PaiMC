@@ -59,7 +59,6 @@ import net.minecraft.world.level.pathfinder.PathfindingContext;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class Frog extends Animal {
    protected static final ImmutableList<SensorType<? extends Sensor<? super Frog>>> SENSOR_TYPES = ImmutableList.of(
@@ -165,7 +164,7 @@ public class Frog extends Animal {
       this.entityData.set(DATA_VARIANT_ID, $$0);
    }
 
-   @Nullable
+   
    @Override
    public <T> T get(DataComponentType<? extends T> $$0) {
       return $$0 == DataComponents.FROG_VARIANT ? castComponentValue((DataComponentType<T>)$$0, this.getVariant()) : super.get($$0);
@@ -263,7 +262,7 @@ public class Frog extends Animal {
       this.level().playSound(null, this, SoundEvents.FROG_EAT, SoundSource.NEUTRAL, 2.0F, 1.0F);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.AgeableMob getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       Frog $$2 = net.minecraft.world.entity.EntityType.FROG.create($$0, net.minecraft.world.entity.EntitySpawnReason.BREEDING);
@@ -294,7 +293,7 @@ public class Frog extends Animal {
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       VariantUtils.<FrogVariant>selectVariantToSpawn(SpawnContext.create($$0, this.blockPosition()), Registries.FROG_VARIANT).ifPresent(this::setVariant);
       FrogAi.initMemories(this, $$0.getRandom());
@@ -309,19 +308,19 @@ public class Frog extends Animal {
          .add(Attributes.STEP_HEIGHT, 1.0);
    }
 
-   @Nullable
+   
    @Override
    protected SoundEvent getAmbientSound() {
       return SoundEvents.FROG_AMBIENT;
    }
 
-   @Nullable
+   
    @Override
    protected SoundEvent getHurtSound(DamageSource $$0) {
       return SoundEvents.FROG_HURT;
    }
 
-   @Nullable
+   
    @Override
    protected SoundEvent getDeathSound() {
       return SoundEvents.FROG_DEATH;
@@ -358,7 +357,7 @@ public class Frog extends Animal {
       return new Frog.FrogPathNavigation(this, $$0);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.LivingEntity getTarget() {
       return this.getTargetFromBrain();

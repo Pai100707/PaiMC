@@ -8,14 +8,13 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.ComponentSerialization;
 import net.minecraft.network.chat.numbers.NumberFormat;
 import net.minecraft.network.chat.numbers.NumberFormatTypes;
-import org.jspecify.annotations.Nullable;
 
 public class Score implements net.minecraft.world.scores.ReadOnlyScoreInfo {
    private int value;
    private boolean locked = true;
-   @Nullable
+   
    private Component display;
-   @Nullable
+   
    private NumberFormat numberFormat;
 
    public Score() {
@@ -50,22 +49,22 @@ public class Score implements net.minecraft.world.scores.ReadOnlyScoreInfo {
       this.locked = $$0;
    }
 
-   @Nullable
+   
    public Component display() {
       return this.display;
    }
 
-   public void display(@Nullable Component $$0) {
+   public void display(Component $$0) {
       this.display = $$0;
    }
 
-   @Nullable
+   
    @Override
    public NumberFormat numberFormat() {
       return this.numberFormat;
    }
 
-   public void numberFormat(@Nullable NumberFormat $$0) {
+   public void numberFormat(NumberFormat $$0) {
       this.numberFormat = $$0;
    }
 

@@ -24,7 +24,6 @@ import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.player.Player;
-import org.jspecify.annotations.Nullable;
 
 public class AngerManagement {
    @VisibleForTesting
@@ -161,12 +160,12 @@ public class AngerManagement {
       this.sortAndUpdateHighestAnger();
    }
 
-   @Nullable
+   
    private net.minecraft.world.entity.Entity getTopSuspect() {
       return this.suspects.stream().filter(this.filter).findFirst().orElse(null);
    }
 
-   public int getActiveAnger(@Nullable net.minecraft.world.entity.Entity $$0) {
+   public int getActiveAnger(net.minecraft.world.entity.Entity $$0) {
       return $$0 == null ? this.highestAnger : this.angerBySuspect.getInt($$0);
    }
 

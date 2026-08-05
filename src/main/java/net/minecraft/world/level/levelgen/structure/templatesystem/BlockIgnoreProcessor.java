@@ -8,7 +8,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jspecify.annotations.Nullable;
 
 public class BlockIgnoreProcessor extends StructureProcessor {
    public static final MapCodec<BlockIgnoreProcessor> CODEC = BlockState.CODEC
@@ -25,7 +24,7 @@ public class BlockIgnoreProcessor extends StructureProcessor {
       this.toIgnore = ImmutableList.copyOf($$0);
    }
 
-   @Nullable
+   
    @Override
    public StructureTemplate.StructureBlockInfo processBlock(
       net.minecraft.world.level.LevelReader $$0,

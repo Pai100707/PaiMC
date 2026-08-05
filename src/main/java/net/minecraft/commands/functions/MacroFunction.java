@@ -23,7 +23,6 @@ import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.Util;
-import org.jspecify.annotations.Nullable;
 
 public class MacroFunction<T extends net.minecraft.commands.ExecutionCommandSource<T>> implements CommandFunction<T> {
    private static final DecimalFormat DECIMAL_FORMAT = (DecimalFormat)Util.make(
@@ -47,7 +46,7 @@ public class MacroFunction<T extends net.minecraft.commands.ExecutionCommandSour
    }
 
    @Override
-   public InstantiatedFunction<T> instantiate(@Nullable CompoundTag $$0, CommandDispatcher<T> $$1) throws net.minecraft.commands.FunctionInstantiationException {
+   public InstantiatedFunction<T> instantiate(CompoundTag $$0, CommandDispatcher<T> $$1) throws net.minecraft.commands.FunctionInstantiationException {
       if ($$0 == null) {
          throw new net.minecraft.commands.FunctionInstantiationException(
             Component.translatable("commands.function.error.missing_arguments", new Object[]{Component.translationArg(this.id())})

@@ -23,7 +23,6 @@ import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class PitcherCropBlock extends DoublePlantBlock implements BonemealableBlock {
    public static final MapCodec<PitcherCropBlock> CODEC = simpleCodec(PitcherCropBlock::new);
@@ -58,7 +57,7 @@ public class PitcherCropBlock extends DoublePlantBlock implements BonemealableBl
       });
    }
 
-   @Nullable
+   
    @Override
    public BlockState getStateForPlacement(BlockPlaceContext $$0) {
       return this.defaultBlockState();
@@ -125,7 +124,7 @@ public class PitcherCropBlock extends DoublePlantBlock implements BonemealableBl
    }
 
    @Override
-   public void setPlacedBy(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, @Nullable LivingEntity $$3, ItemStack $$4) {
+   public void setPlacedBy(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, LivingEntity $$3, ItemStack $$4) {
    }
 
    @Override
@@ -178,7 +177,7 @@ public class PitcherCropBlock extends DoublePlantBlock implements BonemealableBl
       return $$0.getValue(AGE) >= 4;
    }
 
-   @Nullable
+   
    private PitcherCropBlock.PosAndState getLowerHalf(net.minecraft.world.level.LevelReader $$0, BlockPos $$1, BlockState $$2) {
       if (isLower($$2)) {
          return new PitcherCropBlock.PosAndState($$1, $$2);

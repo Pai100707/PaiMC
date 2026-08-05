@@ -16,7 +16,6 @@ import java.util.Set;
 import java.util.Map.Entry;
 import net.minecraft.util.datafix.schemas.V1451_6;
 import org.apache.commons.lang3.StringUtils;
-import org.jspecify.annotations.Nullable;
 
 public class StatsCounterFix extends DataFix {
    private static final Set<String> SPECIAL_OBJECTIVE_CRITERIA = Set.of(
@@ -187,7 +186,7 @@ public class StatsCounterFix extends DataFix {
       super($$0, $$1);
    }
 
-   @Nullable
+   
    private static StatsCounterFix.StatType unpackLegacyKey(String $$0) {
       if (SKIP.contains($$0)) {
          return null;
@@ -273,7 +272,7 @@ public class StatsCounterFix extends DataFix {
       });
    }
 
-   @Nullable
+   
    private static String upgradeItem(String $$0) {
       return ItemStackTheFlatteningFix.updateItem($$0, 0);
    }

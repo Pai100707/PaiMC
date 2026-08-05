@@ -7,7 +7,6 @@ import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.memory.MemoryStatus;
 import net.minecraft.world.entity.ai.util.LandRandomPos;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class SpearRetreat extends Behavior<net.minecraft.world.entity.PathfinderMob> {
    public static final int MIN_COOLDOWN_DISTANCE = 9;
@@ -20,7 +19,7 @@ public class SpearRetreat extends Behavior<net.minecraft.world.entity.Pathfinder
       this.speedModifierWhenRepositioning = $$0;
    }
 
-   @Nullable
+   
    private net.minecraft.world.entity.LivingEntity getTarget(net.minecraft.world.entity.PathfinderMob $$0) {
       return $$0.getBrain().getMemory(MemoryModuleType.ATTACK_TARGET).orElse(null);
    }

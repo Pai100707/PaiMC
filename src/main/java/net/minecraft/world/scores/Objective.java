@@ -11,7 +11,6 @@ import net.minecraft.network.chat.HoverEvent.ShowText;
 import net.minecraft.network.chat.numbers.NumberFormat;
 import net.minecraft.network.chat.numbers.NumberFormatTypes;
 import net.minecraft.world.scores.criteria.ObjectiveCriteria;
-import org.jspecify.annotations.Nullable;
 
 public class Objective {
    private final net.minecraft.world.scores.Scoreboard scoreboard;
@@ -21,7 +20,7 @@ public class Objective {
    private Component formattedDisplayName;
    private ObjectiveCriteria.RenderType renderType;
    private boolean displayAutoUpdate;
-   @Nullable
+   
    private NumberFormat numberFormat;
 
    public Objective(
@@ -31,7 +30,7 @@ public class Objective {
       Component $$3,
       ObjectiveCriteria.RenderType $$4,
       boolean $$5,
-      @Nullable NumberFormat $$6
+      NumberFormat $$6
    ) {
       this.scoreboard = $$0;
       this.name = $$1;
@@ -69,7 +68,7 @@ public class Objective {
       return this.displayAutoUpdate;
    }
 
-   @Nullable
+   
    public NumberFormat numberFormat() {
       return this.numberFormat;
    }
@@ -106,7 +105,7 @@ public class Objective {
       this.scoreboard.onObjectiveChanged(this);
    }
 
-   public void setNumberFormat(@Nullable NumberFormat $$0) {
+   public void setNumberFormat(NumberFormat $$0) {
       this.numberFormat = $$0;
       this.scoreboard.onObjectiveChanged(this);
    }

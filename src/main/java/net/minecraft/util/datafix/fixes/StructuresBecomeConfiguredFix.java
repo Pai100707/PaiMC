@@ -19,7 +19,6 @@ import java.util.Optional;
 import java.util.Map.Entry;
 import java.util.function.Function;
 import java.util.stream.LongStream;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class StructuresBecomeConfiguredFix extends DataFix {
@@ -164,7 +163,7 @@ public class StructuresBecomeConfiguredFix extends DataFix {
       return $$1.createMap($$3);
    }
 
-   @Nullable
+   
    private Dynamic<?> findUpdatedStructureType(Dynamic<?> $$0, Dynamic<?> $$1) {
       String $$2 = $$0.asString("UNKNOWN").toLowerCase(Locale.ROOT);
       StructuresBecomeConfiguredFix.Conversion $$3 = CONVERSION_MAP.get($$2);

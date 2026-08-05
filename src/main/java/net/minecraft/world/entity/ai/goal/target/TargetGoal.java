@@ -6,7 +6,6 @@ import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.level.pathfinder.Node;
 import net.minecraft.world.level.pathfinder.Path;
 import net.minecraft.world.scores.Team;
-import org.jspecify.annotations.Nullable;
 
 public abstract class TargetGoal extends Goal {
    private static final int EMPTY_REACH_CACHE = 0;
@@ -18,7 +17,7 @@ public abstract class TargetGoal extends Goal {
    private int reachCache;
    private int reachCacheTime;
    private int unseenTicks;
-   @Nullable
+   
    protected net.minecraft.world.entity.LivingEntity targetMob;
    protected int unseenMemoryTicks = 60;
 
@@ -85,7 +84,7 @@ public abstract class TargetGoal extends Goal {
       this.targetMob = null;
    }
 
-   protected boolean canAttack(@Nullable net.minecraft.world.entity.LivingEntity $$0, TargetingConditions $$1) {
+   protected boolean canAttack(net.minecraft.world.entity.LivingEntity $$0, TargetingConditions $$1) {
       if ($$0 == null) {
          return false;
       } else if (!$$1.test(getServerLevel(this.mob), this.mob, $$0)) {

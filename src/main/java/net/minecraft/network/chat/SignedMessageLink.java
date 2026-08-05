@@ -9,7 +9,6 @@ import net.minecraft.core.UUIDUtil;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.Util;
 import net.minecraft.util.SignatureUpdater.Output;
-import org.jspecify.annotations.Nullable;
 
 public record SignedMessageLink(int index, UUID sender, UUID sessionId) {
    public static final Codec<SignedMessageLink> CODEC = RecordCodecBuilder.create(
@@ -39,7 +38,7 @@ public record SignedMessageLink(int index, UUID sender, UUID sessionId) {
       return this.index > $$0.index() && this.sender.equals($$0.sender()) && this.sessionId.equals($$0.sessionId());
    }
 
-   @Nullable
+   
    public SignedMessageLink advance() {
       return this.index == Integer.MAX_VALUE ? null : new SignedMessageLink(this.index + 1, this.sender, this.sessionId);
    }

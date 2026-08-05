@@ -9,10 +9,9 @@ import net.minecraft.core.ClientAsset.ResourceTexture;
 import net.minecraft.core.ClientAsset.Texture;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
-import org.jspecify.annotations.Nullable;
 
-public record PlayerSkin(Texture body, @Nullable Texture cape, @Nullable Texture elytra, PlayerModelType model, boolean secure) {
-   public static PlayerSkin insecure(Texture $$0, @Nullable Texture $$1, @Nullable Texture $$2, PlayerModelType $$3) {
+public record PlayerSkin(Texture body, Texture cape, Texture elytra, PlayerModelType model, boolean secure) {
+   public static PlayerSkin insecure(Texture $$0, Texture $$1, Texture $$2, PlayerModelType $$3) {
       return new PlayerSkin($$0, $$1, $$2, $$3, false);
    }
 

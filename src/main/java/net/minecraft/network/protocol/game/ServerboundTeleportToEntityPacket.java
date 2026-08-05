@@ -6,7 +6,6 @@ import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.PacketType;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
-import org.jspecify.annotations.Nullable;
 
 public class ServerboundTeleportToEntityPacket implements Packet<ServerGamePacketListener> {
    public static final StreamCodec<net.minecraft.network.FriendlyByteBuf, ServerboundTeleportToEntityPacket> STREAM_CODEC = Packet.codec(
@@ -35,7 +34,7 @@ public class ServerboundTeleportToEntityPacket implements Packet<ServerGamePacke
       $$0.handleTeleportToEntityPacket(this);
    }
 
-   @Nullable
+   
    public Entity getEntity(ServerLevel $$0) {
       return $$0.getEntity(this.uuid);
    }

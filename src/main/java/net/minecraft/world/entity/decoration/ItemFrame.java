@@ -37,7 +37,6 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class ItemFrame extends HangingEntity {
    private static final EntityDataAccessor<ItemStack> DATA_ITEM = SynchedEntityData.defineId(ItemFrame.class, EntityDataSerializers.ITEM_STACK);
@@ -195,7 +194,7 @@ public class ItemFrame extends HangingEntity {
    }
 
    @Override
-   public void dropItem(ServerLevel $$0, @Nullable net.minecraft.world.entity.Entity $$1) {
+   public void dropItem(ServerLevel $$0, net.minecraft.world.entity.Entity $$1) {
       this.playSound(this.getBreakSound(), 1.0F, 1.0F);
       this.dropItem($$0, $$1, true);
       this.gameEvent(GameEvent.BLOCK_CHANGE, $$1);
@@ -214,7 +213,7 @@ public class ItemFrame extends HangingEntity {
       return SoundEvents.ITEM_FRAME_PLACE;
    }
 
-   private void dropItem(ServerLevel $$0, @Nullable net.minecraft.world.entity.Entity $$1, boolean $$2) {
+   private void dropItem(ServerLevel $$0, net.minecraft.world.entity.Entity $$1, boolean $$2) {
       if (!this.fixed) {
          ItemStack $$3 = this.getItem();
          this.setItem(ItemStack.EMPTY);
@@ -256,7 +255,7 @@ public class ItemFrame extends HangingEntity {
       return (ItemStack)this.getEntityData().get(DATA_ITEM);
    }
 
-   @Nullable
+   
    public MapId getFramedMapId(ItemStack $$0) {
       return (MapId)$$0.get(DataComponents.MAP_ID);
    }
@@ -289,7 +288,7 @@ public class ItemFrame extends HangingEntity {
       return SoundEvents.ITEM_FRAME_ADD_ITEM;
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SlotAccess getSlot(int $$0) {
       return $$0 == 0 ? net.minecraft.world.entity.SlotAccess.of(this::getItem, this::setItem) : super.getSlot($$0);

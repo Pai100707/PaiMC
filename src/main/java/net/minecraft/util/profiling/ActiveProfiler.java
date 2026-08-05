@@ -19,7 +19,6 @@ import java.util.function.LongSupplier;
 import java.util.function.Supplier;
 import net.minecraft.util.profiling.metrics.MetricCategory;
 import org.apache.commons.lang3.tuple.Pair;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class ActiveProfiler implements ProfileCollector {
@@ -34,7 +33,7 @@ public class ActiveProfiler implements ProfileCollector {
    private final int startTimeTicks;
    private String path = "";
    private boolean started;
-   @Nullable
+   
    private ActiveProfiler.PathEntry currentEntry;
    private final BooleanSupplier suppressWarnings;
    private final Set<Pair<String, MetricCategory>> chartedPaths = new ObjectArraySet();
@@ -165,7 +164,7 @@ public class ActiveProfiler implements ProfileCollector {
       return new FilledProfileResults(this.entries, this.startTimeNano, this.startTimeTicks, this.getRealTime.getAsLong(), this.getTickTime.getAsInt());
    }
 
-   @Nullable
+   
    @Override
    public ActiveProfiler.PathEntry getEntry(String $$0) {
       return this.entries.get($$0);

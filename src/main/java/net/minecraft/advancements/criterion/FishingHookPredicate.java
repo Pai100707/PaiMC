@@ -8,7 +8,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.projectile.FishingHook;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public record FishingHookPredicate(Optional<Boolean> inOpenWater) implements EntitySubPredicate {
    public static final FishingHookPredicate ANY = new FishingHookPredicate(Optional.empty());
@@ -26,7 +25,7 @@ public record FishingHookPredicate(Optional<Boolean> inOpenWater) implements Ent
    }
 
    @Override
-   public boolean matches(Entity $$0, ServerLevel $$1, @Nullable Vec3 $$2) {
+   public boolean matches(Entity $$0, ServerLevel $$1, Vec3 $$2) {
       if (this.inOpenWater.isEmpty()) {
          return true;
       } else {

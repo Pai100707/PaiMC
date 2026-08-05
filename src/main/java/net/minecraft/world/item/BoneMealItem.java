@@ -22,7 +22,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
-import org.jspecify.annotations.Nullable;
 
 public class BoneMealItem extends net.minecraft.world.item.Item {
    public static final int GRASS_SPREAD_WIDTH = 3;
@@ -79,7 +78,7 @@ public class BoneMealItem extends net.minecraft.world.item.Item {
       }
    }
 
-   public static boolean growWaterPlant(net.minecraft.world.item.ItemStack $$0, Level $$1, BlockPos $$2, @Nullable Direction $$3) {
+   public static boolean growWaterPlant(net.minecraft.world.item.ItemStack $$0, Level $$1, BlockPos $$2, Direction $$3) {
       if ($$1.getBlockState($$2).is(Blocks.WATER) && $$1.getFluidState($$2).getAmount() == 8) {
          if (!($$1 instanceof ServerLevel)) {
             return true;

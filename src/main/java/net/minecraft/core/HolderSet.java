@@ -13,7 +13,6 @@ import java.util.stream.Stream;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.Util;
-import org.jspecify.annotations.Nullable;
 
 public interface HolderSet<T> extends Iterable<net.minecraft.core.Holder<T>> {
    Stream<net.minecraft.core.Holder<T>> stream();
@@ -70,7 +69,7 @@ public interface HolderSet<T> extends Iterable<net.minecraft.core.Holder<T>> {
    public static final class Direct<T> extends net.minecraft.core.HolderSet.ListBacked<T> {
       static final net.minecraft.core.HolderSet.Direct<?> EMPTY = new net.minecraft.core.HolderSet.Direct(List.of());
       private final List<net.minecraft.core.Holder<T>> contents;
-      @Nullable
+      
       private Set<net.minecraft.core.Holder<T>> contentsSet;
 
       Direct(List<net.minecraft.core.Holder<T>> $$0) {
@@ -164,7 +163,7 @@ public interface HolderSet<T> extends Iterable<net.minecraft.core.Holder<T>> {
    public static class Named<T> extends net.minecraft.core.HolderSet.ListBacked<T> {
       private final net.minecraft.core.HolderOwner<T> owner;
       private final TagKey<T> key;
-      @Nullable
+      
       private List<net.minecraft.core.Holder<T>> contents;
 
       Named(net.minecraft.core.HolderOwner<T> $$0, TagKey<T> $$1) {

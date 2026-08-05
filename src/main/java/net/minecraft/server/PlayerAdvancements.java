@@ -43,7 +43,6 @@ import net.minecraft.util.FileUtil;
 import net.minecraft.util.StrictJsonParser;
 import net.minecraft.util.datafix.DataFixTypes;
 import net.minecraft.world.level.gamerules.GameRules;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class PlayerAdvancements {
@@ -57,7 +56,7 @@ public class PlayerAdvancements {
    private final Set<AdvancementHolder> progressChanged = new HashSet<>();
    private final Set<AdvancementNode> rootsToUpdate = new HashSet<>();
    private ServerPlayer player;
-   @Nullable
+   
    private AdvancementHolder lastSelectedTab;
    private boolean isFirstPacket = true;
    private final Codec<net.minecraft.server.PlayerAdvancements.Data> codec;
@@ -273,7 +272,7 @@ public class PlayerAdvancements {
       this.isFirstPacket = false;
    }
 
-   public void setSelectedTab(@Nullable AdvancementHolder $$0) {
+   public void setSelectedTab(AdvancementHolder $$0) {
       AdvancementHolder $$1 = this.lastSelectedTab;
       if ($$0 != null && $$0.value().isRoot() && $$0.value().display().isPresent()) {
          this.lastSelectedTab = $$0;

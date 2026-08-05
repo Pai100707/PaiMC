@@ -90,7 +90,6 @@ import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class Fox extends Animal {
    private static final EntityDataAccessor<Integer> DATA_TYPE_ID = SynchedEntityData.defineId(Fox.class, EntityDataSerializers.INT);
@@ -302,7 +301,7 @@ public class Fox extends Animal {
          .add(Attributes.FOLLOW_RANGE, 32.0);
    }
 
-   @Nullable
+   
    public Fox getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       Fox $$2 = net.minecraft.world.entity.EntityType.FOX.create($$0, net.minecraft.world.entity.EntitySpawnReason.BREEDING);
       if ($$2 != null) {
@@ -318,13 +317,13 @@ public class Fox extends Animal {
       return $$1.getBlockState($$3.below()).is(BlockTags.FOXES_SPAWNABLE_ON) && isBrightEnoughToSpawn($$1, $$3);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       Holder<Biome> $$4 = $$0.getBiome(this.blockPosition());
       Fox.Variant $$5 = Fox.Variant.byBiome($$4);
@@ -381,7 +380,7 @@ public class Fox extends Animal {
       this.entityData.set(DATA_TYPE_ID, $$0.getId());
    }
 
-   @Nullable
+   
    @Override
    public <T> T get(DataComponentType<? extends T> $$0) {
       return $$0 == DataComponents.FOX_VARIANT ? castComponentValue((DataComponentType<T>)$$0, this.getVariant()) : super.get($$0);
@@ -624,7 +623,7 @@ public class Fox extends Animal {
    }
 
    @Override
-   public void setTarget(@Nullable net.minecraft.world.entity.LivingEntity $$0) {
+   public void setTarget(net.minecraft.world.entity.LivingEntity $$0) {
       if (this.isDefending() && $$0 == null) {
          this.setDefending(false);
       }
@@ -659,7 +658,7 @@ public class Fox extends Animal {
       }
    }
 
-   @Nullable
+   
    @Override
    protected SoundEvent getAmbientSound() {
       if (this.isSleeping()) {
@@ -677,13 +676,13 @@ public class Fox extends Animal {
       }
    }
 
-   @Nullable
+   
    @Override
    protected SoundEvent getHurtSound(DamageSource $$0) {
       return SoundEvents.FOX_HURT;
    }
 
-   @Nullable
+   
    @Override
    protected SoundEvent getDeathSound() {
       return SoundEvents.FOX_DEATH;
@@ -730,14 +729,14 @@ public class Fox extends Animal {
    }
 
    class DefendTrustedTargetGoal extends NearestAttackableTargetGoal<net.minecraft.world.entity.LivingEntity> {
-      @Nullable
+      
       private net.minecraft.world.entity.LivingEntity trustedLastHurtBy;
-      @Nullable
+      
       private net.minecraft.world.entity.LivingEntity trustedLastHurt;
       private int timestamp;
 
       public DefendTrustedTargetGoal(
-         final Class<net.minecraft.world.entity.LivingEntity> $$0, final boolean $$1, final boolean $$2, @Nullable final TargetingConditions.Selector $$3
+         final Class<net.minecraft.world.entity.LivingEntity> $$0, final boolean $$1, final boolean $$2, final TargetingConditions.Selector $$3
       ) {
          super(Fox.this, $$0, 10, $$1, $$2, $$3);
       }

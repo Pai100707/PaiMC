@@ -7,7 +7,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.SectionPos;
 import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jspecify.annotations.Nullable;
 
 public class CrashReportCategory {
    private final String title;
@@ -213,7 +212,7 @@ public class CrashReportCategory {
       private final String key;
       private final String value;
 
-      public Entry(String $$0, @Nullable Object $$1) {
+      public Entry(String $$0, Object $$1) {
          this.key = $$0;
          if ($$1 == null) {
             this.value = "~~NULL~~";

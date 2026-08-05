@@ -19,7 +19,6 @@ import net.minecraft.world.item.enchantment.ItemEnchantments;
 import net.minecraft.world.item.enchantment.ItemEnchantments.Mutable;
 import net.minecraft.world.level.block.AnvilBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class AnvilMenu extends net.minecraft.world.inventory.ItemCombinerMenu {
@@ -30,7 +29,7 @@ public class AnvilMenu extends net.minecraft.world.inventory.ItemCombinerMenu {
    private static final boolean DEBUG_COST = false;
    public static final int MAX_NAME_LENGTH = 50;
    private int repairItemCountCost;
-   @Nullable
+   
    private String itemName;
    private final net.minecraft.world.inventory.DataSlot cost = net.minecraft.world.inventory.DataSlot.standalone();
    private boolean onlyRenaming = false;
@@ -300,7 +299,7 @@ public class AnvilMenu extends net.minecraft.world.inventory.ItemCombinerMenu {
       }
    }
 
-   @Nullable
+   
    private static String validateName(String $$0) {
       String $$1 = StringUtil.filterText($$0);
       return $$1.length() <= 50 ? $$1 : null;

@@ -18,7 +18,6 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.redstone.Orientation;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public abstract class BaseRailBlock extends Block implements SimpleWaterloggedBlock {
    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
@@ -73,7 +72,7 @@ public abstract class BaseRailBlock extends Block implements SimpleWaterloggedBl
    }
 
    @Override
-   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, @Nullable Orientation $$4, boolean $$5) {
+   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, Orientation $$4, boolean $$5) {
       if (!$$1.isClientSide() && $$1.getBlockState($$2).is(this)) {
          RailShape $$6 = $$0.getValue(this.getShapeProperty());
          if (shouldBeRemoved($$2, $$1, $$6)) {

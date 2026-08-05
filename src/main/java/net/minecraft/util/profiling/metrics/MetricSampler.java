@@ -8,7 +8,6 @@ import java.util.Locale;
 import java.util.function.Consumer;
 import java.util.function.DoubleSupplier;
 import java.util.function.ToDoubleFunction;
-import org.jspecify.annotations.Nullable;
 
 public class MetricSampler {
    private final String name;
@@ -17,13 +16,13 @@ public class MetricSampler {
    private final ByteBuf ticks;
    private final ByteBuf values;
    private volatile boolean isRunning;
-   @Nullable
+   
    private final Runnable beforeTick;
-   @Nullable
+   
    final MetricSampler.ThresholdTest thresholdTest;
    private double currentValue;
 
-   protected MetricSampler(String $$0, MetricCategory $$1, DoubleSupplier $$2, @Nullable Runnable $$3, @Nullable MetricSampler.ThresholdTest $$4) {
+   protected MetricSampler(String $$0, MetricCategory $$1, DoubleSupplier $$2, Runnable $$3, MetricSampler.ThresholdTest $$4) {
       this.name = $$0;
       this.category = $$1;
       this.beforeTick = $$3;
@@ -136,9 +135,9 @@ public class MetricSampler {
       private final MetricCategory category;
       private final DoubleSupplier sampler;
       private final T context;
-      @Nullable
+      
       private Runnable beforeTick;
-      @Nullable
+      
       private MetricSampler.ThresholdTest thresholdTest;
 
       public MetricSamplerBuilder(String $$0, MetricCategory $$1, ToDoubleFunction<T> $$2, T $$3) {

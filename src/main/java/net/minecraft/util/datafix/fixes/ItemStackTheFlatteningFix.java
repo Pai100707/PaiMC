@@ -17,7 +17,6 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import net.minecraft.util.datafix.schemas.NamespacedSchema;
-import org.jspecify.annotations.Nullable;
 
 public class ItemStackTheFlatteningFix extends DataFix {
    private static final Map<String, String> MAP = (Map<String, String>)DataFixUtils.make(Maps.newHashMap(), $$0 -> {
@@ -433,8 +432,8 @@ public class ItemStackTheFlatteningFix extends DataFix {
       });
    }
 
-   @Nullable
-   public static String updateItem(@Nullable String $$0, int $$1) {
+   
+   public static String updateItem(String $$0, int $$1) {
       if (IDS.contains($$0)) {
          String $$2 = MAP.get($$0 + "." + $$1);
          return $$2 == null ? MAP.get($$0 + ".0") : $$2;

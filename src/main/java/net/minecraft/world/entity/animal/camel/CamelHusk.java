@@ -15,7 +15,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jspecify.annotations.Nullable;
 
 public class CamelHusk extends Camel {
    public CamelHusk(net.minecraft.world.entity.EntityType<? extends Camel> $$0, Level $$1) {
@@ -58,7 +57,7 @@ public class CamelHusk extends Camel {
       return false;
    }
 
-   @Nullable
+   
    @Override
    public Camel getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       return null;

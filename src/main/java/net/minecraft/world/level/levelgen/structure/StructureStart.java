@@ -13,7 +13,6 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.structure.pieces.PiecesContainer;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.structures.OceanMonumentStructure;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public final class StructureStart {
@@ -24,7 +23,7 @@ public final class StructureStart {
    private final PiecesContainer pieceContainer;
    private final net.minecraft.world.level.ChunkPos chunkPos;
    private int references;
-   @Nullable
+   
    private volatile BoundingBox cachedBoundingBox;
 
    public StructureStart(Structure $$0, net.minecraft.world.level.ChunkPos $$1, int $$2, PiecesContainer $$3) {
@@ -34,7 +33,7 @@ public final class StructureStart {
       this.pieceContainer = $$3;
    }
 
-   @Nullable
+   
    public static StructureStart loadStaticStart(StructurePieceSerializationContext $$0, CompoundTag $$1, long $$2) {
       String $$3 = $$1.getStringOr("id", "");
       if ("INVALID".equals($$3)) {

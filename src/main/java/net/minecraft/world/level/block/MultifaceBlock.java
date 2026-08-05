@@ -25,7 +25,6 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class MultifaceBlock extends Block implements SimpleWaterloggedBlock {
    public static final MapCodec<MultifaceBlock> CODEC = simpleCodec(MultifaceBlock::new);
@@ -173,7 +172,7 @@ public class MultifaceBlock extends Block implements SimpleWaterloggedBlock {
       return !$$1.getItemInHand().is(this.asItem()) || hasAnyVacantFace($$0);
    }
 
-   @Nullable
+   
    @Override
    public BlockState getStateForPlacement(BlockPlaceContext $$0) {
       net.minecraft.world.level.Level $$1 = $$0.getLevel();
@@ -195,7 +194,7 @@ public class MultifaceBlock extends Block implements SimpleWaterloggedBlock {
       }
    }
 
-   @Nullable
+   
    public BlockState getStateForPlacement(BlockState $$0, net.minecraft.world.level.BlockGetter $$1, BlockPos $$2, Direction $$3) {
       if (!this.isValidStateForPlacement($$1, $$0, $$2, $$3)) {
          return null;

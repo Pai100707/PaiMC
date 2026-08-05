@@ -27,7 +27,6 @@ import net.minecraft.world.level.levelgen.structure.StructureCheckResult;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.StructureStart;
 import net.minecraft.world.level.levelgen.structure.placement.StructurePlacement;
-import org.jspecify.annotations.Nullable;
 
 public class StructureManager {
    private final net.minecraft.world.level.LevelAccessor level;
@@ -82,7 +81,7 @@ public class StructureManager {
       }
    }
 
-   @Nullable
+   
    public StructureStart getStartForStructure(SectionPos $$0, Structure $$1, StructureAccess $$2) {
       return $$2.getStartForStructure($$1);
    }

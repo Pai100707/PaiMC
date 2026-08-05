@@ -20,7 +20,6 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class ConduitBlock extends BaseEntityBlock implements SimpleWaterloggedBlock {
    public static final MapCodec<ConduitBlock> CODEC = simpleCodec(ConduitBlock::new);
@@ -47,7 +46,7 @@ public class ConduitBlock extends BaseEntityBlock implements SimpleWaterloggedBl
       return new ConduitBlockEntity($$0, $$1);
    }
 
-   @Nullable
+   
    @Override
    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(net.minecraft.world.level.Level $$0, BlockState $$1, BlockEntityType<T> $$2) {
       return createTickerHelper($$2, BlockEntityType.CONDUIT, $$0.isClientSide() ? ConduitBlockEntity::clientTick : ConduitBlockEntity::serverTick);
@@ -81,7 +80,7 @@ public class ConduitBlock extends BaseEntityBlock implements SimpleWaterloggedBl
       return SHAPE;
    }
 
-   @Nullable
+   
    @Override
    public BlockState getStateForPlacement(BlockPlaceContext $$0) {
       FluidState $$1 = $$0.getLevel().getFluidState($$0.getClickedPos());

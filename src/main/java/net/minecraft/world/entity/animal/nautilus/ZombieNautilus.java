@@ -28,7 +28,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 
 public class ZombieNautilus extends AbstractNautilus {
    private static final EntityDataAccessor<Holder<ZombieNautilusVariant>> DATA_VARIANT_ID = SynchedEntityData.defineId(
@@ -43,7 +42,7 @@ public class ZombieNautilus extends AbstractNautilus {
       return AbstractNautilus.createAttributes().add(Attributes.MOVEMENT_SPEED, 1.1F);
    }
 
-   @Nullable
+   
    public ZombieNautilus getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       return null;
    }
@@ -141,7 +140,7 @@ public class ZombieNautilus extends AbstractNautilus {
       return (Holder<ZombieNautilusVariant>)this.entityData.get(DATA_VARIANT_ID);
    }
 
-   @Nullable
+   
    @Override
    public <T> T get(DataComponentType<? extends T> $$0) {
       return $$0 == DataComponents.ZOMBIE_NAUTILUS_VARIANT
@@ -175,7 +174,7 @@ public class ZombieNautilus extends AbstractNautilus {
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       VariantUtils.<ZombieNautilusVariant>selectVariantToSpawn(SpawnContext.create($$0, this.blockPosition()), Registries.ZOMBIE_NAUTILUS_VARIANT)
          .ifPresent(this::setVariant);

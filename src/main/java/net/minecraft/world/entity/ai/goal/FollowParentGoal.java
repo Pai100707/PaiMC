@@ -2,14 +2,13 @@ package net.minecraft.world.entity.ai.goal;
 
 import java.util.List;
 import net.minecraft.world.entity.animal.Animal;
-import org.jspecify.annotations.Nullable;
 
 public class FollowParentGoal extends Goal {
    public static final int HORIZONTAL_SCAN_RANGE = 8;
    public static final int VERTICAL_SCAN_RANGE = 4;
    public static final int DONT_FOLLOW_IF_CLOSER_THAN = 3;
    private final Animal animal;
-   @Nullable
+   
    private Animal parent;
    private final double speedModifier;
    private int timeToRecalcPath;

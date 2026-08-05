@@ -53,7 +53,6 @@ import net.minecraft.world.level.lighting.ChunkSkyLightSources;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.ticks.SavedTick;
 import net.minecraft.world.ticks.TickContainerAccess;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public abstract class ChunkAccess implements BiomeManager.NoiseBiomeSource, LightChunk, StructureAccess {
@@ -66,12 +65,12 @@ public abstract class ChunkAccess implements BiomeManager.NoiseBiomeSource, Ligh
    protected final net.minecraft.world.level.ChunkPos chunkPos;
    private long inhabitedTime;
    @Deprecated
-   @Nullable
+   
    private BiomeGenerationSettings carverBiomeSettings;
-   @Nullable
+   
    protected NoiseChunk noiseChunk;
    protected final UpgradeData upgradeData;
-   @Nullable
+   
    protected BlendingData blendingData;
    protected final Map<Heightmap.Types, Heightmap> heightmaps = Maps.newEnumMap(Heightmap.Types.class);
    protected ChunkSkyLightSources skyLightSources;
@@ -88,8 +87,8 @@ public abstract class ChunkAccess implements BiomeManager.NoiseBiomeSource, Ligh
       net.minecraft.world.level.LevelHeightAccessor $$2,
       PalettedContainerFactory $$3,
       long $$4,
-      @Nullable LevelChunkSection[] $$5,
-      @Nullable BlendingData $$6
+      LevelChunkSection[] $$5,
+      BlendingData $$6
    ) {
       this.chunkPos = $$0;
       this.upgradeData = $$1;
@@ -122,12 +121,12 @@ public abstract class ChunkAccess implements BiomeManager.NoiseBiomeSource, Ligh
       return GameEventListenerRegistry.NOOP;
    }
 
-   @Nullable
+   
    public BlockState setBlockState(BlockPos $$0, BlockState $$1) {
       return this.setBlockState($$0, $$1, 3);
    }
 
-   @Nullable
+   
    public abstract BlockState setBlockState(BlockPos var1, BlockState var2, @Block.UpdateFlags int var3);
 
    public abstract void setBlockEntity(BlockEntity var1);
@@ -203,7 +202,7 @@ public abstract class ChunkAccess implements BiomeManager.NoiseBiomeSource, Ligh
       return this.chunkPos;
    }
 
-   @Nullable
+   
    @Override
    public StructureStart getStartForStructure(Structure $$0) {
       return this.structureStarts.get($$0);
@@ -317,12 +316,12 @@ public abstract class ChunkAccess implements BiomeManager.NoiseBiomeSource, Ligh
       }
    }
 
-   @Nullable
+   
    public CompoundTag getBlockEntityNbt(BlockPos $$0) {
       return this.pendingBlockEntities.get($$0);
    }
 
-   @Nullable
+   
    public abstract CompoundTag getBlockEntityNbtForSaving(BlockPos var1, Provider var2);
 
    @Override
@@ -370,7 +369,7 @@ public abstract class ChunkAccess implements BiomeManager.NoiseBiomeSource, Ligh
       return this.blendingData != null;
    }
 
-   @Nullable
+   
    public BlendingData getBlendingData() {
       return this.blendingData;
    }
@@ -466,7 +465,7 @@ public abstract class ChunkAccess implements BiomeManager.NoiseBiomeSource, Ligh
       return !this.getAllReferences().isEmpty();
    }
 
-   @Nullable
+   
    public BelowZeroRetrogen getBelowZeroRetrogen() {
       return null;
    }

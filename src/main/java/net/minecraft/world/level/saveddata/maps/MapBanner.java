@@ -9,7 +9,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.ComponentSerialization;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.entity.BannerBlockEntity;
-import org.jspecify.annotations.Nullable;
 
 public record MapBanner(BlockPos pos, DyeColor color, Optional<Component> name) {
    public static final Codec<MapBanner> CODEC = RecordCodecBuilder.create(
@@ -21,7 +20,7 @@ public record MapBanner(BlockPos pos, DyeColor color, Optional<Component> name) 
          .apply($$0, MapBanner::new)
    );
 
-   @Nullable
+   
    public static MapBanner fromWorld(net.minecraft.world.level.BlockGetter $$0, BlockPos $$1) {
       if ($$0.getBlockEntity($$1) instanceof BannerBlockEntity $$3) {
          DyeColor $$4 = $$3.getBaseColor();

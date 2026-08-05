@@ -20,7 +20,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class BrushableBlock extends BaseEntityBlock implements Fallable {
    public static final MapCodec<BrushableBlock> CODEC = RecordCodecBuilder.mapCodec(
@@ -108,7 +107,7 @@ public class BrushableBlock extends BaseEntityBlock implements Fallable {
       }
    }
 
-   @Nullable
+   
    @Override
    public BlockEntity newBlockEntity(BlockPos $$0, BlockState $$1) {
       return new BrushableBlockEntity($$0, $$1);

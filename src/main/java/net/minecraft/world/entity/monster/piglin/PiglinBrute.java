@@ -23,7 +23,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jspecify.annotations.Nullable;
 
 public class PiglinBrute extends AbstractPiglin {
    private static final int MAX_HEALTH = 50;
@@ -70,13 +69,13 @@ public class PiglinBrute extends AbstractPiglin {
          .add(Attributes.FOLLOW_RANGE, 12.0);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       PiglinBruteAi.initMemories(this);
       this.populateDefaultEquipmentSlots($$0.getRandom(), $$1);

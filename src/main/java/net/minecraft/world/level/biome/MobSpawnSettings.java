@@ -16,7 +16,6 @@ import net.minecraft.util.Util;
 import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class MobSpawnSettings {
@@ -54,7 +53,7 @@ public class MobSpawnSettings {
       return this.spawners.getOrDefault($$0, EMPTY_MOB_LIST);
    }
 
-   @Nullable
+   
    public MobSpawnSettings.MobSpawnCost getMobSpawnCost(EntityType<?> $$0) {
       return this.mobSpawnCosts.get($$0);
    }

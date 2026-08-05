@@ -34,7 +34,6 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class Painting extends HangingEntity {
    private static final EntityDataAccessor<Holder<PaintingVariant>> DATA_PAINTING_VARIANT_ID = SynchedEntityData.defineId(
@@ -68,7 +67,7 @@ public class Painting extends HangingEntity {
       return (Holder<PaintingVariant>)this.entityData.get(DATA_PAINTING_VARIANT_ID);
    }
 
-   @Nullable
+   
    @Override
    public <T> T get(DataComponentType<? extends T> $$0) {
       return $$0 == DataComponents.PAINTING_VARIANT ? castComponentValue((DataComponentType<T>)$$0, this.getVariant()) : super.get($$0);
@@ -169,7 +168,7 @@ public class Painting extends HangingEntity {
    }
 
    @Override
-   public void dropItem(ServerLevel $$0, @Nullable net.minecraft.world.entity.Entity $$1) {
+   public void dropItem(ServerLevel $$0, net.minecraft.world.entity.Entity $$1) {
       if ((Boolean)$$0.getGameRules().get(GameRules.ENTITY_DROPS)) {
          this.playSound(SoundEvents.PAINTING_BREAK, 1.0F, 1.0F);
          if (!($$1 instanceof Player $$2 && $$2.hasInfiniteMaterials())) {

@@ -54,7 +54,6 @@ import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class Dolphin extends AgeableWaterCreature {
    private static final EntityDataAccessor<Boolean> GOT_FISH = SynchedEntityData.defineId(Dolphin.class, EntityDataSerializers.BOOLEAN);
@@ -65,7 +64,7 @@ public class Dolphin extends AgeableWaterCreature {
    public static final Predicate<ItemEntity> ALLOWED_ITEMS = $$0 -> !$$0.hasPickUpDelay() && $$0.isAlive() && $$0.isInWater();
    public static final float BABY_SCALE = 0.65F;
    private static final boolean DEFAULT_GOT_FISH = false;
-   @Nullable
+   
    BlockPos treasurePos;
 
    public Dolphin(net.minecraft.world.entity.EntityType<? extends Dolphin> $$0, Level $$1) {
@@ -75,13 +74,13 @@ public class Dolphin extends AgeableWaterCreature {
       this.setCanPickUpLoot(true);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       this.setAirSupply(this.getMaxAirSupply());
       this.setXRot(0.0F);
@@ -91,7 +90,7 @@ public class Dolphin extends AgeableWaterCreature {
       return super.finalizeSpawn($$0, $$1, $$2, $$4);
    }
 
-   @Nullable
+   
    public Dolphin getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       return net.minecraft.world.entity.EntityType.DOLPHIN.create($$0, net.minecraft.world.entity.EntitySpawnReason.BREEDING);
    }
@@ -310,13 +309,13 @@ public class Dolphin extends AgeableWaterCreature {
       return SoundEvents.DOLPHIN_HURT;
    }
 
-   @Nullable
+   
    @Override
    protected SoundEvent getDeathSound() {
       return SoundEvents.DOLPHIN_DEATH;
    }
 
-   @Nullable
+   
    @Override
    protected SoundEvent getAmbientSound() {
       return this.isInWater() ? SoundEvents.DOLPHIN_AMBIENT_WATER : SoundEvents.DOLPHIN_AMBIENT;
@@ -442,7 +441,7 @@ public class Dolphin extends AgeableWaterCreature {
    static class DolphinSwimWithPlayerGoal extends Goal {
       private final Dolphin dolphin;
       private final double speedModifier;
-      @Nullable
+      
       private Player player;
 
       DolphinSwimWithPlayerGoal(Dolphin $$0, double $$1) {

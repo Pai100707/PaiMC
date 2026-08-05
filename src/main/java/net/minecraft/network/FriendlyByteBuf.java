@@ -66,7 +66,6 @@ import org.joml.Quaternionf;
 import org.joml.Quaternionfc;
 import org.joml.Vector3f;
 import org.joml.Vector3fc;
-import org.jspecify.annotations.Nullable;
 
 public class FriendlyByteBuf extends ByteBuf {
    private final ByteBuf source;
@@ -258,21 +257,21 @@ public class FriendlyByteBuf extends ByteBuf {
       return this.readBoolean() ? Either.left($$0.decode(this)) : Either.right($$1.decode(this));
    }
 
-   @Nullable
+   
    public <T> T readNullable(StreamDecoder<? super net.minecraft.network.FriendlyByteBuf, T> $$0) {
       return readNullable(this, $$0);
    }
 
-   @Nullable
+   
    public static <T, B extends ByteBuf> T readNullable(B $$0, StreamDecoder<? super B, T> $$1) {
       return $$0.readBoolean() ? $$1.decode($$0) : null;
    }
 
-   public <T> void writeNullable(@Nullable T $$0, StreamEncoder<? super net.minecraft.network.FriendlyByteBuf, T> $$1) {
+   public <T> void writeNullable(T $$0, StreamEncoder<? super net.minecraft.network.FriendlyByteBuf, T> $$1) {
       writeNullable(this, $$0, $$1);
    }
 
-   public static <T, B extends ByteBuf> void writeNullable(B $$0, @Nullable T $$1, StreamEncoder<? super B, T> $$2) {
+   public static <T, B extends ByteBuf> void writeNullable(B $$0, T $$1, StreamEncoder<? super B, T> $$2) {
       if ($$1 != null) {
          $$0.writeBoolean(true);
          $$2.encode($$0, $$1);
@@ -552,12 +551,12 @@ public class FriendlyByteBuf extends ByteBuf {
       return this;
    }
 
-   public net.minecraft.network.FriendlyByteBuf writeNbt(@Nullable Tag $$0) {
+   public net.minecraft.network.FriendlyByteBuf writeNbt(Tag $$0) {
       writeNbt(this, $$0);
       return this;
    }
 
-   public static void writeNbt(ByteBuf $$0, @Nullable Tag $$1) {
+   public static void writeNbt(ByteBuf $$0, Tag $$1) {
       if ($$1 == null) {
          $$1 = EndTag.INSTANCE;
       }
@@ -569,12 +568,12 @@ public class FriendlyByteBuf extends ByteBuf {
       }
    }
 
-   @Nullable
+   
    public CompoundTag readNbt() {
       return readNbt(this);
    }
 
-   @Nullable
+   
    public static CompoundTag readNbt(ByteBuf $$0) {
       Tag $$1 = readNbt($$0, NbtAccounter.defaultQuota());
       if ($$1 != null && !($$1 instanceof CompoundTag)) {
@@ -584,7 +583,7 @@ public class FriendlyByteBuf extends ByteBuf {
       }
    }
 
-   @Nullable
+   
    public static Tag readNbt(ByteBuf $$0, NbtAccounter $$1) {
       try {
          Tag $$2 = NbtIo.readAnyTag(new ByteBufInputStream($$0), $$1);
@@ -594,7 +593,7 @@ public class FriendlyByteBuf extends ByteBuf {
       }
    }
 
-   @Nullable
+   
    public Tag readNbt(NbtAccounter $$0) {
       return readNbt(this, $$0);
    }

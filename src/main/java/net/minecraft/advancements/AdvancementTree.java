@@ -10,7 +10,6 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import net.minecraft.resources.Identifier;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class AdvancementTree {
@@ -18,7 +17,7 @@ public class AdvancementTree {
    private final Map<Identifier, net.minecraft.advancements.AdvancementNode> nodes = new Object2ObjectOpenHashMap();
    private final Set<net.minecraft.advancements.AdvancementNode> roots = new ObjectLinkedOpenHashSet();
    private final Set<net.minecraft.advancements.AdvancementNode> tasks = new ObjectLinkedOpenHashSet();
-   @Nullable
+   
    private net.minecraft.advancements.AdvancementTree.Listener listener;
 
    private void remove(net.minecraft.advancements.AdvancementNode $$0) {
@@ -110,17 +109,17 @@ public class AdvancementTree {
       return this.nodes.values();
    }
 
-   @Nullable
+   
    public net.minecraft.advancements.AdvancementNode get(Identifier $$0) {
       return this.nodes.get($$0);
    }
 
-   @Nullable
+   
    public net.minecraft.advancements.AdvancementNode get(net.minecraft.advancements.AdvancementHolder $$0) {
       return this.nodes.get($$0.id());
    }
 
-   public void setListener(@Nullable net.minecraft.advancements.AdvancementTree.Listener $$0) {
+   public void setListener(net.minecraft.advancements.AdvancementTree.Listener $$0) {
       this.listener = $$0;
       if ($$0 != null) {
          for (net.minecraft.advancements.AdvancementNode $$1 : this.roots) {

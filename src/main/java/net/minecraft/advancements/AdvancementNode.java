@@ -3,16 +3,15 @@ package net.minecraft.advancements;
 import com.google.common.annotations.VisibleForTesting;
 import it.unimi.dsi.fastutil.objects.ReferenceOpenHashSet;
 import java.util.Set;
-import org.jspecify.annotations.Nullable;
 
 public class AdvancementNode {
    private final net.minecraft.advancements.AdvancementHolder holder;
-   @Nullable
+   
    private final net.minecraft.advancements.AdvancementNode parent;
    private final Set<net.minecraft.advancements.AdvancementNode> children = new ReferenceOpenHashSet();
 
    @VisibleForTesting
-   public AdvancementNode(net.minecraft.advancements.AdvancementHolder $$0, @Nullable net.minecraft.advancements.AdvancementNode $$1) {
+   public AdvancementNode(net.minecraft.advancements.AdvancementHolder $$0, net.minecraft.advancements.AdvancementNode $$1) {
       this.holder = $$0;
       this.parent = $$1;
    }
@@ -25,7 +24,7 @@ public class AdvancementNode {
       return this.holder;
    }
 
-   @Nullable
+   
    public net.minecraft.advancements.AdvancementNode parent() {
       return this.parent;
    }

@@ -25,22 +25,21 @@ import net.minecraft.world.level.block.state.pattern.BlockPattern;
 import net.minecraft.world.level.block.state.pattern.BlockPatternBuilder;
 import net.minecraft.world.level.block.state.predicate.BlockStatePredicate;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
-import org.jspecify.annotations.Nullable;
 
 public class CarvedPumpkinBlock extends HorizontalDirectionalBlock {
    public static final MapCodec<CarvedPumpkinBlock> CODEC = simpleCodec(CarvedPumpkinBlock::new);
    public static final EnumProperty<Direction> FACING = HorizontalDirectionalBlock.FACING;
-   @Nullable
+   
    private BlockPattern snowGolemBase;
-   @Nullable
+   
    private BlockPattern snowGolemFull;
-   @Nullable
+   
    private BlockPattern ironGolemBase;
-   @Nullable
+   
    private BlockPattern ironGolemFull;
-   @Nullable
+   
    private BlockPattern copperGolemBase;
-   @Nullable
+   
    private BlockPattern copperGolemFull;
    private static final Predicate<BlockState> PUMPKINS_PREDICATE = $$0 -> $$0.is(Blocks.CARVED_PUMPKIN) || $$0.is(Blocks.JACK_O_LANTERN);
 

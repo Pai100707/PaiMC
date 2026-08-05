@@ -17,7 +17,6 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.players.PlayerList;
 import net.minecraft.util.Util;
 import org.apache.commons.io.IOUtils;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class ChaseServer {
@@ -27,7 +26,7 @@ public class ChaseServer {
    private final PlayerList playerList;
    private final int broadcastIntervalMs;
    private volatile boolean wantsToRun;
-   @Nullable
+   
    private ServerSocket serverSocket;
    private final CopyOnWriteArrayList<Socket> clientSockets = new CopyOnWriteArrayList<>();
 
@@ -124,7 +123,7 @@ public class ChaseServer {
       this.wantsToRun = false;
    }
 
-   @Nullable
+   
    private ChaseServer.PlayerPosition getPlayerPosition() {
       List<ServerPlayer> $$0 = this.playerList.getPlayers();
       if ($$0.isEmpty()) {

@@ -23,7 +23,6 @@ import net.minecraft.world.item.crafting.SmeltingRecipe;
 import net.minecraft.world.item.crafting.SmokingRecipe;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe.Factory;
 import net.minecraft.world.level.ItemLike;
-import org.jspecify.annotations.Nullable;
 
 public class SimpleCookingRecipeBuilder implements RecipeBuilder {
    private final RecipeCategory category;
@@ -33,7 +32,7 @@ public class SimpleCookingRecipeBuilder implements RecipeBuilder {
    private final float experience;
    private final int cookingTime;
    private final Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
-   @Nullable
+   
    private String group;
    private final Factory<?> factory;
 
@@ -74,7 +73,7 @@ public class SimpleCookingRecipeBuilder implements RecipeBuilder {
       return this;
    }
 
-   public SimpleCookingRecipeBuilder group(@Nullable String $$0) {
+   public SimpleCookingRecipeBuilder group(String $$0) {
       this.group = $$0;
       return this;
    }

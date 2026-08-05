@@ -37,7 +37,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class LecternBlock extends BaseEntityBlock {
    public static final MapCodec<LecternBlock> CODEC = simpleCodec(LecternBlock::new);
@@ -119,7 +118,7 @@ public class LecternBlock extends BaseEntityBlock {
       return new LecternBlockEntity($$0, $$1);
    }
 
-   public static boolean tryPlaceBook(@Nullable LivingEntity $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, BlockState $$3, ItemStack $$4) {
+   public static boolean tryPlaceBook(LivingEntity $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, BlockState $$3, ItemStack $$4) {
       if (!$$3.getValue(HAS_BOOK)) {
          if (!$$1.isClientSide()) {
             placeBook($$0, $$1, $$2, $$3, $$4);
@@ -131,7 +130,7 @@ public class LecternBlock extends BaseEntityBlock {
       }
    }
 
-   private static void placeBook(@Nullable LivingEntity $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, BlockState $$3, ItemStack $$4) {
+   private static void placeBook(LivingEntity $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, BlockState $$3, ItemStack $$4) {
       if ($$1.getBlockEntity($$2) instanceof LecternBlockEntity $$6) {
          $$6.setBook($$4.consumeAndReturn(1, $$0));
          resetBookState($$0, $$1, $$2, $$3, true);
@@ -139,7 +138,7 @@ public class LecternBlock extends BaseEntityBlock {
       }
    }
 
-   public static void resetBookState(@Nullable Entity $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, BlockState $$3, boolean $$4) {
+   public static void resetBookState(Entity $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, BlockState $$3, boolean $$4) {
       BlockState $$5 = $$3.setValue(POWERED, false).setValue(HAS_BOOK, $$4);
       $$1.setBlock($$2, $$5, 3);
       $$1.gameEvent(GameEvent.BLOCK_CHANGE, $$2, GameEvent.Context.of($$0, $$5));
@@ -232,7 +231,7 @@ public class LecternBlock extends BaseEntityBlock {
       }
    }
 
-   @Nullable
+   
    @Override
    protected MenuProvider getMenuProvider(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2) {
       return !$$0.getValue(HAS_BOOK) ? null : super.getMenuProvider($$0, $$1, $$2);

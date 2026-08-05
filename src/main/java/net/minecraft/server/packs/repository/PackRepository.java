@@ -15,7 +15,6 @@ import java.util.stream.Stream;
 import net.minecraft.server.packs.PackResources;
 import net.minecraft.util.Util;
 import net.minecraft.world.flag.FeatureFlagSet;
-import org.jspecify.annotations.Nullable;
 
 public class PackRepository {
    private final Set<RepositorySource> sources;
@@ -115,7 +114,7 @@ public class PackRepository {
       return this.selected;
    }
 
-   @Nullable
+   
    public Pack getPack(String $$0) {
       return this.available.get($$0);
    }

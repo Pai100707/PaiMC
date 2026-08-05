@@ -12,14 +12,13 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ScaffoldingBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jspecify.annotations.Nullable;
 
 public class ScaffoldingBlockItem extends net.minecraft.world.item.BlockItem {
    public ScaffoldingBlockItem(Block $$0, net.minecraft.world.item.Item.Properties $$1) {
       super($$0, $$1);
    }
 
-   @Nullable
+   
    @Override
    public BlockPlaceContext updatePlacementContext(BlockPlaceContext $$0) {
       BlockPos $$1 = $$0.getClickedPos();

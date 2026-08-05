@@ -15,7 +15,6 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.locale.Language;
 import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.world.entity.Entity;
-import org.jspecify.annotations.Nullable;
 
 public class ComponentUtils {
    public static final String DEFAULT_SEPARATOR_TEXT = ", ";
@@ -50,11 +49,11 @@ public class ComponentUtils {
       }
    }
 
-   public static Optional<MutableComponent> updateForEntity(@Nullable CommandSourceStack $$0, Optional<Component> $$1, @Nullable Entity $$2, int $$3) throws CommandSyntaxException {
+   public static Optional<MutableComponent> updateForEntity(CommandSourceStack $$0, Optional<Component> $$1, Entity $$2, int $$3) throws CommandSyntaxException {
       return $$1.isPresent() ? Optional.of(updateForEntity($$0, $$1.get(), $$2, $$3)) : Optional.empty();
    }
 
-   public static MutableComponent updateForEntity(@Nullable CommandSourceStack $$0, Component $$1, @Nullable Entity $$2, int $$3) throws CommandSyntaxException {
+   public static MutableComponent updateForEntity(CommandSourceStack $$0, Component $$1, Entity $$2, int $$3) throws CommandSyntaxException {
       if ($$3 > 100) {
          return $$1.copy();
       } else {
@@ -68,7 +67,7 @@ public class ComponentUtils {
       }
    }
 
-   private static Style resolveStyle(@Nullable CommandSourceStack $$0, Style $$1, @Nullable Entity $$2, int $$3) throws CommandSyntaxException {
+   private static Style resolveStyle(CommandSourceStack $$0, Style $$1, Entity $$2, int $$3) throws CommandSyntaxException {
       if ($$1.getHoverEvent() instanceof HoverEvent.ShowText(Component $$6)) {
          HoverEvent $$6x = new HoverEvent.ShowText(updateForEntity($$0, $$6, $$2, $$3 + 1));
          return $$1.withHoverEvent($$6x);
@@ -135,7 +134,7 @@ public class ComponentUtils {
       return (Component)($$0 instanceof Component $$1 ? $$1 : Component.literal($$0.getString()));
    }
 
-   public static boolean isTranslationResolvable(@Nullable Component $$0) {
+   public static boolean isTranslationResolvable(Component $$0) {
       if ($$0 != null && $$0.getContents() instanceof TranslatableContents $$1) {
          String $$2 = $$1.getKey();
          String $$3 = $$1.getFallback();

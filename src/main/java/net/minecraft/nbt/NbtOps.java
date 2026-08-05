@@ -23,7 +23,6 @@ import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
 import net.minecraft.util.Util;
-import org.jspecify.annotations.Nullable;
 
 public class NbtOps implements DynamicOps<net.minecraft.nbt.Tag> {
    public static final net.minecraft.nbt.NbtOps INSTANCE = new net.minecraft.nbt.NbtOps();
@@ -192,7 +191,7 @@ public class NbtOps implements DynamicOps<net.minecraft.nbt.Tag> {
 
    public DataResult<MapLike<net.minecraft.nbt.Tag>> getMap(net.minecraft.nbt.Tag $$0) {
       return $$0 instanceof net.minecraft.nbt.CompoundTag $$1 ? DataResult.success(new MapLike<net.minecraft.nbt.Tag>() {
-         @Nullable
+         
          public net.minecraft.nbt.Tag get(net.minecraft.nbt.Tag $$0) {
             if ($$0 instanceof net.minecraft.nbt.StringTag(String var4)) {
                return $$1.get(var4);
@@ -201,7 +200,7 @@ public class NbtOps implements DynamicOps<net.minecraft.nbt.Tag> {
             }
          }
 
-         @Nullable
+         
          public net.minecraft.nbt.Tag get(String $$0) {
             return $$1.get($$0);
          }

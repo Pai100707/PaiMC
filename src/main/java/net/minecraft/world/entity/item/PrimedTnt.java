@@ -22,7 +22,6 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.portal.TeleportTransition;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 
 public class PrimedTnt extends net.minecraft.world.entity.Entity implements net.minecraft.world.entity.TraceableEntity {
    private static final EntityDataAccessor<Integer> DATA_FUSE_ID = SynchedEntityData.defineId(PrimedTnt.class, EntityDataSerializers.INT);
@@ -42,7 +41,7 @@ public class PrimedTnt extends net.minecraft.world.entity.Entity implements net.
          return $$3.is(Blocks.NETHER_PORTAL) ? Optional.empty() : super.getBlockExplosionResistance($$0, $$1, $$2, $$3, $$4);
       }
    };
-   @Nullable
+   
    private net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> owner;
    private boolean usedPortal;
    private float explosionPower = 4.0F;
@@ -52,7 +51,7 @@ public class PrimedTnt extends net.minecraft.world.entity.Entity implements net.
       this.blocksBuilding = true;
    }
 
-   public PrimedTnt(Level $$0, double $$1, double $$2, double $$3, @Nullable net.minecraft.world.entity.LivingEntity $$4) {
+   public PrimedTnt(Level $$0, double $$1, double $$2, double $$3, net.minecraft.world.entity.LivingEntity $$4) {
       this(net.minecraft.world.entity.EntityType.TNT, $$0);
       this.setPos($$1, $$2, $$3);
       double $$5 = $$0.random.nextDouble() * (float) (Math.PI * 2);
@@ -147,7 +146,7 @@ public class PrimedTnt extends net.minecraft.world.entity.Entity implements net.
       this.owner = net.minecraft.world.entity.EntityReference.read($$0, "owner");
    }
 
-   @Nullable
+   
    public net.minecraft.world.entity.LivingEntity getOwner() {
       return net.minecraft.world.entity.EntityReference.getLivingEntity(this.owner, this.level());
    }
@@ -180,7 +179,7 @@ public class PrimedTnt extends net.minecraft.world.entity.Entity implements net.
       this.usedPortal = $$0;
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.Entity teleport(TeleportTransition $$0) {
       net.minecraft.world.entity.Entity $$1 = super.teleport($$0);

@@ -50,7 +50,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.pathfinder.Path;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class Drowned extends Zombie implements RangedAttackMob {
    public static final float NAUTILUS_SHELL_CHANCE = 0.03F;
@@ -93,7 +92,7 @@ public class Drowned extends Zombie implements RangedAttackMob {
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       $$3 = super.finalizeSpawn($$0, $$1, $$2, $$3);
       if (this.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.OFFHAND).isEmpty() && $$0.getRandom().nextFloat() < 0.03F) {
@@ -205,7 +204,7 @@ public class Drowned extends Zombie implements RangedAttackMob {
       return $$0.isUnobstructed(this);
    }
 
-   public boolean okTarget(@Nullable net.minecraft.world.entity.LivingEntity $$0) {
+   public boolean okTarget(net.minecraft.world.entity.LivingEntity $$0) {
       return $$0 != null ? !this.level().isBrightOutside() || $$0.isInWater() : false;
    }
 
@@ -401,7 +400,7 @@ public class Drowned extends Zombie implements RangedAttackMob {
          this.mob.getNavigation().moveTo(this.wantedX, this.wantedY, this.wantedZ, this.speedModifier);
       }
 
-      @Nullable
+      
       private Vec3 getWaterPos() {
          RandomSource $$0 = this.mob.getRandom();
          BlockPos $$1 = this.mob.blockPosition();

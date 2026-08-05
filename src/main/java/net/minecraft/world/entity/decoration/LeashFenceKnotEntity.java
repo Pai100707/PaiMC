@@ -21,7 +21,6 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class LeashFenceKnotEntity extends BlockAttachedEntity {
    public static final double OFFSET_Y = 0.375;
@@ -53,7 +52,7 @@ public class LeashFenceKnotEntity extends BlockAttachedEntity {
    }
 
    @Override
-   public void dropItem(ServerLevel $$0, @Nullable net.minecraft.world.entity.Entity $$1) {
+   public void dropItem(ServerLevel $$0, net.minecraft.world.entity.Entity $$1) {
       this.playSound(SoundEvents.LEAD_UNTIED, 1.0F, 1.0F);
    }
 

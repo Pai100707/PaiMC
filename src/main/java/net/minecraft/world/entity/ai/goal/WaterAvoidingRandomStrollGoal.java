@@ -2,7 +2,6 @@ package net.minecraft.world.entity.ai.goal;
 
 import net.minecraft.world.entity.ai.util.LandRandomPos;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class WaterAvoidingRandomStrollGoal extends RandomStrollGoal {
    public static final float PROBABILITY = 0.001F;
@@ -17,7 +16,7 @@ public class WaterAvoidingRandomStrollGoal extends RandomStrollGoal {
       this.probability = $$2;
    }
 
-   @Nullable
+   
    @Override
    protected Vec3 getPosition() {
       if (this.mob.isInWater()) {

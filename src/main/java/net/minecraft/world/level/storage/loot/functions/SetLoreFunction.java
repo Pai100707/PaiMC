@@ -15,7 +15,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ItemLore;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import org.jspecify.annotations.Nullable;
 
 public class SetLoreFunction extends LootItemConditionalFunction {
    public static final MapCodec<SetLoreFunction> CODEC = RecordCodecBuilder.mapCodec(
@@ -56,7 +55,7 @@ public class SetLoreFunction extends LootItemConditionalFunction {
       return $$0;
    }
 
-   private List<Component> updateLore(@Nullable ItemLore $$0, LootContext $$1) {
+   private List<Component> updateLore(ItemLore $$0, LootContext $$1) {
       if ($$0 == null && this.lore.isEmpty()) {
          return List.of();
       } else {

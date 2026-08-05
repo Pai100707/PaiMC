@@ -43,7 +43,6 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.storage.TagValueOutput;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class BeehiveBlockEntity extends BlockEntity {
@@ -83,7 +82,7 @@ public class BeehiveBlockEntity extends BlockEntity {
    private static final int MIN_OCCUPATION_TICKS_NECTAR = 2400;
    public static final int MIN_OCCUPATION_TICKS_NECTARLESS = 600;
    private final List<BeehiveBlockEntity.BeeData> stored = Lists.newArrayList();
-   @Nullable
+   
    private BlockPos savedFlowerPos;
 
    public BeehiveBlockEntity(BlockPos $$0, BlockState $$1) {
@@ -121,7 +120,7 @@ public class BeehiveBlockEntity extends BlockEntity {
       return this.stored.size() == 3;
    }
 
-   public void emptyAllLivingFromHive(@Nullable Player $$0, BlockState $$1, BeehiveBlockEntity.BeeReleaseStatus $$2) {
+   public void emptyAllLivingFromHive(Player $$0, BlockState $$1, BeehiveBlockEntity.BeeReleaseStatus $$2) {
       List<Entity> $$3 = this.releaseAllOccupants($$1, $$2);
       if ($$0 != null) {
          for (Entity $$4 : $$3) {
@@ -190,9 +189,9 @@ public class BeehiveBlockEntity extends BlockEntity {
       BlockPos $$1,
       BlockState $$2,
       BeehiveBlockEntity.Occupant $$3,
-      @Nullable List<Entity> $$4,
+      List<Entity> $$4,
       BeehiveBlockEntity.BeeReleaseStatus $$5,
-      @Nullable BlockPos $$6
+      BlockPos $$6
    ) {
       if ((Boolean)$$0.environmentAttributes().getValue(EnvironmentAttributes.BEES_STAY_IN_HIVE, $$1) && $$5 != BeehiveBlockEntity.BeeReleaseStatus.EMERGENCY) {
          return false;
@@ -252,7 +251,7 @@ public class BeehiveBlockEntity extends BlockEntity {
    }
 
    private static void tickOccupants(
-      net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, List<BeehiveBlockEntity.BeeData> $$3, @Nullable BlockPos $$4
+      net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, List<BeehiveBlockEntity.BeeData> $$3, BlockPos $$4
    ) {
       boolean $$5 = false;
       Iterator<BeehiveBlockEntity.BeeData> $$6 = $$3.iterator();
@@ -406,7 +405,7 @@ public class BeehiveBlockEntity extends BlockEntity {
          return new BeehiveBlockEntity.Occupant(TypedEntityData.of(EntityType.BEE, new CompoundTag()), $$0, 600);
       }
 
-      @Nullable
+      
       public Entity createEntity(net.minecraft.world.level.Level $$0, BlockPos $$1) {
          CompoundTag $$2 = this.entityData.copyTagWithoutId();
          BeehiveBlockEntity.IGNORED_BEE_TAGS.forEach($$2::remove);

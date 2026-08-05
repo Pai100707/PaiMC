@@ -15,7 +15,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 
 public class TraderLlama extends Llama {
    private static final int DEFAULT_DESPAWN_DELAY = 47999;
@@ -30,7 +29,7 @@ public class TraderLlama extends Llama {
       return true;
    }
 
-   @Nullable
+   
    @Override
    protected Llama makeNewLlama() {
       return net.minecraft.world.entity.EntityType.TRADER_LLAMA.create(this.level(), net.minecraft.world.entity.EntitySpawnReason.BREEDING);
@@ -103,13 +102,13 @@ public class TraderLlama extends Llama {
       return this.isLeashed() && !this.isLeashedToWanderingTrader();
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       if ($$2 == net.minecraft.world.entity.EntitySpawnReason.EVENT) {
          this.setAge(0);

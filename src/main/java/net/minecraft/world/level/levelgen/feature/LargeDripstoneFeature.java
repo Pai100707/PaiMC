@@ -16,7 +16,6 @@ import net.minecraft.world.level.levelgen.Column;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.configurations.LargeDripstoneConfiguration;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class LargeDripstoneFeature extends Feature<LargeDripstoneConfiguration> {
    public LargeDripstoneFeature(Codec<LargeDripstoneConfiguration> $$0) {
@@ -183,7 +182,7 @@ public class LargeDripstoneFeature extends Feature<LargeDripstoneConfiguration> 
 
    static final class WindOffsetter {
       private final int originY;
-      @Nullable
+      
       private final Vec3 windSpeed;
 
       WindOffsetter(int $$0, RandomSource $$1, FloatProvider $$2) {

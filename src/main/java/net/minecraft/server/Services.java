@@ -10,7 +10,6 @@ import net.minecraft.server.players.CachedUserNameToIdResolver;
 import net.minecraft.server.players.ProfileResolver;
 import net.minecraft.server.players.UserNameToIdResolver;
 import net.minecraft.util.SignatureValidator;
-import org.jspecify.annotations.Nullable;
 
 public record Services(
    MinecraftSessionService sessionService,
@@ -29,7 +28,7 @@ public record Services(
       return new net.minecraft.server.Services($$2, $$0.getServicesKeySet(), $$3, $$4, $$5);
    }
 
-   @Nullable
+   
    public SignatureValidator profileKeySignatureValidator() {
       return SignatureValidator.from(this.servicesKeySet, ServicesKeyType.PROFILE_KEY);
    }

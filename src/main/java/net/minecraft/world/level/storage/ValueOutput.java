@@ -2,12 +2,11 @@ package net.minecraft.world.level.storage;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
-import org.jspecify.annotations.Nullable;
 
 public interface ValueOutput {
    <T> void store(String var1, Codec<T> var2, T var3);
 
-   <T> void storeNullable(String var1, Codec<T> var2, @Nullable T var3);
+   <T> void storeNullable(String var1, Codec<T> var2, T var3);
 
    @Deprecated
    <T> void store(MapCodec<T> var1, T var2);

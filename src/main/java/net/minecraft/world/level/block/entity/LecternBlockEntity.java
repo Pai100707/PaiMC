@@ -27,7 +27,6 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class LecternBlockEntity extends BlockEntity implements Clearable, MenuProvider {
    public static final int DATA_PAGE = 0;
@@ -134,7 +133,7 @@ public class LecternBlockEntity extends BlockEntity implements Clearable, MenuPr
       LecternBlock.resetBookState(null, this.getLevel(), this.getBlockPos(), this.getBlockState(), false);
    }
 
-   public void setBook(ItemStack $$0, @Nullable Player $$1) {
+   public void setBook(ItemStack $$0, Player $$1) {
       this.book = this.resolveBook($$0, $$1);
       this.page = 0;
       this.pageCount = getPageCount(this.book);
@@ -159,7 +158,7 @@ public class LecternBlockEntity extends BlockEntity implements Clearable, MenuPr
       return Mth.floor($$0 * 14.0F) + (this.hasBook() ? 1 : 0);
    }
 
-   private ItemStack resolveBook(ItemStack $$0, @Nullable Player $$1) {
+   private ItemStack resolveBook(ItemStack $$0, Player $$1) {
       if (this.level instanceof ServerLevel $$2) {
          WrittenBookContent.resolveForItem($$0, this.createCommandSourceStack($$1, $$2), $$1);
       }
@@ -167,7 +166,7 @@ public class LecternBlockEntity extends BlockEntity implements Clearable, MenuPr
       return $$0;
    }
 
-   private CommandSourceStack createCommandSourceStack(@Nullable Player $$0, ServerLevel $$1) {
+   private CommandSourceStack createCommandSourceStack(Player $$0, ServerLevel $$1) {
       String $$2;
       Component $$3;
       if ($$0 == null) {

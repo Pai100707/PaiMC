@@ -8,7 +8,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.lighting.LevelLightEngine;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import org.jspecify.annotations.Nullable;
 
 public enum EmptyBlockAndTintGetter implements net.minecraft.world.level.BlockAndTintGetter {
    INSTANCE;
@@ -28,7 +27,7 @@ public enum EmptyBlockAndTintGetter implements net.minecraft.world.level.BlockAn
       return -1;
    }
 
-   @Nullable
+   
    @Override
    public BlockEntity getBlockEntity(BlockPos $$0) {
       return null;

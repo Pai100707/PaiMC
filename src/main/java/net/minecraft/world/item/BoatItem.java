@@ -18,7 +18,6 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.HitResult.Type;
-import org.jspecify.annotations.Nullable;
 
 public class BoatItem extends net.minecraft.world.item.Item {
    private final EntityType<? extends AbstractBoat> entityType;
@@ -74,7 +73,7 @@ public class BoatItem extends net.minecraft.world.item.Item {
       }
    }
 
-   @Nullable
+   
    private AbstractBoat getBoat(Level $$0, HitResult $$1, net.minecraft.world.item.ItemStack $$2, Player $$3) {
       AbstractBoat $$4 = (AbstractBoat)this.entityType.create($$0, EntitySpawnReason.SPAWN_ITEM_USE);
       if ($$4 != null) {

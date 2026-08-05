@@ -6,7 +6,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.RedStoneWireBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jspecify.annotations.Nullable;
 
 public class DefaultRedstoneWireEvaluator extends RedstoneWireEvaluator {
    public DefaultRedstoneWireEvaluator(RedStoneWireBlock $$0) {
@@ -14,7 +13,7 @@ public class DefaultRedstoneWireEvaluator extends RedstoneWireEvaluator {
    }
 
    @Override
-   public void updatePowerStrength(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, @Nullable Orientation $$3, boolean $$4) {
+   public void updatePowerStrength(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, Orientation $$3, boolean $$4) {
       int $$5 = this.calculateTargetStrength($$0, $$1);
       if ($$2.getValue(RedStoneWireBlock.POWER) != $$5) {
          if ($$0.getBlockState($$1) == $$2) {

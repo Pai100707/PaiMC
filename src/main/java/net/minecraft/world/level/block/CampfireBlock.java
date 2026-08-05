@@ -47,7 +47,6 @@ import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class CampfireBlock extends BaseEntityBlock implements SimpleWaterloggedBlock {
    public static final MapCodec<CampfireBlock> CODEC = RecordCodecBuilder.mapCodec(
@@ -110,7 +109,7 @@ public class CampfireBlock extends BaseEntityBlock implements SimpleWaterloggedB
       super.entityInside($$0, $$1, $$2, $$3, $$4, $$5);
    }
 
-   @Nullable
+   
    @Override
    public BlockState getStateForPlacement(BlockPlaceContext $$0) {
       net.minecraft.world.level.LevelAccessor $$1 = $$0.getLevel();
@@ -174,7 +173,7 @@ public class CampfireBlock extends BaseEntityBlock implements SimpleWaterloggedB
       }
    }
 
-   public static void dowse(@Nullable Entity $$0, net.minecraft.world.level.LevelAccessor $$1, BlockPos $$2, BlockState $$3) {
+   public static void dowse(Entity $$0, net.minecraft.world.level.LevelAccessor $$1, BlockPos $$2, BlockState $$3) {
       if ($$1.isClientSide()) {
          for (int $$4 = 0; $$4 < 20; $$4++) {
             makeParticles((net.minecraft.world.level.Level)$$1, $$2, $$3.getValue(SIGNAL_FIRE), true);
@@ -285,7 +284,7 @@ public class CampfireBlock extends BaseEntityBlock implements SimpleWaterloggedB
       return new CampfireBlockEntity($$0, $$1);
    }
 
-   @Nullable
+   
    @Override
    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(net.minecraft.world.level.Level $$0, BlockState $$1, BlockEntityType<T> $$2) {
       if ($$0 instanceof ServerLevel $$3) {

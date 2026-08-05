@@ -15,7 +15,6 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
 import java.util.stream.Stream;
-import org.jspecify.annotations.Nullable;
 
 public class AttributeModifierIdFix extends DataFix {
    private static final Map<UUID, String> ID_MAP = ImmutableMap.builder()
@@ -179,7 +178,7 @@ public class AttributeModifierIdFix extends DataFix {
       );
    }
 
-   @Nullable
+   
    public static UUID uuidFromIntArray(int[] $$0) {
       return $$0.length != 4 ? null : new UUID((long)$$0[0] << 32 | $$0[1] & 4294967295L, (long)$$0[2] << 32 | $$0[3] & 4294967295L);
    }

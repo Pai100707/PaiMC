@@ -77,7 +77,6 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public abstract class BlockBehaviour implements FeatureElement {
    protected static final Direction[] UPDATE_SHAPE_ORDER = new Direction[]{
@@ -158,7 +157,7 @@ public abstract class BlockBehaviour implements FeatureElement {
       return false;
    }
 
-   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, @Nullable Orientation $$4, boolean $$5) {
+   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, Orientation $$4, boolean $$5) {
    }
 
    protected void onPlace(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, BlockState $$3, boolean $$4) {
@@ -292,7 +291,7 @@ public abstract class BlockBehaviour implements FeatureElement {
       }
    }
 
-   @Nullable
+   
    protected MenuProvider getMenuProvider(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2) {
       return null;
    }
@@ -427,12 +426,12 @@ public abstract class BlockBehaviour implements FeatureElement {
       private final BlockBehaviour.StatePredicate isViewBlocking;
       private final BlockBehaviour.StatePredicate hasPostProcess;
       private final BlockBehaviour.StatePredicate emissiveRendering;
-      @Nullable
+      
       private final BlockBehaviour.OffsetFunction offsetFunction;
       private final boolean spawnTerrainParticles;
       private final NoteBlockInstrument instrument;
       private final boolean replaceable;
-      @Nullable
+      
       private BlockBehaviour.BlockStateBase.Cache cache;
       private FluidState fluidState = Fluids.EMPTY.defaultFluidState();
       private boolean isRandomlyTicking;
@@ -699,7 +698,7 @@ public abstract class BlockBehaviour implements FeatureElement {
          return this.getBlock().triggerEvent(this.asState(), $$0, $$1, $$2, $$3);
       }
 
-      public void handleNeighborChanged(net.minecraft.world.level.Level $$0, BlockPos $$1, Block $$2, @Nullable Orientation $$3, boolean $$4) {
+      public void handleNeighborChanged(net.minecraft.world.level.Level $$0, BlockPos $$1, Block $$2, Orientation $$3, boolean $$4) {
          this.getBlock().neighborChanged(this.asState(), $$0, $$1, $$2, $$3, $$4);
       }
 
@@ -812,7 +811,7 @@ public abstract class BlockBehaviour implements FeatureElement {
          return this.hasPostProcess.test(this.asState(), $$0, $$1);
       }
 
-      @Nullable
+      
       public MenuProvider getMenuProvider(net.minecraft.world.level.Level $$0, BlockPos $$1) {
          return this.getBlock().getMenuProvider(this.asState(), $$0, $$1);
       }
@@ -845,7 +844,7 @@ public abstract class BlockBehaviour implements FeatureElement {
          return this.getBlock().shouldChangedStateKeepBlockEntity($$0);
       }
 
-      @Nullable
+      
       public <T extends BlockEntity> BlockEntityTicker<T> getTicker(net.minecraft.world.level.Level $$0, BlockEntityType<T> $$1) {
          return this.getBlock() instanceof EntityBlock ? ((EntityBlock)this.getBlock()).getTicker($$0, this.asState(), $$1) : null;
       }
@@ -980,7 +979,7 @@ public abstract class BlockBehaviour implements FeatureElement {
       float friction = 0.6F;
       float speedFactor = 1.0F;
       float jumpFactor = 1.0F;
-      @Nullable
+      
       private ResourceKey<Block> id;
       private DependantName<Block, Optional<ResourceKey<LootTable>>> drops = $$0 -> Optional.of(
          ResourceKey.create(Registries.LOOT_TABLE, $$0.identifier().withPrefix("blocks/"))
@@ -1007,7 +1006,7 @@ public abstract class BlockBehaviour implements FeatureElement {
       BlockBehaviour.StatePredicate emissiveRendering = ($$0, $$1, $$2) -> false;
       boolean dynamicShape;
       FeatureFlagSet requiredFeatures = FeatureFlags.VANILLA_SET;
-      @Nullable
+      
       BlockBehaviour.OffsetFunction offsetFunction;
 
       private Properties() {

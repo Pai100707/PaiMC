@@ -13,7 +13,6 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FluidState;
-import org.jspecify.annotations.Nullable;
 
 public class SwimNodeEvaluator extends NodeEvaluator {
    private final boolean allowBreaching;
@@ -71,15 +70,15 @@ public class SwimNodeEvaluator extends NodeEvaluator {
       return $$2;
    }
 
-   protected boolean isNodeValid(@Nullable Node $$0) {
+   protected boolean isNodeValid(Node $$0) {
       return $$0 != null && !$$0.closed;
    }
 
-   private static boolean hasMalus(@Nullable Node $$0) {
+   private static boolean hasMalus(Node $$0) {
       return $$0 != null && $$0.costMalus >= 0.0F;
    }
 
-   @Nullable
+   
    protected Node findAcceptedNode(int $$0, int $$1, int $$2) {
       Node $$3 = null;
       PathType $$4 = this.getCachedBlockType($$0, $$1, $$2);

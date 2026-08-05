@@ -31,7 +31,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class ServerPlayerGameMode {
@@ -40,7 +39,7 @@ public class ServerPlayerGameMode {
    protected ServerLevel level;
    protected final ServerPlayer player;
    private GameType gameModeForPlayer = GameType.DEFAULT_MODE;
-   @Nullable
+   
    private GameType previousGameModeForPlayer;
    private boolean isDestroyingBlock;
    private int destroyProgressStart;
@@ -77,7 +76,7 @@ public class ServerPlayerGameMode {
       }
    }
 
-   protected void setGameModeForPlayer(GameType $$0, @Nullable GameType $$1) {
+   protected void setGameModeForPlayer(GameType $$0, GameType $$1) {
       this.previousGameModeForPlayer = $$1;
       this.gameModeForPlayer = $$0;
       Abilities $$2 = this.player.getAbilities();
@@ -93,7 +92,7 @@ public class ServerPlayerGameMode {
       return this.gameModeForPlayer;
    }
 
-   @Nullable
+   
    public GameType getPreviousGameModeForPlayer() {
       return this.previousGameModeForPlayer;
    }

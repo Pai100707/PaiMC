@@ -14,7 +14,6 @@ import net.minecraft.world.level.chunk.LightChunk;
 import net.minecraft.world.level.chunk.LightChunkGetter;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public abstract class LightEngine<M extends DataLayerStorageMap<M>, S extends LayerLightSectionStorage<M>> implements LayerLightEventListener {
    public static final int MAX_LEVEL = 15;
@@ -83,7 +82,7 @@ public abstract class LightEngine<M extends DataLayerStorageMap<M>, S extends La
       return Shapes.faceShapeOccludes($$3, $$4);
    }
 
-   @Nullable
+   
    protected LightChunk getChunk(int $$0, int $$1) {
       long $$2 = net.minecraft.world.level.ChunkPos.asLong($$0, $$1);
 
@@ -115,7 +114,7 @@ public abstract class LightEngine<M extends DataLayerStorageMap<M>, S extends La
       this.blockNodesToCheck.add($$0.asLong());
    }
 
-   public void queueSectionData(long $$0, @Nullable DataLayer $$1) {
+   public void queueSectionData(long $$0, DataLayer $$1) {
       this.storage.queueSectionData($$0, $$1);
    }
 
@@ -198,7 +197,7 @@ public abstract class LightEngine<M extends DataLayerStorageMap<M>, S extends La
       return this.storage.hasInconsistencies() || !this.blockNodesToCheck.isEmpty() || !this.decreaseQueue.isEmpty() || !this.increaseQueue.isEmpty();
    }
 
-   @Nullable
+   
    @Override
    public DataLayer getDataLayerData(SectionPos $$0) {
       return this.storage.getDataLayerData($$0.asLong());

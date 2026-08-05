@@ -38,7 +38,6 @@ import net.minecraft.util.parsing.packrat.commands.NumberRunParseRule;
 import net.minecraft.util.parsing.packrat.commands.StringReaderTerms;
 import net.minecraft.util.parsing.packrat.commands.UnquotedStringParseRule;
 import net.minecraft.util.parsing.packrat.commands.StringReaderTerms.TerminalCharacters;
-import org.jspecify.annotations.Nullable;
 
 public class SnbtGrammar {
    private static final DynamicCommandExceptionType ERROR_NUMBER_PARSE_FAILURE = new DynamicCommandExceptionType(
@@ -142,7 +141,7 @@ public class SnbtGrammar {
       return DelayedException.create(ERROR_NUMBER_PARSE_FAILURE, $$0.getMessage());
    }
 
-   @Nullable
+   
    public static String escapeControlCharacters(char $$0) {
       return switch ($$0) {
          case '\b' -> "b";
@@ -194,14 +193,14 @@ public class SnbtGrammar {
       }
    }
 
-   @Nullable
+   
    private static <T> T createFloat(
       DynamicOps<T> $$0,
       net.minecraft.nbt.SnbtGrammar.Sign $$1,
-      @Nullable String $$2,
-      @Nullable String $$3,
-      @Nullable net.minecraft.nbt.SnbtGrammar.Signed<String> $$4,
-      @Nullable net.minecraft.nbt.SnbtGrammar.TypeSuffix $$5,
+      String $$2,
+      String $$3,
+      net.minecraft.nbt.SnbtGrammar.Signed<String> $$4,
+      net.minecraft.nbt.SnbtGrammar.TypeSuffix $$5,
       ParseState<?> $$6
    ) {
       StringBuilder $$7 = new StringBuilder();
@@ -239,7 +238,7 @@ public class SnbtGrammar {
       }
    }
 
-   @Nullable
+   
    private static <T> T convertFloat(DynamicOps<T> $$0, ParseState<?> $$1, String $$2) {
       float $$3 = Float.parseFloat($$2);
       if (!Float.isFinite($$3)) {
@@ -250,7 +249,7 @@ public class SnbtGrammar {
       }
    }
 
-   @Nullable
+   
    private static <T> T convertDouble(DynamicOps<T> $$0, ParseState<?> $$1, String $$2) {
       double $$3 = Double.parseDouble($$2);
       if (!Double.isFinite($$3)) {
@@ -791,7 +790,7 @@ public class SnbtGrammar {
             return (T)$$0.createByteList(EMPTY_BUFFER);
          }
 
-         @Nullable
+         
          @Override
          public <T> T create(DynamicOps<T> $$0, List<net.minecraft.nbt.SnbtGrammar.IntegerLiteral> $$1, ParseState<?> $$2) {
             ByteList $$3 = new ByteArrayList();
@@ -814,7 +813,7 @@ public class SnbtGrammar {
             return (T)$$0.createIntList(IntStream.empty());
          }
 
-         @Nullable
+         
          @Override
          public <T> T create(DynamicOps<T> $$0, List<net.minecraft.nbt.SnbtGrammar.IntegerLiteral> $$1, ParseState<?> $$2) {
             java.util.stream.IntStream.Builder $$3 = IntStream.builder();
@@ -842,7 +841,7 @@ public class SnbtGrammar {
             return (T)$$0.createLongList(LongStream.empty());
          }
 
-         @Nullable
+         
          @Override
          public <T> T create(DynamicOps<T> $$0, List<net.minecraft.nbt.SnbtGrammar.IntegerLiteral> $$1, ParseState<?> $$2) {
             java.util.stream.LongStream.Builder $$3 = LongStream.builder();
@@ -874,10 +873,10 @@ public class SnbtGrammar {
 
       public abstract <T> T create(DynamicOps<T> var1);
 
-      @Nullable
+      
       public abstract <T> T create(DynamicOps<T> var1, List<net.minecraft.nbt.SnbtGrammar.IntegerLiteral> var2, ParseState<?> var3);
 
-      @Nullable
+      
       protected Number buildNumber(net.minecraft.nbt.SnbtGrammar.IntegerLiteral $$0, ParseState<?> $$1) {
          net.minecraft.nbt.SnbtGrammar.TypeSuffix $$2 = this.computeType($$0.suffix);
          if ($$2 == null) {
@@ -888,7 +887,7 @@ public class SnbtGrammar {
          }
       }
 
-      @Nullable
+      
       private net.minecraft.nbt.SnbtGrammar.TypeSuffix computeType(net.minecraft.nbt.SnbtGrammar.IntegerSuffix $$0) {
          net.minecraft.nbt.SnbtGrammar.TypeSuffix $$1 = $$0.type();
          if ($$1 == null) {
@@ -932,12 +931,12 @@ public class SnbtGrammar {
          }
       }
 
-      @Nullable
+      
       public <T> T create(DynamicOps<T> $$0, ParseState<?> $$1) {
          return this.create($$0, Objects.requireNonNullElse(this.suffix.type, net.minecraft.nbt.SnbtGrammar.TypeSuffix.INT), $$1);
       }
 
-      @Nullable
+      
       public <T> T create(DynamicOps<T> $$0, net.minecraft.nbt.SnbtGrammar.TypeSuffix $$1, ParseState<?> $$2) {
          boolean $$3 = this.signedOrDefault() == net.minecraft.nbt.SnbtGrammar.SignedPrefix.SIGNED;
          if (!$$3 && this.sign == net.minecraft.nbt.SnbtGrammar.Sign.MINUS) {
@@ -984,7 +983,7 @@ public class SnbtGrammar {
       }
    }
 
-   record IntegerSuffix(@Nullable net.minecraft.nbt.SnbtGrammar.SignedPrefix signed, @Nullable net.minecraft.nbt.SnbtGrammar.TypeSuffix type) {
+   record IntegerSuffix(net.minecraft.nbt.SnbtGrammar.SignedPrefix signed, net.minecraft.nbt.SnbtGrammar.TypeSuffix type) {
       public static final net.minecraft.nbt.SnbtGrammar.IntegerSuffix EMPTY = new net.minecraft.nbt.SnbtGrammar.IntegerSuffix(null, null);
    }
 

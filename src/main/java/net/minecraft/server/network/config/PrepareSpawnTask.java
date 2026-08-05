@@ -23,7 +23,6 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.LevelData.RespawnData;
 import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class PrepareSpawnTask implements ConfigurationTask {
@@ -33,7 +32,7 @@ public class PrepareSpawnTask implements ConfigurationTask {
    final net.minecraft.server.MinecraftServer server;
    final NameAndId nameAndId;
    final LevelLoadListener loadListener;
-   @Nullable
+   
    private PrepareSpawnTask.State state;
 
    public PrepareSpawnTask(net.minecraft.server.MinecraftServer $$0, NameAndId $$1) {
@@ -123,7 +122,7 @@ public class PrepareSpawnTask implements ConfigurationTask {
       private final ServerLevel spawnLevel;
       private final CompletableFuture<Vec3> spawnPosition;
       private final Vec2 spawnAngle;
-      @Nullable
+      
       private CompletableFuture<?> chunkLoadFuture;
       private final ChunkLoadCounter chunkLoadCounter = new ChunkLoadCounter();
 

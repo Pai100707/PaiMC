@@ -7,7 +7,6 @@ import java.util.concurrent.Executor;
 import java.util.stream.Collectors;
 import net.minecraft.util.thread.TaskScheduler;
 import net.minecraft.world.level.ChunkPos;
-import org.jspecify.annotations.Nullable;
 
 public class ThrottlingChunkTaskDispatcher extends ChunkTaskDispatcher {
    private final LongSet chunkPositionsInExecution = new LongOpenHashSet();
@@ -25,7 +24,7 @@ public class ThrottlingChunkTaskDispatcher extends ChunkTaskDispatcher {
       this.chunkPositionsInExecution.remove($$0);
    }
 
-   @Nullable
+   
    @Override
    protected ChunkTaskPriorityQueue.TasksForChunk popTasks() {
       return this.chunkPositionsInExecution.size() < this.maxChunksInExecution ? super.popTasks() : null;

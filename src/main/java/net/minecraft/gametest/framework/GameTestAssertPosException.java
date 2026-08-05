@@ -2,7 +2,6 @@ package net.minecraft.gametest.framework;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import org.jspecify.annotations.Nullable;
 
 public class GameTestAssertPosException extends GameTestAssertException {
    private final BlockPos absolutePos;
@@ -35,12 +34,12 @@ public class GameTestAssertPosException extends GameTestAssertException {
       return this.message;
    }
 
-   @Nullable
+   
    public BlockPos getRelativePos() {
       return this.relativePos;
    }
 
-   @Nullable
+   
    public BlockPos getAbsolutePos() {
       return this.absolutePos;
    }

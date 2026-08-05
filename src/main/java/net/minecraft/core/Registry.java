@@ -19,7 +19,6 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.tags.TagLoader.LoadResult;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.RandomSource;
-import org.jspecify.annotations.Nullable;
 
 public interface Registry<T> extends Keyable, net.minecraft.core.HolderLookup.RegistryLookup<T>, net.minecraft.core.IdMap<T> {
    @Override
@@ -57,27 +56,27 @@ public interface Registry<T> extends Keyable, net.minecraft.core.HolderLookup.Re
       return this.keySet().stream().map($$1 -> (U)$$0.createString($$1.toString()));
    }
 
-   @Nullable
+   
    Identifier getKey(T var1);
 
    Optional<ResourceKey<T>> getResourceKey(T var1);
 
    @Override
-   int getId(@Nullable T var1);
+   int getId(T var1);
 
-   @Nullable
-   T getValue(@Nullable ResourceKey<T> var1);
+   
+   T getValue(ResourceKey<T> var1);
 
-   @Nullable
-   T getValue(@Nullable Identifier var1);
+   
+   T getValue(Identifier var1);
 
    Optional<net.minecraft.core.RegistrationInfo> registrationInfo(ResourceKey<T> var1);
 
-   default Optional<T> getOptional(@Nullable Identifier $$0) {
+   default Optional<T> getOptional(Identifier $$0) {
       return Optional.ofNullable(this.getValue($$0));
    }
 
-   default Optional<T> getOptional(@Nullable ResourceKey<T> $$0) {
+   default Optional<T> getOptional(ResourceKey<T> $$0) {
       return Optional.ofNullable(this.getValue($$0));
    }
 
@@ -151,7 +150,7 @@ public interface Registry<T> extends Keyable, net.minecraft.core.HolderLookup.Re
             return Registry.this.getId($$0.value());
          }
 
-         @Nullable
+         
          public net.minecraft.core.Holder<T> byId(int $$0) {
             return (net.minecraft.core.Holder<T>)Registry.this.get($$0).orElse(null);
          }

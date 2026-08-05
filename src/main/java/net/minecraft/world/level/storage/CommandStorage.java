@@ -11,7 +11,6 @@ import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.datafix.DataFixTypes;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.world.level.saveddata.SavedDataType;
-import org.jspecify.annotations.Nullable;
 
 public class CommandStorage {
    private static final String ID_PREFIX = "command_storage_";
@@ -27,7 +26,7 @@ public class CommandStorage {
       return $$1 != null ? $$1.get($$0.getPath()) : new CompoundTag();
    }
 
-   @Nullable
+   
    private CommandStorage.Container getContainer(String $$0) {
       CommandStorage.Container $$1 = this.namespaces.get($$0);
       if ($$1 != null) {

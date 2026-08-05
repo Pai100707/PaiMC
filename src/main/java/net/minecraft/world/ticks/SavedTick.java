@@ -8,7 +8,6 @@ import java.util.List;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Vec3i;
 import net.minecraft.world.level.ChunkPos;
-import org.jspecify.annotations.Nullable;
 
 public record SavedTick<T>(T type, BlockPos pos, int delay, net.minecraft.world.ticks.TickPriority priority) {
    public static final Strategy<net.minecraft.world.ticks.SavedTick<?>> UNIQUE_TICK_HASH = new Strategy<net.minecraft.world.ticks.SavedTick<?>>() {
@@ -16,7 +15,7 @@ public record SavedTick<T>(T type, BlockPos pos, int delay, net.minecraft.world.
          return 31 * $$0.pos().hashCode() + $$0.type().hashCode();
       }
 
-      public boolean equals(@Nullable net.minecraft.world.ticks.SavedTick<?> $$0, @Nullable net.minecraft.world.ticks.SavedTick<?> $$1) {
+      public boolean equals(net.minecraft.world.ticks.SavedTick<?> $$0, net.minecraft.world.ticks.SavedTick<?> $$1) {
          if ($$0 == $$1) {
             return true;
          } else {

@@ -47,7 +47,6 @@ import net.minecraft.world.level.levelgen.structure.LegacyStructureDataHandler;
 import net.minecraft.world.level.storage.DimensionDataStorage;
 import net.minecraft.world.level.storage.WorldData;
 import net.minecraft.world.level.storage.LevelStorageSource.LevelStorageAccess;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class WorldUpgrader implements AutoCloseable {
@@ -165,7 +164,7 @@ public class WorldUpgrader implements AutoCloseable {
       private final Component finishedStatus;
       private final String type;
       private final String folderName;
-      @Nullable
+      
       protected CompletableFuture<Void> previousWriteFuture;
       protected final DataFixTypes dataFixType;
 

@@ -7,7 +7,6 @@ import net.minecraft.network.protocol.PacketType;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class ClientboundPlayerLookAtPacket implements Packet<ClientGamePacketListener> {
    public static final StreamCodec<net.minecraft.network.FriendlyByteBuf, ClientboundPlayerLookAtPacket> STREAM_CODEC = Packet.codec(
@@ -82,7 +81,7 @@ public class ClientboundPlayerLookAtPacket implements Packet<ClientGamePacketLis
       return this.fromAnchor;
    }
 
-   @Nullable
+   
    public Vec3 getPosition(Level $$0) {
       if (this.atEntity) {
          Entity $$1 = $$0.getEntity(this.entity);

@@ -9,7 +9,6 @@ import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.memory.WalkTarget;
 import net.minecraft.world.level.levelgen.Heightmap.Types;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class MoveToSkySeeingSpot {
    public static OneShot<net.minecraft.world.entity.LivingEntity> create(float $$0) {
@@ -24,7 +23,7 @@ public class MoveToSkySeeingSpot {
       }));
    }
 
-   @Nullable
+   
    private static Vec3 getOutdoorPosition(ServerLevel $$0, net.minecraft.world.entity.LivingEntity $$1) {
       RandomSource $$2 = $$1.getRandom();
       BlockPos $$3 = $$1.blockPosition();

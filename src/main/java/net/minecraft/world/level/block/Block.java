@@ -67,7 +67,6 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class Block extends BlockBehaviour implements net.minecraft.world.level.ItemLike {
@@ -106,7 +105,7 @@ public class Block extends BlockBehaviour implements net.minecraft.world.level.I
    public static final int UPDATE_LIMIT = 512;
    protected final StateDefinition<Block, BlockState> stateDefinition;
    private BlockState defaultBlockState;
-   @Nullable
+   
    private Item item;
    private static final int CACHE_SIZE = 256;
    private static final ThreadLocal<Object2ByteLinkedOpenHashMap<Block.ShapePairKey>> OCCLUSION_CACHE = ThreadLocal.withInitial(() -> {
@@ -123,7 +122,7 @@ public class Block extends BlockBehaviour implements net.minecraft.world.level.I
       return CODEC;
    }
 
-   public static int getId(@Nullable BlockState $$0) {
+   public static int getId(BlockState $$0) {
       if ($$0 == null) {
          return 0;
       } else {
@@ -137,7 +136,7 @@ public class Block extends BlockBehaviour implements net.minecraft.world.level.I
       return $$1 == null ? Blocks.AIR.defaultBlockState() : $$1;
    }
 
-   public static Block byItem(@Nullable Item $$0) {
+   public static Block byItem(Item $$0) {
       return $$0 instanceof BlockItem ? ((BlockItem)$$0).getBlock() : Blocks.AIR;
    }
 
@@ -254,9 +253,9 @@ public class Block extends BlockBehaviour implements net.minecraft.world.level.I
       ServerLevel $$0,
       ResourceKey<LootTable> $$1,
       BlockState $$2,
-      @Nullable BlockEntity $$3,
-      @Nullable ItemStack $$4,
-      @Nullable Entity $$5,
+      BlockEntity $$3,
+      ItemStack $$4,
+      Entity $$5,
       BiConsumer<ServerLevel, ItemStack> $$6
    ) {
       return dropFromLootTable(
@@ -340,7 +339,7 @@ public class Block extends BlockBehaviour implements net.minecraft.world.level.I
    public void destroy(net.minecraft.world.level.LevelAccessor $$0, BlockPos $$1, BlockState $$2) {
    }
 
-   public static List<ItemStack> getDrops(BlockState $$0, ServerLevel $$1, BlockPos $$2, @Nullable BlockEntity $$3) {
+   public static List<ItemStack> getDrops(BlockState $$0, ServerLevel $$1, BlockPos $$2, BlockEntity $$3) {
       LootParams.Builder $$4 = new LootParams.Builder($$1)
          .withParameter(LootContextParams.ORIGIN, Vec3.atCenterOf($$2))
          .withParameter(LootContextParams.TOOL, ItemStack.EMPTY)
@@ -348,7 +347,7 @@ public class Block extends BlockBehaviour implements net.minecraft.world.level.I
       return $$0.getDrops($$4);
    }
 
-   public static List<ItemStack> getDrops(BlockState $$0, ServerLevel $$1, BlockPos $$2, @Nullable BlockEntity $$3, @Nullable Entity $$4, ItemStack $$5) {
+   public static List<ItemStack> getDrops(BlockState $$0, ServerLevel $$1, BlockPos $$2, BlockEntity $$3, Entity $$4, ItemStack $$5) {
       LootParams.Builder $$6 = new LootParams.Builder($$1)
          .withParameter(LootContextParams.ORIGIN, Vec3.atCenterOf($$2))
          .withParameter(LootContextParams.TOOL, $$5)
@@ -364,7 +363,7 @@ public class Block extends BlockBehaviour implements net.minecraft.world.level.I
       }
    }
 
-   public static void dropResources(BlockState $$0, net.minecraft.world.level.LevelAccessor $$1, BlockPos $$2, @Nullable BlockEntity $$3) {
+   public static void dropResources(BlockState $$0, net.minecraft.world.level.LevelAccessor $$1, BlockPos $$2, BlockEntity $$3) {
       if ($$1 instanceof ServerLevel) {
          getDrops($$0, (ServerLevel)$$1, $$2, $$3).forEach($$2x -> popResource((ServerLevel)$$1, $$2, $$2x));
          $$0.spawnAfterBreak((ServerLevel)$$1, $$2, ItemStack.EMPTY, true);
@@ -372,7 +371,7 @@ public class Block extends BlockBehaviour implements net.minecraft.world.level.I
    }
 
    public static void dropResources(
-      BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, @Nullable BlockEntity $$3, @Nullable Entity $$4, ItemStack $$5
+      BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, BlockEntity $$3, Entity $$4, ItemStack $$5
    ) {
       if ($$1 instanceof ServerLevel) {
          getDrops($$0, (ServerLevel)$$1, $$2, $$3, $$4, $$5).forEach($$2x -> popResource($$1, $$2, $$2x));
@@ -427,18 +426,18 @@ public class Block extends BlockBehaviour implements net.minecraft.world.level.I
    public void stepOn(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, Entity $$3) {
    }
 
-   @Nullable
+   
    public BlockState getStateForPlacement(BlockPlaceContext $$0) {
       return this.defaultBlockState();
    }
 
-   public void playerDestroy(net.minecraft.world.level.Level $$0, Player $$1, BlockPos $$2, BlockState $$3, @Nullable BlockEntity $$4, ItemStack $$5) {
+   public void playerDestroy(net.minecraft.world.level.Level $$0, Player $$1, BlockPos $$2, BlockState $$3, BlockEntity $$4, ItemStack $$5) {
       $$1.awardStat(Stats.BLOCK_MINED.get(this));
       $$1.causeFoodExhaustion(0.005F);
       dropResources($$3, $$0, $$2, $$4, $$1, $$5);
    }
 
-   public void setPlacedBy(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, @Nullable LivingEntity $$3, ItemStack $$4) {
+   public void setPlacedBy(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, LivingEntity $$3, ItemStack $$4) {
    }
 
    public boolean isPossibleToRespawnInThis(BlockState $$0) {

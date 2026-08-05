@@ -15,7 +15,6 @@ import java.util.function.Consumer;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
-import org.jspecify.annotations.Nullable;
 
 public class AttributeInstance {
    private final Holder<Attribute> attribute;
@@ -61,7 +60,7 @@ public class AttributeInstance {
       return ImmutableSet.copyOf(this.permanentModifiers.values());
    }
 
-   @Nullable
+   
    public AttributeModifier getModifier(Identifier $$0) {
       return this.modifierById.get($$0);
    }

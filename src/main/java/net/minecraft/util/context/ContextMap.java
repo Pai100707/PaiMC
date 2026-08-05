@@ -6,7 +6,6 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Set;
 import org.jetbrains.annotations.Contract;
-import org.jspecify.annotations.Nullable;
 
 public class ContextMap {
    private final Map<ContextKey<?>, Object> params;
@@ -28,14 +27,14 @@ public class ContextMap {
       }
    }
 
-   @Nullable
+   
    public <T> T getOptional(ContextKey<T> $$0) {
       return (T)this.params.get($$0);
    }
 
    @Contract("_,!null->!null; _,_->_")
-   @Nullable
-   public <T> T getOrDefault(ContextKey<T> $$0, @Nullable T $$1) {
+   
+   public <T> T getOrDefault(ContextKey<T> $$0, T $$1) {
       return (T)this.params.getOrDefault($$0, $$1);
    }
 
@@ -47,7 +46,7 @@ public class ContextMap {
          return this;
       }
 
-      public <T> ContextMap.Builder withOptionalParameter(ContextKey<T> $$0, @Nullable T $$1) {
+      public <T> ContextMap.Builder withOptionalParameter(ContextKey<T> $$0, T $$1) {
          if ($$1 == null) {
             this.params.remove($$0);
          } else {
@@ -66,7 +65,7 @@ public class ContextMap {
          }
       }
 
-      @Nullable
+      
       public <T> T getOptionalParameter(ContextKey<T> $$0) {
          return (T)this.params.get($$0);
       }

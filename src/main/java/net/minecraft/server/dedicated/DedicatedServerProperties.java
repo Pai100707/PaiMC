@@ -44,7 +44,6 @@ import net.minecraft.world.level.levelgen.WorldOptions;
 import net.minecraft.world.level.levelgen.flat.FlatLevelGeneratorSettings;
 import net.minecraft.world.level.levelgen.presets.WorldPreset;
 import net.minecraft.world.level.levelgen.presets.WorldPresets;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class DedicatedServerProperties extends Settings<DedicatedServerProperties> {
@@ -79,7 +78,7 @@ public class DedicatedServerProperties extends Settings<DedicatedServerPropertie
    public final String managementServerTlsKeystore = this.get("management-server-tls-keystore", "");
    public final String managementServerTlsKeystorePassword = this.get("management-server-tls-keystore-password", "");
    public final String managementServerAllowedOrigins = this.get("management-server-allowed-origins", "");
-   @Nullable
+   
    public final Boolean announcePlayerAchievements = this.getLegacyBoolean("announce-player-achievements");
    public final boolean enableQuery = this.get("enable-query", false);
    public final int queryPort = this.get("query.port", 25565);
@@ -162,7 +161,7 @@ public class DedicatedServerProperties extends Settings<DedicatedServerPropertie
       return new DedicatedServerProperties($$1);
    }
 
-   @Nullable
+   
    private static Component parseResourcePackPrompt(String $$0) {
       if (!Strings.isNullOrEmpty($$0)) {
          try {
@@ -180,7 +179,7 @@ public class DedicatedServerProperties extends Settings<DedicatedServerPropertie
    }
 
    private static Optional<net.minecraft.server.MinecraftServer.ServerResourcePackInfo> getServerPackInfo(
-      String $$0, String $$1, String $$2, @Nullable String $$3, boolean $$4, String $$5
+      String $$0, String $$1, String $$2, String $$3, boolean $$4, String $$5
    ) {
       if ($$1.isEmpty()) {
          return Optional.empty();
@@ -230,7 +229,7 @@ public class DedicatedServerProperties extends Settings<DedicatedServerPropertie
       return new DataPackConfig($$2, $$3);
    }
 
-   @Nullable
+   
    public static LevelBasedPermissionSet deserializePermission(String $$0) {
       try {
          PermissionLevel $$1 = PermissionLevel.byId(Integer.parseInt($$0));

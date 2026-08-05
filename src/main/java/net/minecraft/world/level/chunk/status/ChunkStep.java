@@ -9,7 +9,6 @@ import net.minecraft.util.profiling.jfr.JvmProfiler;
 import net.minecraft.util.profiling.jfr.callback.ProfiledDuration;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.ProtoChunk;
-import org.jspecify.annotations.Nullable;
 
 public record ChunkStep(
    ChunkStatus targetStatus, ChunkDependencies directDependencies, ChunkDependencies accumulatedDependencies, int blockStateWriteRadius, ChunkStatusTask task
@@ -28,7 +27,7 @@ public record ChunkStep(
       }
    }
 
-   private ChunkAccess completeChunkGeneration(ChunkAccess $$0, @Nullable ProfiledDuration $$1) {
+   private ChunkAccess completeChunkGeneration(ChunkAccess $$0, ProfiledDuration $$1) {
       if ($$0 instanceof ProtoChunk $$2 && $$2.getPersistedStatus().isBefore(this.targetStatus)) {
          $$2.setPersistedStatus(this.targetStatus);
       }
@@ -42,7 +41,7 @@ public record ChunkStep(
 
    public static class Builder {
       private final ChunkStatus status;
-      @Nullable
+      
       private final ChunkStep parent;
       private ChunkStatus[] directDependenciesByRadius;
       private int blockStateWriteRadius = -1;

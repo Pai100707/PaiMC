@@ -31,7 +31,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
-import org.jspecify.annotations.Nullable;
 
 public class CrossbowItem extends net.minecraft.world.item.ProjectileWeaponItem {
    private static final float MAX_CHARGE_DURATION = 1.25F;
@@ -104,7 +103,7 @@ public class CrossbowItem extends net.minecraft.world.item.ProjectileWeaponItem 
    }
 
    @Override
-   protected void shootProjectile(LivingEntity $$0, Projectile $$1, int $$2, float $$3, float $$4, float $$5, @Nullable LivingEntity $$6) {
+   protected void shootProjectile(LivingEntity $$0, Projectile $$1, int $$2, float $$3, float $$4, float $$5, LivingEntity $$6) {
       Vector3f $$11;
       if ($$6 != null) {
          double $$7 = $$6.getX() - $$0.getX();
@@ -158,7 +157,7 @@ public class CrossbowItem extends net.minecraft.world.item.ProjectileWeaponItem 
    }
 
    public void performShooting(
-      Level $$0, LivingEntity $$1, InteractionHand $$2, net.minecraft.world.item.ItemStack $$3, float $$4, float $$5, @Nullable LivingEntity $$6
+      Level $$0, LivingEntity $$1, InteractionHand $$2, net.minecraft.world.item.ItemStack $$3, float $$4, float $$5, LivingEntity $$6
    ) {
       if ($$0 instanceof ServerLevel $$7) {
          ChargedProjectiles $$9 = $$3.set(DataComponents.CHARGED_PROJECTILES, ChargedProjectiles.EMPTY);

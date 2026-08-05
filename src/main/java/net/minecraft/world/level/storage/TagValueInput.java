@@ -27,7 +27,6 @@ import net.minecraft.util.ProblemReporter.FieldPathElement;
 import net.minecraft.util.ProblemReporter.IndexedFieldPathElement;
 import net.minecraft.util.ProblemReporter.IndexedPathElement;
 import net.minecraft.util.ProblemReporter.Problem;
-import org.jspecify.annotations.Nullable;
 
 public class TagValueInput implements ValueInput {
    private final ProblemReporter problemReporter;
@@ -79,7 +78,7 @@ public class TagValueInput implements ValueInput {
       };
    }
 
-   @Nullable
+   
    private <T extends Tag> T getOptionalTypedTag(String $$0, TagType<T> $$1) {
       Tag $$2 = this.input.get($$0);
       if ($$2 == null) {
@@ -95,7 +94,7 @@ public class TagValueInput implements ValueInput {
       }
    }
 
-   @Nullable
+   
    private NumericTag getNumericTag(String $$0) {
       Tag $$1 = this.input.get($$0);
       if ($$1 == null) {
@@ -268,7 +267,7 @@ public class TagValueInput implements ValueInput {
       public Iterator<ValueInput> iterator() {
          final ListIterator<CompoundTag> $$0 = this.list.listIterator();
          return new AbstractIterator<ValueInput>() {
-            @Nullable
+            
             protected ValueInput computeNext() {
                if ($$0.hasNext()) {
                   int $$0x = $$0.nextIndex();
@@ -344,7 +343,7 @@ public class TagValueInput implements ValueInput {
          return new AbstractIterator<ValueInput>() {
             private int index;
 
-            @Nullable
+            
             protected ValueInput computeNext() {
                while ($$0.hasNext()) {
                   Tag $$0x = $$0.next();
@@ -404,7 +403,7 @@ public class TagValueInput implements ValueInput {
       public Iterator<T> iterator() {
          final ListIterator<Tag> $$0 = this.list.listIterator();
          return new AbstractIterator<T>() {
-            @Nullable
+            
             protected T computeNext() {
                while ($$0.hasNext()) {
                   int $$0x = $$0.nextIndex();

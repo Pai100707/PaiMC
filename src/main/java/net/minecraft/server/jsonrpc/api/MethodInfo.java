@@ -6,10 +6,9 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import java.util.List;
 import java.util.Optional;
 import net.minecraft.resources.Identifier;
-import org.jspecify.annotations.Nullable;
 
 public record MethodInfo<Params, Result>(String description, Optional<ParamInfo<Params>> params, Optional<ResultInfo<Result>> result) {
-   public MethodInfo(String $$0, @Nullable ParamInfo<Params> $$1, @Nullable ResultInfo<Result> $$2) {
+   public MethodInfo(String $$0, ParamInfo<Params> $$1, ResultInfo<Result> $$2) {
       this($$0, Optional.ofNullable($$1), Optional.ofNullable($$2));
    }
 

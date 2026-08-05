@@ -28,7 +28,6 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class TurtleEggBlock extends Block {
    public static final MapCodec<TurtleEggBlock> CODEC = simpleCodec(TurtleEggBlock::new);
@@ -134,7 +133,7 @@ public class TurtleEggBlock extends Block {
    }
 
    @Override
-   public void playerDestroy(net.minecraft.world.level.Level $$0, Player $$1, BlockPos $$2, BlockState $$3, @Nullable BlockEntity $$4, ItemStack $$5) {
+   public void playerDestroy(net.minecraft.world.level.Level $$0, Player $$1, BlockPos $$2, BlockState $$3, BlockEntity $$4, ItemStack $$5) {
       super.playerDestroy($$0, $$1, $$2, $$3, $$4, $$5);
       this.decreaseEggs($$0, $$2, $$3);
    }
@@ -144,7 +143,7 @@ public class TurtleEggBlock extends Block {
       return !$$1.isSecondaryUseActive() && $$1.getItemInHand().is(this.asItem()) && $$0.getValue(EGGS) < 4 ? true : super.canBeReplaced($$0, $$1);
    }
 
-   @Nullable
+   
    @Override
    public BlockState getStateForPlacement(BlockPlaceContext $$0) {
       BlockState $$1 = $$0.getLevel().getBlockState($$0.getClickedPos());

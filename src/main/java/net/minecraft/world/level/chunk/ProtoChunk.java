@@ -35,18 +35,17 @@ import net.minecraft.world.level.storage.TagValueOutput;
 import net.minecraft.world.ticks.LevelChunkTicks;
 import net.minecraft.world.ticks.ProtoChunkTicks;
 import net.minecraft.world.ticks.TickContainerAccess;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class ProtoChunk extends ChunkAccess {
    private static final Logger LOGGER = LogUtils.getLogger();
-   @Nullable
+   
    private volatile LevelLightEngine lightEngine;
    private volatile ChunkStatus status = ChunkStatus.EMPTY;
    private final List<CompoundTag> entities = Lists.newArrayList();
-   @Nullable
+   
    private CarvingMask carvingMask;
-   @Nullable
+   
    private BelowZeroRetrogen belowZeroRetrogen;
    private final ProtoChunkTicks<Block> blockTicks;
    private final ProtoChunkTicks<Fluid> fluidTicks;
@@ -56,7 +55,7 @@ public class ProtoChunk extends ChunkAccess {
       UpgradeData $$1,
       net.minecraft.world.level.LevelHeightAccessor $$2,
       PalettedContainerFactory $$3,
-      @Nullable BlendingData $$4
+      BlendingData $$4
    ) {
       this($$0, $$1, null, new ProtoChunkTicks(), new ProtoChunkTicks(), $$2, $$3, $$4);
    }
@@ -64,12 +63,12 @@ public class ProtoChunk extends ChunkAccess {
    public ProtoChunk(
       net.minecraft.world.level.ChunkPos $$0,
       UpgradeData $$1,
-      @Nullable LevelChunkSection[] $$2,
+      LevelChunkSection[] $$2,
       ProtoChunkTicks<Block> $$3,
       ProtoChunkTicks<Fluid> $$4,
       net.minecraft.world.level.LevelHeightAccessor $$5,
       PalettedContainerFactory $$6,
-      @Nullable BlendingData $$7
+      BlendingData $$7
    ) {
       super($$0, $$1, $$5, $$6, 0L, $$2, $$7);
       this.blockTicks = $$3;
@@ -113,7 +112,7 @@ public class ProtoChunk extends ChunkAccess {
       }
    }
 
-   @Nullable
+   
    @Override
    public BlockState setBlockState(BlockPos $$0, BlockState $$1, @Block.UpdateFlags int $$2) {
       int $$3 = $$0.getX();
@@ -177,7 +176,7 @@ public class ProtoChunk extends ChunkAccess {
       this.blockEntities.put($$0.getBlockPos(), $$0);
    }
 
-   @Nullable
+   
    @Override
    public BlockEntity getBlockEntity(BlockPos $$0) {
       return this.blockEntities.get($$0);
@@ -288,7 +287,7 @@ public class ProtoChunk extends ChunkAccess {
       return Collections.unmodifiableMap(this.pendingBlockEntities);
    }
 
-   @Nullable
+   
    @Override
    public CompoundTag getBlockEntityNbtForSaving(BlockPos $$0, Provider $$1) {
       BlockEntity $$2 = this.getBlockEntity($$0);
@@ -301,7 +300,7 @@ public class ProtoChunk extends ChunkAccess {
       this.pendingBlockEntities.remove($$0);
    }
 
-   @Nullable
+   
    public CarvingMask getCarvingMask() {
       return this.carvingMask;
    }
@@ -322,11 +321,11 @@ public class ProtoChunk extends ChunkAccess {
       this.lightEngine = $$0;
    }
 
-   public void setBelowZeroRetrogen(@Nullable BelowZeroRetrogen $$0) {
+   public void setBelowZeroRetrogen(BelowZeroRetrogen $$0) {
       this.belowZeroRetrogen = $$0;
    }
 
-   @Nullable
+   
    @Override
    public BelowZeroRetrogen getBelowZeroRetrogen() {
       return this.belowZeroRetrogen;

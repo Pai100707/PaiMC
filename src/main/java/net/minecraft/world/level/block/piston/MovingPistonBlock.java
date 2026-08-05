@@ -28,7 +28,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class MovingPistonBlock extends BaseEntityBlock {
    public static final MapCodec<MovingPistonBlock> CODEC = simpleCodec(MovingPistonBlock::new);
@@ -45,7 +44,7 @@ public class MovingPistonBlock extends BaseEntityBlock {
       this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(TYPE, PistonType.DEFAULT));
    }
 
-   @Nullable
+   
    @Override
    public BlockEntity newBlockEntity(BlockPos $$0, BlockState $$1) {
       return null;
@@ -55,7 +54,7 @@ public class MovingPistonBlock extends BaseEntityBlock {
       return new PistonMovingBlockEntity($$0, $$1, $$2, $$3, $$4, $$5);
    }
 
-   @Nullable
+   
    @Override
    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(net.minecraft.world.level.Level $$0, BlockState $$1, BlockEntityType<T> $$2) {
       return createTickerHelper($$2, BlockEntityType.PISTON, PistonMovingBlockEntity::tick);
@@ -97,7 +96,7 @@ public class MovingPistonBlock extends BaseEntityBlock {
       return $$4 != null ? $$4.getCollisionShape($$1, $$2) : Shapes.empty();
    }
 
-   @Nullable
+   
    private PistonMovingBlockEntity getBlockEntity(net.minecraft.world.level.BlockGetter $$0, BlockPos $$1) {
       BlockEntity $$2 = $$0.getBlockEntity($$1);
       return $$2 instanceof PistonMovingBlockEntity ? (PistonMovingBlockEntity)$$2 : null;

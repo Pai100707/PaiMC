@@ -9,17 +9,16 @@ import net.minecraft.util.Util;
 import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
-import org.jspecify.annotations.Nullable;
 
 public class StructurePlaceSettings {
    private Mirror mirror = Mirror.NONE;
    private Rotation rotation = Rotation.NONE;
    private BlockPos rotationPivot = BlockPos.ZERO;
    private boolean ignoreEntities;
-   @Nullable
+   
    private BoundingBox boundingBox;
    private LiquidSettings liquidSettings = LiquidSettings.APPLY_WATERLOGGING;
-   @Nullable
+   
    private RandomSource random;
    private int palette;
    private final List<StructureProcessor> processors = Lists.newArrayList();
@@ -67,7 +66,7 @@ public class StructurePlaceSettings {
       return this;
    }
 
-   public StructurePlaceSettings setRandom(@Nullable RandomSource $$0) {
+   public StructurePlaceSettings setRandom(RandomSource $$0) {
       this.random = $$0;
       return this;
    }
@@ -109,7 +108,7 @@ public class StructurePlaceSettings {
       return this.rotationPivot;
    }
 
-   public RandomSource getRandom(@Nullable BlockPos $$0) {
+   public RandomSource getRandom(BlockPos $$0) {
       if (this.random != null) {
          return this.random;
       } else {
@@ -121,7 +120,7 @@ public class StructurePlaceSettings {
       return this.ignoreEntities;
    }
 
-   @Nullable
+   
    public BoundingBox getBoundingBox() {
       return this.boundingBox;
    }
@@ -138,7 +137,7 @@ public class StructurePlaceSettings {
       return this.liquidSettings == LiquidSettings.APPLY_WATERLOGGING;
    }
 
-   public StructureTemplate.Palette getRandomPalette(List<StructureTemplate.Palette> $$0, @Nullable BlockPos $$1) {
+   public StructureTemplate.Palette getRandomPalette(List<StructureTemplate.Palette> $$0, BlockPos $$1) {
       int $$2 = $$0.size();
       if ($$2 == 0) {
          throw new IllegalStateException("No palettes");

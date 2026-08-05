@@ -18,7 +18,6 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.storage.loot.functions.LootItemFunction;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import org.jspecify.annotations.Nullable;
 
 public class LootContext {
    private final LootParams params;
@@ -40,7 +39,7 @@ public class LootContext {
       return (T)this.params.contextMap().getOrThrow($$0);
    }
 
-   @Nullable
+   
    public <T> T getOptionalParameter(ContextKey<T> $$0) {
       return (T)this.params.contextMap().getOptional($$0);
    }
@@ -112,7 +111,7 @@ public class LootContext {
 
    public static class Builder {
       private final LootParams params;
-      @Nullable
+      
       private RandomSource random;
 
       public Builder(LootParams $$0) {

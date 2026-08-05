@@ -12,7 +12,6 @@ import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
-import org.jspecify.annotations.Nullable;
 
 public class SpectateCommand {
    private static final SimpleCommandExceptionType ERROR_SELF = new SimpleCommandExceptionType(Component.translatable("commands.spectate.self"));
@@ -49,7 +48,7 @@ public class SpectateCommand {
       );
    }
 
-   private static int spectate(CommandSourceStack $$0, @Nullable Entity $$1, ServerPlayer $$2) throws CommandSyntaxException {
+   private static int spectate(CommandSourceStack $$0, Entity $$1, ServerPlayer $$2) throws CommandSyntaxException {
       if ($$2 == $$1) {
          throw ERROR_SELF.create();
       } else if (!$$2.isSpectator()) {

@@ -10,18 +10,17 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jspecify.annotations.Nullable;
 
 public interface NeighborUpdater {
    Direction[] UPDATE_ORDER = new Direction[]{Direction.WEST, Direction.EAST, Direction.DOWN, Direction.UP, Direction.NORTH, Direction.SOUTH};
 
    void shapeUpdate(Direction var1, BlockState var2, BlockPos var3, BlockPos var4, @Block.UpdateFlags int var5, int var6);
 
-   void neighborChanged(BlockPos var1, Block var2, @Nullable Orientation var3);
+   void neighborChanged(BlockPos var1, Block var2, Orientation var3);
 
-   void neighborChanged(BlockState var1, BlockPos var2, Block var3, @Nullable Orientation var4, boolean var5);
+   void neighborChanged(BlockState var1, BlockPos var2, Block var3, Orientation var4, boolean var5);
 
-   default void updateNeighborsAtExceptFromFacing(BlockPos $$0, Block $$1, @Nullable Direction $$2, @Nullable Orientation $$3) {
+   default void updateNeighborsAtExceptFromFacing(BlockPos $$0, Block $$1, Direction $$2, Orientation $$3) {
       for (Direction $$4 : UPDATE_ORDER) {
          if ($$4 != $$2) {
             this.neighborChanged($$0.relative($$4), $$1, null);
@@ -39,7 +38,7 @@ public interface NeighborUpdater {
       }
    }
 
-   static void executeUpdate(net.minecraft.world.level.Level $$0, BlockState $$1, BlockPos $$2, Block $$3, @Nullable Orientation $$4, boolean $$5) {
+   static void executeUpdate(net.minecraft.world.level.Level $$0, BlockState $$1, BlockPos $$2, Block $$3, Orientation $$4, boolean $$5) {
       try {
          $$1.handleNeighborChanged($$0, $$2, $$3, $$4, $$5);
       } catch (Throwable var9) {

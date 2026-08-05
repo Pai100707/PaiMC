@@ -31,7 +31,6 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class BrushableBlockEntity extends BlockEntity {
@@ -47,9 +46,9 @@ public class BrushableBlockEntity extends BlockEntity {
    private long brushCountResetsAtTick;
    private long coolDownEndsAtTick;
    private ItemStack item = ItemStack.EMPTY;
-   @Nullable
+   
    private Direction hitDirection;
-   @Nullable
+   
    private ResourceKey<LootTable> lootTable;
    private long lootTableSeed;
 
@@ -238,7 +237,7 @@ public class BrushableBlockEntity extends BlockEntity {
       }
    }
 
-   @Nullable
+   
    public Direction getHitDirection() {
       return this.hitDirection;
    }

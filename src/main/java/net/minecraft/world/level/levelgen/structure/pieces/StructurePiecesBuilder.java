@@ -6,7 +6,6 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.StructurePieceAccessor;
-import org.jspecify.annotations.Nullable;
 
 public class StructurePiecesBuilder implements StructurePieceAccessor {
    private final List<StructurePiece> pieces = Lists.newArrayList();
@@ -16,7 +15,7 @@ public class StructurePiecesBuilder implements StructurePieceAccessor {
       this.pieces.add($$0);
    }
 
-   @Nullable
+   
    @Override
    public StructurePiece findCollisionPiece(BoundingBox $$0) {
       return StructurePiece.findCollisionPiece(this.pieces, $$0);

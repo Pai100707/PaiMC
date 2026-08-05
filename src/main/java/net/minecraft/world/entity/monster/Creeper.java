@@ -37,7 +37,6 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
-import org.jspecify.annotations.Nullable;
 
 public class Creeper extends Monster {
    private static final EntityDataAccessor<Integer> DATA_SWELL_DIR = SynchedEntityData.defineId(Creeper.class, EntityDataSerializers.INT);
@@ -148,7 +147,7 @@ public class Creeper extends Monster {
    }
 
    @Override
-   public void setTarget(@Nullable net.minecraft.world.entity.LivingEntity $$0) {
+   public void setTarget(net.minecraft.world.entity.LivingEntity $$0) {
       if (!($$0 instanceof Goat)) {
          super.setTarget($$0);
       }

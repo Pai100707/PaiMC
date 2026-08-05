@@ -27,7 +27,6 @@ import net.minecraft.world.level.chunk.LevelChunk;
 import net.minecraft.world.level.chunk.LevelChunkSection;
 import net.minecraft.world.level.chunk.status.ChunkStatus;
 import net.minecraft.world.level.lighting.LevelLightEngine;
-import org.jspecify.annotations.Nullable;
 
 public class ChunkHolder extends GenerationChunkHolder {
    public static final ChunkResult<LevelChunk> UNLOADED_LEVEL_CHUNK = ChunkResult.error("Unloaded level chunk");
@@ -76,12 +75,12 @@ public class ChunkHolder extends GenerationChunkHolder {
       return this.fullChunkFuture;
    }
 
-   @Nullable
+   
    public LevelChunk getTickingChunk() {
       return this.getTickingChunkFuture().getNow(UNLOADED_LEVEL_CHUNK).orElse(null);
    }
 
-   @Nullable
+   
    public LevelChunk getChunkToSend() {
       return !this.sendSync.isDone() ? null : this.getTickingChunk();
    }

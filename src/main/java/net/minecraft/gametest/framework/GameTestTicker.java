@@ -4,14 +4,13 @@ import com.google.common.collect.Lists;
 import com.mojang.logging.LogUtils;
 import java.util.Collection;
 import net.minecraft.util.Util;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class GameTestTicker {
    public static final GameTestTicker SINGLETON = new GameTestTicker();
    private static final Logger LOGGER = LogUtils.getLogger();
    private final Collection<GameTestInfo> testInfos = Lists.newCopyOnWriteArrayList();
-   @Nullable
+   
    private GameTestRunner runner;
    private GameTestTicker.State state = GameTestTicker.State.IDLE;
 

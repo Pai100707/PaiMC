@@ -25,7 +25,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 
 public class AreaEffectCloud extends net.minecraft.world.entity.Entity implements net.minecraft.world.entity.TraceableEntity {
    private static final int TIME_BETWEEN_APPLICATIONS = 5;
@@ -53,7 +52,7 @@ public class AreaEffectCloud extends net.minecraft.world.entity.Entity implement
    private static final int DEFAULT_WAIT_TIME = 20;
    private static final int DEFAULT_REAPPLICATION_DELAY = 20;
    private static final ColorParticleOption DEFAULT_PARTICLE = ColorParticleOption.create(ParticleTypes.ENTITY_EFFECT, -1);
-   @Nullable
+   
    private ParticleOptions customParticle;
    private PotionContents potionContents = PotionContents.EMPTY;
    private float potionDurationScale = 1.0F;
@@ -64,7 +63,7 @@ public class AreaEffectCloud extends net.minecraft.world.entity.Entity implement
    private int durationOnUse = 0;
    private float radiusOnUse = 0.0F;
    private float radiusPerTick = 0.0F;
-   @Nullable
+   
    private net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> owner;
 
    public AreaEffectCloud(net.minecraft.world.entity.EntityType<? extends net.minecraft.world.entity.AreaEffectCloud> $$0, Level $$1) {
@@ -108,7 +107,7 @@ public class AreaEffectCloud extends net.minecraft.world.entity.Entity implement
       this.updateParticle();
    }
 
-   public void setCustomParticle(@Nullable ParticleOptions $$0) {
+   public void setCustomParticle(ParticleOptions $$0) {
       this.customParticle = $$0;
       this.updateParticle();
    }
@@ -304,11 +303,11 @@ public class AreaEffectCloud extends net.minecraft.world.entity.Entity implement
       this.waitTime = $$0;
    }
 
-   public void setOwner(@Nullable net.minecraft.world.entity.LivingEntity $$0) {
+   public void setOwner(net.minecraft.world.entity.LivingEntity $$0) {
       this.owner = net.minecraft.world.entity.EntityReference.of($$0);
    }
 
-   @Nullable
+   
    public net.minecraft.world.entity.LivingEntity getOwner() {
       return net.minecraft.world.entity.EntityReference.getLivingEntity(this.owner, this.level());
    }
@@ -374,7 +373,7 @@ public class AreaEffectCloud extends net.minecraft.world.entity.Entity implement
       return false;
    }
 
-   @Nullable
+   
    @Override
    public <T> T get(DataComponentType<? extends T> $$0) {
       if ($$0 == DataComponents.POTION_CONTENTS) {

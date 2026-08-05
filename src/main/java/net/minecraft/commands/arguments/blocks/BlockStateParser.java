@@ -31,7 +31,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.Property;
-import org.jspecify.annotations.Nullable;
 
 public class BlockStateParser {
    public static final SimpleCommandExceptionType ERROR_NO_TAGS_ALLOWED = new SimpleCommandExceptionType(
@@ -72,13 +71,13 @@ public class BlockStateParser {
    private final Map<Property<?>, Comparable<?>> properties = Maps.newHashMap();
    private final Map<String, String> vagueProperties = Maps.newHashMap();
    private Identifier id = Identifier.withDefaultNamespace("");
-   @Nullable
+   
    private StateDefinition<Block, BlockState> definition;
-   @Nullable
+   
    private BlockState state;
-   @Nullable
+   
    private CompoundTag nbt;
-   @Nullable
+   
    private HolderSet<Block> tag;
    private Function<SuggestionsBuilder, CompletableFuture<Suggestions>> suggestions = SUGGEST_NOTHING;
 
@@ -523,9 +522,9 @@ public class BlockStateParser {
       $$0.append($$1.getName($$2));
    }
 
-   public record BlockResult(BlockState blockState, Map<Property<?>, Comparable<?>> properties, @Nullable CompoundTag nbt) {
+   public record BlockResult(BlockState blockState, Map<Property<?>, Comparable<?>> properties, CompoundTag nbt) {
    }
 
-   public record TagResult(HolderSet<Block> tag, Map<String, String> vagueProperties, @Nullable CompoundTag nbt) {
+   public record TagResult(HolderSet<Block> tag, Map<String, String> vagueProperties, CompoundTag nbt) {
    }
 }

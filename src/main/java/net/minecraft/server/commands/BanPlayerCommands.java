@@ -15,7 +15,6 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.players.NameAndId;
 import net.minecraft.server.players.UserBanList;
 import net.minecraft.server.players.UserBanListEntry;
-import org.jspecify.annotations.Nullable;
 
 public class BanPlayerCommands {
    private static final SimpleCommandExceptionType ERROR_ALREADY_BANNED = new SimpleCommandExceptionType(Component.translatable("commands.ban.failed"));
@@ -40,7 +39,7 @@ public class BanPlayerCommands {
       );
    }
 
-   private static int banPlayers(CommandSourceStack $$0, Collection<NameAndId> $$1, @Nullable Component $$2) throws CommandSyntaxException {
+   private static int banPlayers(CommandSourceStack $$0, Collection<NameAndId> $$1, Component $$2) throws CommandSyntaxException {
       UserBanList $$3 = $$0.getServer().getPlayerList().getBans();
       int $$4 = 0;
 

@@ -13,7 +13,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.BlockItemStateProperties;
 import net.minecraft.world.level.block.CopperGolemStatueBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jspecify.annotations.Nullable;
 
 public class CopperGolemStatueBlockEntity extends BlockEntity {
    public CopperGolemStatueBlockEntity(BlockPos $$0, BlockState $$1) {
@@ -25,7 +24,7 @@ public class CopperGolemStatueBlockEntity extends BlockEntity {
       super.setChanged();
    }
 
-   @Nullable
+   
    public CopperGolem removeStatue(BlockState $$0) {
       CopperGolem $$1 = (CopperGolem)EntityType.COPPER_GOLEM.create(this.level, EntitySpawnReason.TRIGGERED);
       if ($$1 != null) {

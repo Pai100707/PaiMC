@@ -16,7 +16,6 @@ import java.util.zip.InflaterInputStream;
 import net.jpountz.lz4.LZ4BlockInputStream;
 import net.jpountz.lz4.LZ4BlockOutputStream;
 import net.minecraft.util.FastBufferedInputStream;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class RegionFileVersion {
@@ -45,12 +44,12 @@ public class RegionFileVersion {
    public static final RegionFileVersion DEFAULT = VERSION_DEFLATE;
    private static volatile RegionFileVersion selected = DEFAULT;
    private final int id;
-   @Nullable
+   
    private final String optionName;
    private final RegionFileVersion.StreamWrapper<InputStream> inputWrapper;
    private final RegionFileVersion.StreamWrapper<OutputStream> outputWrapper;
 
-   private RegionFileVersion(int $$0, @Nullable String $$1, RegionFileVersion.StreamWrapper<InputStream> $$2, RegionFileVersion.StreamWrapper<OutputStream> $$3) {
+   private RegionFileVersion(int $$0, String $$1, RegionFileVersion.StreamWrapper<InputStream> $$2, RegionFileVersion.StreamWrapper<OutputStream> $$3) {
       this.id = $$0;
       this.optionName = $$1;
       this.inputWrapper = $$2;
@@ -66,7 +65,7 @@ public class RegionFileVersion {
       return $$0;
    }
 
-   @Nullable
+   
    public static RegionFileVersion fromId(int $$0) {
       return (RegionFileVersion)VERSIONS.get($$0);
    }

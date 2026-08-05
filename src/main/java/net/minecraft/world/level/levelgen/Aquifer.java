@@ -11,7 +11,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.dimension.DimensionType;
 import org.apache.commons.lang3.mutable.MutableDouble;
-import org.jspecify.annotations.Nullable;
 
 public interface Aquifer {
    static Aquifer create(
@@ -22,7 +21,7 @@ public interface Aquifer {
 
    static Aquifer createDisabled(final Aquifer.FluidPicker $$0) {
       return new Aquifer() {
-         @Nullable
+         
          @Override
          public BlockState computeSubstance(DensityFunction.FunctionContext $$0x, double $$1) {
             return $$1 > 0.0 ? null : $$0.computeFluid($$0.blockX(), $$0.blockY(), $$0.blockZ()).at($$0.blockY());
@@ -35,7 +34,7 @@ public interface Aquifer {
       };
    }
 
-   @Nullable
+   
    BlockState computeSubstance(DensityFunction.FunctionContext var1, double var2);
 
    boolean shouldScheduleFluidUpdate();
@@ -135,7 +134,7 @@ public interface Aquifer {
          return ($$4 * this.gridSizeZ + $$5) * this.gridSizeX + $$3;
       }
 
-      @Nullable
+      
       @Override
       public BlockState computeSubstance(DensityFunction.FunctionContext $$0, double $$1) {
          if ($$1 > 0.0) {

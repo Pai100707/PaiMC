@@ -21,7 +21,6 @@ import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.TestBlockMode;
 import net.minecraft.world.level.redstone.Orientation;
 import net.minecraft.world.phys.BlockHitResult;
-import org.jspecify.annotations.Nullable;
 
 public class TestBlock extends BaseEntityBlock implements GameMasterBlock {
    public static final MapCodec<TestBlock> CODEC = simpleCodec(TestBlock::new);
@@ -31,7 +30,7 @@ public class TestBlock extends BaseEntityBlock implements GameMasterBlock {
       super($$0);
    }
 
-   @Nullable
+   
    @Override
    public BlockEntity newBlockEntity(BlockPos $$0, BlockState $$1) {
       return new TestBlockEntity($$0, $$1);
@@ -82,7 +81,7 @@ public class TestBlock extends BaseEntityBlock implements GameMasterBlock {
    }
 
    @Override
-   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, @Nullable Orientation $$4, boolean $$5) {
+   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, Orientation $$4, boolean $$5) {
       TestBlockEntity $$6 = getServerTestBlockEntity($$1, $$2);
       if ($$6 != null) {
          if ($$6.getMode() != TestBlockMode.START) {
@@ -98,7 +97,7 @@ public class TestBlock extends BaseEntityBlock implements GameMasterBlock {
       }
    }
 
-   @Nullable
+   
    private static TestBlockEntity getServerTestBlockEntity(net.minecraft.world.level.Level $$0, BlockPos $$1) {
       return $$0 instanceof ServerLevel $$2 && $$2.getBlockEntity($$1) instanceof TestBlockEntity $$3 ? $$3 : null;
    }

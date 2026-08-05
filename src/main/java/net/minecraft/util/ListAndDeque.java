@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.Deque;
 import java.util.List;
 import java.util.RandomAccess;
-import org.jspecify.annotations.Nullable;
 
 public interface ListAndDeque<T> extends Serializable, Cloneable, Deque<T>, List<T>, RandomAccess {
    net.minecraft.util.ListAndDeque<T> reversed();
@@ -37,7 +36,7 @@ public interface ListAndDeque<T> extends Serializable, Cloneable, Deque<T>, List
       return this.removeFirst();
    }
 
-   @Nullable
+   
    @Override
    default T poll() {
       return this.pollFirst();
@@ -48,7 +47,7 @@ public interface ListAndDeque<T> extends Serializable, Cloneable, Deque<T>, List
       return this.getFirst();
    }
 
-   @Nullable
+   
    @Override
    default T peek() {
       return this.peekFirst();

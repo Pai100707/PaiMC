@@ -9,7 +9,6 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.ReplaceSphereConfiguration;
-import org.jspecify.annotations.Nullable;
 
 public class ReplaceBlobsFeature extends Feature<ReplaceSphereConfiguration> {
    public ReplaceBlobsFeature(Codec<ReplaceSphereConfiguration> $$0) {
@@ -48,7 +47,7 @@ public class ReplaceBlobsFeature extends Feature<ReplaceSphereConfiguration> {
       }
    }
 
-   @Nullable
+   
    private static BlockPos findTarget(net.minecraft.world.level.LevelAccessor $$0, MutableBlockPos $$1, Block $$2) {
       while ($$1.getY() > $$0.getMinY() + 1) {
          BlockState $$3 = $$0.getBlockState($$1);

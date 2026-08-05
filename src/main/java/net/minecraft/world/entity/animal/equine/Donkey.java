@@ -6,7 +6,6 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.level.Level;
-import org.jspecify.annotations.Nullable;
 
 public class Donkey extends AbstractChestedHorse {
    public Donkey(net.minecraft.world.entity.EntityType<? extends Donkey> $$0, Level $$1) {
@@ -52,7 +51,7 @@ public class Donkey extends AbstractChestedHorse {
       this.playSound(SoundEvents.DONKEY_JUMP, 0.4F, 1.0F);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.AgeableMob getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       net.minecraft.world.entity.EntityType<? extends AbstractHorse> $$2 = $$1 instanceof Horse

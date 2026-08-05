@@ -17,7 +17,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootContext;
-import org.jspecify.annotations.Nullable;
 
 public class KilledByArrowTrigger extends SimpleCriterionTrigger<KilledByArrowTrigger.TriggerInstance> {
    @Override
@@ -25,7 +24,7 @@ public class KilledByArrowTrigger extends SimpleCriterionTrigger<KilledByArrowTr
       return KilledByArrowTrigger.TriggerInstance.CODEC;
    }
 
-   public void trigger(ServerPlayer $$0, Collection<Entity> $$1, @Nullable ItemStack $$2) {
+   public void trigger(ServerPlayer $$0, Collection<Entity> $$1, ItemStack $$2) {
       List<LootContext> $$3 = Lists.newArrayList();
       Set<EntityType<?>> $$4 = Sets.newHashSet();
 
@@ -72,7 +71,7 @@ public class KilledByArrowTrigger extends SimpleCriterionTrigger<KilledByArrowTr
             );
       }
 
-      public boolean matches(Collection<LootContext> $$0, int $$1, @Nullable ItemStack $$2) {
+      public boolean matches(Collection<LootContext> $$0, int $$1, ItemStack $$2) {
          if (!this.firedFromWeapon.isPresent() || $$2 != null && this.firedFromWeapon.get().test($$2)) {
             if (!this.victims.isEmpty()) {
                List<LootContext> $$3 = Lists.newArrayList($$0);

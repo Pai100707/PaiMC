@@ -9,36 +9,35 @@ import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.EntityGetter;
 import net.minecraft.world.phys.AABB;
-import org.jspecify.annotations.Nullable;
 
 public interface ServerEntityGetter extends EntityGetter {
    ServerLevel getLevel();
 
-   @Nullable
+   
    default Player getNearestPlayer(TargetingConditions $$0, LivingEntity $$1) {
       return this.getNearestEntity(this.players(), $$0, $$1, $$1.getX(), $$1.getY(), $$1.getZ());
    }
 
-   @Nullable
+   
    default Player getNearestPlayer(TargetingConditions $$0, LivingEntity $$1, double $$2, double $$3, double $$4) {
       return this.getNearestEntity(this.players(), $$0, $$1, $$2, $$3, $$4);
    }
 
-   @Nullable
+   
    default Player getNearestPlayer(TargetingConditions $$0, double $$1, double $$2, double $$3) {
       return this.getNearestEntity(this.players(), $$0, null, $$1, $$2, $$3);
    }
 
-   @Nullable
+   
    default <T extends LivingEntity> T getNearestEntity(
-      Class<? extends T> $$0, TargetingConditions $$1, @Nullable LivingEntity $$2, double $$3, double $$4, double $$5, AABB $$6
+      Class<? extends T> $$0, TargetingConditions $$1, LivingEntity $$2, double $$3, double $$4, double $$5, AABB $$6
    ) {
       return this.getNearestEntity(this.getEntitiesOfClass($$0, $$6, $$0x -> true), $$1, $$2, $$3, $$4, $$5);
    }
 
-   @Nullable
+   
    default LivingEntity getNearestEntity(
-      TagKey<EntityType<?>> $$0, TargetingConditions $$1, @Nullable LivingEntity $$2, double $$3, double $$4, double $$5, AABB $$6
+      TagKey<EntityType<?>> $$0, TargetingConditions $$1, LivingEntity $$2, double $$3, double $$4, double $$5, AABB $$6
    ) {
       double $$7 = Double.MAX_VALUE;
       LivingEntity $$8 = null;
@@ -56,9 +55,9 @@ public interface ServerEntityGetter extends EntityGetter {
       return $$8;
    }
 
-   @Nullable
+   
    default <T extends LivingEntity> T getNearestEntity(
-      List<? extends T> $$0, TargetingConditions $$1, @Nullable LivingEntity $$2, double $$3, double $$4, double $$5
+      List<? extends T> $$0, TargetingConditions $$1, LivingEntity $$2, double $$3, double $$4, double $$5
    ) {
       double $$6 = -1.0;
       T $$7 = null;

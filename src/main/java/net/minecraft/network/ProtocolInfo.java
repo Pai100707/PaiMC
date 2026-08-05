@@ -7,7 +7,6 @@ import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.PacketFlow;
 import net.minecraft.network.protocol.PacketType;
 import net.minecraft.util.VisibleForDebug;
-import org.jspecify.annotations.Nullable;
 
 public interface ProtocolInfo<T extends net.minecraft.network.PacketListener> {
    net.minecraft.network.ConnectionProtocol id();
@@ -16,7 +15,7 @@ public interface ProtocolInfo<T extends net.minecraft.network.PacketListener> {
 
    StreamCodec<ByteBuf, Packet<? super T>> codec();
 
-   @Nullable
+   
    BundlerInfo bundlerInfo();
 
    public interface Details {

@@ -2,16 +2,15 @@ package net.minecraft.world.entity.ai.util;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class AirAndWaterRandomPos {
-   @Nullable
+   
    public static Vec3 getPos(net.minecraft.world.entity.PathfinderMob $$0, int $$1, int $$2, int $$3, double $$4, double $$5, double $$6) {
       boolean $$7 = GoalUtils.mobRestricted($$0, $$1);
       return RandomPos.generateRandomPos($$0, () -> generateRandomPos($$0, $$1, $$2, $$3, $$4, $$5, $$6, $$7));
    }
 
-   @Nullable
+   
    public static BlockPos generateRandomPos(
       net.minecraft.world.entity.PathfinderMob $$0, int $$1, int $$2, int $$3, double $$4, double $$5, double $$6, boolean $$7
    ) {

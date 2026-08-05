@@ -193,7 +193,6 @@ import net.minecraft.world.level.storage.LevelStorageSource.LevelStorageAccess;
 import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.scores.ScoreboardSaveData;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public abstract class MinecraftServer
@@ -229,14 +228,14 @@ public abstract class MinecraftServer
    private Consumer<ProfileResults> onMetricsRecordingStopped = $$0x -> this.stopRecordingMetrics();
    private Consumer<Path> onMetricsRecordingFinished = $$0x -> {};
    private boolean willStartRecordingMetrics;
-   @Nullable
+   
    private net.minecraft.server.MinecraftServer.TimeProfiler debugCommandProfiler;
    private boolean debugCommandProfilerDelayStart;
    private final ServerConnectionListener connection;
    private final LevelLoadListener levelLoadListener;
-   @Nullable
+   
    private ServerStatus status;
-   @Nullable
+   
    private Favicon statusIcon;
    private final RandomSource random = RandomSource.create();
    private final DataFixer fixerUpper;
@@ -252,14 +251,14 @@ public abstract class MinecraftServer
    protected final Proxy proxy;
    private boolean onlineMode;
    private boolean preventProxyConnections;
-   @Nullable
+   
    private String motd;
    private int playerIdleTimeout;
    private final long[] tickTimesNanos = new long[100];
    private long aggregatedTickTimesNanos = 0L;
-   @Nullable
+   
    private KeyPair keyPair;
-   @Nullable
+   
    private GameProfile singleplayerProfile;
    private boolean isDemo;
    private volatile boolean isReady;
@@ -278,9 +277,9 @@ public abstract class MinecraftServer
    private boolean mayHaveDelayedTasks;
    private final PackRepository packRepository;
    private final net.minecraft.server.ServerScoreboard scoreboard = new net.minecraft.server.ServerScoreboard(this);
-   @Nullable
+   
    private Stopwatches stopwatches;
-   @Nullable
+   
    private CommandStorage commandStorage;
    private final CustomBossEvents customBossEvents = new CustomBossEvents();
    private final net.minecraft.server.ServerFunctionManager functionManager;
@@ -288,7 +287,7 @@ public abstract class MinecraftServer
    private boolean usingWhitelist;
    private float smoothedTickTimeMillis;
    private final Executor executor;
-   @Nullable
+   
    private String serverId;
    private net.minecraft.server.MinecraftServer.ReloadableResources resources;
    private final StructureTemplateManager structureTemplateManager;
@@ -364,7 +363,7 @@ public abstract class MinecraftServer
 
    public ChunkLoadStatusView createChunkLoadStatusView(final int $$0) {
       return new ChunkLoadStatusView() {
-         @Nullable
+         
          private ChunkMap chunkMap;
          private int centerChunkX;
          private int centerChunkZ;
@@ -377,7 +376,7 @@ public abstract class MinecraftServer
             this.centerChunkZ = $$1.z;
          }
 
-         @Nullable
+         
          @Override
          public ChunkStatus get(int $$0x, int $$1) {
             return this.chunkMap == null ? null : this.chunkMap.getLatestStatus(ChunkPos.asLong($$0 + this.centerChunkX - $$0, $$1 + this.centerChunkZ - $$0));
@@ -1240,7 +1239,7 @@ public abstract class MinecraftServer
       return this.levels.get(Level.OVERWORLD);
    }
 
-   @Nullable
+   
    public ServerLevel getLevel(ResourceKey<Level> $$0) {
       return this.levels.get($$0);
    }
@@ -1320,12 +1319,12 @@ public abstract class MinecraftServer
       this.port = $$0;
    }
 
-   @Nullable
+   
    public GameProfile getSingleplayerProfile() {
       return this.singleplayerProfile;
    }
 
-   public void setSingleplayerProfile(@Nullable GameProfile $$0) {
+   public void setSingleplayerProfile(GameProfile $$0) {
       this.singleplayerProfile = $$0;
    }
 
@@ -1444,7 +1443,7 @@ public abstract class MinecraftServer
       this.worldData.setGameType($$0);
    }
 
-   public int enforceGameTypeForPlayers(@Nullable GameType $$0) {
+   public int enforceGameTypeForPlayers(GameType $$0) {
       if ($$0 == null) {
          return 0;
       } else {
@@ -1468,7 +1467,7 @@ public abstract class MinecraftServer
       return this.isReady;
    }
 
-   public boolean publishServer(@Nullable GameType $$0, boolean $$1, int $$2) {
+   public boolean publishServer(GameType $$0, boolean $$1, int $$2) {
       return false;
    }
 
@@ -1504,7 +1503,7 @@ public abstract class MinecraftServer
       return this.services;
    }
 
-   @Nullable
+   
    public ServerStatus getStatus() {
       return this.status;
    }
@@ -2023,7 +2022,7 @@ public abstract class MinecraftServer
       return (ServerPlayerGameMode)(this.isDemo() ? new DemoMode($$0) : new ServerPlayerGameMode($$0));
    }
 
-   @Nullable
+   
    public GameType getForcedGameType() {
       return null;
    }
@@ -2058,7 +2057,7 @@ public abstract class MinecraftServer
       return 1000000;
    }
 
-   public void logChatMessage(Component $$0, Bound $$1, @Nullable String $$2) {
+   public void logChatMessage(Component $$0, Bound $$1, String $$2) {
       String $$3 = $$1.decorate($$0).getString();
       if ($$2 != null) {
          LOGGER.info("[{}] {}", $$2, $$3);
@@ -2211,7 +2210,7 @@ public abstract class MinecraftServer
       }
    }
 
-   public record ServerResourcePackInfo(UUID id, String url, String hash, boolean isRequired, @Nullable Component prompt) {
+   public record ServerResourcePackInfo(UUID id, String url, String hash, boolean isRequired, Component prompt) {
    }
 
    static class TimeProfiler {

@@ -10,7 +10,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.ItemEnchantments;
 import net.minecraft.world.item.enchantment.providers.VanillaEnchantmentProviders;
-import org.jspecify.annotations.Nullable;
 
 public class SkeletonTrapGoal extends Goal {
    private final SkeletonHorse horse;
@@ -57,7 +56,7 @@ public class SkeletonTrapGoal extends Goal {
       }
    }
 
-   @Nullable
+   
    private AbstractHorse createHorse(DifficultyInstance $$0) {
       SkeletonHorse $$1 = net.minecraft.world.entity.EntityType.SKELETON_HORSE
          .create(this.horse.level(), net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
@@ -73,7 +72,7 @@ public class SkeletonTrapGoal extends Goal {
       return $$1;
    }
 
-   @Nullable
+   
    private Skeleton createSkeleton(DifficultyInstance $$0, AbstractHorse $$1) {
       Skeleton $$2 = net.minecraft.world.entity.EntityType.SKELETON.create($$1.level(), net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
       if ($$2 != null) {

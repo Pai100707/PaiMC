@@ -23,7 +23,6 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.BlockHitResult;
-import org.jspecify.annotations.Nullable;
 
 public class JukeboxBlock extends BaseEntityBlock {
    public static final MapCodec<JukeboxBlock> CODEC = simpleCodec(JukeboxBlock::new);
@@ -40,7 +39,7 @@ public class JukeboxBlock extends BaseEntityBlock {
    }
 
    @Override
-   public void setPlacedBy(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, @Nullable LivingEntity $$3, ItemStack $$4) {
+   public void setPlacedBy(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, LivingEntity $$3, ItemStack $$4) {
       super.setPlacedBy($$0, $$1, $$2, $$3, $$4);
       TypedEntityData<BlockEntityType<?>> $$5 = (TypedEntityData<BlockEntityType<?>>)$$4.get(DataComponents.BLOCK_ENTITY_DATA);
       if ($$5 != null && $$5.contains("RecordItem")) {
@@ -106,7 +105,7 @@ public class JukeboxBlock extends BaseEntityBlock {
       $$0.add(HAS_RECORD);
    }
 
-   @Nullable
+   
    @Override
    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(net.minecraft.world.level.Level $$0, BlockState $$1, BlockEntityType<T> $$2) {
       return $$1.getValue(HAS_RECORD) ? createTickerHelper($$2, BlockEntityType.JUKEBOX, JukeboxBlockEntity::tick) : null;

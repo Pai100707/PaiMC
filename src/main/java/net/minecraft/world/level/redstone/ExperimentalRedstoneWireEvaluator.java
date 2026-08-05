@@ -14,7 +14,6 @@ import net.minecraft.world.level.block.RedStoneWireBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.RedstoneSide;
-import org.jspecify.annotations.Nullable;
 
 public class ExperimentalRedstoneWireEvaluator extends RedstoneWireEvaluator {
    private final Deque<BlockPos> wiresToTurnOff = new ArrayDeque<>();
@@ -26,7 +25,7 @@ public class ExperimentalRedstoneWireEvaluator extends RedstoneWireEvaluator {
    }
 
    @Override
-   public void updatePowerStrength(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, @Nullable Orientation $$3, boolean $$4) {
+   public void updatePowerStrength(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, Orientation $$3, boolean $$4) {
       Orientation $$5 = getInitialOrientation($$0, $$3);
       this.calculateCurrentChanges($$0, $$1, $$5);
       ObjectIterator<Entry<BlockPos>> $$6 = this.updatedWires.object2IntEntrySet().iterator();
@@ -84,7 +83,7 @@ public class ExperimentalRedstoneWireEvaluator extends RedstoneWireEvaluator {
       return $$2 == null ? $$1 == Direction.DOWN : $$0.getValue($$2).isConnected();
    }
 
-   private static Orientation getInitialOrientation(net.minecraft.world.level.Level $$0, @Nullable Orientation $$1) {
+   private static Orientation getInitialOrientation(net.minecraft.world.level.Level $$0, Orientation $$1) {
       Orientation $$2;
       if ($$1 != null) {
          $$2 = $$1;

@@ -7,7 +7,6 @@ import it.unimi.dsi.fastutil.objects.Reference2IntOpenHashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
-import org.jspecify.annotations.Nullable;
 
 public class IdMapper<T> implements net.minecraft.core.IdMap<T> {
    private int nextId;
@@ -46,7 +45,7 @@ public class IdMapper<T> implements net.minecraft.core.IdMap<T> {
       return this.tToId.getInt($$0);
    }
 
-   @Nullable
+   
    @Override
    public final T byId(int $$0) {
       return $$0 >= 0 && $$0 < this.idToT.size() ? this.idToT.get($$0) : null;

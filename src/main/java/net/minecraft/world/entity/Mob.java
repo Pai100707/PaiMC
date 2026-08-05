@@ -92,7 +92,6 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.ticks.ContainerSingleItem;
-import org.jspecify.annotations.Nullable;
 
 public abstract class Mob
    extends net.minecraft.world.entity.LivingEntity
@@ -139,7 +138,7 @@ public abstract class Mob
    protected PathNavigation navigation;
    protected final GoalSelector goalSelector;
    protected final GoalSelector targetSelector;
-   @Nullable
+   
    private net.minecraft.world.entity.LivingEntity target;
    private final Sensing sensing;
    private net.minecraft.world.entity.DropChances dropChances = net.minecraft.world.entity.DropChances.DEFAULT;
@@ -148,7 +147,7 @@ public abstract class Mob
    private final Map<PathType, Float> pathfindingMalus = Maps.newEnumMap(PathType.class);
    private Optional<ResourceKey<LootTable>> lootTable = Optional.empty();
    private long lootTableSeed;
-   @Nullable
+   
    private net.minecraft.world.entity.Leashable.LeashData leashData;
    private BlockPos homePosition = BlockPos.ZERO;
    private int homeRadius = -1;
@@ -225,7 +224,7 @@ public abstract class Mob
       return this.getControlledVehicle() instanceof net.minecraft.world.entity.Mob $$0 ? $$0.getNavigation() : this.navigation;
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.LivingEntity getControllingPassenger() {
       net.minecraft.world.entity.Entity $$0 = this.getFirstPassenger();
@@ -236,18 +235,18 @@ public abstract class Mob
       return this.sensing;
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.LivingEntity getTarget() {
       return this.target;
    }
 
-   @Nullable
+   
    protected final net.minecraft.world.entity.LivingEntity getTargetFromBrain() {
       return this.getBrain().getMemory(MemoryModuleType.ATTACK_TARGET).orElse(null);
    }
 
-   public void setTarget(@Nullable net.minecraft.world.entity.LivingEntity $$0) {
+   public void setTarget(net.minecraft.world.entity.LivingEntity $$0) {
       this.target = $$0;
    }
 
@@ -359,7 +358,7 @@ public abstract class Mob
       this.bodyRotationControl.clientTick();
    }
 
-   @Nullable
+   
    protected SoundEvent getAmbientSound() {
       return null;
    }
@@ -641,7 +640,7 @@ public abstract class Mob
       return this.canHoldItem($$1);
    }
 
-   @Nullable
+   
    public TagKey<Item> getPreferredWeaponType() {
       return null;
    }
@@ -962,7 +961,7 @@ public abstract class Mob
       }
    }
 
-   @Nullable
+   
    public static Item getEquipmentForSlot(net.minecraft.world.entity.EquipmentSlot $$0, int $$1) {
       switch ($$0) {
          case HEAD:
@@ -1054,12 +1053,12 @@ public abstract class Mob
       }
    }
 
-   @Nullable
+   
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       RandomSource $$4 = $$0.getRandom();
       AttributeInstance $$5 = Objects.requireNonNull(this.getAttribute(Attributes.FOLLOW_RANGE));
@@ -1202,7 +1201,7 @@ public abstract class Mob
       return this.homeRadius != -1;
    }
 
-   @Nullable
+   
    public <T extends net.minecraft.world.entity.Mob> T convertTo(
       net.minecraft.world.entity.EntityType<T> $$0,
       net.minecraft.world.entity.ConversionParams $$1,
@@ -1231,7 +1230,7 @@ public abstract class Mob
       }
    }
 
-   @Nullable
+   
    public <T extends net.minecraft.world.entity.Mob> T convertTo(
       net.minecraft.world.entity.EntityType<T> $$0,
       net.minecraft.world.entity.ConversionParams $$1,
@@ -1240,7 +1239,7 @@ public abstract class Mob
       return this.convertTo($$0, $$1, net.minecraft.world.entity.EntitySpawnReason.CONVERSION, $$2);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.Leashable.LeashData getLeashData() {
       return this.leashData;
@@ -1253,7 +1252,7 @@ public abstract class Mob
    }
 
    @Override
-   public void setLeashData(@Nullable net.minecraft.world.entity.Leashable.LeashData $$0) {
+   public void setLeashData(net.minecraft.world.entity.Leashable.LeashData $$0) {
       this.leashData = $$0;
    }
 
@@ -1412,7 +1411,7 @@ public abstract class Mob
       }
    }
 
-   @Nullable
+   
    @Override
    public ItemStack getPickResult() {
       SpawnEggItem $$0 = SpawnEggItem.byId(this.getType());

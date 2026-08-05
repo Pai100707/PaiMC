@@ -15,7 +15,6 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.Util;
 import net.minecraft.world.level.chunk.status.ChunkPyramid;
 import net.minecraft.world.level.chunk.status.ChunkStatus;
-import org.jspecify.annotations.Nullable;
 
 public class ChunkPos {
    public static final Codec<net.minecraft.world.level.ChunkPos> CODEC = Codec.INT_STREAM
@@ -221,7 +220,7 @@ public class ChunkPos {
       final int $$4 = $$0.x < $$1.x ? 1 : -1;
       final int $$5 = $$0.z < $$1.z ? 1 : -1;
       return StreamSupport.stream(new AbstractSpliterator<net.minecraft.world.level.ChunkPos>($$2 * $$3, 64) {
-         @Nullable
+         
          private net.minecraft.world.level.ChunkPos pos;
 
          @Override

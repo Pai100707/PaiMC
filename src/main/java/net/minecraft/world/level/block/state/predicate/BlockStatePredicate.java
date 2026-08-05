@@ -8,7 +8,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.Property;
-import org.jspecify.annotations.Nullable;
 
 public class BlockStatePredicate implements Predicate<BlockState> {
    public static final Predicate<BlockState> ANY = $$0 -> true;
@@ -23,7 +22,7 @@ public class BlockStatePredicate implements Predicate<BlockState> {
       return new BlockStatePredicate($$0.getStateDefinition());
    }
 
-   public boolean test(@Nullable BlockState $$0) {
+   public boolean test(BlockState $$0) {
       if ($$0 != null && $$0.getBlock().equals(this.definition.getOwner())) {
          if (this.properties.isEmpty()) {
             return true;

@@ -7,7 +7,6 @@ import java.util.Map;
 import net.minecraft.util.Mth;
 import net.minecraft.util.Util;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class EntityAttachments {
    private final Map<net.minecraft.world.entity.EntityAttachment, List<Vec3>> attachments;
@@ -36,7 +35,7 @@ public class EntityAttachments {
       }));
    }
 
-   @Nullable
+   
    public Vec3 getNullable(net.minecraft.world.entity.EntityAttachment $$0, int $$1, float $$2) {
       List<Vec3> $$3 = this.attachments.get($$0);
       return $$1 >= 0 && $$1 < $$3.size() ? transformPoint($$3.get($$1), $$2) : null;

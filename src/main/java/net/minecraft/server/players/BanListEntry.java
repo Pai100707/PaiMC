@@ -7,19 +7,18 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Objects;
 import net.minecraft.network.chat.Component;
-import org.jspecify.annotations.Nullable;
 
 public abstract class BanListEntry<T> extends StoredUserEntry<T> {
    public static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss Z", Locale.ROOT);
    public static final String EXPIRES_NEVER = "forever";
    protected final Date created;
    protected final String source;
-   @Nullable
+   
    protected final Date expires;
-   @Nullable
+   
    protected final String reason;
 
-   public BanListEntry(@Nullable T $$0, @Nullable Date $$1, @Nullable String $$2, @Nullable Date $$3, @Nullable String $$4) {
+   public BanListEntry(T $$0, Date $$1, String $$2, Date $$3, String $$4) {
       super($$0);
       this.created = $$1 == null ? new Date() : $$1;
       this.source = $$2 == null ? "(Unknown)" : $$2;
@@ -27,7 +26,7 @@ public abstract class BanListEntry<T> extends StoredUserEntry<T> {
       this.reason = $$4;
    }
 
-   protected BanListEntry(@Nullable T $$0, JsonObject $$1) {
+   protected BanListEntry(T $$0, JsonObject $$1) {
       super($$0);
 
       Date $$2;
@@ -59,12 +58,12 @@ public abstract class BanListEntry<T> extends StoredUserEntry<T> {
       return this.source;
    }
 
-   @Nullable
+   
    public Date getExpires() {
       return this.expires;
    }
 
-   @Nullable
+   
    public String getReason() {
       return this.reason;
    }

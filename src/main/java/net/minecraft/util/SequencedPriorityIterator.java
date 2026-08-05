@@ -8,11 +8,10 @@ import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap.Entry;
 import it.unimi.dsi.fastutil.objects.ObjectIterator;
 import java.util.Deque;
-import org.jspecify.annotations.Nullable;
 
 public final class SequencedPriorityIterator<T> extends AbstractIterator<T> {
    private static final int MIN_PRIO = Integer.MIN_VALUE;
-   @Nullable
+   
    private Deque<T> highestPrioQueue = null;
    private int highestPrio = Integer.MIN_VALUE;
    private final Int2ObjectMap<Deque<T>> queuesByPriority = new Int2ObjectOpenHashMap();
@@ -30,7 +29,7 @@ public final class SequencedPriorityIterator<T> extends AbstractIterator<T> {
       }
    }
 
-   @Nullable
+   
    protected T computeNext() {
       if (this.highestPrioQueue == null) {
          return (T)this.endOfData();

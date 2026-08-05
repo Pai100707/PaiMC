@@ -8,7 +8,6 @@ import java.util.function.Function;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
-import org.jspecify.annotations.Nullable;
 
 public class MerchantOffers extends ArrayList<MerchantOffer> {
    public static final Codec<MerchantOffers> CODEC = MerchantOffer.CODEC
@@ -30,7 +29,7 @@ public class MerchantOffers extends ArrayList<MerchantOffer> {
       super($$0);
    }
 
-   @Nullable
+   
    public MerchantOffer getRecipeFor(net.minecraft.world.item.ItemStack $$0, net.minecraft.world.item.ItemStack $$1, int $$2) {
       if ($$2 > 0 && $$2 < this.size()) {
          MerchantOffer $$3 = this.get($$2);

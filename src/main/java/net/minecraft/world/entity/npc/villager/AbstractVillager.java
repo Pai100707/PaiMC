@@ -30,15 +30,14 @@ import net.minecraft.world.level.portal.TeleportTransition;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public abstract class AbstractVillager extends net.minecraft.world.entity.AgeableMob implements InventoryCarrier, Npc, Merchant {
    private static final EntityDataAccessor<Integer> DATA_UNHAPPY_COUNTER = SynchedEntityData.defineId(AbstractVillager.class, EntityDataSerializers.INT);
    public static final int VILLAGER_SLOT_OFFSET = 300;
    private static final int VILLAGER_INVENTORY_SIZE = 8;
-   @Nullable
+   
    private Player tradingPlayer;
-   @Nullable
+   
    protected MerchantOffers offers;
    private final SimpleContainer inventory = new SimpleContainer(8);
 
@@ -48,13 +47,13 @@ public abstract class AbstractVillager extends net.minecraft.world.entity.Ageabl
       this.setPathfindingMalus(PathType.DAMAGE_FIRE, -1.0F);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       if ($$3 == null) {
          $$3 = new net.minecraft.world.entity.AgeableMob.AgeableMobGroupData(false);
@@ -81,11 +80,11 @@ public abstract class AbstractVillager extends net.minecraft.world.entity.Ageabl
       $$0.define(DATA_UNHAPPY_COUNTER, 0);
    }
 
-   public void setTradingPlayer(@Nullable Player $$0) {
+   public void setTradingPlayer(Player $$0) {
       this.tradingPlayer = $$0;
    }
 
-   @Nullable
+   
    public Player getTradingPlayer() {
       return this.tradingPlayer;
    }
@@ -107,7 +106,7 @@ public abstract class AbstractVillager extends net.minecraft.world.entity.Ageabl
       }
    }
 
-   public void overrideOffers(@Nullable MerchantOffers $$0) {
+   public void overrideOffers(MerchantOffers $$0) {
    }
 
    public void overrideXp(int $$0) {
@@ -167,7 +166,7 @@ public abstract class AbstractVillager extends net.minecraft.world.entity.Ageabl
       this.readInventoryFromTag($$0);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.Entity teleport(TeleportTransition $$0) {
       this.stopTrading();
@@ -203,7 +202,7 @@ public abstract class AbstractVillager extends net.minecraft.world.entity.Ageabl
       return this.inventory;
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SlotAccess getSlot(int $$0) {
       int $$1 = $$0 - 300;

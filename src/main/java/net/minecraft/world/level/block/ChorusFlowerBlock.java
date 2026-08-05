@@ -16,7 +16,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class ChorusFlowerBlock extends Block {
    public static final MapCodec<ChorusFlowerBlock> CODEC = RecordCodecBuilder.mapCodec(
@@ -131,7 +130,7 @@ public class ChorusFlowerBlock extends Block {
       $$0.levelEvent(1034, $$1, 0);
    }
 
-   private static boolean allNeighborsEmpty(net.minecraft.world.level.LevelReader $$0, BlockPos $$1, @Nullable Direction $$2) {
+   private static boolean allNeighborsEmpty(net.minecraft.world.level.LevelReader $$0, BlockPos $$1, Direction $$2) {
       for (Direction $$3 : Plane.HORIZONTAL) {
          if ($$3 != $$2 && !$$0.isEmptyBlock($$1.relative($$3))) {
             return false;

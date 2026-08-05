@@ -5,7 +5,6 @@ import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import net.minecraft.util.parsing.packrat.DelayedException;
 import net.minecraft.util.parsing.packrat.ParseState;
 import net.minecraft.util.parsing.packrat.Rule;
-import org.jspecify.annotations.Nullable;
 
 public class UnquotedStringParseRule implements Rule<StringReader, String> {
    private final int minSize;
@@ -16,7 +15,7 @@ public class UnquotedStringParseRule implements Rule<StringReader, String> {
       this.error = $$1;
    }
 
-   @Nullable
+   
    public String parse(ParseState<StringReader> $$0) {
       $$0.input().skipWhitespace();
       int $$1 = $$0.mark();

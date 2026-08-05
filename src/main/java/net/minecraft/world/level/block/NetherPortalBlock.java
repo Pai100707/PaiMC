@@ -39,7 +39,6 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class NetherPortalBlock extends Block implements Portal {
@@ -123,7 +122,7 @@ public class NetherPortalBlock extends Block implements Portal {
          : 0;
    }
 
-   @Nullable
+   
    @Override
    public TeleportTransition getPortalDestination(ServerLevel $$0, Entity $$1, BlockPos $$2) {
       ResourceKey<net.minecraft.world.level.Level> $$3 = $$0.dimension() == net.minecraft.world.level.Level.NETHER
@@ -141,7 +140,7 @@ public class NetherPortalBlock extends Block implements Portal {
       }
    }
 
-   @Nullable
+   
    private TeleportTransition getExitPortal(ServerLevel $$0, Entity $$1, BlockPos $$2, BlockPos $$3, boolean $$4, WorldBorder $$5) {
       Optional<BlockPos> $$6 = $$0.getPortalForcer().findClosestPortalPosition($$3, $$4, $$5);
       FoundRectangle $$9;

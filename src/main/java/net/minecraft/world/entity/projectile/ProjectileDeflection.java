@@ -2,7 +2,6 @@ package net.minecraft.world.entity.projectile;
 
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 @FunctionalInterface
 public interface ProjectileDeflection {
@@ -29,5 +28,5 @@ public interface ProjectileDeflection {
       }
    };
 
-   void deflect(Projectile var1, @Nullable net.minecraft.world.entity.Entity var2, RandomSource var3);
+   void deflect(Projectile var1, net.minecraft.world.entity.Entity var2, RandomSource var3);
 }

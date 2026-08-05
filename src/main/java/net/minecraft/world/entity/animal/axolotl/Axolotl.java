@@ -63,7 +63,6 @@ import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class Axolotl extends Animal implements Bucketable {
    public static final int TOTAL_PLAYDEAD_TIME = 200;
@@ -157,7 +156,7 @@ public class Axolotl extends Animal implements Bucketable {
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       boolean $$4 = false;
       if ($$2 == net.minecraft.world.entity.EntitySpawnReason.BUCKET) {
@@ -243,7 +242,7 @@ public class Axolotl extends Animal implements Bucketable {
       this.entityData.set(DATA_VARIANT, $$0.getId());
    }
 
-   @Nullable
+   
    @Override
    public <T> T get(DataComponentType<? extends T> $$0) {
       return $$0 == DataComponents.AXOLOTL_VARIANT ? castComponentValue((DataComponentType<T>)$$0, this.getVariant()) : super.get($$0);
@@ -297,7 +296,7 @@ public class Axolotl extends Animal implements Bucketable {
       this.entityData.set(FROM_BUCKET, $$0);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.AgeableMob getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       Axolotl $$2 = net.minecraft.world.entity.EntityType.AXOLOTL.create($$0, net.minecraft.world.entity.EntitySpawnReason.BREEDING);
@@ -466,13 +465,13 @@ public class Axolotl extends Animal implements Bucketable {
       return SoundEvents.AXOLOTL_HURT;
    }
 
-   @Nullable
+   
    @Override
    protected SoundEvent getDeathSound() {
       return SoundEvents.AXOLOTL_DEATH;
    }
 
-   @Nullable
+   
    @Override
    protected SoundEvent getAmbientSound() {
       return this.isInWater() ? SoundEvents.AXOLOTL_IDLE_WATER : SoundEvents.AXOLOTL_IDLE_AIR;
@@ -524,7 +523,7 @@ public class Axolotl extends Animal implements Bucketable {
       return !this.fromBucket() && !this.hasCustomName();
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.LivingEntity getTarget() {
       return this.getTargetFromBrain();

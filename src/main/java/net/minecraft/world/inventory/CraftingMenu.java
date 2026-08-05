@@ -14,7 +14,6 @@ import net.minecraft.world.item.crafting.CraftingRecipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.block.Blocks;
-import org.jspecify.annotations.Nullable;
 
 public class CraftingMenu extends net.minecraft.world.inventory.AbstractCraftingMenu {
    private static final int CRAFTING_GRID_WIDTH = 3;
@@ -50,7 +49,7 @@ public class CraftingMenu extends net.minecraft.world.inventory.AbstractCrafting
       Player $$2,
       net.minecraft.world.inventory.CraftingContainer $$3,
       net.minecraft.world.inventory.ResultContainer $$4,
-      @Nullable RecipeHolder<CraftingRecipe> $$5
+      RecipeHolder<CraftingRecipe> $$5
    ) {
       CraftingInput $$6 = $$3.asCraftInput();
       ServerPlayer $$7 = (ServerPlayer)$$2;

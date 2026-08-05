@@ -66,12 +66,11 @@ import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class Parrot extends ShoulderRidingEntity implements FlyingAnimal {
    private static final EntityDataAccessor<Integer> DATA_VARIANT_ID = SynchedEntityData.defineId(Parrot.class, EntityDataSerializers.INT);
    private static final Predicate<net.minecraft.world.entity.Mob> NOT_PARROT_PREDICATE = new Predicate<net.minecraft.world.entity.Mob>() {
-      public boolean test(@Nullable net.minecraft.world.entity.Mob $$0) {
+      public boolean test(net.minecraft.world.entity.Mob $$0) {
          return $$0 != null && Parrot.MOB_SOUND_MAP.containsKey($$0.getType());
       }
    };
@@ -128,7 +127,7 @@ public class Parrot extends ShoulderRidingEntity implements FlyingAnimal {
    private float flapping = 1.0F;
    private float nextFlap = 1.0F;
    private boolean partyParrot;
-   @Nullable
+   
    private BlockPos jukebox;
 
    public Parrot(net.minecraft.world.entity.EntityType<? extends Parrot> $$0, Level $$1) {
@@ -139,13 +138,13 @@ public class Parrot extends ShoulderRidingEntity implements FlyingAnimal {
       this.setPathfindingMalus(PathType.COCOA, -1.0F);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       this.setVariant((Parrot.Variant)Util.getRandom(Parrot.Variant.values(), $$0.getRandom()));
       if ($$3 == null) {
@@ -321,13 +320,13 @@ public class Parrot extends ShoulderRidingEntity implements FlyingAnimal {
       return false;
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.AgeableMob getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       return null;
    }
 
-   @Nullable
+   
    @Override
    public SoundEvent getAmbientSound() {
       return getAmbient(this.level(), this.level().random);
@@ -416,7 +415,7 @@ public class Parrot extends ShoulderRidingEntity implements FlyingAnimal {
       this.entityData.set(DATA_VARIANT_ID, $$0.id);
    }
 
-   @Nullable
+   
    @Override
    public <T> T get(DataComponentType<? extends T> $$0) {
       return $$0 == DataComponents.PARROT_VARIANT ? castComponentValue((DataComponentType<T>)$$0, this.getVariant()) : super.get($$0);
@@ -476,7 +475,7 @@ public class Parrot extends ShoulderRidingEntity implements FlyingAnimal {
          super($$0, $$1);
       }
 
-      @Nullable
+      
       @Override
       protected Vec3 getPosition() {
          Vec3 $$0 = null;
@@ -491,7 +490,7 @@ public class Parrot extends ShoulderRidingEntity implements FlyingAnimal {
          return $$0 == null ? super.getPosition() : $$0;
       }
 
-      @Nullable
+      
       private Vec3 getTreePos() {
          BlockPos $$0 = this.mob.blockPosition();
          MutableBlockPos $$1 = new MutableBlockPos();

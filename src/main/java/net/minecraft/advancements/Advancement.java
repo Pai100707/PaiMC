@@ -24,7 +24,6 @@ import net.minecraft.util.ProblemReporter;
 import net.minecraft.util.ProblemReporter.RootFieldPathElement;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
-import org.jspecify.annotations.Nullable;
 
 public record Advancement(
    Optional<Identifier> parent,
@@ -152,7 +151,7 @@ public record Advancement(
          ItemStack $$0,
          Component $$1,
          Component $$2,
-         @Nullable Identifier $$3,
+         Identifier $$3,
          net.minecraft.advancements.AdvancementType $$4,
          boolean $$5,
          boolean $$6,
@@ -165,7 +164,7 @@ public record Advancement(
          ItemLike $$0,
          Component $$1,
          Component $$2,
-         @Nullable Identifier $$3,
+         Identifier $$3,
          net.minecraft.advancements.AdvancementType $$4,
          boolean $$5,
          boolean $$6,

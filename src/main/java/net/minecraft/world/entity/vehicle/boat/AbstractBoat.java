@@ -42,7 +42,6 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public abstract class AbstractBoat extends VehicleEntity implements net.minecraft.world.entity.Leashable {
    private static final EntityDataAccessor<Boolean> DATA_ID_PADDLE_LEFT = SynchedEntityData.defineId(AbstractBoat.class, EntityDataSerializers.BOOLEAN);
@@ -72,7 +71,7 @@ public abstract class AbstractBoat extends VehicleEntity implements net.minecraf
    private float bubbleMultiplier;
    private float bubbleAngle;
    private float bubbleAngleO;
-   @Nullable
+   
    private net.minecraft.world.entity.Leashable.LeashData leashData;
    private final Supplier<Item> dropItem;
 
@@ -112,7 +111,7 @@ public abstract class AbstractBoat extends VehicleEntity implements net.minecraf
    }
 
    @Override
-   public boolean canBeCollidedWith(@Nullable net.minecraft.world.entity.Entity $$0) {
+   public boolean canBeCollidedWith(net.minecraft.world.entity.Entity $$0) {
       return true;
    }
 
@@ -327,7 +326,7 @@ public abstract class AbstractBoat extends VehicleEntity implements net.minecraf
       }
    }
 
-   @Nullable
+   
    protected SoundEvent getPaddleSound() {
       return switch (this.getStatus()) {
          case IN_WATER, UNDER_WATER, UNDER_FLOWING_WATER -> SoundEvents.BOAT_PADDLE_WATER;
@@ -345,14 +344,14 @@ public abstract class AbstractBoat extends VehicleEntity implements net.minecraf
       return this.getPaddleState($$0) ? Mth.clampedLerp($$1, this.paddlePositions[$$0] - (float) (Math.PI / 8), this.paddlePositions[$$0]) : 0.0F;
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.Leashable.LeashData getLeashData() {
       return this.leashData;
    }
 
    @Override
-   public void setLeashData(@Nullable net.minecraft.world.entity.Leashable.LeashData $$0) {
+   public void setLeashData(net.minecraft.world.entity.Leashable.LeashData $$0) {
       this.leashData = $$0;
    }
 
@@ -490,7 +489,7 @@ public abstract class AbstractBoat extends VehicleEntity implements net.minecraf
       return $$7;
    }
 
-   @Nullable
+   
    private AbstractBoat.Status isUnderwater() {
       AABB $$0 = this.getBoundingBox();
       double $$1 = $$0.maxY + 0.001;
@@ -743,7 +742,7 @@ public abstract class AbstractBoat extends VehicleEntity implements net.minecraf
       return 2;
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.LivingEntity getControllingPassenger() {
       return this.getFirstPassenger() instanceof net.minecraft.world.entity.LivingEntity $$0 ? $$0 : super.getControllingPassenger();

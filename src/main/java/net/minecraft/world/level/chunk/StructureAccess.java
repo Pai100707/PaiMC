@@ -4,10 +4,9 @@ import it.unimi.dsi.fastutil.longs.LongSet;
 import java.util.Map;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureStart;
-import org.jspecify.annotations.Nullable;
 
 public interface StructureAccess {
-   @Nullable
+   
    StructureStart getStartForStructure(Structure var1);
 
    void setStartForStructure(Structure var1, StructureStart var2);

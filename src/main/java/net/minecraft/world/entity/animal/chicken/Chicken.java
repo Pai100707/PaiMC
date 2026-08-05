@@ -43,7 +43,6 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class Chicken extends Animal {
    private static final net.minecraft.world.entity.EntityDimensions BABY_DIMENSIONS = net.minecraft.world.entity.EntityType.CHICKEN
@@ -148,7 +147,7 @@ public class Chicken extends Animal {
       this.playSound(SoundEvents.CHICKEN_STEP, 0.15F, 1.0F);
    }
 
-   @Nullable
+   
    public Chicken getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       Chicken $$2 = net.minecraft.world.entity.EntityType.CHICKEN.create($$0, net.minecraft.world.entity.EntitySpawnReason.BREEDING);
       if ($$2 != null && $$1 instanceof Chicken $$3) {
@@ -163,7 +162,7 @@ public class Chicken extends Animal {
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       VariantUtils.<ChickenVariant>selectVariantToSpawn(SpawnContext.create($$0, this.blockPosition()), Registries.CHICKEN_VARIANT).ifPresent(this::setVariant);
       return super.finalizeSpawn($$0, $$1, $$2, $$3);
@@ -209,7 +208,7 @@ public class Chicken extends Animal {
       return (Holder<ChickenVariant>)this.entityData.get(DATA_VARIANT_ID);
    }
 
-   @Nullable
+   
    @Override
    public <T> T get(DataComponentType<? extends T> $$0) {
       return $$0 == DataComponents.CHICKEN_VARIANT ? castComponentValue((DataComponentType<T>)$$0, new EitherHolder(this.getVariant())) : super.get($$0);

@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.component.SuspiciousStewEffects;
-import org.jspecify.annotations.Nullable;
 
 public interface SuspiciousEffectHolder {
    SuspiciousStewEffects getSuspiciousEffects();
@@ -15,7 +14,7 @@ public interface SuspiciousEffectHolder {
       return BuiltInRegistries.ITEM.stream().map(SuspiciousEffectHolder::tryGet).filter(Objects::nonNull).collect(Collectors.toList());
    }
 
-   @Nullable
+   
    static SuspiciousEffectHolder tryGet(net.minecraft.world.level.ItemLike $$0) {
       if ($$0.asItem() instanceof BlockItem $$1 && $$1.getBlock() instanceof SuspiciousEffectHolder $$2) {
          return $$2;

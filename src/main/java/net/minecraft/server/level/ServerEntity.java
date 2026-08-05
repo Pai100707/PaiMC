@@ -48,7 +48,6 @@ import net.minecraft.world.item.MapItem;
 import net.minecraft.world.level.saveddata.maps.MapId;
 import net.minecraft.world.level.saveddata.maps.MapItemSavedData;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class ServerEntity {
@@ -72,7 +71,7 @@ public class ServerEntity {
    private List<Entity> lastPassengers = Collections.emptyList();
    private boolean wasRiding;
    private boolean wasOnGround;
-   @Nullable
+   
    private List<DataValue<?>> trackedDataValues;
 
    public ServerEntity(ServerLevel $$0, Entity $$1, int $$2, boolean $$3, ServerEntity.Synchronizer $$4) {

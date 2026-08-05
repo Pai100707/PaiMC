@@ -4,10 +4,9 @@ import com.google.common.collect.Queues;
 import java.util.Locale;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
-import org.jspecify.annotations.Nullable;
 
 public interface StrictQueue<T extends Runnable> {
-   @Nullable
+   
    Runnable pop();
 
    boolean push(T var1);
@@ -28,7 +27,7 @@ public interface StrictQueue<T extends Runnable> {
          }
       }
 
-      @Nullable
+      
       @Override
       public Runnable pop() {
          for (Queue<Runnable> $$0 : this.queues) {
@@ -71,7 +70,7 @@ public interface StrictQueue<T extends Runnable> {
          this.queue = $$0;
       }
 
-      @Nullable
+      
       @Override
       public Runnable pop() {
          return this.queue.poll();

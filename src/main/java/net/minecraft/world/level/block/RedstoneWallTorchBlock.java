@@ -15,7 +15,6 @@ import net.minecraft.world.level.redstone.ExperimentalRedstoneUtils;
 import net.minecraft.world.level.redstone.Orientation;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class RedstoneWallTorchBlock extends RedstoneTorchBlock {
    public static final MapCodec<RedstoneWallTorchBlock> CODEC = simpleCodec(RedstoneWallTorchBlock::new);
@@ -56,7 +55,7 @@ public class RedstoneWallTorchBlock extends RedstoneTorchBlock {
       return $$4.getOpposite() == $$0.getValue(FACING) && !$$0.canSurvive($$1, $$3) ? Blocks.AIR.defaultBlockState() : $$0;
    }
 
-   @Nullable
+   
    @Override
    public BlockState getStateForPlacement(BlockPlaceContext $$0) {
       BlockState $$1 = Blocks.WALL_TORCH.getStateForPlacement($$0);
@@ -101,7 +100,7 @@ public class RedstoneWallTorchBlock extends RedstoneTorchBlock {
       $$0.add(FACING, LIT);
    }
 
-   @Nullable
+   
    @Override
    protected Orientation randomOrientation(net.minecraft.world.level.Level $$0, BlockState $$1) {
       return ExperimentalRedstoneUtils.initialOrientation($$0, ((Direction)$$1.getValue(FACING)).getOpposite(), Direction.UP);

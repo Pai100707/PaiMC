@@ -5,7 +5,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.Portal;
 import net.minecraft.world.level.block.Portal.Transition;
 import net.minecraft.world.level.portal.TeleportTransition;
-import org.jspecify.annotations.Nullable;
 
 public class PortalProcessor {
    private final Portal portal;
@@ -29,7 +28,7 @@ public class PortalProcessor {
       }
    }
 
-   @Nullable
+   
    public TeleportTransition getPortalDestination(ServerLevel $$0, net.minecraft.world.entity.Entity $$1) {
       return this.portal.getPortalDestination($$0, $$1, this.entryPosition);
    }

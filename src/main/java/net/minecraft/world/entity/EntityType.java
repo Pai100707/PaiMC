@@ -186,7 +186,6 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class EntityType<T extends net.minecraft.world.entity.Entity> implements FeatureElement, EntityTypeTest<net.minecraft.world.entity.Entity, T> {
@@ -1499,7 +1498,7 @@ public class EntityType<T extends net.minecraft.world.entity.Entity> implements 
    private final int clientTrackingRange;
    private final int updateInterval;
    private final String descriptionId;
-   @Nullable
+   
    private Component description;
    private final Optional<ResourceKey<LootTable>> lootTable;
    private final net.minecraft.world.entity.EntityDimensions dimensions;
@@ -1565,11 +1564,11 @@ public class EntityType<T extends net.minecraft.world.entity.Entity> implements 
       this.allowedInPeaceful = $$14;
    }
 
-   @Nullable
+   
    public T spawn(
       ServerLevel $$0,
-      @Nullable ItemStack $$1,
-      @Nullable net.minecraft.world.entity.LivingEntity $$2,
+      ItemStack $$1,
+      net.minecraft.world.entity.LivingEntity $$2,
       BlockPos $$3,
       net.minecraft.world.entity.EntitySpawnReason $$4,
       boolean $$5,
@@ -1586,13 +1585,13 @@ public class EntityType<T extends net.minecraft.world.entity.Entity> implements 
    }
 
    public static <T extends net.minecraft.world.entity.Entity> Consumer<T> createDefaultStackConfig(
-      Level $$0, ItemStack $$1, @Nullable net.minecraft.world.entity.LivingEntity $$2
+      Level $$0, ItemStack $$1, net.minecraft.world.entity.LivingEntity $$2
    ) {
       return appendDefaultStackConfig($$0x -> {}, $$0, $$1, $$2);
    }
 
    public static <T extends net.minecraft.world.entity.Entity> Consumer<T> appendDefaultStackConfig(
-      Consumer<T> $$0, Level $$1, ItemStack $$2, @Nullable net.minecraft.world.entity.LivingEntity $$3
+      Consumer<T> $$0, Level $$1, ItemStack $$2, net.minecraft.world.entity.LivingEntity $$3
    ) {
       return appendCustomEntityStackConfig(appendComponentsConfig($$0, $$2), $$1, $$2, $$3);
    }
@@ -1602,7 +1601,7 @@ public class EntityType<T extends net.minecraft.world.entity.Entity> implements 
    }
 
    public static <T extends net.minecraft.world.entity.Entity> Consumer<T> appendCustomEntityStackConfig(
-      Consumer<T> $$0, Level $$1, ItemStack $$2, @Nullable net.minecraft.world.entity.LivingEntity $$3
+      Consumer<T> $$0, Level $$1, ItemStack $$2, net.minecraft.world.entity.LivingEntity $$3
    ) {
       TypedEntityData<net.minecraft.world.entity.EntityType<?>> $$4 = (TypedEntityData<net.minecraft.world.entity.EntityType<?>>)$$2.get(
          DataComponents.ENTITY_DATA
@@ -1610,13 +1609,13 @@ public class EntityType<T extends net.minecraft.world.entity.Entity> implements 
       return $$4 != null ? $$0.andThen($$3x -> updateCustomEntityTag($$1, $$3, $$3x, $$4)) : $$0;
    }
 
-   @Nullable
+   
    public T spawn(ServerLevel $$0, BlockPos $$1, net.minecraft.world.entity.EntitySpawnReason $$2) {
       return this.spawn($$0, null, $$1, $$2, false, false);
    }
 
-   @Nullable
-   public T spawn(ServerLevel $$0, @Nullable Consumer<T> $$1, BlockPos $$2, net.minecraft.world.entity.EntitySpawnReason $$3, boolean $$4, boolean $$5) {
+   
+   public T spawn(ServerLevel $$0, Consumer<T> $$1, BlockPos $$2, net.minecraft.world.entity.EntitySpawnReason $$3, boolean $$4, boolean $$5) {
       T $$6 = this.create($$0, $$1, $$2, $$3, $$4, $$5);
       if ($$6 != null) {
          $$0.addFreshEntityWithPassengers($$6);
@@ -1628,8 +1627,8 @@ public class EntityType<T extends net.minecraft.world.entity.Entity> implements 
       return $$6;
    }
 
-   @Nullable
-   public T create(ServerLevel $$0, @Nullable Consumer<T> $$1, BlockPos $$2, net.minecraft.world.entity.EntitySpawnReason $$3, boolean $$4, boolean $$5) {
+   
+   public T create(ServerLevel $$0, Consumer<T> $$1, BlockPos $$2, net.minecraft.world.entity.EntitySpawnReason $$3, boolean $$4, boolean $$5) {
       T $$6 = this.create($$0, $$3);
       if ($$6 == null) {
          return null;
@@ -1669,8 +1668,8 @@ public class EntityType<T extends net.minecraft.world.entity.Entity> implements 
 
    public static void updateCustomEntityTag(
       Level $$0,
-      @Nullable net.minecraft.world.entity.LivingEntity $$1,
-      @Nullable net.minecraft.world.entity.Entity $$2,
+      net.minecraft.world.entity.LivingEntity $$1,
+      net.minecraft.world.entity.Entity $$2,
       TypedEntityData<net.minecraft.world.entity.EntityType<?>> $$3
    ) {
       MinecraftServer $$4 = $$0.getServer();
@@ -1741,7 +1740,7 @@ public class EntityType<T extends net.minecraft.world.entity.Entity> implements 
       return this.requiredFeatures;
    }
 
-   @Nullable
+   
    public T create(Level $$0, net.minecraft.world.entity.EntitySpawnReason $$1) {
       return !this.isEnabled($$0.enabledFeatures()) ? null : this.factory.create(this, $$0);
    }
@@ -1786,7 +1785,7 @@ public class EntityType<T extends net.minecraft.world.entity.Entity> implements 
       return $$0.read("id", CODEC);
    }
 
-   @Nullable
+   
    public static net.minecraft.world.entity.Entity loadEntityRecursive(
       CompoundTag $$0, Level $$1, net.minecraft.world.entity.EntitySpawnReason $$2, net.minecraft.world.entity.EntityProcessor $$3
    ) {
@@ -1809,7 +1808,7 @@ public class EntityType<T extends net.minecraft.world.entity.Entity> implements 
       return var5;
    }
 
-   @Nullable
+   
    public static net.minecraft.world.entity.Entity loadEntityRecursive(
       net.minecraft.world.entity.EntityType<?> $$0,
       CompoundTag $$1,
@@ -1836,14 +1835,14 @@ public class EntityType<T extends net.minecraft.world.entity.Entity> implements 
       return var6;
    }
 
-   @Nullable
+   
    public static net.minecraft.world.entity.Entity loadEntityRecursive(
       ValueInput $$0, Level $$1, net.minecraft.world.entity.EntitySpawnReason $$2, net.minecraft.world.entity.EntityProcessor $$3
    ) {
       return loadStaticEntity($$0, $$1, $$2).map($$3::process).map($$4 -> loadPassengersRecursive($$4, $$0, $$1, $$2, $$3)).orElse(null);
    }
 
-   @Nullable
+   
    public static net.minecraft.world.entity.Entity loadEntityRecursive(
       net.minecraft.world.entity.EntityType<?> $$0,
       ValueInput $$1,
@@ -1929,7 +1928,7 @@ public class EntityType<T extends net.minecraft.world.entity.Entity> implements 
       return $$0.contains(this.builtInRegistryHolder);
    }
 
-   @Nullable
+   
    public T tryCast(net.minecraft.world.entity.Entity $$0) {
       return (T)($$0.getType() == this ? $$0 : null);
    }
@@ -2135,7 +2134,7 @@ public class EntityType<T extends net.minecraft.world.entity.Entity> implements 
 
    @FunctionalInterface
    public interface EntityFactory<T extends net.minecraft.world.entity.Entity> {
-      @Nullable
+      
       T create(net.minecraft.world.entity.EntityType<T> var1, Level var2);
    }
 }

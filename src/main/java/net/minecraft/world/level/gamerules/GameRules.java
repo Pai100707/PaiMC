@@ -14,7 +14,6 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
-import org.jspecify.annotations.Nullable;
 
 public class GameRules {
    public static final GameRule<Boolean> ADVANCE_TIME = registerBoolean("advance_time", GameRuleCategory.UPDATES, !SharedConstants.DEBUG_WORLD_RECREATE);
@@ -114,7 +113,7 @@ public class GameRules {
       }
    }
 
-   public <T> void set(GameRule<T> $$0, T $$1, @Nullable MinecraftServer $$2) {
+   public <T> void set(GameRule<T> $$0, T $$1, MinecraftServer $$2) {
       if (!this.rules.has($$0)) {
          throw new IllegalArgumentException("Tried to set invalid game rule");
       } else {
@@ -129,15 +128,15 @@ public class GameRules {
       return new GameRules($$0, this.rules);
    }
 
-   public void setAll(GameRules $$0, @Nullable MinecraftServer $$1) {
+   public void setAll(GameRules $$0, MinecraftServer $$1) {
       this.setAll($$0.rules, $$1);
    }
 
-   public void setAll(GameRuleMap $$0, @Nullable MinecraftServer $$1) {
+   public void setAll(GameRuleMap $$0, MinecraftServer $$1) {
       $$0.keySet().forEach($$2 -> this.setFromOther($$0, (GameRule<?>)$$2, $$1));
    }
 
-   private <T> void setFromOther(GameRuleMap $$0, GameRule<T> $$1, @Nullable MinecraftServer $$2) {
+   private <T> void setFromOther(GameRuleMap $$0, GameRule<T> $$1, MinecraftServer $$2) {
       this.set($$1, Objects.requireNonNull($$0.get($$1)), $$2);
    }
 

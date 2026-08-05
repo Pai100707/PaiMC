@@ -5,7 +5,6 @@ import com.google.common.collect.Iterators;
 import java.util.Arrays;
 import java.util.Iterator;
 import net.minecraft.core.IdMap;
-import org.jspecify.annotations.Nullable;
 
 public class CrudeIncrementalIntIdentityHashBiMap<K> implements IdMap<K> {
    private static final int NOT_FOUND = -1;
@@ -35,11 +34,11 @@ public class CrudeIncrementalIntIdentityHashBiMap<K> implements IdMap<K> {
       return new net.minecraft.util.CrudeIncrementalIntIdentityHashBiMap((int)($$0 / 0.8F));
    }
 
-   public int getId(@Nullable K $$0) {
+   public int getId(K $$0) {
       return this.getValue(this.indexOf($$0, this.hash($$0)));
    }
 
-   @Nullable
+   
    public K byId(int $$0) {
       return $$0 >= 0 && $$0 < this.byId.length ? this.byId[$$0] : null;
    }
@@ -110,11 +109,11 @@ public class CrudeIncrementalIntIdentityHashBiMap<K> implements IdMap<K> {
       }
    }
 
-   private int hash(@Nullable K $$0) {
+   private int hash(K $$0) {
       return (net.minecraft.util.Mth.murmurHash3Mixer(System.identityHashCode($$0)) & 2147483647) % this.keys.length;
    }
 
-   private int indexOf(@Nullable K $$0, int $$1) {
+   private int indexOf(K $$0, int $$1) {
       for (int $$2 = $$1; $$2 < this.keys.length; $$2++) {
          if (this.keys[$$2] == $$0) {
             return $$2;

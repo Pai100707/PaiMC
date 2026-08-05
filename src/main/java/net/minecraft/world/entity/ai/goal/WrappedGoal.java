@@ -1,7 +1,6 @@
 package net.minecraft.world.entity.ai.goal;
 
 import java.util.EnumSet;
-import org.jspecify.annotations.Nullable;
 
 public class WrappedGoal extends Goal {
    private final Goal goal;
@@ -86,7 +85,7 @@ public class WrappedGoal extends Goal {
    }
 
    @Override
-   public boolean equals(@Nullable Object $$0) {
+   public boolean equals(Object $$0) {
       if (this == $$0) {
          return true;
       } else {

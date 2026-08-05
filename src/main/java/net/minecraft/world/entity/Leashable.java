@@ -23,7 +23,6 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public interface Leashable {
    String LEASH_TAG = "leash";
@@ -40,10 +39,10 @@ public interface Leashable {
       new Vec3(-0.5, 0.5, 0.5), new Vec3(-0.5, 0.5, -0.5), new Vec3(0.5, 0.5, -0.5), new Vec3(0.5, 0.5, 0.5)
    );
 
-   @Nullable
+   
    net.minecraft.world.entity.Leashable.LeashData getLeashData();
 
-   void setLeashData(@Nullable net.minecraft.world.entity.Leashable.LeashData var1);
+   void setLeashData(net.minecraft.world.entity.Leashable.LeashData var1);
 
    default boolean isLeashed() {
       return this.getLeashData() != null && this.getLeashData().leashHolder != null;
@@ -86,7 +85,7 @@ public interface Leashable {
       this.setLeashData($$1);
    }
 
-   default void writeLeashData(ValueOutput $$0, @Nullable net.minecraft.world.entity.Leashable.LeashData $$1) {
+   default void writeLeashData(ValueOutput $$0, net.minecraft.world.entity.Leashable.LeashData $$1) {
       $$0.storeNullable("leash", net.minecraft.world.entity.Leashable.LeashData.CODEC, $$1);
    }
 
@@ -327,12 +326,12 @@ public interface Leashable {
       }
    }
 
-   @Nullable
+   
    default net.minecraft.world.entity.Entity getLeashHolder() {
       return getLeashHolder((net.minecraft.world.entity.Entity & net.minecraft.world.entity.Leashable)this);
    }
 
-   @Nullable
+   
    private static <E extends net.minecraft.world.entity.Entity & net.minecraft.world.entity.Leashable> net.minecraft.world.entity.Entity getLeashHolder(E $$0) {
       net.minecraft.world.entity.Leashable.LeashData $$1 = $$0.getLeashData();
       if ($$1 == null) {
@@ -383,9 +382,9 @@ public interface Leashable {
             }
          );
       int delayedLeashHolderId;
-      @Nullable
+      
       public net.minecraft.world.entity.Entity leashHolder;
-      @Nullable
+      
       public Either<UUID, BlockPos> delayedLeashInfo;
       public double angularMomentum;
 

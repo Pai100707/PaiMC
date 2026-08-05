@@ -22,7 +22,6 @@ import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class FarmBlock extends Block {
    public static final MapCodec<FarmBlock> CODEC = simpleCodec(FarmBlock::new);
@@ -113,7 +112,7 @@ public class FarmBlock extends Block {
       super.fallOn($$0, $$1, $$2, $$3, $$4);
    }
 
-   public static void turnToDirt(@Nullable Entity $$0, BlockState $$1, net.minecraft.world.level.Level $$2, BlockPos $$3) {
+   public static void turnToDirt(Entity $$0, BlockState $$1, net.minecraft.world.level.Level $$2, BlockPos $$3) {
       BlockState $$4 = pushEntitiesUp($$1, Blocks.DIRT.defaultBlockState(), $$2, $$3);
       $$2.setBlockAndUpdate($$3, $$4);
       $$2.gameEvent(GameEvent.BLOCK_CHANGE, $$3, GameEvent.Context.of($$0, $$4));

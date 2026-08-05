@@ -26,7 +26,6 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.redstone.Orientation;
 import net.minecraft.world.phys.BlockHitResult;
-import org.jspecify.annotations.Nullable;
 
 public class TntBlock extends Block {
    public static final MapCodec<TntBlock> CODEC = simpleCodec(TntBlock::new);
@@ -52,7 +51,7 @@ public class TntBlock extends Block {
    }
 
    @Override
-   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, @Nullable Orientation $$4, boolean $$5) {
+   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, Orientation $$4, boolean $$5) {
       if ($$1.hasNeighborSignal($$2) && prime($$1, $$2)) {
          $$1.removeBlock($$2, false);
       }
@@ -81,7 +80,7 @@ public class TntBlock extends Block {
       return prime($$0, $$1, null);
    }
 
-   private static boolean prime(net.minecraft.world.level.Level $$0, BlockPos $$1, @Nullable LivingEntity $$2) {
+   private static boolean prime(net.minecraft.world.level.Level $$0, BlockPos $$1, LivingEntity $$2) {
       if ($$0 instanceof ServerLevel $$3 && $$3.getGameRules().get(GameRules.TNT_EXPLODES)) {
          PrimedTnt $$5 = new PrimedTnt($$0, $$1.getX() + 0.5, $$1.getY(), $$1.getZ() + 0.5, $$2);
          $$0.addFreshEntity($$5);

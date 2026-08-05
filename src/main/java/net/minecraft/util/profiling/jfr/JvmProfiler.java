@@ -14,7 +14,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.chunk.storage.RegionFileVersion;
 import net.minecraft.world.level.chunk.storage.RegionStorageInfo;
 import net.minecraft.world.level.levelgen.structure.Structure;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public interface JvmProfiler {
@@ -42,13 +41,13 @@ public interface JvmProfiler {
 
    void onRegionFileWrite(RegionStorageInfo var1, ChunkPos var2, RegionFileVersion var3, int var4);
 
-   @Nullable
+   
    ProfiledDuration onWorldLoadedStarted();
 
-   @Nullable
+   
    ProfiledDuration onChunkGenerate(ChunkPos var1, ResourceKey<Level> var2, String var3);
 
-   @Nullable
+   
    ProfiledDuration onStructureGenerate(ChunkPos var1, ResourceKey<Level> var2, Holder<Structure> var3);
 
    public static class NoOpProfiler implements JvmProfiler {
@@ -105,7 +104,7 @@ public interface JvmProfiler {
          return noOpCommit;
       }
 
-      @Nullable
+      
       @Override
       public ProfiledDuration onChunkGenerate(ChunkPos $$0, ResourceKey<Level> $$1, String $$2) {
          return null;

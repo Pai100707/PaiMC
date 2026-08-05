@@ -48,7 +48,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 
 public class ZombieVillager extends Zombie implements VillagerDataHolder {
    private static final EntityDataAccessor<Boolean> DATA_CONVERTING_ID = SynchedEntityData.defineId(ZombieVillager.class, EntityDataSerializers.BOOLEAN);
@@ -70,11 +69,11 @@ public class ZombieVillager extends Zombie implements VillagerDataHolder {
       net.minecraft.world.entity.EntitySpawnReason.TRIAL_SPAWNER
    );
    private int villagerConversionTime;
-   @Nullable
+   
    private UUID conversionStarter;
-   @Nullable
+   
    private GossipContainer gossips;
-   @Nullable
+   
    private MerchantOffers tradeOffers;
    private int villagerXp = 0;
 
@@ -118,13 +117,13 @@ public class ZombieVillager extends Zombie implements VillagerDataHolder {
       this.villagerXp = $$0.getIntOr("Xp", 0);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       if (!REASONS_NOT_TO_SET_TYPE.contains($$2)) {
          this.setVillagerData(this.getVillagerData().withType($$0.registryAccess(), VillagerType.byBiome($$0.getBiome(this.blockPosition()))));
@@ -189,7 +188,7 @@ public class ZombieVillager extends Zombie implements VillagerDataHolder {
       return (Boolean)this.getEntityData().get(DATA_CONVERTING_ID);
    }
 
-   private void startConverting(@Nullable UUID $$0, int $$1) {
+   private void startConverting(UUID $$0, int $$1) {
       this.conversionStarter = $$0;
       this.villagerConversionTime = $$1;
       this.getEntityData().set(DATA_CONVERTING_ID, true);
@@ -349,7 +348,7 @@ public class ZombieVillager extends Zombie implements VillagerDataHolder {
       this.villagerXp = $$0;
    }
 
-   @Nullable
+   
    @Override
    public <T> T get(DataComponentType<? extends T> $$0) {
       return $$0 == DataComponents.VILLAGER_VARIANT ? castComponentValue((DataComponentType<T>)$$0, this.getVillagerData().type()) : super.get($$0);

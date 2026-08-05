@@ -23,7 +23,6 @@ import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class EnchantingTableBlock extends BaseEntityBlock {
    public static final MapCodec<EnchantingTableBlock> CODEC = simpleCodec(EnchantingTableBlock::new);
@@ -81,7 +80,7 @@ public class EnchantingTableBlock extends BaseEntityBlock {
       return new EnchantingTableBlockEntity($$0, $$1);
    }
 
-   @Nullable
+   
    @Override
    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(net.minecraft.world.level.Level $$0, BlockState $$1, BlockEntityType<T> $$2) {
       return $$0.isClientSide() ? createTickerHelper($$2, BlockEntityType.ENCHANTING_TABLE, EnchantingTableBlockEntity::bookAnimationTick) : null;
@@ -96,7 +95,7 @@ public class EnchantingTableBlock extends BaseEntityBlock {
       return InteractionResult.SUCCESS;
    }
 
-   @Nullable
+   
    @Override
    protected MenuProvider getMenuProvider(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2) {
       if ($$1.getBlockEntity($$2) instanceof EnchantingTableBlockEntity $$4) {

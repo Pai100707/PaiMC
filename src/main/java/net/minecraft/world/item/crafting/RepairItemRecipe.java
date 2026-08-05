@@ -8,14 +8,13 @@ import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.ItemEnchantments;
 import net.minecraft.world.level.Level;
-import org.jspecify.annotations.Nullable;
 
 public class RepairItemRecipe extends CustomRecipe {
    public RepairItemRecipe(CraftingBookCategory $$0) {
       super($$0);
    }
 
-   @Nullable
+   
    private static Pair<net.minecraft.world.item.ItemStack, net.minecraft.world.item.ItemStack> getItemsToCombine(CraftingInput $$0) {
       if ($$0.ingredientCount() != 2) {
          return null;

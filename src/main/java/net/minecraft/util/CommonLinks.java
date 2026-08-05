@@ -3,7 +3,6 @@ package net.minecraft.util;
 import com.mojang.util.UndashedUuid;
 import java.net.URI;
 import java.util.UUID;
-import org.jspecify.annotations.Nullable;
 
 public class CommonLinks {
    public static final URI GDPR = URI.create("https://aka.ms/MinecraftGDPR");
@@ -30,11 +29,11 @@ public class CommonLinks {
    public static final String INTENTIONAL_GAME_DESIGN_BUG_ID = "MCPE-28723";
    public static final URI INTENTIONAL_GAME_DESIGN_BUG = URI.create("https://bugs.mojang.com/browse/MCPE-28723");
 
-   public static String extendRealms(@Nullable String $$0, UUID $$1, boolean $$2) {
+   public static String extendRealms(String $$0, UUID $$1, boolean $$2) {
       return $$0 == null ? "https://aka.ms/ExtendJavaRealms" : extendRealms($$0, $$1) + "&ref=" + ($$2 ? "expiredTrial" : "expiredRealm");
    }
 
-   public static String extendRealms(@Nullable String $$0, UUID $$1) {
+   public static String extendRealms(String $$0, UUID $$1) {
       return $$0 == null
          ? "https://aka.ms/ExtendJavaRealms"
          : "https://aka.ms/ExtendJavaRealms?subscriptionId=" + $$0 + "&profileId=" + UndashedUuid.toString($$1);

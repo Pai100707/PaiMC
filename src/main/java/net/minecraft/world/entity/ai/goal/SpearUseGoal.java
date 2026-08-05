@@ -8,7 +8,6 @@ import net.minecraft.world.entity.ai.util.LandRandomPos;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.item.component.KineticWeapon;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class SpearUseGoal<T extends Monster> extends Goal {
    static final int MIN_REPOSITION_DISTANCE = 6;
@@ -17,7 +16,7 @@ public class SpearUseGoal<T extends Monster> extends Goal {
    static final int MAX_COOLDOWN_DISTANCE = 11;
    static final double MAX_FLEEING_TIME = reducedTickDelay(100);
    private final T mob;
-   @Nullable
+   
    private SpearUseGoal.SpearUseState state;
    double speedModifierWhenCharging;
    double speedModifierWhenRepositioning;
@@ -126,7 +125,7 @@ public class SpearUseGoal<T extends Monster> extends Goal {
    public static class SpearUseState {
       private int engageTime = -1;
       int fleeingTime = -1;
-      @Nullable
+      
       Vec3 awayPos;
       boolean done = false;
 

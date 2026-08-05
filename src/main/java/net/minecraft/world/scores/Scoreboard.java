@@ -24,7 +24,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.scores.criteria.ObjectiveCriteria;
 import org.apache.commons.lang3.mutable.MutableBoolean;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class Scoreboard {
@@ -39,13 +38,13 @@ public class Scoreboard {
    private final Object2ObjectMap<String, net.minecraft.world.scores.PlayerTeam> teamsByName = new Object2ObjectOpenHashMap();
    private final Object2ObjectMap<String, net.minecraft.world.scores.PlayerTeam> teamsByPlayer = new Object2ObjectOpenHashMap();
 
-   @Nullable
-   public net.minecraft.world.scores.Objective getObjective(@Nullable String $$0) {
+   
+   public net.minecraft.world.scores.Objective getObjective(String $$0) {
       return (net.minecraft.world.scores.Objective)this.objectivesByName.get($$0);
    }
 
    public net.minecraft.world.scores.Objective addObjective(
-      String $$0, ObjectiveCriteria $$1, Component $$2, ObjectiveCriteria.RenderType $$3, boolean $$4, @Nullable NumberFormat $$5
+      String $$0, ObjectiveCriteria $$1, Component $$2, ObjectiveCriteria.RenderType $$3, boolean $$4, NumberFormat $$5
    ) {
       if (this.objectivesByName.containsKey($$0)) {
          throw new IllegalArgumentException("An objective with the name '" + $$0 + "' already exists!");
@@ -108,14 +107,14 @@ public class Scoreboard {
             }
          }
 
-         @Nullable
+         
          @Override
          public Component display() {
             return $$6.display();
          }
 
          @Override
-         public void display(@Nullable Component $$0x) {
+         public void display(Component $$0x) {
             if ($$5.isTrue() || !Objects.equals($$0, $$6.display())) {
                $$6.display($$0);
                this.sendScoreToPlayers();
@@ -123,7 +122,7 @@ public class Scoreboard {
          }
 
          @Override
-         public void numberFormatOverride(@Nullable NumberFormat $$0x) {
+         public void numberFormatOverride(NumberFormat $$0x) {
             $$6.numberFormat($$0);
             this.sendScoreToPlayers();
          }
@@ -159,7 +158,7 @@ public class Scoreboard {
       };
    }
 
-   @Nullable
+   
    public net.minecraft.world.scores.ReadOnlyScoreInfo getPlayerScoreInfo(net.minecraft.world.scores.ScoreHolder $$0, net.minecraft.world.scores.Objective $$1) {
       net.minecraft.world.scores.PlayerScores $$2 = this.playerScores.get($$0.getScoreboardName());
       return $$2 != null ? $$2.get($$1) : null;
@@ -236,16 +235,16 @@ public class Scoreboard {
       this.onObjectiveRemoved($$0);
    }
 
-   public void setDisplayObjective(net.minecraft.world.scores.DisplaySlot $$0, @Nullable net.minecraft.world.scores.Objective $$1) {
+   public void setDisplayObjective(net.minecraft.world.scores.DisplaySlot $$0, net.minecraft.world.scores.Objective $$1) {
       this.displayObjectives.put($$0, $$1);
    }
 
-   @Nullable
+   
    public net.minecraft.world.scores.Objective getDisplayObjective(net.minecraft.world.scores.DisplaySlot $$0) {
       return this.displayObjectives.get($$0);
    }
 
-   @Nullable
+   
    public net.minecraft.world.scores.PlayerTeam getPlayerTeam(String $$0) {
       return (net.minecraft.world.scores.PlayerTeam)this.teamsByName.get($$0);
    }
@@ -309,7 +308,7 @@ public class Scoreboard {
       return this.teamsByName.values();
    }
 
-   @Nullable
+   
    public net.minecraft.world.scores.PlayerTeam getPlayersTeam(String $$0) {
       return (net.minecraft.world.scores.PlayerTeam)this.teamsByPlayer.get($$0);
    }

@@ -30,7 +30,6 @@ import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.redstone.Orientation;
 import net.minecraft.world.phys.BlockHitResult;
-import org.jspecify.annotations.Nullable;
 
 public class NoteBlock extends Block {
    public static final MapCodec<NoteBlock> CODEC = simpleCodec(NoteBlock::new);
@@ -81,7 +80,7 @@ public class NoteBlock extends Block {
    }
 
    @Override
-   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, @Nullable Orientation $$4, boolean $$5) {
+   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, Orientation $$4, boolean $$5) {
       boolean $$6 = $$1.hasNeighborSignal($$2);
       if ($$6 != $$0.getValue(POWERED)) {
          if ($$6) {
@@ -92,7 +91,7 @@ public class NoteBlock extends Block {
       }
    }
 
-   private void playNote(@Nullable Entity $$0, BlockState $$1, net.minecraft.world.level.Level $$2, BlockPos $$3) {
+   private void playNote(Entity $$0, BlockState $$1, net.minecraft.world.level.Level $$2, BlockPos $$3) {
       if ($$1.getValue(INSTRUMENT).worksAboveNoteBlock() || $$2.getBlockState($$3.above()).isAir()) {
          $$2.blockEvent($$3, this, 0, 0);
          $$2.gameEvent($$0, GameEvent.NOTE_BLOCK_PLAY, $$3);
@@ -160,7 +159,7 @@ public class NoteBlock extends Block {
       return true;
    }
 
-   @Nullable
+   
    private Identifier getCustomSoundId(net.minecraft.world.level.Level $$0, BlockPos $$1) {
       return $$0.getBlockEntity($$1.above()) instanceof SkullBlockEntity $$2 ? $$2.getNoteBlockSound() : null;
    }

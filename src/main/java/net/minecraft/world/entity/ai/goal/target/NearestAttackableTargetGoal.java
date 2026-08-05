@@ -7,13 +7,12 @@ import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.AABB;
-import org.jspecify.annotations.Nullable;
 
 public class NearestAttackableTargetGoal<T extends net.minecraft.world.entity.LivingEntity> extends TargetGoal {
    private static final int DEFAULT_RANDOM_INTERVAL = 10;
    protected final Class<T> targetType;
    protected final int randomInterval;
-   @Nullable
+   
    protected net.minecraft.world.entity.LivingEntity target;
    protected TargetingConditions targetConditions;
 
@@ -30,7 +29,7 @@ public class NearestAttackableTargetGoal<T extends net.minecraft.world.entity.Li
    }
 
    public NearestAttackableTargetGoal(
-      net.minecraft.world.entity.Mob $$0, Class<T> $$1, int $$2, boolean $$3, boolean $$4, @Nullable TargetingConditions.Selector $$5
+      net.minecraft.world.entity.Mob $$0, Class<T> $$1, int $$2, boolean $$3, boolean $$4, TargetingConditions.Selector $$5
    ) {
       super($$0, $$3, $$4);
       this.targetType = $$1;
@@ -75,7 +74,7 @@ public class NearestAttackableTargetGoal<T extends net.minecraft.world.entity.Li
       super.start();
    }
 
-   public void setTarget(@Nullable net.minecraft.world.entity.LivingEntity $$0) {
+   public void setTarget(net.minecraft.world.entity.LivingEntity $$0) {
       this.target = $$0;
    }
 

@@ -206,7 +206,6 @@ import net.minecraft.world.scores.Scoreboard;
 import net.minecraft.world.scores.Team;
 import net.minecraft.world.scores.Team.Visibility;
 import net.minecraft.world.scores.criteria.ObjectiveCriteria;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class ServerPlayer extends Player {
@@ -251,33 +250,33 @@ public class ServerPlayer extends Player {
    private ParticleStatus particleStatus = ParticleStatus.ALL;
    private boolean canChatColor = true;
    private long lastActionTime = Util.getMillis();
-   @Nullable
+   
    private Entity camera;
    private boolean isChangingDimension;
    public boolean seenCredits = false;
    private final ServerRecipeBook recipeBook;
-   @Nullable
+   
    private Vec3 levitationStartPos;
    private int levitationStartTime;
    private boolean disconnected;
    private int requestedViewDistance = 2;
    private String language = "en_us";
-   @Nullable
+   
    private Vec3 startingToFallPosition;
-   @Nullable
+   
    private Vec3 enteredNetherPosition;
-   @Nullable
+   
    private Vec3 enteredLavaOnVehiclePosition;
    private SectionPos lastSectionPos = SectionPos.of(0, 0, 0);
    private ChunkTrackingView chunkTrackingView = ChunkTrackingView.EMPTY;
-   @Nullable
+   
    private ServerPlayer.RespawnConfig respawnConfig;
    private final TextFilter textFilter;
    private boolean textFilteringEnabled;
    private boolean allowsListing;
    private boolean spawnExtraParticlesOnFall = false;
    private WardenSpawnTracker wardenSpawnTracker = new WardenSpawnTracker();
-   @Nullable
+   
    private BlockPos raidOmenPosition;
    private Vec3 lastKnownClientMovement = Vec3.ZERO;
    private Input lastClientInput = Input.EMPTY;
@@ -340,9 +339,9 @@ public class ServerPlayer extends Player {
       public void dataChanged(AbstractContainerMenu $$0, int $$1, int $$2) {
       }
    };
-   @Nullable
+   
    private RemoteChatSession chatSession;
-   @Nullable
+   
    public final Object object;
    private final CommandSource commandSource = new CommandSource() {
       public boolean acceptsSuccess() {
@@ -1063,7 +1062,7 @@ public class ServerPlayer extends Player {
       }
    }
 
-   @Nullable
+   
    public ServerPlayer teleport(TeleportTransition $$0) {
       if (this.isRemoved()) {
          return null;
@@ -1258,7 +1257,7 @@ public class ServerPlayer extends Player {
       super.checkFallDamage($$0, $$1, $$2, $$3);
    }
 
-   public void onExplosionHit(@Nullable Entity $$0) {
+   public void onExplosionHit(Entity $$0) {
       super.onExplosionHit($$0);
       this.currentImpulseImpactPos = this.position();
       this.currentExplosionCause = $$0;
@@ -1284,7 +1283,7 @@ public class ServerPlayer extends Player {
       this.containerCounter = this.containerCounter % 100 + 1;
    }
 
-   public OptionalInt openMenu(@Nullable MenuProvider $$0) {
+   public OptionalInt openMenu(MenuProvider $$0) {
       if ($$0 == null) {
          return OptionalInt.empty();
       } else {
@@ -1577,7 +1576,7 @@ public class ServerPlayer extends Player {
       this.setScore($$0.getScore());
    }
 
-   protected void onEffectAdded(MobEffectInstance $$0, @Nullable Entity $$1) {
+   protected void onEffectAdded(MobEffectInstance $$0, Entity $$1) {
       super.onEffectAdded($$0, $$1);
       this.connection.send(new ClientboundUpdateMobEffectPacket(this.getId(), $$0, true));
       if ($$0.is(MobEffects.LEVITATION)) {
@@ -1588,7 +1587,7 @@ public class ServerPlayer extends Player {
       CriteriaTriggers.EFFECTS_CHANGED.trigger(this, $$1);
    }
 
-   protected void onEffectUpdated(MobEffectInstance $$0, boolean $$1, @Nullable Entity $$2) {
+   protected void onEffectUpdated(MobEffectInstance $$0, boolean $$1, Entity $$2) {
       super.onEffectUpdated($$0, $$1, $$2);
       this.connection.send(new ClientboundUpdateMobEffectPacket(this.getId(), $$0, false));
       CriteriaTriggers.EFFECTS_CHANGED.trigger(this, $$2);
@@ -1821,7 +1820,7 @@ public class ServerPlayer extends Player {
       return (Entity)(this.camera == null ? this : this.camera);
    }
 
-   public void setCamera(@Nullable Entity $$0) {
+   public void setCamera(Entity $$0) {
       Entity $$1 = this.getCamera();
       this.camera = (Entity)($$0 == null ? this : $$0);
       if ($$1 != this.camera) {
@@ -1856,7 +1855,7 @@ public class ServerPlayer extends Player {
       return this.lastActionTime;
    }
 
-   @Nullable
+   
    public Component getTabListDisplayName() {
       return null;
    }
@@ -1882,7 +1881,7 @@ public class ServerPlayer extends Player {
       return this.advancements;
    }
 
-   @Nullable
+   
    public ServerPlayer.RespawnConfig getRespawnConfig() {
       return this.respawnConfig;
    }
@@ -1891,7 +1890,7 @@ public class ServerPlayer extends Player {
       this.setRespawnPosition($$0.respawnConfig, false);
    }
 
-   public void setRespawnPosition(@Nullable ServerPlayer.RespawnConfig $$0, boolean $$1) {
+   public void setRespawnPosition(ServerPlayer.RespawnConfig $$0, boolean $$1) {
       if ($$1 && $$0 != null && !$$0.isSamePosition(this.respawnConfig)) {
          this.sendSystemMessage(SPAWN_SET_MESSAGE);
       }
@@ -1937,12 +1936,12 @@ public class ServerPlayer extends Player {
       this.gameMode.setLevel($$0);
    }
 
-   @Nullable
+   
    private static GameType readPlayerMode(ValueInput $$0, String $$1) {
       return (GameType)$$0.read($$1, GameType.LEGACY_ID_CODEC).orElse(null);
    }
 
-   private GameType calculateGameModeForNewPlayer(@Nullable GameType $$0) {
+   private GameType calculateGameModeForNewPlayer(GameType $$0) {
       GameType $$1 = this.server.getForcedGameType();
       if ($$1 != null) {
          return $$1;
@@ -2015,7 +2014,7 @@ public class ServerPlayer extends Player {
       this.chatSession = $$0;
    }
 
-   @Nullable
+   
    public RemoteChatSession getChatSession() {
       return this.chatSession != null && this.chatSession.hasExpired() ? null : this.chatSession;
    }
@@ -2077,7 +2076,7 @@ public class ServerPlayer extends Player {
       this.raidOmenPosition = null;
    }
 
-   @Nullable
+   
    public BlockPos getRaidOmenPosition() {
       return this.raidOmenPosition;
    }
@@ -2182,11 +2181,11 @@ public class ServerPlayer extends Player {
             .apply($$0, ServerPlayer.RespawnConfig::new)
       );
 
-      static ResourceKey<Level> getDimensionOrDefault(@Nullable ServerPlayer.RespawnConfig $$0) {
+      static ResourceKey<Level> getDimensionOrDefault(ServerPlayer.RespawnConfig $$0) {
          return $$0 != null ? $$0.respawnData().dimension() : Level.OVERWORLD;
       }
 
-      public boolean isSamePosition(@Nullable ServerPlayer.RespawnConfig $$0) {
+      public boolean isSamePosition(ServerPlayer.RespawnConfig $$0) {
          return $$0 != null && this.respawnData.globalPos().equals($$0.respawnData.globalPos());
       }
    }

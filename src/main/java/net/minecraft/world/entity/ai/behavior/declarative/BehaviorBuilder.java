@@ -18,7 +18,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.ai.Brain;
 import net.minecraft.world.entity.ai.behavior.OneShot;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
-import org.jspecify.annotations.Nullable;
 
 public class BehaviorBuilder<E extends net.minecraft.world.entity.LivingEntity, M> implements App<BehaviorBuilder.Mu<E>, M> {
    private final BehaviorBuilder.TriggerWithResult<E, M> trigger;
@@ -333,7 +332,7 @@ public class BehaviorBuilder<E extends net.minecraft.world.entity.LivingEntity, 
    static final class PureMemory<E extends net.minecraft.world.entity.LivingEntity, F extends K1, Value> extends BehaviorBuilder<E, MemoryAccessor<F, Value>> {
       PureMemory(final MemoryCondition<F, Value> $$0) {
          super(new BehaviorBuilder.TriggerWithResult<E, MemoryAccessor<F, Value>>() {
-            @Nullable
+            
             public MemoryAccessor<F, Value> tryTrigger(ServerLevel $$0x, E $$1, long $$2) {
                Brain<?> $$3 = $$1.getBrain();
                Optional<Value> $$4 = $$3.getMemoryInternal($$0.memory());
@@ -354,7 +353,7 @@ public class BehaviorBuilder<E extends net.minecraft.world.entity.LivingEntity, 
    }
 
    interface TriggerWithResult<E extends net.minecraft.world.entity.LivingEntity, R> {
-      @Nullable
+      
       R tryTrigger(ServerLevel var1, E var2, long var3);
 
       String debugString();
@@ -363,7 +362,7 @@ public class BehaviorBuilder<E extends net.minecraft.world.entity.LivingEntity, 
    static final class TriggerWrapper<E extends net.minecraft.world.entity.LivingEntity> extends BehaviorBuilder<E, Unit> {
       TriggerWrapper(final Trigger<? super E> $$0) {
          super(new BehaviorBuilder.TriggerWithResult<E, Unit>() {
-            @Nullable
+            
             public Unit tryTrigger(ServerLevel $$0x, E $$1, long $$2) {
                return $$0.trigger($$0, $$1, $$2) ? Unit.INSTANCE : null;
             }

@@ -5,17 +5,16 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.PacketType;
 import net.minecraft.resources.Identifier;
-import org.jspecify.annotations.Nullable;
 
 public class ServerboundSeenAdvancementsPacket implements Packet<ServerGamePacketListener> {
    public static final StreamCodec<net.minecraft.network.FriendlyByteBuf, ServerboundSeenAdvancementsPacket> STREAM_CODEC = Packet.codec(
       ServerboundSeenAdvancementsPacket::write, ServerboundSeenAdvancementsPacket::new
    );
    private final ServerboundSeenAdvancementsPacket.Action action;
-   @Nullable
+   
    private final Identifier tab;
 
-   public ServerboundSeenAdvancementsPacket(ServerboundSeenAdvancementsPacket.Action $$0, @Nullable Identifier $$1) {
+   public ServerboundSeenAdvancementsPacket(ServerboundSeenAdvancementsPacket.Action $$0, Identifier $$1) {
       this.action = $$0;
       this.tab = $$1;
    }
@@ -57,7 +56,7 @@ public class ServerboundSeenAdvancementsPacket implements Packet<ServerGamePacke
       return this.action;
    }
 
-   @Nullable
+   
    public Identifier getTab() {
       return this.tab;
    }

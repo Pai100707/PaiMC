@@ -6,7 +6,6 @@ import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.PacketType;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.lighting.LevelLightEngine;
-import org.jspecify.annotations.Nullable;
 
 public class ClientboundLightUpdatePacket implements Packet<ClientGamePacketListener> {
    public static final StreamCodec<net.minecraft.network.FriendlyByteBuf, ClientboundLightUpdatePacket> STREAM_CODEC = Packet.codec(
@@ -16,7 +15,7 @@ public class ClientboundLightUpdatePacket implements Packet<ClientGamePacketList
    private final int z;
    private final ClientboundLightUpdatePacketData lightData;
 
-   public ClientboundLightUpdatePacket(ChunkPos $$0, LevelLightEngine $$1, @Nullable BitSet $$2, @Nullable BitSet $$3) {
+   public ClientboundLightUpdatePacket(ChunkPos $$0, LevelLightEngine $$1, BitSet $$2, BitSet $$3) {
       this.x = $$0.x;
       this.z = $$0.z;
       this.lightData = new ClientboundLightUpdatePacketData($$0, $$1, $$2, $$3);

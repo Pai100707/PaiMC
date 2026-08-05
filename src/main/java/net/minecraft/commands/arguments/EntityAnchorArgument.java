@@ -17,7 +17,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.util.Util;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class EntityAnchorArgument implements ArgumentType<EntityAnchorArgument.Anchor> {
    private static final Collection<String> EXAMPLES = Arrays.asList("eyes", "feet");
@@ -70,7 +69,7 @@ public class EntityAnchorArgument implements ArgumentType<EntityAnchorArgument.A
          this.transform = $$1;
       }
 
-      @Nullable
+      
       public static EntityAnchorArgument.Anchor getByName(String $$0) {
          return BY_NAME.get($$0);
       }

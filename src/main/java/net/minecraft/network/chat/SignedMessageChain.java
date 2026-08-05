@@ -7,12 +7,11 @@ import java.util.function.BooleanSupplier;
 import net.minecraft.util.SignatureValidator;
 import net.minecraft.util.Signer;
 import net.minecraft.world.entity.player.ProfilePublicKey;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class SignedMessageChain {
    static final Logger LOGGER = LogUtils.getLogger();
-   @Nullable
+   
    SignedMessageLink nextLink;
    Instant lastTimeStamp = Instant.EPOCH;
 
@@ -36,7 +35,7 @@ public class SignedMessageChain {
       final SignatureValidator $$1 = $$0.createSignatureValidator();
       return new SignedMessageChain.Decoder() {
          @Override
-         public PlayerChatMessage unpack(@Nullable MessageSignature $$0x, SignedMessageBody $$1x) throws SignedMessageChain.DecodeException {
+         public PlayerChatMessage unpack(MessageSignature $$0x, SignedMessageBody $$1x) throws SignedMessageChain.DecodeException {
             if ($$0 == null) {
                throw new SignedMessageChain.DecodeException(SignedMessageChain.DecodeException.MISSING_PROFILE_KEY);
             } else if ($$0.data().hasExpired()) {
@@ -97,7 +96,7 @@ public class SignedMessageChain {
          };
       }
 
-      PlayerChatMessage unpack(@Nullable MessageSignature var1, SignedMessageBody var2) throws SignedMessageChain.DecodeException;
+      PlayerChatMessage unpack(MessageSignature var1, SignedMessageBody var2) throws SignedMessageChain.DecodeException;
 
       default void setChainBroken() {
       }
@@ -107,7 +106,7 @@ public class SignedMessageChain {
    public interface Encoder {
       SignedMessageChain.Encoder UNSIGNED = $$0 -> null;
 
-      @Nullable
+      
       MessageSignature pack(SignedMessageBody var1);
    }
 }

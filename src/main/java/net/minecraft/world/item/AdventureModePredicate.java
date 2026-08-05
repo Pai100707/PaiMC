@@ -21,7 +21,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.pattern.BlockInWorld;
 import net.minecraft.world.level.storage.TagValueOutput;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class AdventureModePredicate {
@@ -37,9 +36,9 @@ public class AdventureModePredicate {
    public static final Component CAN_PLACE_HEADER = Component.translatable("item.canPlace").withStyle(ChatFormatting.GRAY);
    private static final Component UNKNOWN_USE = Component.translatable("item.canUse.unknown").withStyle(ChatFormatting.GRAY);
    private final List<BlockPredicate> predicates;
-   @Nullable
+   
    private List<Component> cachedTooltip;
-   @Nullable
+   
    private BlockInWorld lastCheckedBlock;
    private boolean lastResult;
    private boolean checksBlockEntity;
@@ -48,7 +47,7 @@ public class AdventureModePredicate {
       this.predicates = $$0;
    }
 
-   private static boolean areSameBlocks(BlockInWorld $$0, @Nullable BlockInWorld $$1, boolean $$2) {
+   private static boolean areSameBlocks(BlockInWorld $$0, BlockInWorld $$1, boolean $$2) {
       if ($$1 == null || $$0.getState() != $$1.getState()) {
          return false;
       } else if (!$$2) {

@@ -17,7 +17,6 @@ import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.Unit;
-import org.jspecify.annotations.Nullable;
 
 public final class DataComponentPatch {
    public static final DataComponentPatch EMPTY = new DataComponentPatch(Reference2ObjectMaps.emptyMap());
@@ -160,7 +159,7 @@ public final class DataComponentPatch {
       return new DataComponentPatch.Builder();
    }
 
-   @Nullable
+   
    public <T> Optional<? extends T> get(DataComponentType<? extends T> $$0) {
       return (Optional<? extends T>)this.map.get($$0);
    }

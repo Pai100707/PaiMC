@@ -10,7 +10,6 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.levelgen.Heightmap;
-import org.jspecify.annotations.Nullable;
 
 public class ChunkStatus {
    public static final int MAX_STRUCTURE_DISTANCE = 8;
@@ -36,7 +35,7 @@ public class ChunkStatus {
    private final ChunkType chunkType;
    private final EnumSet<Heightmap.Types> heightmapsAfter;
 
-   private static ChunkStatus register(String $$0, @Nullable ChunkStatus $$1, EnumSet<Heightmap.Types> $$2, ChunkType $$3) {
+   private static ChunkStatus register(String $$0, ChunkStatus $$1, EnumSet<Heightmap.Types> $$2, ChunkType $$3) {
       return (ChunkStatus)Registry.register(BuiltInRegistries.CHUNK_STATUS, $$0, new ChunkStatus($$1, $$2, $$3));
    }
 
@@ -54,7 +53,7 @@ public class ChunkStatus {
    }
 
    @VisibleForTesting
-   protected ChunkStatus(@Nullable ChunkStatus $$0, EnumSet<Heightmap.Types> $$1, ChunkType $$2) {
+   protected ChunkStatus(ChunkStatus $$0, EnumSet<Heightmap.Types> $$1, ChunkType $$2) {
       this.parent = $$0 == null ? this : $$0;
       this.chunkType = $$2;
       this.heightmapsAfter = $$1;

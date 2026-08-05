@@ -15,14 +15,13 @@ import net.minecraft.server.jsonrpc.internalapi.MinecraftApi;
 import net.minecraft.server.jsonrpc.methods.ClientInfo;
 import net.minecraft.server.jsonrpc.methods.EncodeJsonRpcException;
 import net.minecraft.server.jsonrpc.methods.InvalidParameterJsonRpcException;
-import org.jspecify.annotations.Nullable;
 
 public interface IncomingRpcMethod<Params, Result> {
    MethodInfo<Params, Result> info();
 
    IncomingRpcMethod.Attributes attributes();
 
-   JsonElement apply(MinecraftApi var1, @Nullable JsonElement var2, ClientInfo var3);
+   JsonElement apply(MinecraftApi var1, JsonElement var2, ClientInfo var3);
 
    static <Result> IncomingRpcMethod.IncomingRpcMethodBuilder<Void, Result> method(IncomingRpcMethod.ParameterlessRpcMethodFunction<Result> $$0) {
       return new IncomingRpcMethod.IncomingRpcMethodBuilder<>($$0);
@@ -41,15 +40,15 @@ public interface IncomingRpcMethod<Params, Result> {
 
    public static class IncomingRpcMethodBuilder<Params, Result> {
       private String description = "";
-      @Nullable
+      
       private ParamInfo<Params> paramInfo;
-      @Nullable
+      
       private ResultInfo<Result> resultInfo;
       private boolean discoverable = true;
       private boolean runOnMainThread = true;
-      @Nullable
+      
       private IncomingRpcMethod.ParameterlessRpcMethodFunction<Result> parameterlessFunction;
-      @Nullable
+      
       private IncomingRpcMethod.RpcMethodFunction<Params, Result> parameterFunction;
 
       public IncomingRpcMethodBuilder(IncomingRpcMethod.ParameterlessRpcMethodFunction<Result> $$0) {
@@ -122,7 +121,7 @@ public interface IncomingRpcMethod<Params, Result> {
       MethodInfo<Params, Result> info, IncomingRpcMethod.Attributes attributes, IncomingRpcMethod.RpcMethodFunction<Params, Result> function
    ) implements IncomingRpcMethod<Params, Result> {
       @Override
-      public JsonElement apply(MinecraftApi $$0, @Nullable JsonElement $$1, ClientInfo $$2) {
+      public JsonElement apply(MinecraftApi $$0, JsonElement $$1, ClientInfo $$2) {
          if ($$1 != null && ($$1.isJsonArray() || $$1.isJsonObject())) {
             if (this.info.params().isEmpty()) {
                throw new IllegalArgumentException("Method defined as having parameters without describing them");
@@ -165,7 +164,7 @@ public interface IncomingRpcMethod<Params, Result> {
       MethodInfo<Params, Result> info, IncomingRpcMethod.Attributes attributes, IncomingRpcMethod.ParameterlessRpcMethodFunction<Result> supplier
    ) implements IncomingRpcMethod<Params, Result> {
       @Override
-      public JsonElement apply(MinecraftApi $$0, @Nullable JsonElement $$1, ClientInfo $$2) {
+      public JsonElement apply(MinecraftApi $$0, JsonElement $$1, ClientInfo $$2) {
          if ($$1 == null || $$1.isJsonArray() && $$1.getAsJsonArray().isEmpty()) {
             if (this.info.params().isPresent()) {
                throw new IllegalArgumentException("Parameterless method unexpectedly has parameter description");

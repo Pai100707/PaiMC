@@ -19,7 +19,6 @@ import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.storage.LevelResource;
 import net.minecraft.world.level.storage.LevelStorageSource.LevelStorageAccess;
 import net.minecraft.world.level.validation.DirectoryValidator;
-import org.jspecify.annotations.Nullable;
 
 public class ServerPacksSource extends BuiltInPackSource {
    private static final PackMetadataSection VERSION_METADATA_SECTION = new PackMetadataSection(
@@ -59,13 +58,13 @@ public class ServerPacksSource extends BuiltInPackSource {
       return Component.literal($$0);
    }
 
-   @Nullable
+   
    @Override
    protected Pack createVanillaPack(PackResources $$0) {
       return Pack.readMetaAndCreate(VANILLA_PACK_INFO, fixedResources($$0), PackType.SERVER_DATA, VANILLA_SELECTION_CONFIG);
    }
 
-   @Nullable
+   
    @Override
    protected Pack createBuiltinPack(String $$0, Pack.ResourcesSupplier $$1, Component $$2) {
       return Pack.readMetaAndCreate(createBuiltInPackLocation($$0, $$2), $$1, PackType.SERVER_DATA, FEATURE_SELECTION_CONFIG);

@@ -17,12 +17,11 @@ import net.minecraft.world.level.levelgen.Heightmap.Types;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public abstract class PatrollingMonster extends Monster {
    private static final boolean DEFAULT_PATROL_LEADER = false;
    private static final boolean DEFAULT_PATROLLING = false;
-   @Nullable
+   
    private BlockPos patrolTarget;
    private boolean patrolLeader = false;
    private boolean patrolling = false;
@@ -57,13 +56,13 @@ public abstract class PatrollingMonster extends Monster {
       return true;
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       if ($$2 != net.minecraft.world.entity.EntitySpawnReason.PATROL
          && $$2 != net.minecraft.world.entity.EntitySpawnReason.EVENT
@@ -107,7 +106,7 @@ public abstract class PatrollingMonster extends Monster {
       this.patrolling = true;
    }
 
-   @Nullable
+   
    public BlockPos getPatrolTarget() {
       return this.patrolTarget;
    }

@@ -36,7 +36,6 @@ import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class CopperGolemStatueBlock extends BaseEntityBlock implements SimpleWaterloggedBlock {
    public static final MapCodec<CopperGolemStatueBlock> CODEC = RecordCodecBuilder.mapCodec(
@@ -116,7 +115,7 @@ public class CopperGolemStatueBlock extends BaseEntityBlock implements SimpleWat
       return $$1 == PathComputationType.WATER && $$0.getFluidState().is(FluidTags.WATER);
    }
 
-   @Nullable
+   
    @Override
    public BlockEntity newBlockEntity(BlockPos $$0, BlockState $$1) {
       return new CopperGolemStatueBlockEntity($$0, $$1);

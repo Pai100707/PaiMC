@@ -14,7 +14,6 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class FlowerBlock extends VegetationBlock implements SuspiciousEffectHolder {
    protected static final MapCodec<SuspiciousStewEffects> EFFECTS_FIELD = SuspiciousStewEffects.CODEC.fieldOf("suspicious_stew_effects");
@@ -52,7 +51,7 @@ public class FlowerBlock extends VegetationBlock implements SuspiciousEffectHold
       return this.suspiciousStewEffects;
    }
 
-   @Nullable
+   
    public MobEffectInstance getBeeInteractionEffect() {
       return null;
    }

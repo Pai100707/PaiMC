@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-import org.jspecify.annotations.Nullable;
 
 public class SortedArraySet<T> extends AbstractSet<T> {
    private static final int DEFAULT_INITIAL_CAPACITY = 10;
@@ -121,7 +120,7 @@ public class SortedArraySet<T> extends AbstractSet<T> {
       }
    }
 
-   @Nullable
+   
    public T get(T $$0) {
       int $$1 = this.findIndex($$0);
       return $$1 >= 0 ? this.getInternal($$1) : null;

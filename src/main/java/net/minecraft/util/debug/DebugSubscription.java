@@ -7,24 +7,23 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
-import org.jspecify.annotations.Nullable;
 
 public class DebugSubscription<T> {
    public static final int DOES_NOT_EXPIRE = 0;
-   @Nullable
+   
    final StreamCodec<? super RegistryFriendlyByteBuf, T> valueStreamCodec;
    private final int expireAfterTicks;
 
-   public DebugSubscription(@Nullable StreamCodec<? super RegistryFriendlyByteBuf, T> $$0, int $$1) {
+   public DebugSubscription(StreamCodec<? super RegistryFriendlyByteBuf, T> $$0, int $$1) {
       this.valueStreamCodec = $$0;
       this.expireAfterTicks = $$1;
    }
 
-   public DebugSubscription(@Nullable StreamCodec<? super RegistryFriendlyByteBuf, T> $$0) {
+   public DebugSubscription(StreamCodec<? super RegistryFriendlyByteBuf, T> $$0) {
       this($$0, 0);
    }
 
-   public DebugSubscription.Update<T> packUpdate(@Nullable T $$0) {
+   public DebugSubscription.Update<T> packUpdate(T $$0) {
       return new DebugSubscription.Update<>(this, Optional.ofNullable($$0));
    }
 
@@ -41,7 +40,7 @@ public class DebugSubscription<T> {
       return net.minecraft.util.Util.getRegisteredName(BuiltInRegistries.DEBUG_SUBSCRIPTION, this);
    }
 
-   @Nullable
+   
    public StreamCodec<? super RegistryFriendlyByteBuf, T> valueStreamCodec() {
       return this.valueStreamCodec;
    }

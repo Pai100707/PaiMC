@@ -54,7 +54,6 @@ import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class WitherBoss extends Monster implements RangedAttackMob {
    private static final EntityDataAccessor<Integer> DATA_TARGET_A = SynchedEntityData.defineId(WitherBoss.class, EntityDataSerializers.INT);
@@ -129,7 +128,7 @@ public class WitherBoss extends Monster implements RangedAttackMob {
    }
 
    @Override
-   public void setCustomName(@Nullable Component $$0) {
+   public void setCustomName(Component $$0) {
       super.setCustomName($$0);
       this.bossEvent.setName(this.getDisplayName());
    }
@@ -492,7 +491,7 @@ public class WitherBoss extends Monster implements RangedAttackMob {
    }
 
    @Override
-   public boolean addEffect(MobEffectInstance $$0, @Nullable net.minecraft.world.entity.Entity $$1) {
+   public boolean addEffect(MobEffectInstance $$0, net.minecraft.world.entity.Entity $$1) {
       return false;
    }
 

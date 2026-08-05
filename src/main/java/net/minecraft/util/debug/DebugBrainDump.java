@@ -31,7 +31,6 @@ import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.entity.npc.InventoryCarrier;
 import net.minecraft.world.entity.npc.villager.Villager;
 import net.minecraft.world.entity.schedule.Activity;
-import org.jspecify.annotations.Nullable;
 
 public record DebugBrainDump(
    String name,
@@ -164,7 +163,7 @@ public record DebugBrainDump(
       return BuiltInRegistries.MEMORY_MODULE_TYPE.getKey($$2).getPath() + ": " + $$7;
    }
 
-   private static String getShortDescription(ServerLevel $$0, @Nullable Object $$1) {
+   private static String getShortDescription(ServerLevel $$0, Object $$1) {
       return switch ($$1) {
          case null -> "-";
          case UUID $$2 -> getShortDescription($$0, $$0.getEntity($$2));

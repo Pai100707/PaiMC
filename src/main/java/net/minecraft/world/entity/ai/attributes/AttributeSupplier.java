@@ -5,7 +5,6 @@ import java.util.Map;
 import java.util.function.Consumer;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.Identifier;
-import org.jspecify.annotations.Nullable;
 
 public class AttributeSupplier {
    private final Map<Holder<Attribute>, AttributeInstance> instances;
@@ -40,7 +39,7 @@ public class AttributeSupplier {
       }
    }
 
-   @Nullable
+   
    public AttributeInstance createInstance(Consumer<AttributeInstance> $$0, Holder<Attribute> $$1) {
       AttributeInstance $$2 = this.instances.get($$1);
       if ($$2 == null) {

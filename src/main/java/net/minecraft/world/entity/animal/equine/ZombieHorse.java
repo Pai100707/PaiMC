@@ -22,7 +22,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class ZombieHorse extends AbstractHorse {
    private static final float SPEED_FACTOR = 42.16F;
@@ -105,7 +104,7 @@ public class ZombieHorse extends AbstractHorse {
       return SoundEvents.ZOMBIE_HORSE_EAT;
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.AgeableMob getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       return null;
@@ -122,13 +121,13 @@ public class ZombieHorse extends AbstractHorse {
       this.goalSelector.addGoal(3, new TemptGoal(this, 1.25, $$0 -> $$0.is(ItemTags.ZOMBIE_HORSE_FOOD), false));
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       if ($$2 == net.minecraft.world.entity.EntitySpawnReason.NATURAL) {
          Zombie $$4 = net.minecraft.world.entity.EntityType.ZOMBIE.create(this.level(), net.minecraft.world.entity.EntitySpawnReason.JOCKEY);

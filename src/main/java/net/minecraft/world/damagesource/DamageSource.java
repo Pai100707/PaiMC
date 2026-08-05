@@ -10,15 +10,14 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class DamageSource {
    private final Holder<net.minecraft.world.damagesource.DamageType> type;
-   @Nullable
+   
    private final Entity causingEntity;
-   @Nullable
+   
    private final Entity directEntity;
-   @Nullable
+   
    private final Vec3 damageSourcePosition;
 
    @Override
@@ -34,14 +33,14 @@ public class DamageSource {
       return this.causingEntity == this.directEntity;
    }
 
-   private DamageSource(Holder<net.minecraft.world.damagesource.DamageType> $$0, @Nullable Entity $$1, @Nullable Entity $$2, @Nullable Vec3 $$3) {
+   private DamageSource(Holder<net.minecraft.world.damagesource.DamageType> $$0, Entity $$1, Entity $$2, Vec3 $$3) {
       this.type = $$0;
       this.causingEntity = $$2;
       this.directEntity = $$1;
       this.damageSourcePosition = $$3;
    }
 
-   public DamageSource(Holder<net.minecraft.world.damagesource.DamageType> $$0, @Nullable Entity $$1, @Nullable Entity $$2) {
+   public DamageSource(Holder<net.minecraft.world.damagesource.DamageType> $$0, Entity $$1, Entity $$2) {
       this($$0, $$1, $$2, null);
    }
 
@@ -49,7 +48,7 @@ public class DamageSource {
       this($$0, null, null, $$1);
    }
 
-   public DamageSource(Holder<net.minecraft.world.damagesource.DamageType> $$0, @Nullable Entity $$1) {
+   public DamageSource(Holder<net.minecraft.world.damagesource.DamageType> $$0, Entity $$1) {
       this($$0, $$1, $$1);
    }
 
@@ -57,17 +56,17 @@ public class DamageSource {
       this($$0, null, null, null);
    }
 
-   @Nullable
+   
    public Entity getDirectEntity() {
       return this.directEntity;
    }
 
-   @Nullable
+   
    public Entity getEntity() {
       return this.causingEntity;
    }
 
-   @Nullable
+   
    public ItemStack getWeaponItem() {
       return this.directEntity != null ? this.directEntity.getWeaponItem() : null;
    }
@@ -105,7 +104,7 @@ public class DamageSource {
       return this.getEntity() instanceof Player $$0 && $$0.getAbilities().instabuild;
    }
 
-   @Nullable
+   
    public Vec3 getSourcePosition() {
       if (this.damageSourcePosition != null) {
          return this.damageSourcePosition;
@@ -114,7 +113,7 @@ public class DamageSource {
       }
    }
 
-   @Nullable
+   
    public Vec3 sourcePositionRaw() {
       return this.damageSourcePosition;
    }

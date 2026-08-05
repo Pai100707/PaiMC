@@ -17,14 +17,13 @@ import net.minecraft.world.item.equipment.trim.ArmorTrim;
 import net.minecraft.world.item.equipment.trim.TrimMaterial;
 import net.minecraft.world.item.equipment.trim.TrimMaterials;
 import net.minecraft.world.item.equipment.trim.TrimPattern;
-import org.jspecify.annotations.Nullable;
 
 public class SmithingTrimRecipe implements SmithingRecipe {
    final Ingredient template;
    final Ingredient base;
    final Ingredient addition;
    final Holder<TrimPattern> pattern;
-   @Nullable
+   
    private PlacementInfo placementInfo;
 
    public SmithingTrimRecipe(Ingredient $$0, Ingredient $$1, Ingredient $$2, Holder<TrimPattern> $$3) {

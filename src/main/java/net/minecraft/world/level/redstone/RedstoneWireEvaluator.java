@@ -5,7 +5,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.Direction.Plane;
 import net.minecraft.world.level.block.RedStoneWireBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jspecify.annotations.Nullable;
 
 public abstract class RedstoneWireEvaluator {
    protected final RedStoneWireBlock wireBlock;
@@ -14,7 +13,7 @@ public abstract class RedstoneWireEvaluator {
       this.wireBlock = $$0;
    }
 
-   public abstract void updatePowerStrength(net.minecraft.world.level.Level var1, BlockPos var2, BlockState var3, @Nullable Orientation var4, boolean var5);
+   public abstract void updatePowerStrength(net.minecraft.world.level.Level var1, BlockPos var2, BlockState var3, Orientation var4, boolean var5);
 
    protected int getBlockSignal(net.minecraft.world.level.Level $$0, BlockPos $$1) {
       return this.wireBlock.getBlockSignal($$0, $$1);

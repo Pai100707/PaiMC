@@ -8,7 +8,6 @@ import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
 import net.minecraft.world.entity.projectile.arrow.SpectralArrow;
 import net.minecraft.world.entity.projectile.arrow.AbstractArrow.Pickup;
 import net.minecraft.world.level.Level;
-import org.jspecify.annotations.Nullable;
 
 public class SpectralArrowItem extends net.minecraft.world.item.ArrowItem {
    public SpectralArrowItem(net.minecraft.world.item.Item.Properties $$0) {
@@ -16,7 +15,7 @@ public class SpectralArrowItem extends net.minecraft.world.item.ArrowItem {
    }
 
    @Override
-   public AbstractArrow createArrow(Level $$0, net.minecraft.world.item.ItemStack $$1, LivingEntity $$2, @Nullable net.minecraft.world.item.ItemStack $$3) {
+   public AbstractArrow createArrow(Level $$0, net.minecraft.world.item.ItemStack $$1, LivingEntity $$2, net.minecraft.world.item.ItemStack $$3) {
       return new SpectralArrow($$0, $$2, $$1.copyWithCount(1), $$3);
    }
 

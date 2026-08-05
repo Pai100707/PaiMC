@@ -14,7 +14,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Util;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.block.entity.TestInstanceBlockEntity;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class GameTestRunner {
@@ -28,7 +27,7 @@ public class GameTestRunner {
    private final List<GameTestInfo> scheduledForRerun = Lists.newArrayList();
    private final GameTestRunner.GameTestBatcher testBatcher;
    private boolean stopped = true;
-   @Nullable
+   
    private Holder<TestEnvironmentDefinition> currentEnvironment;
    private final GameTestRunner.StructureSpawner existingStructureSpawner;
    private final GameTestRunner.StructureSpawner newStructureSpawner;

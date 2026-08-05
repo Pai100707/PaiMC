@@ -26,7 +26,6 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import org.apache.commons.lang3.mutable.MutableBoolean;
-import org.jspecify.annotations.Nullable;
 
 public abstract class WorldCarver<C extends CarverConfiguration> {
    public static final WorldCarver<CaveCarverConfiguration> CAVE = register("cave", new CaveWorldCarver(CaveCarverConfiguration.CODEC));
@@ -164,7 +163,7 @@ public abstract class WorldCarver<C extends CarverConfiguration> {
       }
    }
 
-   @Nullable
+   
    private BlockState getCarveState(CarvingContext $$0, C $$1, BlockPos $$2, Aquifer $$3) {
       if ($$2.getY() <= $$1.lavaLevel.resolveY($$0)) {
          return LAVA.createLegacyBlock();

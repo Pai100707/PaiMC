@@ -9,7 +9,6 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public interface CommonLevelAccessor
    extends net.minecraft.world.level.EntityGetter,
@@ -21,12 +20,12 @@ public interface CommonLevelAccessor
    }
 
    @Override
-   default List<VoxelShape> getEntityCollisions(@Nullable Entity $$0, AABB $$1) {
+   default List<VoxelShape> getEntityCollisions(Entity $$0, AABB $$1) {
       return net.minecraft.world.level.EntityGetter.super.getEntityCollisions($$0, $$1);
    }
 
    @Override
-   default boolean isUnobstructed(@Nullable Entity $$0, VoxelShape $$1) {
+   default boolean isUnobstructed(Entity $$0, VoxelShape $$1) {
       return net.minecraft.world.level.EntityGetter.super.isUnobstructed($$0, $$1);
    }
 

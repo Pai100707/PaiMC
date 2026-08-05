@@ -45,7 +45,6 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
-import org.jspecify.annotations.Nullable;
 
 public class BeaconBlockEntity extends BlockEntity implements MenuProvider, Nameable, BeaconBeamOwner {
    private static final int MAX_LEVELS = 4;
@@ -68,11 +67,11 @@ public class BeaconBlockEntity extends BlockEntity implements MenuProvider, Name
    private List<BeaconBeamOwner.Section> checkingBeamSections = new ArrayList<>();
    int levels;
    private int lastCheckY;
-   @Nullable
+   
    Holder<MobEffect> primaryPower;
-   @Nullable
+   
    Holder<MobEffect> secondaryPower;
-   @Nullable
+   
    private Component name;
    private LockCode lockKey = LockCode.NO_LOCK;
    private final ContainerData dataAccess = new ContainerData() {
@@ -107,8 +106,8 @@ public class BeaconBlockEntity extends BlockEntity implements MenuProvider, Name
       }
    };
 
-   @Nullable
-   static Holder<MobEffect> filterEffect(@Nullable Holder<MobEffect> $$0) {
+   
+   static Holder<MobEffect> filterEffect(Holder<MobEffect> $$0) {
       return VALID_EFFECTS.contains($$0) ? $$0 : null;
    }
 
@@ -227,7 +226,7 @@ public class BeaconBlockEntity extends BlockEntity implements MenuProvider, Name
    }
 
    private static void applyEffects(
-      net.minecraft.world.level.Level $$0, BlockPos $$1, int $$2, @Nullable Holder<MobEffect> $$3, @Nullable Holder<MobEffect> $$4
+      net.minecraft.world.level.Level $$0, BlockPos $$1, int $$2, Holder<MobEffect> $$3, Holder<MobEffect> $$4
    ) {
       if (!$$0.isClientSide() && $$3 != null) {
          double $$5 = $$2 * 10 + 10;
@@ -270,13 +269,13 @@ public class BeaconBlockEntity extends BlockEntity implements MenuProvider, Name
       return this.saveCustomOnly($$0);
    }
 
-   private static void storeEffect(ValueOutput $$0, String $$1, @Nullable Holder<MobEffect> $$2) {
+   private static void storeEffect(ValueOutput $$0, String $$1, Holder<MobEffect> $$2) {
       if ($$2 != null) {
          $$2.unwrapKey().ifPresent($$2x -> $$0.putString($$1, $$2x.identifier().toString()));
       }
    }
 
-   @Nullable
+   
    private static Holder<MobEffect> loadEffect(ValueInput $$0, String $$1) {
       return $$0.<Holder<MobEffect>>read($$1, BuiltInRegistries.MOB_EFFECT.holderByNameCodec()).filter(VALID_EFFECTS::contains).orElse(null);
    }
@@ -300,16 +299,16 @@ public class BeaconBlockEntity extends BlockEntity implements MenuProvider, Name
       this.lockKey.addToTag($$0);
    }
 
-   public void setCustomName(@Nullable Component $$0) {
+   public void setCustomName(Component $$0) {
       this.name = $$0;
    }
 
-   @Nullable
+   
    public Component getCustomName() {
       return this.name;
    }
 
-   @Nullable
+   
    public AbstractContainerMenu createMenu(int $$0, Inventory $$1, Player $$2) {
       if (this.lockKey.canUnlock($$2)) {
          return new BeaconMenu($$0, $$1, this.dataAccess, ContainerLevelAccess.create(this.level, this.getBlockPos()));

@@ -36,7 +36,6 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class Ghast extends net.minecraft.world.entity.Mob implements Enemy {
    private static final EntityDataAccessor<Boolean> DATA_IS_CHARGING = SynchedEntityData.defineId(Ghast.class, EntityDataSerializers.BOOLEAN);
@@ -277,7 +276,7 @@ public class Ghast extends net.minecraft.world.entity.Mob implements Enemy {
          );
       }
 
-      private boolean blockTraversalPossible(BlockGetter $$0, @Nullable Vec3 $$1, @Nullable Vec3 $$2, BlockPos $$3, boolean $$4, boolean $$5) {
+      private boolean blockTraversalPossible(BlockGetter $$0, Vec3 $$1, Vec3 $$2, BlockPos $$3, boolean $$4, boolean $$5) {
          BlockState $$6 = $$0.getBlockState($$3);
          if ($$6.isAir()) {
             return true;
@@ -468,7 +467,7 @@ public class Ghast extends net.minecraft.world.entity.Mob implements Enemy {
          return new Vec3($$2, $$3, $$4);
       }
 
-      @Nullable
+      
       private static Vec3 chooseRandomPositionWithRestriction(net.minecraft.world.entity.Mob $$0, Vec3 $$1, RandomSource $$2) {
          Vec3 $$3 = chooseRandomPosition($$1, $$2);
          return $$0.hasHome() && !$$0.isWithinHome($$3) ? null : $$3;

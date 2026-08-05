@@ -9,7 +9,6 @@ import net.minecraft.world.level.block.entity.TestInstanceBlockEntity;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
-import org.jspecify.annotations.Nullable;
 
 public class TestInstanceBlock extends BaseEntityBlock implements GameMasterBlock {
    public static final MapCodec<TestInstanceBlock> CODEC = simpleCodec(TestInstanceBlock::new);
@@ -18,7 +17,7 @@ public class TestInstanceBlock extends BaseEntityBlock implements GameMasterBloc
       super($$0);
    }
 
-   @Nullable
+   
    @Override
    public BlockEntity newBlockEntity(BlockPos $$0, BlockState $$1) {
       return new TestInstanceBlockEntity($$0, $$1);

@@ -11,10 +11,9 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public record VibrationInfo(
-   Holder<GameEvent> gameEvent, float distance, Vec3 pos, @Nullable UUID uuid, @Nullable UUID projectileOwnerUuid, @Nullable Entity entity
+   Holder<GameEvent> gameEvent, float distance, Vec3 pos, UUID uuid, UUID projectileOwnerUuid, Entity entity
 ) {
    public static final Codec<VibrationInfo> CODEC = RecordCodecBuilder.create(
       $$0 -> $$0.group(
@@ -27,16 +26,16 @@ public record VibrationInfo(
          .apply($$0, ($$0x, $$1, $$2, $$3, $$4) -> new VibrationInfo($$0x, $$1, $$2, (UUID)$$3.orElse(null), (UUID)$$4.orElse(null)))
    );
 
-   public VibrationInfo(Holder<GameEvent> $$0, float $$1, Vec3 $$2, @Nullable UUID $$3, @Nullable UUID $$4) {
+   public VibrationInfo(Holder<GameEvent> $$0, float $$1, Vec3 $$2, UUID $$3, UUID $$4) {
       this($$0, $$1, $$2, $$3, $$4, null);
    }
 
-   public VibrationInfo(Holder<GameEvent> $$0, float $$1, Vec3 $$2, @Nullable Entity $$3) {
+   public VibrationInfo(Holder<GameEvent> $$0, float $$1, Vec3 $$2, Entity $$3) {
       this($$0, $$1, $$2, $$3 == null ? null : $$3.getUUID(), getProjectileOwner($$3), $$3);
    }
 
-   @Nullable
-   private static UUID getProjectileOwner(@Nullable Entity $$0) {
+   
+   private static UUID getProjectileOwner(Entity $$0) {
       return $$0 instanceof Projectile $$1 && $$1.getOwner() != null ? $$1.getOwner().getUUID() : null;
    }
 

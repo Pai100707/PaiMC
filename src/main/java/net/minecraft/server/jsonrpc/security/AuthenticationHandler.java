@@ -18,7 +18,6 @@ import java.net.InetSocketAddress;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.util.Set;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 @Sharable
@@ -101,13 +100,13 @@ public class AuthenticationHandler extends ChannelDuplexHandler {
       return $$1 != null && !$$1.isEmpty() ? this.allowedOrigins.contains($$1) : false;
    }
 
-   @Nullable
+   
    private String parseTokenInAuthorizationHeader(HttpRequest $$0) {
       String $$1 = $$0.headers().get(HttpHeaderNames.AUTHORIZATION);
       return $$1 != null && $$1.startsWith("Bearer ") ? $$1.substring("Bearer ".length()).trim() : null;
    }
 
-   @Nullable
+   
    private String parseTokenInSecWebsocketProtocolHeader(HttpRequest $$0) {
       String $$1 = $$0.headers().get(HttpHeaderNames.SEC_WEBSOCKET_PROTOCOL);
       return $$1 != null && $$1.startsWith("minecraft-v1,") ? $$1.substring("minecraft-v1,".length()).trim() : null;

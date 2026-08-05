@@ -5,11 +5,10 @@ import net.minecraft.core.SectionPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.status.ChunkStatus;
-import org.jspecify.annotations.Nullable;
 
 public class DynamicGameEventListener<T extends GameEventListener> {
    private final T listener;
-   @Nullable
+   
    private SectionPos lastSection;
 
    public DynamicGameEventListener(T $$0) {
@@ -38,7 +37,7 @@ public class DynamicGameEventListener<T extends GameEventListener> {
       });
    }
 
-   private static void ifChunkExists(net.minecraft.world.level.LevelReader $$0, @Nullable SectionPos $$1, Consumer<GameEventListenerRegistry> $$2) {
+   private static void ifChunkExists(net.minecraft.world.level.LevelReader $$0, SectionPos $$1, Consumer<GameEventListenerRegistry> $$2) {
       if ($$1 != null) {
          ChunkAccess $$3 = $$0.getChunk($$1.x(), $$1.z(), ChunkStatus.FULL, false);
          if ($$3 != null) {

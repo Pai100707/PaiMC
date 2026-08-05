@@ -15,7 +15,6 @@ import net.minecraft.util.context.ContextKey;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.NumberProvider;
 import net.minecraft.world.level.storage.loot.providers.number.NumberProviders;
-import org.jspecify.annotations.Nullable;
 
 public class IntRange {
    private static final Codec<IntRange> RECORD_CODEC = RecordCodecBuilder.create(
@@ -30,9 +29,9 @@ public class IntRange {
          OptionalInt $$1 = $$0.unpackExact();
          return $$1.isPresent() ? Either.left($$1.getAsInt()) : Either.right($$0);
       });
-   @Nullable
+   
    private final NumberProvider min;
-   @Nullable
+   
    private final NumberProvider max;
    private final IntRange.IntLimiter limiter;
    private final IntRange.IntChecker predicate;
@@ -54,7 +53,7 @@ public class IntRange {
       this($$0.orElse(null), $$1.orElse(null));
    }
 
-   private IntRange(@Nullable NumberProvider $$0, @Nullable NumberProvider $$1) {
+   private IntRange(NumberProvider $$0, NumberProvider $$1) {
       this.min = $$0;
       this.max = $$1;
       if ($$0 == null) {

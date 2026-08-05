@@ -40,7 +40,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class ShelfBlock extends BaseEntityBlock implements SelectableSlotContainer, SideChainPartBlock, SimpleWaterloggedBlock {
    public static final MapCodec<ShelfBlock> CODEC = simpleCodec(ShelfBlock::new);
@@ -87,7 +86,7 @@ public class ShelfBlock extends BaseEntityBlock implements SelectableSlotContain
       return $$1 == PathComputationType.WATER && $$0.getFluidState().is(FluidTags.WATER);
    }
 
-   @Nullable
+   
    @Override
    public BlockEntity newBlockEntity(BlockPos $$0, BlockState $$1) {
       return new ShelfBlockEntity($$0, $$1);
@@ -105,7 +104,7 @@ public class ShelfBlock extends BaseEntityBlock implements SelectableSlotContain
    }
 
    @Override
-   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, @Nullable Orientation $$4, boolean $$5) {
+   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, Orientation $$4, boolean $$5) {
       if (!$$1.isClientSide()) {
          boolean $$6 = $$1.hasNeighborSignal($$2);
          if ($$0.getValue(POWERED) != $$6) {

@@ -44,15 +44,14 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
-import org.jspecify.annotations.Nullable;
 
 public class MushroomCow extends AbstractCow implements net.minecraft.world.entity.Shearable {
    private static final EntityDataAccessor<Integer> DATA_TYPE = SynchedEntityData.defineId(MushroomCow.class, EntityDataSerializers.INT);
    private static final int MUTATE_CHANCE = 1024;
    private static final String TAG_STEW_EFFECTS = "stew_effects";
-   @Nullable
+   
    private SuspiciousStewEffects stewEffects;
-   @Nullable
+   
    private UUID lastLightningBoltUUID;
 
    public MushroomCow(net.minecraft.world.entity.EntityType<? extends MushroomCow> $$0, Level $$1) {
@@ -215,7 +214,7 @@ public class MushroomCow extends AbstractCow implements net.minecraft.world.enti
       return MushroomCow.Variant.byId((Integer)this.entityData.get(DATA_TYPE));
    }
 
-   @Nullable
+   
    @Override
    public <T> T get(DataComponentType<? extends T> $$0) {
       return $$0 == DataComponents.MOOSHROOM_VARIANT ? castComponentValue((DataComponentType<T>)$$0, this.getVariant()) : super.get($$0);
@@ -237,7 +236,7 @@ public class MushroomCow extends AbstractCow implements net.minecraft.world.enti
       }
    }
 
-   @Nullable
+   
    public MushroomCow getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       MushroomCow $$2 = net.minecraft.world.entity.EntityType.MOOSHROOM.create($$0, net.minecraft.world.entity.EntitySpawnReason.BREEDING);
       if ($$2 != null) {

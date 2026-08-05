@@ -7,7 +7,6 @@ import net.minecraft.network.protocol.PacketType;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.chunk.LevelChunk;
 import net.minecraft.world.level.lighting.LevelLightEngine;
-import org.jspecify.annotations.Nullable;
 
 public class ClientboundLevelChunkWithLightPacket implements Packet<ClientGamePacketListener> {
    public static final StreamCodec<net.minecraft.network.RegistryFriendlyByteBuf, ClientboundLevelChunkWithLightPacket> STREAM_CODEC = Packet.codec(
@@ -18,7 +17,7 @@ public class ClientboundLevelChunkWithLightPacket implements Packet<ClientGamePa
    private final ClientboundLevelChunkPacketData chunkData;
    private final ClientboundLightUpdatePacketData lightData;
 
-   public ClientboundLevelChunkWithLightPacket(LevelChunk $$0, LevelLightEngine $$1, @Nullable BitSet $$2, @Nullable BitSet $$3) {
+   public ClientboundLevelChunkWithLightPacket(LevelChunk $$0, LevelLightEngine $$1, BitSet $$2, BitSet $$3) {
       ChunkPos $$4 = $$0.getPos();
       this.x = $$4.x;
       this.z = $$4.z;

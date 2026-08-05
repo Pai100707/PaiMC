@@ -28,7 +28,6 @@ import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.world.level.saveddata.SavedDataType;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class Raids extends SavedData {
    private static final String RAID_FILE_ID = "raids";
@@ -66,7 +65,7 @@ public class Raids extends SavedData {
       this.tick = $$2;
    }
 
-   @Nullable
+   
    public Raid get(int $$0) {
       return (Raid)this.raidMap.get($$0);
    }
@@ -111,7 +110,7 @@ public class Raids extends SavedData {
       return $$0.isAlive() && $$0.canJoinRaid() && $$0.getNoActionTime() <= 2400;
    }
 
-   @Nullable
+   
    public Raid createOrExtendRaid(ServerPlayer $$0, BlockPos $$1) {
       if ($$0.isSpectator()) {
          return null;
@@ -168,7 +167,7 @@ public class Raids extends SavedData {
       return ++this.nextId;
    }
 
-   @Nullable
+   
    public Raid getNearbyRaid(BlockPos $$0, int $$1) {
       Raid $$2 = null;
       double $$3 = $$1;

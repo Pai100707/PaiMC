@@ -26,7 +26,6 @@ import net.minecraft.world.level.gameevent.GameEventListener;
 import net.minecraft.world.level.gameevent.PositionSource;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.HitResult.Type;
-import org.jspecify.annotations.Nullable;
 
 public interface VibrationSystem {
    List<ResourceKey<GameEvent>> RESONANCE_EVENTS = List.of(
@@ -128,13 +127,13 @@ public interface VibrationSystem {
             .apply($$0, ($$0x, $$1, $$2) -> new VibrationSystem.Data((VibrationInfo)$$0x.orElse(null), $$1, $$2, true))
       );
       public static final String NBT_TAG_KEY = "listener";
-      @Nullable
+      
       VibrationInfo currentVibration;
       private int travelTimeInTicks;
       final VibrationSelector selectionStrategy;
       private boolean reloadVibrationParticle;
 
-      private Data(@Nullable VibrationInfo $$0, VibrationSelector $$1, int $$2, boolean $$3) {
+      private Data(VibrationInfo $$0, VibrationSelector $$1, int $$2, boolean $$3) {
          this.currentVibration = $$0;
          this.travelTimeInTicks = $$2;
          this.selectionStrategy = $$1;
@@ -149,12 +148,12 @@ public interface VibrationSystem {
          return this.selectionStrategy;
       }
 
-      @Nullable
+      
       public VibrationInfo getCurrentVibration() {
          return this.currentVibration;
       }
 
-      public void setCurrentVibration(@Nullable VibrationInfo $$0) {
+      public void setCurrentVibration(VibrationInfo $$0) {
          this.currentVibration = $$0;
       }
 
@@ -351,7 +350,7 @@ public interface VibrationSystem {
 
       boolean canReceiveVibration(ServerLevel var1, BlockPos var2, Holder<GameEvent> var3, GameEvent.Context var4);
 
-      void onReceiveVibration(ServerLevel var1, BlockPos var2, Holder<GameEvent> var3, @Nullable Entity var4, @Nullable Entity var5, float var6);
+      void onReceiveVibration(ServerLevel var1, BlockPos var2, Holder<GameEvent> var3, Entity var4, Entity var5, float var6);
 
       default TagKey<GameEvent> getListenableEvents() {
          return GameEventTags.VIBRATIONS;

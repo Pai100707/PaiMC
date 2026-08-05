@@ -32,7 +32,6 @@ import net.minecraft.world.item.BundleItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public abstract class AbstractContainerMenu {
@@ -55,18 +54,18 @@ public abstract class AbstractContainerMenu {
    private final IntList remoteDataSlots = new IntArrayList();
    private net.minecraft.world.inventory.RemoteSlot remoteCarried = net.minecraft.world.inventory.RemoteSlot.PLACEHOLDER;
    private int stateId;
-   @Nullable
+   
    private final net.minecraft.world.inventory.MenuType<?> menuType;
    public final int containerId;
    private int quickcraftType = -1;
    private int quickcraftStatus;
    private final Set<net.minecraft.world.inventory.Slot> quickcraftSlots = Sets.newHashSet();
    private final List<net.minecraft.world.inventory.ContainerListener> containerListeners = Lists.newArrayList();
-   @Nullable
+   
    private net.minecraft.world.inventory.ContainerSynchronizer synchronizer;
    private boolean suppressRemoteUpdates;
 
-   protected AbstractContainerMenu(@Nullable net.minecraft.world.inventory.MenuType<?> $$0, int $$1) {
+   protected AbstractContainerMenu(net.minecraft.world.inventory.MenuType<?> $$0, int $$1) {
       this.menuType = $$0;
       this.containerId = $$1;
    }
@@ -726,7 +725,7 @@ public abstract class AbstractContainerMenu {
       this.quickcraftSlots.clear();
    }
 
-   public static boolean canItemQuickReplace(@Nullable net.minecraft.world.inventory.Slot $$0, ItemStack $$1, boolean $$2) {
+   public static boolean canItemQuickReplace(net.minecraft.world.inventory.Slot $$0, ItemStack $$1, boolean $$2) {
       boolean $$3 = $$0 == null || !$$0.hasItem();
       return !$$3 && ItemStack.isSameItemSameComponents($$1, $$0.getItem())
          ? $$0.getItem().getCount() + ($$2 ? 0 : $$1.getCount()) <= $$1.getMaxStackSize()
@@ -746,11 +745,11 @@ public abstract class AbstractContainerMenu {
       return true;
    }
 
-   public static int getRedstoneSignalFromBlockEntity(@Nullable BlockEntity $$0) {
+   public static int getRedstoneSignalFromBlockEntity(BlockEntity $$0) {
       return $$0 instanceof Container ? getRedstoneSignalFromContainer((Container)$$0) : 0;
    }
 
-   public static int getRedstoneSignalFromContainer(@Nullable Container $$0) {
+   public static int getRedstoneSignalFromContainer(Container $$0) {
       if ($$0 == null) {
          return 0;
       } else {

@@ -26,7 +26,6 @@ import net.minecraft.server.level.TicketType;
 import net.minecraft.util.datafix.DataFixTypes;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.world.level.saveddata.SavedDataType;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class TicketStorage extends SavedData {
@@ -46,9 +45,9 @@ public class TicketStorage extends SavedData {
    private final Long2ObjectOpenHashMap<List<Ticket>> tickets;
    private final Long2ObjectOpenHashMap<List<Ticket>> deactivatedTickets;
    private LongSet chunksWithForcedTickets = new LongOpenHashSet();
-   @Nullable
+   
    private net.minecraft.world.level.TicketStorage.ChunkUpdated loadingChunkUpdatedListener;
-   @Nullable
+   
    private net.minecraft.world.level.TicketStorage.ChunkUpdated simulationChunkUpdatedListener;
 
    private TicketStorage(Long2ObjectOpenHashMap<List<Ticket>> $$0, Long2ObjectOpenHashMap<List<Ticket>> $$1) {
@@ -115,11 +114,11 @@ public class TicketStorage extends SavedData {
       this.deactivatedTickets.clear();
    }
 
-   public void setLoadingChunkUpdatedListener(@Nullable net.minecraft.world.level.TicketStorage.ChunkUpdated $$0) {
+   public void setLoadingChunkUpdatedListener(net.minecraft.world.level.TicketStorage.ChunkUpdated $$0) {
       this.loadingChunkUpdatedListener = $$0;
    }
 
-   public void setSimulationChunkUpdatedListener(@Nullable net.minecraft.world.level.TicketStorage.ChunkUpdated $$0) {
+   public void setSimulationChunkUpdatedListener(net.minecraft.world.level.TicketStorage.ChunkUpdated $$0) {
       this.simulationChunkUpdatedListener = $$0;
    }
 
@@ -207,8 +206,8 @@ public class TicketStorage extends SavedData {
       return $$2 == null ? ChunkLevel.MAX_LEVEL + 1 : $$2.getTicketLevel();
    }
 
-   @Nullable
-   private static Ticket getLowestTicket(@Nullable List<Ticket> $$0, boolean $$1) {
+   
+   private static Ticket getLowestTicket(List<Ticket> $$0, boolean $$1) {
       if ($$0 == null) {
          return null;
       } else {
@@ -320,7 +319,7 @@ public class TicketStorage extends SavedData {
       this.removeTicketIf(($$0, $$1) -> $$0.getType() != TicketType.UNKNOWN, this.deactivatedTickets);
    }
 
-   public void removeTicketIf(net.minecraft.world.level.TicketStorage.TicketPredicate $$0, @Nullable Long2ObjectOpenHashMap<List<Ticket>> $$1) {
+   public void removeTicketIf(net.minecraft.world.level.TicketStorage.TicketPredicate $$0, Long2ObjectOpenHashMap<List<Ticket>> $$1) {
       ObjectIterator<Entry<List<Ticket>>> $$2 = this.tickets.long2ObjectEntrySet().fastIterator();
       boolean $$3 = false;
 

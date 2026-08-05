@@ -11,7 +11,6 @@ import net.minecraft.world.entity.ai.util.AirAndWaterRandomPos;
 import net.minecraft.world.entity.ai.util.GoalUtils;
 import net.minecraft.world.entity.ai.util.LandRandomPos;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class RandomStroll {
    private static final int MAX_XZ_DIST = 10;
@@ -52,7 +51,7 @@ public class RandomStroll {
       }));
    }
 
-   @Nullable
+   
    private static Vec3 getTargetSwimPos(net.minecraft.world.entity.PathfinderMob $$0) {
       Vec3 $$1 = null;
       Vec3 $$2 = null;
@@ -75,7 +74,7 @@ public class RandomStroll {
       return $$2;
    }
 
-   @Nullable
+   
    private static Vec3 getTargetFlyPos(net.minecraft.world.entity.PathfinderMob $$0, int $$1, int $$2) {
       Vec3 $$3 = $$0.getViewVector(0.0F);
       return AirAndWaterRandomPos.getPos($$0, $$1, $$2, -2, $$3.x, $$3.z, (float) (Math.PI / 2));

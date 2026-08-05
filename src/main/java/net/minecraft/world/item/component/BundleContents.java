@@ -15,7 +15,6 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.level.block.entity.BeehiveBlockEntity.Occupant;
 import org.apache.commons.lang3.math.Fraction;
-import org.jspecify.annotations.Nullable;
 
 public final class BundleContents implements TooltipComponent {
    public static final BundleContents EMPTY = new BundleContents(List.of());
@@ -215,7 +214,7 @@ public final class BundleContents implements TooltipComponent {
          return $$0 < 0 || $$0 >= this.items.size();
       }
 
-      @Nullable
+      
       public net.minecraft.world.item.ItemStack removeOne() {
          if (this.items.isEmpty()) {
             return null;

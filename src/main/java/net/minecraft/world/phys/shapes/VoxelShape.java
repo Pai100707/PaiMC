@@ -15,11 +15,10 @@ import net.minecraft.core.Direction.AxisDirection;
 import net.minecraft.util.Mth;
 import net.minecraft.util.Util;
 import org.apache.commons.lang3.mutable.MutableObject;
-import org.jspecify.annotations.Nullable;
 
 public abstract class VoxelShape {
    protected final DiscreteVoxelShape shape;
-   @Nullable
+   
    private VoxelShape[] faces;
 
    protected VoxelShape(DiscreteVoxelShape $$0) {
@@ -136,7 +135,7 @@ public abstract class VoxelShape {
       return Mth.binarySearch(0, this.shape.getSize($$0) + 1, $$2 -> $$1 < this.get($$0, $$2)) - 1;
    }
 
-   @Nullable
+   
    public net.minecraft.world.phys.BlockHitResult clip(net.minecraft.world.phys.Vec3 $$0, net.minecraft.world.phys.Vec3 $$1, BlockPos $$2) {
       if (this.isEmpty()) {
          return null;

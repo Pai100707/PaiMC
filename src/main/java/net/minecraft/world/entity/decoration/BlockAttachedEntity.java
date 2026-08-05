@@ -11,7 +11,6 @@ import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public abstract class BlockAttachedEntity extends net.minecraft.world.entity.Entity {
@@ -123,7 +122,7 @@ public abstract class BlockAttachedEntity extends net.minecraft.world.entity.Ent
       }
    }
 
-   public abstract void dropItem(ServerLevel var1, @Nullable net.minecraft.world.entity.Entity var2);
+   public abstract void dropItem(ServerLevel var1, net.minecraft.world.entity.Entity var2);
 
    @Override
    protected boolean repositionEntityAfterLoad() {

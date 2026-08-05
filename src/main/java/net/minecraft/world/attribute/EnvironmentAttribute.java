@@ -4,7 +4,6 @@ import com.mojang.serialization.Codec;
 import java.util.Objects;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.util.Util;
-import org.jspecify.annotations.Nullable;
 
 public class EnvironmentAttribute<Value> {
    private final net.minecraft.world.attribute.AttributeType<Value> type;
@@ -69,7 +68,7 @@ public class EnvironmentAttribute<Value> {
 
    public static class Builder<Value> {
       private final net.minecraft.world.attribute.AttributeType<Value> type;
-      @Nullable
+      
       private Value defaultValue;
       private net.minecraft.world.attribute.AttributeRange<Value> valueRange = net.minecraft.world.attribute.AttributeRange.any();
       private boolean isSyncable = false;

@@ -20,7 +20,6 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import org.jspecify.annotations.Nullable;
 
 public class LevelDataGeneratorOptionsFix extends DataFix {
    static final Map<String, String> MAP = net.minecraft.util.Util.make(Maps.newHashMap(), $$0 -> {
@@ -203,7 +202,7 @@ public class LevelDataGeneratorOptionsFix extends DataFix {
       );
    }
 
-   @Nullable
+   
    private static Pair<Integer, String> getLayerInfoFromString(String $$0) {
       String[] $$1 = $$0.split("\\*", 2);
       int $$2;

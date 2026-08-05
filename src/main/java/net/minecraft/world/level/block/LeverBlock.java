@@ -28,7 +28,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class LeverBlock extends FaceAttachedHorizontalDirectionalBlock {
    public static final MapCodec<LeverBlock> CODEC = simpleCodec(LeverBlock::new);
@@ -79,7 +78,7 @@ public class LeverBlock extends FaceAttachedHorizontalDirectionalBlock {
       super.onExplosionHit($$0, $$1, $$2, $$3, $$4);
    }
 
-   public void pull(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, @Nullable Player $$3) {
+   public void pull(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Player $$3) {
       $$0 = $$0.cycle(POWERED);
       $$1.setBlock($$2, $$0, 3);
       this.updateNeighbours($$0, $$1, $$2);
@@ -87,7 +86,7 @@ public class LeverBlock extends FaceAttachedHorizontalDirectionalBlock {
       $$1.gameEvent($$3, $$0.getValue(POWERED) ? GameEvent.BLOCK_ACTIVATE : GameEvent.BLOCK_DEACTIVATE, $$2);
    }
 
-   protected static void playSound(@Nullable Player $$0, net.minecraft.world.level.LevelAccessor $$1, BlockPos $$2, BlockState $$3) {
+   protected static void playSound(Player $$0, net.minecraft.world.level.LevelAccessor $$1, BlockPos $$2, BlockState $$3) {
       float $$4 = $$3.getValue(POWERED) ? 0.6F : 0.5F;
       $$1.playSound($$0, $$2, SoundEvents.LEVER_CLICK, SoundSource.BLOCKS, 0.3F, $$4);
    }

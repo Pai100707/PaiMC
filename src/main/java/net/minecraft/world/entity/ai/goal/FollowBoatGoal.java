@@ -5,12 +5,11 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.boat.AbstractBoat;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class FollowBoatGoal extends Goal {
    private int timeToRecalcPath;
    private final net.minecraft.world.entity.PathfinderMob mob;
-   @Nullable
+   
    private Player following;
    private BoatGoals currentGoal;
 

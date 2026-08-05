@@ -80,7 +80,6 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class Villager extends AbstractVillager implements net.minecraft.world.entity.ReputationEventHandler, VillagerDataHolder {
@@ -105,7 +104,7 @@ public class Villager extends AbstractVillager implements net.minecraft.world.en
    private static final boolean DEFAULT_ASSIGN_PROFESSION_WHEN_SPAWNED = false;
    private int updateMerchantTimer;
    private boolean increaseProfessionLevelOnUpdate;
-   @Nullable
+   
    private Player lastTradedPlayer;
    private boolean chasing;
    private int foodLevel = 0;
@@ -354,7 +353,7 @@ public class Villager extends AbstractVillager implements net.minecraft.world.en
    }
 
    @Override
-   public void setTradingPlayer(@Nullable Player $$0) {
+   public void setTradingPlayer(Player $$0) {
       boolean $$1 = this.getTradingPlayer() != null && $$0 == null;
       super.setTradingPlayer($$0);
       if ($$1) {
@@ -522,7 +521,7 @@ public class Villager extends AbstractVillager implements net.minecraft.world.en
       return false;
    }
 
-   @Nullable
+   
    @Override
    protected SoundEvent getAmbientSound() {
       if (this.isSleeping()) {
@@ -578,7 +577,7 @@ public class Villager extends AbstractVillager implements net.minecraft.world.en
    }
 
    @Override
-   public void setLastHurtByMob(@Nullable net.minecraft.world.entity.LivingEntity $$0) {
+   public void setLastHurtByMob(net.minecraft.world.entity.LivingEntity $$0) {
       if ($$0 != null && this.level() instanceof ServerLevel) {
          ((ServerLevel)this.level()).onReputationEvent(ReputationEventType.VILLAGER_HURT, $$0, this);
          if (this.isAlive() && $$0 instanceof Player) {
@@ -715,13 +714,13 @@ public class Villager extends AbstractVillager implements net.minecraft.world.en
       }
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       if ($$2 == net.minecraft.world.entity.EntitySpawnReason.BREEDING) {
          this.setVillagerData(this.getVillagerData().withProfession($$0.registryAccess(), VillagerProfession.NONE));
@@ -741,7 +740,7 @@ public class Villager extends AbstractVillager implements net.minecraft.world.en
       return super.finalizeSpawn($$0, $$1, $$2, $$3);
    }
 
-   @Nullable
+   
    public Villager getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       double $$2 = this.random.nextDouble();
       Holder<VillagerType> $$3;
@@ -934,7 +933,7 @@ public class Villager extends AbstractVillager implements net.minecraft.world.en
       return $$1.filter($$1x -> $$0 - $$1x < 24000L).isPresent();
    }
 
-   @Nullable
+   
    @Override
    public <T> T get(DataComponentType<? extends T> $$0) {
       return $$0 == DataComponents.VILLAGER_VARIANT ? castComponentValue((DataComponentType<T>)$$0, this.getVillagerData().type()) : super.get($$0);

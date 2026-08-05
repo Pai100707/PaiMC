@@ -8,7 +8,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jspecify.annotations.Nullable;
 
 public class RuleProcessor extends StructureProcessor {
    public static final MapCodec<RuleProcessor> CODEC = ProcessorRule.CODEC.listOf().fieldOf("rules").xmap(RuleProcessor::new, $$0 -> $$0.rules);
@@ -18,7 +17,7 @@ public class RuleProcessor extends StructureProcessor {
       this.rules = ImmutableList.copyOf($$0);
    }
 
-   @Nullable
+   
    @Override
    public StructureTemplate.StructureBlockInfo processBlock(
       net.minecraft.world.level.LevelReader $$0,

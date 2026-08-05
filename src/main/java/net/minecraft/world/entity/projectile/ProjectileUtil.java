@@ -24,7 +24,6 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.HitResult.Type;
-import org.jspecify.annotations.Nullable;
 
 public final class ProjectileUtil {
    public static final float DEFAULT_ENTITY_HIT_RESULT_MARGIN = 0.3F;
@@ -95,7 +94,7 @@ public final class ProjectileUtil {
       return !$$10.isEmpty() ? Either.right($$10) : Either.left($$8);
    }
 
-   @Nullable
+   
    public static EntityHitResult getEntityHitResult(
       net.minecraft.world.entity.Entity $$0, Vec3 $$1, Vec3 $$2, AABB $$3, Predicate<net.minecraft.world.entity.Entity> $$4, double $$5
    ) {
@@ -134,7 +133,7 @@ public final class ProjectileUtil {
       return $$8 == null ? null : new EntityHitResult($$8, $$9);
    }
 
-   @Nullable
+   
    public static EntityHitResult getEntityHitResult(Level $$0, Projectile $$1, Vec3 $$2, Vec3 $$3, AABB $$4, Predicate<net.minecraft.world.entity.Entity> $$5) {
       return getEntityHitResult($$0, $$1, $$2, $$3, $$4, $$5, computeMargin($$1));
    }
@@ -143,7 +142,7 @@ public final class ProjectileUtil {
       return Math.max(0.0F, Math.min(0.3F, ($$0.tickCount - 2) / 20.0F));
    }
 
-   @Nullable
+   
    public static EntityHitResult getEntityHitResult(
       Level $$0, net.minecraft.world.entity.Entity $$1, Vec3 $$2, Vec3 $$3, AABB $$4, Predicate<net.minecraft.world.entity.Entity> $$5, float $$6
    ) {
@@ -248,7 +247,7 @@ public final class ProjectileUtil {
       return $$0.getMainHandItem().is($$1) ? InteractionHand.MAIN_HAND : InteractionHand.OFF_HAND;
    }
 
-   public static AbstractArrow getMobArrow(net.minecraft.world.entity.LivingEntity $$0, ItemStack $$1, float $$2, @Nullable ItemStack $$3) {
+   public static AbstractArrow getMobArrow(net.minecraft.world.entity.LivingEntity $$0, ItemStack $$1, float $$2, ItemStack $$3) {
       ArrowItem $$4 = (ArrowItem)($$1.getItem() instanceof ArrowItem ? $$1.getItem() : Items.ARROW);
       AbstractArrow $$5 = $$4.createArrow($$0.level(), $$1, $$0, $$3);
       $$5.setBaseDamageFromMob($$2);

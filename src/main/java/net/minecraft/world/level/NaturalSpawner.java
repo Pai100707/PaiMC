@@ -50,7 +50,6 @@ import net.minecraft.world.level.levelgen.structure.structures.NetherFortressStr
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.storage.LevelData;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public final class NaturalSpawner {
@@ -255,7 +254,7 @@ public final class NaturalSpawner {
       }
    }
 
-   @Nullable
+   
    private static Mob getMobForSpawn(ServerLevel $$0, EntityType<?> $$1) {
       try {
          if ($$1.create($$0, EntitySpawnReason.NATURAL) instanceof Mob $$2) {
@@ -292,7 +291,7 @@ public final class NaturalSpawner {
    }
 
    private static WeightedList<MobSpawnSettings.SpawnerData> mobsAt(
-      ServerLevel $$0, net.minecraft.world.level.StructureManager $$1, ChunkGenerator $$2, MobCategory $$3, BlockPos $$4, @Nullable Holder<Biome> $$5
+      ServerLevel $$0, net.minecraft.world.level.StructureManager $$1, ChunkGenerator $$2, MobCategory $$3, BlockPos $$4, Holder<Biome> $$5
    ) {
       return isInNetherFortressBounds($$4, $$0, $$3, $$1)
          ? NetherFortressStructure.FORTRESS_ENEMIES
@@ -437,9 +436,9 @@ public final class NaturalSpawner {
       private final net.minecraft.world.level.PotentialCalculator spawnPotential;
       private final Object2IntMap<MobCategory> unmodifiableMobCategoryCounts;
       private final net.minecraft.world.level.LocalMobCapCalculator localMobCapCalculator;
-      @Nullable
+      
       private BlockPos lastCheckedPos;
-      @Nullable
+      
       private EntityType<?> lastCheckedType;
       private double lastCharge;
 

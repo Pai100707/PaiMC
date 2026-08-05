@@ -8,7 +8,6 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class FallAfterExplosionTrigger extends SimpleCriterionTrigger<FallAfterExplosionTrigger.TriggerInstance> {
    @Override
@@ -16,7 +15,7 @@ public class FallAfterExplosionTrigger extends SimpleCriterionTrigger<FallAfterE
       return FallAfterExplosionTrigger.TriggerInstance.CODEC;
    }
 
-   public void trigger(ServerPlayer $$0, Vec3 $$1, @Nullable Entity $$2) {
+   public void trigger(ServerPlayer $$0, Vec3 $$1, Entity $$2) {
       Vec3 $$3 = $$0.position();
       LootContext $$4 = $$2 != null ? EntityPredicate.createContext($$0, $$2) : null;
       this.trigger($$0, $$4x -> $$4x.matches($$0.level(), $$1, $$3, $$4));
@@ -53,7 +52,7 @@ public class FallAfterExplosionTrigger extends SimpleCriterionTrigger<FallAfterE
          $$0.validateEntity(this.cause(), "cause");
       }
 
-      public boolean matches(ServerLevel $$0, Vec3 $$1, Vec3 $$2, @Nullable LootContext $$3) {
+      public boolean matches(ServerLevel $$0, Vec3 $$1, Vec3 $$2, LootContext $$3) {
          if (this.startPosition.isPresent() && !this.startPosition.get().matches($$0, $$1.x, $$1.y, $$1.z)) {
             return false;
          } else {

@@ -11,7 +11,6 @@ import net.minecraft.resources.RegistryFixedCodec;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public record GameEvent(int notificationRadius) {
    public static final Reference<GameEvent> BLOCK_ACTIVATE = register("block_activate");
@@ -89,16 +88,16 @@ public record GameEvent(int notificationRadius) {
       return Registry.registerForHolder(BuiltInRegistries.GAME_EVENT, Identifier.withDefaultNamespace($$0), new GameEvent($$1));
    }
 
-   public record Context(@Nullable Entity sourceEntity, @Nullable BlockState affectedState) {
-      public static GameEvent.Context of(@Nullable Entity $$0) {
+   public record Context(Entity sourceEntity, BlockState affectedState) {
+      public static GameEvent.Context of(Entity $$0) {
          return new GameEvent.Context($$0, null);
       }
 
-      public static GameEvent.Context of(@Nullable BlockState $$0) {
+      public static GameEvent.Context of(BlockState $$0) {
          return new GameEvent.Context(null, $$0);
       }
 
-      public static GameEvent.Context of(@Nullable Entity $$0, @Nullable BlockState $$1) {
+      public static GameEvent.Context of(Entity $$0, BlockState $$1) {
          return new GameEvent.Context($$0, $$1);
       }
    }

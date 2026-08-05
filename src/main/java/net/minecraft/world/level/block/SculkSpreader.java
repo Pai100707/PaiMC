@@ -34,7 +34,6 @@ import net.minecraft.util.Util;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 
 public class SculkSpreader {
    public static final int MAX_GROWTH_RATE_RADIUS = 24;
@@ -195,7 +194,7 @@ public class SculkSpreader {
       int charge;
       private int updateDelay;
       private int decayDelay;
-      @Nullable
+      
       private Set<Direction> facings;
       private static final Codec<Set<Direction>> DIRECTION_SET = Direction.CODEC
          .listOf()
@@ -239,7 +238,7 @@ public class SculkSpreader {
          return this.decayDelay;
       }
 
-      @Nullable
+      
       public Set<Direction> getFacingData() {
          return this.facings;
       }
@@ -311,7 +310,7 @@ public class SculkSpreader {
          return Util.shuffledCopy(NON_CORNER_NEIGHBOURS, $$0);
       }
 
-      @Nullable
+      
       private static BlockPos getValidMovementPos(net.minecraft.world.level.LevelAccessor $$0, BlockPos $$1, RandomSource $$2) {
          MutableBlockPos $$3 = $$1.mutable();
          MutableBlockPos $$4 = $$1.mutable();

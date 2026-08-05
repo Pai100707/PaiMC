@@ -11,7 +11,6 @@ import net.minecraft.util.Util;
 import net.minecraft.util.datafix.DataFixTypes;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.world.level.saveddata.SavedDataType;
-import org.jspecify.annotations.Nullable;
 
 public class Stopwatches extends SavedData {
    private static final Codec<Stopwatches> CODEC = Codec.unboundedMap(Identifier.CODEC, Codec.LONG)
@@ -38,7 +37,7 @@ public class Stopwatches extends SavedData {
       return $$1;
    }
 
-   @Nullable
+   
    public Stopwatch get(Identifier $$0) {
       return this.stopwatches.get($$0);
    }

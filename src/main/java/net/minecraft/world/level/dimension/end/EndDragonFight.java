@@ -57,7 +57,6 @@ import net.minecraft.world.level.levelgen.feature.EndPodiumFeature;
 import net.minecraft.world.level.levelgen.feature.SpikeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.phys.AABB;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class EndDragonFight {
@@ -87,15 +86,15 @@ public class EndDragonFight {
    private boolean dragonKilled;
    private boolean previouslyKilled;
    private boolean skipArenaLoadedCheck = false;
-   @Nullable
+   
    private UUID dragonUUID;
    private boolean needsStateScanning = true;
-   @Nullable
+   
    private BlockPos portalLocation;
-   @Nullable
+   
    private DragonRespawnAnimation respawnStage;
    private int respawnTime;
-   @Nullable
+   
    private List<EndCrystal> respawnCrystals;
 
    public EndDragonFight(ServerLevel $$0, long $$1, EndDragonFight.Data $$2) {
@@ -269,7 +268,7 @@ public class EndDragonFight {
       return false;
    }
 
-   @Nullable
+   
    private BlockPattern.BlockPatternMatch findExitPortal() {
       net.minecraft.world.level.ChunkPos $$0 = new net.minecraft.world.level.ChunkPos(this.origin);
 
@@ -421,7 +420,7 @@ public class EndDragonFight {
       }
    }
 
-   @Nullable
+   
    private EnderDragon createNewDragon() {
       this.level.getChunkAt(new BlockPos(this.origin.getX(), 128 + this.origin.getY(), this.origin.getZ()));
       EnderDragon $$0 = (EnderDragon)EntityType.ENDER_DRAGON.create(this.level, EntitySpawnReason.EVENT);
@@ -534,7 +533,7 @@ public class EndDragonFight {
       }
    }
 
-   @Nullable
+   
    public UUID getDragonUUID() {
       return this.dragonUUID;
    }

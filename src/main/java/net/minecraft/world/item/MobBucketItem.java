@@ -15,7 +15,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.material.Fluid;
-import org.jspecify.annotations.Nullable;
 
 public class MobBucketItem extends net.minecraft.world.item.BucketItem {
    private final EntityType<? extends Mob> type;
@@ -28,7 +27,7 @@ public class MobBucketItem extends net.minecraft.world.item.BucketItem {
    }
 
    @Override
-   public void checkExtraContent(@Nullable LivingEntity $$0, Level $$1, net.minecraft.world.item.ItemStack $$2, BlockPos $$3) {
+   public void checkExtraContent(LivingEntity $$0, Level $$1, net.minecraft.world.item.ItemStack $$2, BlockPos $$3) {
       if ($$1 instanceof ServerLevel) {
          this.spawn((ServerLevel)$$1, $$2, $$3);
          $$1.gameEvent($$0, GameEvent.ENTITY_PLACE, $$3);
@@ -36,7 +35,7 @@ public class MobBucketItem extends net.minecraft.world.item.BucketItem {
    }
 
    @Override
-   protected void playEmptySound(@Nullable LivingEntity $$0, LevelAccessor $$1, BlockPos $$2) {
+   protected void playEmptySound(LivingEntity $$0, LevelAccessor $$1, BlockPos $$2) {
       $$1.playSound($$0, $$2, this.emptySound, SoundSource.NEUTRAL, 1.0F, 1.0F);
    }
 

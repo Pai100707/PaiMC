@@ -163,7 +163,6 @@ import net.minecraft.world.scores.ScoreHolder;
 import net.minecraft.world.scores.Team;
 import net.minecraft.world.waypoints.WaypointTransmitter;
 import org.jetbrains.annotations.Contract;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public abstract class Entity
@@ -218,7 +217,7 @@ public abstract class Entity
    public boolean blocksBuilding;
    private ImmutableList<net.minecraft.world.entity.Entity> passengers = ImmutableList.of();
    protected int boardingCooldown;
-   @Nullable
+   
    private net.minecraft.world.entity.Entity vehicle;
    private Level level;
    public double xo;
@@ -240,7 +239,7 @@ public abstract class Entity
    public boolean minorHorizontalCollision;
    public boolean hurtMarked;
    protected Vec3 stuckSpeedMultiplier = Vec3.ZERO;
-   @Nullable
+   
    private net.minecraft.world.entity.Entity.RemovalReason removalReason;
    public static final float DEFAULT_BB_WIDTH = 0.6F;
    public static final float DEFAULT_BB_HEIGHT = 1.8F;
@@ -296,7 +295,7 @@ public abstract class Entity
    private EntityInLevelCallback levelCallback = EntityInLevelCallback.NULL;
    private final VecDeltaCodec packetPositionCodec = new VecDeltaCodec();
    public boolean needsSync;
-   @Nullable
+   
    public net.minecraft.world.entity.PortalProcessor portalProcess;
    private int portalCooldown;
    private boolean invulnerable;
@@ -316,9 +315,9 @@ public abstract class Entity
    private int lastCrystalSoundPlayTick;
    private boolean hasVisualFire;
    private Vec3 lastKnownSpeed = Vec3.ZERO;
-   @Nullable
+   
    private Vec3 lastKnownPosition;
-   @Nullable
+   
    private BlockState inBlockState = null;
    public static final int MAX_MOVEMENTS_HANDELED_PER_TICK = 100;
    private final ArrayDeque<net.minecraft.world.entity.Entity.Movement> movementThisTick = new ArrayDeque<>(100);
@@ -698,7 +697,7 @@ public abstract class Entity
       return this.mainSupportingBlockPos.isPresent() && this.mainSupportingBlockPos.get().equals($$0);
    }
 
-   protected void checkSupportingBlock(boolean $$0, @Nullable Vec3 $$1) {
+   protected void checkSupportingBlock(boolean $$0, Vec3 $$1) {
       if ($$0) {
          AABB $$2 = this.getBoundingBox();
          AABB $$3 = new AABB($$2.minX, $$2.minY - 1.0E-6, $$2.minZ, $$2.maxX, $$2.minY, $$2.maxZ);
@@ -1139,17 +1138,17 @@ public abstract class Entity
       return $$9;
    }
 
-   public static Vec3 collideBoundingBox(@Nullable net.minecraft.world.entity.Entity $$0, Vec3 $$1, AABB $$2, Level $$3, List<VoxelShape> $$4) {
+   public static Vec3 collideBoundingBox(net.minecraft.world.entity.Entity $$0, Vec3 $$1, AABB $$2, Level $$3, List<VoxelShape> $$4) {
       List<VoxelShape> $$5 = collectColliders($$0, $$3, $$4, $$2.expandTowards($$1));
       return collideWithShapes($$1, $$2, $$5);
    }
 
-   public static List<VoxelShape> collectAllColliders(@Nullable net.minecraft.world.entity.Entity $$0, Level $$1, AABB $$2) {
+   public static List<VoxelShape> collectAllColliders(net.minecraft.world.entity.Entity $$0, Level $$1, AABB $$2) {
       List<VoxelShape> $$3 = $$1.getEntityCollisions($$0, $$2);
       return collectColliders($$0, $$1, $$3, $$2);
    }
 
-   private static List<VoxelShape> collectColliders(@Nullable net.minecraft.world.entity.Entity $$0, Level $$1, List<VoxelShape> $$2, AABB $$3) {
+   private static List<VoxelShape> collectColliders(net.minecraft.world.entity.Entity $$0, Level $$1, List<VoxelShape> $$2, AABB $$3) {
       Builder<VoxelShape> $$4 = ImmutableList.builderWithExpectedSize($$2.size() + 1);
       if (!$$2.isEmpty()) {
          $$4.addAll($$2);
@@ -1330,7 +1329,7 @@ public abstract class Entity
       return BlockPos.containing($$3.x, $$4, $$3.z);
    }
 
-   public void gameEvent(Holder<GameEvent> $$0, @Nullable net.minecraft.world.entity.Entity $$1) {
+   public void gameEvent(Holder<GameEvent> $$0, net.minecraft.world.entity.Entity $$1) {
       this.level().gameEvent($$1, $$0, this.position);
    }
 
@@ -2115,7 +2114,7 @@ public abstract class Entity
       return true;
    }
 
-   @Nullable
+   
    protected final String getEncodeId() {
       net.minecraft.world.entity.EntityType<?> $$0 = this.getType();
       Identifier $$1 = net.minecraft.world.entity.EntityType.getKey($$0);
@@ -2126,17 +2125,17 @@ public abstract class Entity
 
    protected abstract void addAdditionalSaveData(ValueOutput var1);
 
-   @Nullable
+   
    public ItemEntity spawnAtLocation(ServerLevel $$0, ItemLike $$1) {
       return this.spawnAtLocation($$0, new ItemStack($$1), 0.0F);
    }
 
-   @Nullable
+   
    public ItemEntity spawnAtLocation(ServerLevel $$0, ItemStack $$1) {
       return this.spawnAtLocation($$0, $$1, 0.0F);
    }
 
-   @Nullable
+   
    public ItemEntity spawnAtLocation(ServerLevel $$0, ItemStack $$1, Vec3 $$2) {
       if ($$1.isEmpty()) {
          return null;
@@ -2148,7 +2147,7 @@ public abstract class Entity
       }
    }
 
-   @Nullable
+   
    public ItemEntity spawnAtLocation(ServerLevel $$0, ItemStack $$1, float $$2) {
       return this.spawnAtLocation($$0, $$1, new Vec3(0.0, $$2, 0.0));
    }
@@ -2251,7 +2250,7 @@ public abstract class Entity
       }
    }
 
-   public boolean shearOffAllLeashConnections(@Nullable Player $$0) {
+   public boolean shearOffAllLeashConnections(Player $$0) {
       boolean $$1 = this.dropAllLeashConnections($$0);
       if ($$1 && this.level() instanceof ServerLevel $$2) {
          $$2.playSound(null, this.blockPosition(), SoundEvents.SHEARS_SNIP, $$0 != null ? $$0.getSoundSource() : this.getSoundSource());
@@ -2260,7 +2259,7 @@ public abstract class Entity
       return $$1;
    }
 
-   public boolean dropAllLeashConnections(@Nullable Player $$0) {
+   public boolean dropAllLeashConnections(Player $$0) {
       List<net.minecraft.world.entity.Leashable> $$1 = net.minecraft.world.entity.Leashable.leashableLeashedTo(this);
       boolean $$2 = !$$1.isEmpty();
       if (this instanceof net.minecraft.world.entity.Leashable $$3 && $$3.isLeashed()) {
@@ -2306,7 +2305,7 @@ public abstract class Entity
       return $$0.canBeCollidedWith(this) && !this.isPassengerOfSameVehicle($$0);
    }
 
-   public boolean canBeCollidedWith(@Nullable net.minecraft.world.entity.Entity $$0) {
+   public boolean canBeCollidedWith(net.minecraft.world.entity.Entity $$0) {
       return false;
    }
 
@@ -2490,7 +2489,7 @@ public abstract class Entity
       }
    }
 
-   @Nullable
+   
    public net.minecraft.world.entity.InterpolationHandler getInterpolation() {
       return null;
    }
@@ -2694,12 +2693,12 @@ public abstract class Entity
    public void updateDynamicGameEventListener(BiConsumer<DynamicGameEventListener<?>, ServerLevel> $$0) {
    }
 
-   @Nullable
+   
    public PlayerTeam getTeam() {
       return this.level().getScoreboard().getPlayersTeam(this.getScoreboardName());
    }
 
-   public final boolean isAlliedTo(@Nullable net.minecraft.world.entity.Entity $$0) {
+   public final boolean isAlliedTo(net.minecraft.world.entity.Entity $$0) {
       return $$0 == null ? false : this == $$0 || this.considersEntityAsAlly($$0) || $$0.considersEntityAsAlly(this);
    }
 
@@ -2707,7 +2706,7 @@ public abstract class Entity
       return this.isAlliedTo($$0.getTeam());
    }
 
-   public boolean isAlliedTo(@Nullable Team $$0) {
+   public boolean isAlliedTo(Team $$0) {
       return this.getTeam() != null ? this.getTeam().isAlliedTo($$0) : false;
    }
 
@@ -2982,7 +2981,7 @@ public abstract class Entity
       this.portalProcess = $$0.portalProcess;
    }
 
-   @Nullable
+   
    public net.minecraft.world.entity.Entity teleport(TeleportTransition $$0) {
       if (this.level() instanceof ServerLevel $$1 && !this.isRemoved()) {
          ServerLevel $$3 = $$0.newLevel();
@@ -3014,7 +3013,7 @@ public abstract class Entity
       return this;
    }
 
-   @Nullable
+   
    private net.minecraft.world.entity.Entity teleportCrossDimension(ServerLevel $$0, ServerLevel $$1, TeleportTransition $$2) {
       List<net.minecraft.world.entity.Entity> $$3 = this.getPassengers();
       List<net.minecraft.world.entity.Entity> $$4 = new ArrayList<>($$3.size());
@@ -3231,11 +3230,11 @@ public abstract class Entity
          .withStyle($$0 -> $$0.withHoverEvent(this.createHoverEvent()).withInsertion(this.getStringUUID()));
    }
 
-   public void setCustomName(@Nullable Component $$0) {
+   public void setCustomName(Component $$0) {
       this.entityData.set(DATA_CUSTOM_NAME, Optional.ofNullable($$0));
    }
 
-   @Nullable
+   
    public Component getCustomName() {
       return (Component)((Optional)this.entityData.get(DATA_CUSTOM_NAME)).orElse(null);
    }
@@ -3382,7 +3381,7 @@ public abstract class Entity
       return this.eyeHeight;
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SlotAccess getSlot(int $$0) {
       return null;
@@ -3427,7 +3426,7 @@ public abstract class Entity
       return this.getType().is(EntityTypeTags.DEFLECTS_PROJECTILES) ? ProjectileDeflection.REVERSE : ProjectileDeflection.NONE;
    }
 
-   @Nullable
+   
    public net.minecraft.world.entity.LivingEntity getControllingPassenger() {
       return null;
    }
@@ -3440,7 +3439,7 @@ public abstract class Entity
       return this.passengers;
    }
 
-   @Nullable
+   
    public net.minecraft.world.entity.Entity getFirstPassenger() {
       return this.passengers.isEmpty() ? null : (net.minecraft.world.entity.Entity)this.passengers.get(0);
    }
@@ -3543,12 +3542,12 @@ public abstract class Entity
       return new Vec3(this.getX(), this.getBoundingBox().maxY, this.getZ());
    }
 
-   @Nullable
+   
    public net.minecraft.world.entity.Entity getVehicle() {
       return this.vehicle;
    }
 
-   @Nullable
+   
    public net.minecraft.world.entity.Entity getControlledVehicle() {
       return this.vehicle != null && this.vehicle.getControllingPassenger() == this ? this.vehicle : null;
    }
@@ -3857,7 +3856,7 @@ public abstract class Entity
       this.setDeltaMovement($$0.getMovement());
    }
 
-   @Nullable
+   
    public ItemStack getPickResult() {
       return null;
    }
@@ -3911,14 +3910,14 @@ public abstract class Entity
       return 0.0F;
    }
 
-   public void onExplosionHit(@Nullable net.minecraft.world.entity.Entity $$0) {
+   public void onExplosionHit(net.minecraft.world.entity.Entity $$0) {
    }
 
    public final boolean isRemoved() {
       return this.removalReason != null;
    }
 
-   @Nullable
+   
    public net.minecraft.world.entity.Entity.RemovalReason getRemovalReason() {
       return this.removalReason;
    }
@@ -4005,7 +4004,7 @@ public abstract class Entity
       return this.getControllingPassenger() instanceof Player $$0 && this.isAlive() ? $$0.getKnownSpeed() : this.lastKnownSpeed;
    }
 
-   @Nullable
+   
    public ItemStack getWeaponItem() {
       return null;
    }
@@ -4023,7 +4022,7 @@ public abstract class Entity
       this.applyImplicitComponents($$0.getComponents());
    }
 
-   @Nullable
+   
    public <T> T get(DataComponentType<? extends T> $$0) {
       if ($$0 == DataComponents.CUSTOM_NAME) {
          return castComponentValue((DataComponentType<T>)$$0, this.getCustomName());
@@ -4033,8 +4032,8 @@ public abstract class Entity
    }
 
    @Contract("_,!null->!null;_,_->_")
-   @Nullable
-   protected static <T> T castComponentValue(DataComponentType<T> $$0, @Nullable Object $$1) {
+   
+   protected static <T> T castComponentValue(DataComponentType<T> $$0, Object $$1) {
       return (T)$$1;
    }
 

@@ -8,7 +8,6 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
-import org.jspecify.annotations.Nullable;
 
 public class StandingAndWallBlockItem extends net.minecraft.world.item.BlockItem {
    protected final Block wallBlock;
@@ -24,7 +23,7 @@ public class StandingAndWallBlockItem extends net.minecraft.world.item.BlockItem
       return $$1.canSurvive($$0, $$2);
    }
 
-   @Nullable
+   
    @Override
    protected BlockState getPlacementState(BlockPlaceContext $$0) {
       BlockState $$1 = this.wallBlock.getStateForPlacement($$0);

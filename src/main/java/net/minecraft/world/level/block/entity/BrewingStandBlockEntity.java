@@ -21,7 +21,6 @@ import net.minecraft.world.level.block.BrewingStandBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 
 public class BrewingStandBlockEntity extends BaseContainerBlockEntity implements WorldlyContainer {
    private static final int INGREDIENT_SLOT = 3;
@@ -225,7 +224,7 @@ public class BrewingStandBlockEntity extends BaseContainerBlockEntity implements
       }
    }
 
-   public boolean canPlaceItemThroughFace(int $$0, ItemStack $$1, @Nullable Direction $$2) {
+   public boolean canPlaceItemThroughFace(int $$0, ItemStack $$1, Direction $$2) {
       return this.canPlaceItem($$0, $$1);
    }
 

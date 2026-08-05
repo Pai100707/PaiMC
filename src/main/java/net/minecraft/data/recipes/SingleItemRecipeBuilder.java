@@ -16,7 +16,6 @@ import net.minecraft.world.item.crafting.SingleItemRecipe;
 import net.minecraft.world.item.crafting.StonecutterRecipe;
 import net.minecraft.world.item.crafting.SingleItemRecipe.Factory;
 import net.minecraft.world.level.ItemLike;
-import org.jspecify.annotations.Nullable;
 
 public class SingleItemRecipeBuilder implements RecipeBuilder {
    private final RecipeCategory category;
@@ -24,7 +23,7 @@ public class SingleItemRecipeBuilder implements RecipeBuilder {
    private final Ingredient ingredient;
    private final int count;
    private final Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
-   @Nullable
+   
    private String group;
    private final Factory<?> factory;
 
@@ -49,7 +48,7 @@ public class SingleItemRecipeBuilder implements RecipeBuilder {
       return this;
    }
 
-   public SingleItemRecipeBuilder group(@Nullable String $$0) {
+   public SingleItemRecipeBuilder group(String $$0) {
       this.group = $$0;
       return this;
    }

@@ -12,7 +12,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.level.Level;
-import org.jspecify.annotations.Nullable;
 
 public class BowItem extends net.minecraft.world.item.ProjectileWeaponItem {
    public static final int MAX_DRAW_DURATION = 20;
@@ -59,7 +58,7 @@ public class BowItem extends net.minecraft.world.item.ProjectileWeaponItem {
    }
 
    @Override
-   protected void shootProjectile(LivingEntity $$0, Projectile $$1, int $$2, float $$3, float $$4, float $$5, @Nullable LivingEntity $$6) {
+   protected void shootProjectile(LivingEntity $$0, Projectile $$1, int $$2, float $$3, float $$4, float $$5, LivingEntity $$6) {
       $$1.shootFromRotation($$0, $$0.getXRot(), $$0.getYRot() + $$5, 0.0F, $$3, $$4);
    }
 

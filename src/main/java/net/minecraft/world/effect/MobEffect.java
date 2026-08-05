@@ -36,7 +36,6 @@ import net.minecraft.world.flag.FeatureElement;
 import net.minecraft.world.flag.FeatureFlag;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
-import org.jspecify.annotations.Nullable;
 
 public class MobEffect implements FeatureElement {
    public static final Codec<Holder<net.minecraft.world.effect.MobEffect>> CODEC = BuiltInRegistries.MOB_EFFECT.holderByNameCodec();
@@ -48,7 +47,7 @@ public class MobEffect implements FeatureElement {
    private final net.minecraft.world.effect.MobEffectCategory category;
    private final int color;
    private final Function<net.minecraft.world.effect.MobEffectInstance, ParticleOptions> particleFactory;
-   @Nullable
+   
    private String descriptionId;
    private int blendInDurationTicks;
    private int blendOutDurationTicks;
@@ -87,7 +86,7 @@ public class MobEffect implements FeatureElement {
       return true;
    }
 
-   public void applyInstantenousEffect(ServerLevel $$0, @Nullable Entity $$1, @Nullable Entity $$2, LivingEntity $$3, int $$4, double $$5) {
+   public void applyInstantenousEffect(ServerLevel $$0, Entity $$1, Entity $$2, LivingEntity $$3, int $$4, double $$5) {
       this.applyEffectTick($$0, $$3, $$4);
    }
 

@@ -24,7 +24,6 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.component.TooltipProvider;
-import org.jspecify.annotations.Nullable;
 
 public class ItemEnchantments implements TooltipProvider {
    public static final ItemEnchantments EMPTY = new ItemEnchantments(new Object2IntOpenHashMap());
@@ -78,7 +77,7 @@ public class ItemEnchantments implements TooltipProvider {
       }
    }
 
-   private static <T> HolderSet<T> getTagOrEmpty(@Nullable Provider $$0, ResourceKey<Registry<T>> $$1, TagKey<T> $$2) {
+   private static <T> HolderSet<T> getTagOrEmpty(Provider $$0, ResourceKey<Registry<T>> $$1, TagKey<T> $$2) {
       if ($$0 != null) {
          Optional<Named<T>> $$3 = $$0.lookupOrThrow($$1).get($$2);
          if ($$3.isPresent()) {

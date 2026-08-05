@@ -5,7 +5,6 @@ import java.nio.file.FileStore;
 import java.nio.file.attribute.BasicFileAttributeView;
 import java.nio.file.attribute.FileAttributeView;
 import java.nio.file.attribute.FileStoreAttributeView;
-import org.jspecify.annotations.Nullable;
 
 class LinkFSFileStore extends FileStore {
    private final String name;
@@ -54,7 +53,7 @@ class LinkFSFileStore extends FileStore {
       return "basic".equals($$0);
    }
 
-   @Nullable
+   
    @Override
    public <V extends FileStoreAttributeView> V getFileStoreAttributeView(Class<V> $$0) {
       return null;

@@ -25,7 +25,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.RandomSequences;
-import org.jspecify.annotations.Nullable;
 
 public class RandomCommand {
    private static final SimpleCommandExceptionType ERROR_RANGE_TOO_LARGE = new SimpleCommandExceptionType(
@@ -143,7 +142,7 @@ public class RandomCommand {
       return SharedSuggestionProvider.suggest($$2, $$1);
    }
 
-   private static int randomSample(CommandSourceStack $$0, net.minecraft.advancements.criterion.MinMaxBounds.Ints $$1, @Nullable Identifier $$2, boolean $$3) throws CommandSyntaxException {
+   private static int randomSample(CommandSourceStack $$0, net.minecraft.advancements.criterion.MinMaxBounds.Ints $$1, Identifier $$2, boolean $$3) throws CommandSyntaxException {
       RandomSource $$4;
       if ($$2 != null) {
          $$4 = $$0.getLevel().getRandomSequence($$2);

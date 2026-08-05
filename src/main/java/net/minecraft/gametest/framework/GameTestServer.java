@@ -72,7 +72,6 @@ import net.minecraft.world.level.levelgen.presets.WorldPresets;
 import net.minecraft.world.level.storage.PrimaryLevelData;
 import net.minecraft.world.level.storage.LevelData.RespawnData;
 import net.minecraft.world.level.storage.LevelStorageSource.LevelStorageAccess;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class GameTestServer extends MinecraftServer {
@@ -91,7 +90,7 @@ public class GameTestServer extends MinecraftServer {
    private List<GameTestBatch> testBatches = new ArrayList<>();
    private final Stopwatch stopwatch = Stopwatch.createUnstarted();
    private static final WorldOptions WORLD_OPTIONS = new WorldOptions(0L, false, false);
-   @Nullable
+   
    private MultipleTestTracker testTracker;
 
    public static GameTestServer create(Thread $$0, LevelStorageAccess $$1, PackRepository $$2, Optional<String> $$3, boolean $$4) {

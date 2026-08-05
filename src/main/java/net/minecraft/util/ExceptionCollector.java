@@ -1,9 +1,8 @@
 package net.minecraft.util;
 
-import org.jspecify.annotations.Nullable;
 
 public class ExceptionCollector<T extends Throwable> {
-   @Nullable
+   
    private T result;
 
    public void add(T $$0) {

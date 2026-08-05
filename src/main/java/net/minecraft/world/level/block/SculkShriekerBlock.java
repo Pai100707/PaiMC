@@ -25,7 +25,6 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class SculkShriekerBlock extends BaseEntityBlock implements SimpleWaterloggedBlock {
    public static final MapCodec<SculkShriekerBlock> CODEC = simpleCodec(SculkShriekerBlock::new);
@@ -87,7 +86,7 @@ public class SculkShriekerBlock extends BaseEntityBlock implements SimpleWaterlo
       return true;
    }
 
-   @Nullable
+   
    @Override
    public BlockEntity newBlockEntity(BlockPos $$0, BlockState $$1) {
       return new SculkShriekerBlockEntity($$0, $$1);
@@ -111,7 +110,7 @@ public class SculkShriekerBlock extends BaseEntityBlock implements SimpleWaterlo
       return super.updateShape($$0, $$1, $$2, $$3, $$4, $$5, $$6, $$7);
    }
 
-   @Nullable
+   
    @Override
    public BlockState getStateForPlacement(BlockPlaceContext $$0) {
       return this.defaultBlockState().setValue(WATERLOGGED, $$0.getLevel().getFluidState($$0.getClickedPos()).getType() == Fluids.WATER);
@@ -130,7 +129,7 @@ public class SculkShriekerBlock extends BaseEntityBlock implements SimpleWaterlo
       }
    }
 
-   @Nullable
+   
    @Override
    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(net.minecraft.world.level.Level $$0, BlockState $$1, BlockEntityType<T> $$2) {
       return !$$0.isClientSide()

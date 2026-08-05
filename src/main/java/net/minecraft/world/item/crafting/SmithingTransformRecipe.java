@@ -10,14 +10,13 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.crafting.display.RecipeDisplay;
 import net.minecraft.world.item.crafting.display.SlotDisplay;
 import net.minecraft.world.item.crafting.display.SmithingRecipeDisplay;
-import org.jspecify.annotations.Nullable;
 
 public class SmithingTransformRecipe implements SmithingRecipe {
    final Optional<Ingredient> template;
    final Ingredient base;
    final Optional<Ingredient> addition;
    final TransmuteResult result;
-   @Nullable
+   
    private PlacementInfo placementInfo;
 
    public SmithingTransformRecipe(Optional<Ingredient> $$0, Ingredient $$1, Optional<Ingredient> $$2, TransmuteResult $$3) {

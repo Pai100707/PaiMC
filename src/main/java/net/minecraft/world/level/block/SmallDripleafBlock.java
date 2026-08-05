@@ -20,7 +20,6 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class SmallDripleafBlock extends DoublePlantBlock implements BonemealableBlock, SimpleWaterloggedBlock {
    public static final MapCodec<SmallDripleafBlock> CODEC = simpleCodec(SmallDripleafBlock::new);
@@ -48,7 +47,7 @@ public class SmallDripleafBlock extends DoublePlantBlock implements Bonemealable
       return $$0.is(BlockTags.SMALL_DRIPLEAF_PLACEABLE) || $$1.getFluidState($$2.above()).isSourceOfType(Fluids.WATER) && super.mayPlaceOn($$0, $$1, $$2);
    }
 
-   @Nullable
+   
    @Override
    public BlockState getStateForPlacement(BlockPlaceContext $$0) {
       BlockState $$1 = super.getStateForPlacement($$0);
@@ -56,7 +55,7 @@ public class SmallDripleafBlock extends DoublePlantBlock implements Bonemealable
    }
 
    @Override
-   public void setPlacedBy(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, @Nullable LivingEntity $$3, ItemStack $$4) {
+   public void setPlacedBy(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, LivingEntity $$3, ItemStack $$4) {
       if (!$$0.isClientSide()) {
          BlockPos $$5 = $$1.above();
          BlockState $$6 = DoublePlantBlock.copyWaterloggedFrom(

@@ -21,7 +21,6 @@ import net.minecraft.world.level.storage.LevelData;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.ticks.ScheduledTick;
 import net.minecraft.world.ticks.TickPriority;
-import org.jspecify.annotations.Nullable;
 
 public interface LevelAccessor
    extends net.minecraft.world.level.CommonLevelAccessor,
@@ -45,7 +44,7 @@ public interface LevelAccessor
       return this.getLevelData().getGameTime();
    }
 
-   @Nullable
+   
    MinecraftServer getServer();
 
    default Difficulty getDifficulty() {
@@ -68,15 +67,15 @@ public interface LevelAccessor
       NeighborUpdater.executeShapeUpdate(this, $$0, $$1, $$2, $$3, $$4, $$5 - 1);
    }
 
-   default void playSound(@Nullable Entity $$0, BlockPos $$1, SoundEvent $$2, SoundSource $$3) {
+   default void playSound(Entity $$0, BlockPos $$1, SoundEvent $$2, SoundSource $$3) {
       this.playSound($$0, $$1, $$2, $$3, 1.0F, 1.0F);
    }
 
-   void playSound(@Nullable Entity var1, BlockPos var2, SoundEvent var3, SoundSource var4, float var5, float var6);
+   void playSound(Entity var1, BlockPos var2, SoundEvent var3, SoundSource var4, float var5, float var6);
 
    void addParticle(ParticleOptions var1, double var2, double var4, double var6, double var8, double var10, double var12);
 
-   void levelEvent(@Nullable Entity var1, int var2, BlockPos var3, int var4);
+   void levelEvent(Entity var1, int var2, BlockPos var3, int var4);
 
    default void levelEvent(int $$0, BlockPos $$1, int $$2) {
       this.levelEvent(null, $$0, $$1, $$2);
@@ -84,11 +83,11 @@ public interface LevelAccessor
 
    void gameEvent(Holder<GameEvent> var1, Vec3 var2, GameEvent.Context var3);
 
-   default void gameEvent(@Nullable Entity $$0, Holder<GameEvent> $$1, Vec3 $$2) {
+   default void gameEvent(Entity $$0, Holder<GameEvent> $$1, Vec3 $$2) {
       this.gameEvent($$1, $$2, new GameEvent.Context($$0, null));
    }
 
-   default void gameEvent(@Nullable Entity $$0, Holder<GameEvent> $$1, BlockPos $$2) {
+   default void gameEvent(Entity $$0, Holder<GameEvent> $$1, BlockPos $$2) {
       this.gameEvent($$1, $$2, new GameEvent.Context($$0, null));
    }
 

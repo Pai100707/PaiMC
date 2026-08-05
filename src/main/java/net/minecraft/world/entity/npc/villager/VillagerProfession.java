@@ -17,7 +17,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import org.jspecify.annotations.Nullable;
 
 public record VillagerProfession(
    Component name,
@@ -25,7 +24,7 @@ public record VillagerProfession(
    Predicate<Holder<PoiType>> acquirableJobSite,
    ImmutableSet<Item> requestedItems,
    ImmutableSet<Block> secondaryPoi,
-   @Nullable SoundEvent workSound
+   SoundEvent workSound
 ) {
    public static final Predicate<Holder<PoiType>> ALL_ACQUIRABLE_JOBS = $$0 -> $$0.is(PoiTypeTags.ACQUIRABLE_JOB_SITE);
    public static final ResourceKey<VillagerProfession> NONE = createKey("none");
@@ -49,7 +48,7 @@ public record VillagerProfession(
    }
 
    private static VillagerProfession register(
-      Registry<VillagerProfession> $$0, ResourceKey<VillagerProfession> $$1, ResourceKey<PoiType> $$2, @Nullable SoundEvent $$3
+      Registry<VillagerProfession> $$0, ResourceKey<VillagerProfession> $$1, ResourceKey<PoiType> $$2, SoundEvent $$3
    ) {
       return register($$0, $$1, $$1x -> $$1x.is($$2), $$1x -> $$1x.is($$2), $$3);
    }
@@ -59,7 +58,7 @@ public record VillagerProfession(
       ResourceKey<VillagerProfession> $$1,
       Predicate<Holder<PoiType>> $$2,
       Predicate<Holder<PoiType>> $$3,
-      @Nullable SoundEvent $$4
+      SoundEvent $$4
    ) {
       return register($$0, $$1, $$2, $$3, ImmutableSet.of(), ImmutableSet.of(), $$4);
    }
@@ -70,7 +69,7 @@ public record VillagerProfession(
       ResourceKey<PoiType> $$2,
       ImmutableSet<Item> $$3,
       ImmutableSet<Block> $$4,
-      @Nullable SoundEvent $$5
+      SoundEvent $$5
    ) {
       return register($$0, $$1, $$1x -> $$1x.is($$2), $$1x -> $$1x.is($$2), $$3, $$4, $$5);
    }
@@ -82,7 +81,7 @@ public record VillagerProfession(
       Predicate<Holder<PoiType>> $$3,
       ImmutableSet<Item> $$4,
       ImmutableSet<Block> $$5,
-      @Nullable SoundEvent $$6
+      SoundEvent $$6
    ) {
       return (VillagerProfession)Registry.register(
          $$0,

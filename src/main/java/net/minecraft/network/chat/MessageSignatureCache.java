@@ -5,7 +5,6 @@ import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 import java.util.ArrayDeque;
 import java.util.List;
 import java.util.Set;
-import org.jspecify.annotations.Nullable;
 
 public class MessageSignatureCache {
    public static final int NOT_FOUND = -1;
@@ -30,12 +29,12 @@ public class MessageSignatureCache {
       return -1;
    }
 
-   @Nullable
+   
    public MessageSignature unpack(int $$0) {
       return this.entries[$$0];
    }
 
-   public void push(SignedMessageBody $$0, @Nullable MessageSignature $$1) {
+   public void push(SignedMessageBody $$0, MessageSignature $$1) {
       List<MessageSignature> $$2 = $$0.lastSeen().entries();
       ArrayDeque<MessageSignature> $$3 = new ArrayDeque<>($$2.size() + 1);
       $$3.addAll($$2);

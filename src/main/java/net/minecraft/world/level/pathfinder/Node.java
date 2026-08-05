@@ -4,7 +4,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.util.Mth;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class Node {
    public final int x;
@@ -15,7 +14,7 @@ public class Node {
    public float g;
    public float h;
    public float f;
-   @Nullable
+   
    public Node cameFrom;
    public boolean closed;
    public float walkedDistance;

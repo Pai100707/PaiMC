@@ -52,7 +52,6 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class ChestBlock extends AbstractChestBlock<ChestBlockEntity> implements SimpleWaterloggedBlock {
    public static final MapCodec<ChestBlock> CODEC = RecordCodecBuilder.mapCodec(
@@ -88,7 +87,7 @@ public class ChestBlock extends AbstractChestBlock<ChestBlockEntity> implements 
       public Optional<MenuProvider> acceptDouble(final ChestBlockEntity $$0, final ChestBlockEntity $$1) {
          final Container $$2 = new CompoundContainer($$0, $$1);
          return Optional.of(new MenuProvider() {
-            @Nullable
+            
             public AbstractContainerMenu createMenu(int $$0x, Inventory $$1x, Player $$2x) {
                if ($$0.canOpen($$2) && $$1.canOpen($$2)) {
                   $$0.unpackLootTable($$1.player);
@@ -230,7 +229,7 @@ public class ChestBlock extends AbstractChestBlock<ChestBlockEntity> implements 
       return $$0.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState($$0);
    }
 
-   @Nullable
+   
    private Direction candidatePartnerFacing(net.minecraft.world.level.Level $$0, BlockPos $$1, Direction $$2) {
       BlockState $$3 = $$0.getBlockState($$1.relative($$2));
       return this.chestCanConnectTo($$3) && $$3.getValue(TYPE) == ChestType.SINGLE ? $$3.getValue(FACING) : null;
@@ -263,7 +262,7 @@ public class ChestBlock extends AbstractChestBlock<ChestBlockEntity> implements 
       return this.blockEntityType.get();
    }
 
-   @Nullable
+   
    public static Container getContainer(ChestBlock $$0, BlockState $$1, net.minecraft.world.level.Level $$2, BlockPos $$3, boolean $$4) {
       return $$0.combine($$1, $$2, $$3, $$4).apply(CHEST_COMBINER).orElse(null);
    }
@@ -284,7 +283,7 @@ public class ChestBlock extends AbstractChestBlock<ChestBlockEntity> implements 
       );
    }
 
-   @Nullable
+   
    @Override
    protected MenuProvider getMenuProvider(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2) {
       return this.combine($$0, $$1, $$2, false).apply(MENU_PROVIDER_COMBINER).orElse(null);
@@ -311,7 +310,7 @@ public class ChestBlock extends AbstractChestBlock<ChestBlockEntity> implements 
       return new ChestBlockEntity($$0, $$1);
    }
 
-   @Nullable
+   
    @Override
    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(net.minecraft.world.level.Level $$0, BlockState $$1, BlockEntityType<T> $$2) {
       return $$0.isClientSide() ? createTickerHelper($$2, this.blockEntityType(), ChestBlockEntity::lidAnimateTick) : null;

@@ -32,13 +32,12 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public abstract class Animal extends net.minecraft.world.entity.AgeableMob {
    protected static final int PARENT_AGE_AFTER_BREEDING = 6000;
    private static final int DEFAULT_IN_LOVE_TIME = 0;
    private int inLove = 0;
-   @Nullable
+   
    private net.minecraft.world.entity.EntityReference<ServerPlayer> loveCause;
 
    protected Animal(net.minecraft.world.entity.EntityType<? extends Animal> $$0, Level $$1) {
@@ -169,7 +168,7 @@ public abstract class Animal extends net.minecraft.world.entity.AgeableMob {
       return this.inLove <= 0;
    }
 
-   public void setInLove(@Nullable Player $$0) {
+   public void setInLove(Player $$0) {
       this.inLove = 600;
       if ($$0 instanceof ServerPlayer $$1) {
          this.loveCause = net.minecraft.world.entity.EntityReference.of($$1);
@@ -186,7 +185,7 @@ public abstract class Animal extends net.minecraft.world.entity.AgeableMob {
       return this.inLove;
    }
 
-   @Nullable
+   
    public ServerPlayer getLoveCause() {
       return net.minecraft.world.entity.EntityReference.get(this.loveCause, this.level(), ServerPlayer.class);
    }
@@ -217,7 +216,7 @@ public abstract class Animal extends net.minecraft.world.entity.AgeableMob {
       }
    }
 
-   public void finalizeSpawnChildFromBreeding(ServerLevel $$0, Animal $$1, @Nullable net.minecraft.world.entity.AgeableMob $$2) {
+   public void finalizeSpawnChildFromBreeding(ServerLevel $$0, Animal $$1, net.minecraft.world.entity.AgeableMob $$2) {
       Optional.ofNullable(this.getLoveCause()).or(() -> Optional.ofNullable($$1.getLoveCause())).ifPresent($$2x -> {
          $$2x.awardStat(Stats.ANIMALS_BRED);
          CriteriaTriggers.BRED_ANIMALS.trigger($$2x, this, $$1, $$2);

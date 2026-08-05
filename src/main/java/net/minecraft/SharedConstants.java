@@ -6,7 +6,6 @@ import io.netty.util.ResourceLeakDetector.Level;
 import java.time.Duration;
 import net.minecraft.commands.BrigadierExceptions;
 import net.minecraft.world.level.ChunkPos;
-import org.jspecify.annotations.Nullable;
 
 @SuppressForbidden(
    reason = "System.out needed before bootstrap"
@@ -144,7 +143,7 @@ public class SharedConstants {
    public static final float AVERAGE_RANDOM_TICKS_PER_BLOCK_PER_MINUTE = 0.87890625F;
    public static final float AVERAGE_RANDOM_TICKS_PER_BLOCK_PER_GAME_DAY = 17.578125F;
    public static final int WORLD_ICON_SIZE = 64;
-   @Nullable
+   
    private static WorldVersion CURRENT_VERSION;
 
    private static String prefixDebugFlagName(String $$0) {

@@ -27,7 +27,6 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.PacketType;
 import net.minecraft.resources.Identifier;
-import org.jspecify.annotations.Nullable;
 
 public class ClientboundCommandsPacket implements Packet<ClientGamePacketListener> {
    public static final StreamCodec<net.minecraft.network.FriendlyByteBuf, ClientboundCommandsPacket> STREAM_CODEC = Packet.codec(
@@ -118,7 +117,7 @@ public class ClientboundCommandsPacket implements Packet<ClientGamePacketListene
       return new ClientboundCommandsPacket.Entry($$4, $$1, $$3, $$2);
    }
 
-   @Nullable
+   
    private static ClientboundCommandsPacket.NodeStub read(net.minecraft.network.FriendlyByteBuf $$0, byte $$1) {
       int $$2 = $$1 & 3;
       if ($$2 == 2) {
@@ -199,7 +198,7 @@ public class ClientboundCommandsPacket implements Packet<ClientGamePacketListene
       return (RootCommandNode<S>)new ClientboundCommandsPacket.NodeResolver<>($$0, $$1, this.entries).resolve(this.rootIndex);
    }
 
-   record ArgumentNodeStub(String id, Template<?> argumentType, @Nullable Identifier suggestionId) implements ClientboundCommandsPacket.NodeStub {
+   record ArgumentNodeStub(String id, Template<?> argumentType, Identifier suggestionId) implements ClientboundCommandsPacket.NodeStub {
       @Override
       public <S> ArgumentBuilder<S, ?> build(CommandBuildContext $$0, ClientboundCommandsPacket.NodeBuilder<S> $$1) {
          ArgumentType<?> $$2 = this.argumentType.instantiate($$0);
@@ -227,7 +226,7 @@ public class ClientboundCommandsPacket implements Packet<ClientGamePacketListene
       }
    }
 
-   record Entry(@Nullable ClientboundCommandsPacket.NodeStub stub, int flags, int redirect, int[] children) {
+   record Entry(ClientboundCommandsPacket.NodeStub stub, int flags, int redirect, int[] children) {
 
       public void write(net.minecraft.network.FriendlyByteBuf $$0) {
          $$0.writeByte(this.flags);
@@ -271,13 +270,13 @@ public class ClientboundCommandsPacket implements Packet<ClientGamePacketListene
    public interface NodeBuilder<S> {
       ArgumentBuilder<S, ?> createLiteral(String var1);
 
-      ArgumentBuilder<S, ?> createArgument(String var1, ArgumentType<?> var2, @Nullable Identifier var3);
+      ArgumentBuilder<S, ?> createArgument(String var1, ArgumentType<?> var2, Identifier var3);
 
       ArgumentBuilder<S, ?> configure(ArgumentBuilder<S, ?> var1, boolean var2, boolean var3);
    }
 
    public interface NodeInspector<S> {
-      @Nullable
+      
       Identifier suggestionId(ArgumentCommandNode<S, ?> var1);
 
       boolean isExecutable(CommandNode<S> var1);

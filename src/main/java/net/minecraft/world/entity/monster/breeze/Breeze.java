@@ -28,7 +28,6 @@ import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class Breeze extends Monster {
    private static final int SLIDE_PARTICLES_AMOUNT = 20;
@@ -280,7 +279,7 @@ public class Breeze extends Monster {
       return net.minecraft.world.entity.Entity.MovementEmission.EVENTS;
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.LivingEntity getTarget() {
       return this.getTargetFromBrain();

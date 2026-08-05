@@ -12,7 +12,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Util;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class CustomBossEvents {
@@ -20,7 +19,7 @@ public class CustomBossEvents {
    private static final Codec<Map<Identifier, CustomBossEvent.Packed>> EVENTS_CODEC = Codec.unboundedMap(Identifier.CODEC, CustomBossEvent.Packed.CODEC);
    private final Map<Identifier, CustomBossEvent> events = Maps.newHashMap();
 
-   @Nullable
+   
    public CustomBossEvent get(Identifier $$0) {
       return this.events.get($$0);
    }

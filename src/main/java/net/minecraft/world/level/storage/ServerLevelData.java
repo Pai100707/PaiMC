@@ -8,7 +8,6 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.level.border.WorldBorder;
 import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.timers.TimerQueue;
-import org.jspecify.annotations.Nullable;
 
 public interface ServerLevelData extends WritableLevelData {
    String getLevelName();
@@ -63,7 +62,7 @@ public interface ServerLevelData extends WritableLevelData {
 
    void setWanderingTraderSpawnChance(int var1);
 
-   @Nullable
+   
    UUID getWanderingTraderId();
 
    void setWanderingTraderId(UUID var1);

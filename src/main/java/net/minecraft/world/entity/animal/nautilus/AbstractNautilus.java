@@ -48,7 +48,6 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public abstract class AbstractNautilus
    extends net.minecraft.world.entity.TamableAnimal
@@ -164,7 +163,7 @@ public abstract class AbstractNautilus
       return !this.isVehicle();
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.LivingEntity getControllingPassenger() {
       return (net.minecraft.world.entity.LivingEntity)(this.isSaddled() && this.getFirstPassenger() instanceof Player $$1
@@ -370,12 +369,12 @@ public abstract class AbstractNautilus
    protected void playStepSound(BlockPos $$0, BlockState $$1) {
    }
 
-   @Nullable
+   
    protected SoundEvent getDashSound() {
       return null;
    }
 
-   @Nullable
+   
    protected SoundEvent getDashReadySound() {
       return null;
    }
@@ -462,7 +461,7 @@ public abstract class AbstractNautilus
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       RandomSource $$4 = $$0.getRandom();
       NautilusAi.initMemories(this, $$4);
@@ -506,7 +505,7 @@ public abstract class AbstractNautilus
       }
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SlotAccess getSlot(int $$0) {
       int $$1 = $$0 - 500;

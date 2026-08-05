@@ -36,7 +36,6 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class VaultBlockEntity extends BlockEntity {
    private final VaultServerData serverData = new VaultServerData();
@@ -48,7 +47,7 @@ public class VaultBlockEntity extends BlockEntity {
       super(BlockEntityType.VAULT, $$0, $$1);
    }
 
-   @Nullable
+   
    @Override
    public Packet<ClientGamePacketListener> getUpdatePacket() {
       return ClientboundBlockEntityDataPacket.create(this);
@@ -77,7 +76,7 @@ public class VaultBlockEntity extends BlockEntity {
       $$0.<VaultSharedData>read("shared_data", VaultSharedData.CODEC).ifPresent(this.sharedData::set);
    }
 
-   @Nullable
+   
    public VaultServerData getServerData() {
       return this.level != null && !this.level.isClientSide() ? this.serverData : null;
    }

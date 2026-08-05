@@ -25,7 +25,6 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
-import org.jspecify.annotations.Nullable;
 
 public class Bogged extends AbstractSkeleton implements net.minecraft.world.entity.Shearable {
    private static final EntityDataAccessor<Boolean> DATA_SHEARED = SynchedEntityData.defineId(Bogged.class, EntityDataSerializers.BOOLEAN);
@@ -103,7 +102,7 @@ public class Bogged extends AbstractSkeleton implements net.minecraft.world.enti
    }
 
    @Override
-   protected AbstractArrow getArrow(ItemStack $$0, float $$1, @Nullable ItemStack $$2) {
+   protected AbstractArrow getArrow(ItemStack $$0, float $$1, ItemStack $$2) {
       AbstractArrow $$3 = super.getArrow($$0, $$1, $$2);
       if ($$3 instanceof Arrow $$4) {
          $$4.addEffect(new MobEffectInstance(MobEffects.POISON, 100));

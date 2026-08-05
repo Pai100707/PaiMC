@@ -28,7 +28,6 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class LightningBolt extends net.minecraft.world.entity.Entity {
    private static final int START_LIFE = 2;
@@ -38,7 +37,7 @@ public class LightningBolt extends net.minecraft.world.entity.Entity {
    public long seed;
    private int flashes;
    private boolean visualOnly;
-   @Nullable
+   
    private ServerPlayer cause;
    private final Set<net.minecraft.world.entity.Entity> hitEntities = Sets.newHashSet();
    private int blocksSetOnFire;
@@ -59,12 +58,12 @@ public class LightningBolt extends net.minecraft.world.entity.Entity {
       return SoundSource.WEATHER;
    }
 
-   @Nullable
+   
    public ServerPlayer getCause() {
       return this.cause;
    }
 
-   public void setCause(@Nullable ServerPlayer $$0) {
+   public void setCause(ServerPlayer $$0) {
       this.cause = $$0;
    }
 

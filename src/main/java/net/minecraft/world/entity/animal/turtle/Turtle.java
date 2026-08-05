@@ -51,7 +51,6 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class Turtle extends Animal {
    private static final EntityDataAccessor<Boolean> HAS_EGG = SynchedEntityData.defineId(Turtle.class, EntityDataSerializers.BOOLEAN);
@@ -68,7 +67,7 @@ public class Turtle extends Animal {
    int layEggCounter;
    public static final TargetingConditions.Selector BABY_ON_LAND_SELECTOR = ($$0, $$1) -> $$0.isBaby() && !$$0.isInWater();
    BlockPos homePos = BlockPos.ZERO;
-   @Nullable
+   
    BlockPos travelPos;
    boolean goingHome;
 
@@ -123,13 +122,13 @@ public class Turtle extends Animal {
       this.setHasEgg($$0.getBooleanOr("has_egg", false));
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       this.setHomePos(this.blockPosition());
       return super.finalizeSpawn($$0, $$1, $$2, $$3);
@@ -168,7 +167,7 @@ public class Turtle extends Animal {
       return 200;
    }
 
-   @Nullable
+   
    @Override
    protected SoundEvent getAmbientSound() {
       return !this.isInWater() && this.onGround() && !this.isBaby() ? SoundEvents.TURTLE_AMBIENT_LAND : super.getAmbientSound();
@@ -184,13 +183,13 @@ public class Turtle extends Animal {
       return SoundEvents.TURTLE_SWIM;
    }
 
-   @Nullable
+   
    @Override
    protected SoundEvent getHurtSound(DamageSource $$0) {
       return this.isBaby() ? SoundEvents.TURTLE_HURT_BABY : SoundEvents.TURTLE_HURT;
    }
 
-   @Nullable
+   
    @Override
    protected SoundEvent getDeathSound() {
       return this.isBaby() ? SoundEvents.TURTLE_DEATH_BABY : SoundEvents.TURTLE_DEATH;
@@ -222,7 +221,7 @@ public class Turtle extends Animal {
       return new Turtle.TurtlePathNavigation(this, $$0);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.AgeableMob getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       return net.minecraft.world.entity.EntityType.TURTLE.create($$0, net.minecraft.world.entity.EntitySpawnReason.BREEDING);

@@ -44,7 +44,6 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
-import org.jspecify.annotations.Nullable;
 
 public class Armadillo extends Animal {
    public static final float BABY_SCALE = 0.6F;
@@ -68,7 +67,7 @@ public class Armadillo extends Animal {
       this.scuteTime = this.pickNextScuteDropTime();
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.AgeableMob getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       return net.minecraft.world.entity.EntityType.ARMADILLO.create($$0, net.minecraft.world.entity.EntitySpawnReason.BREEDING);
@@ -303,7 +302,7 @@ public class Armadillo extends Animal {
       }
    }
 
-   public boolean brushOffScute(@Nullable net.minecraft.world.entity.Entity $$0, ItemStack $$1) {
+   public boolean brushOffScute(net.minecraft.world.entity.Entity $$0, ItemStack $$1) {
       if (this.isBaby()) {
          return false;
       } else {

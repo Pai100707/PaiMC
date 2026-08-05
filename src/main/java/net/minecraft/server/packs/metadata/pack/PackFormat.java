@@ -15,7 +15,6 @@ import java.util.function.BiFunction;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.InclusiveRange;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public record PackFormat(int major, int minor) implements Comparable<PackFormat> {
@@ -273,7 +272,7 @@ public record PackFormat(int major, int minor) implements Comparable<PackFormat>
          }
       }
 
-      @Nullable
+      
       private String validatePackFormatForRange(int $$0, int $$1) {
          int $$2 = this.format.get();
          if ($$2 < $$0 || $$2 > $$1) {

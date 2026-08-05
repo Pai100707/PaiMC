@@ -16,15 +16,14 @@ import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public interface CollisionGetter extends net.minecraft.world.level.BlockGetter {
    WorldBorder getWorldBorder();
 
-   @Nullable
+   
    net.minecraft.world.level.BlockGetter getChunkForCollisions(int var1, int var2);
 
-   default boolean isUnobstructed(@Nullable Entity $$0, VoxelShape $$1) {
+   default boolean isUnobstructed(Entity $$0, VoxelShape $$1) {
       return true;
    }
 
@@ -45,19 +44,19 @@ public interface CollisionGetter extends net.minecraft.world.level.BlockGetter {
       return this.noCollision($$0, $$0.getBoundingBox());
    }
 
-   default boolean noCollision(@Nullable Entity $$0, AABB $$1) {
+   default boolean noCollision(Entity $$0, AABB $$1) {
       return this.noCollision($$0, $$1, false);
    }
 
-   default boolean noCollision(@Nullable Entity $$0, AABB $$1, boolean $$2) {
+   default boolean noCollision(Entity $$0, AABB $$1, boolean $$2) {
       return this.noBlockCollision($$0, $$1, $$2) && this.noEntityCollision($$0, $$1) && this.noBorderCollision($$0, $$1);
    }
 
-   default boolean noBlockCollision(@Nullable Entity $$0, AABB $$1) {
+   default boolean noBlockCollision(Entity $$0, AABB $$1) {
       return this.noBlockCollision($$0, $$1, false);
    }
 
-   default boolean noBlockCollision(@Nullable Entity $$0, AABB $$1, boolean $$2) {
+   default boolean noBlockCollision(Entity $$0, AABB $$1, boolean $$2) {
       for (VoxelShape $$4 : $$2 ? this.getBlockAndLiquidCollisions($$0, $$1) : this.getBlockCollisions($$0, $$1)) {
          if (!$$4.isEmpty()) {
             return false;
@@ -67,11 +66,11 @@ public interface CollisionGetter extends net.minecraft.world.level.BlockGetter {
       return true;
    }
 
-   default boolean noEntityCollision(@Nullable Entity $$0, AABB $$1) {
+   default boolean noEntityCollision(Entity $$0, AABB $$1) {
       return this.getEntityCollisions($$0, $$1).isEmpty();
    }
 
-   default boolean noBorderCollision(@Nullable Entity $$0, AABB $$1) {
+   default boolean noBorderCollision(Entity $$0, AABB $$1) {
       if ($$0 == null) {
          return true;
       } else {
@@ -80,25 +79,25 @@ public interface CollisionGetter extends net.minecraft.world.level.BlockGetter {
       }
    }
 
-   List<VoxelShape> getEntityCollisions(@Nullable Entity var1, AABB var2);
+   List<VoxelShape> getEntityCollisions(Entity var1, AABB var2);
 
-   default Iterable<VoxelShape> getCollisions(@Nullable Entity $$0, AABB $$1) {
+   default Iterable<VoxelShape> getCollisions(Entity $$0, AABB $$1) {
       List<VoxelShape> $$2 = this.getEntityCollisions($$0, $$1);
       Iterable<VoxelShape> $$3 = this.getBlockCollisions($$0, $$1);
       return $$2.isEmpty() ? $$3 : Iterables.concat($$2, $$3);
    }
 
-   default Iterable<VoxelShape> getPreMoveCollisions(@Nullable Entity $$0, AABB $$1, Vec3 $$2) {
+   default Iterable<VoxelShape> getPreMoveCollisions(Entity $$0, AABB $$1, Vec3 $$2) {
       List<VoxelShape> $$3 = this.getEntityCollisions($$0, $$1);
       Iterable<VoxelShape> $$4 = this.getBlockCollisionsFromContext(CollisionContext.withPosition($$0, $$2.y), $$1);
       return $$3.isEmpty() ? $$4 : Iterables.concat($$3, $$4);
    }
 
-   default Iterable<VoxelShape> getBlockCollisions(@Nullable Entity $$0, AABB $$1) {
+   default Iterable<VoxelShape> getBlockCollisions(Entity $$0, AABB $$1) {
       return this.getBlockCollisionsFromContext($$0 == null ? CollisionContext.empty() : CollisionContext.of($$0), $$1);
    }
 
-   default Iterable<VoxelShape> getBlockAndLiquidCollisions(@Nullable Entity $$0, AABB $$1) {
+   default Iterable<VoxelShape> getBlockAndLiquidCollisions(Entity $$0, AABB $$1) {
       return this.getBlockCollisionsFromContext($$0 == null ? CollisionContext.emptyWithFluidCollisions() : CollisionContext.of($$0, true), $$1);
    }
 
@@ -106,7 +105,7 @@ public interface CollisionGetter extends net.minecraft.world.level.BlockGetter {
       return () -> new net.minecraft.world.level.BlockCollisions<VoxelShape>(this, $$0, $$1, false, ($$0xx, $$1xx) -> $$1xx);
    }
 
-   @Nullable
+   
    private VoxelShape borderCollision(Entity $$0, AABB $$1) {
       WorldBorder $$2 = this.getWorldBorder();
       return $$2.isInsideCloseToBorder($$0, $$1) ? $$2.getCollisionShape() : null;
@@ -125,7 +124,7 @@ public interface CollisionGetter extends net.minecraft.world.level.BlockGetter {
       }
    }
 
-   default boolean collidesWithSuffocatingBlock(@Nullable Entity $$0, AABB $$1) {
+   default boolean collidesWithSuffocatingBlock(Entity $$0, AABB $$1) {
       net.minecraft.world.level.BlockCollisions<VoxelShape> $$2 = new net.minecraft.world.level.BlockCollisions<>(this, $$0, $$1, true, ($$0x, $$1x) -> $$1x);
 
       while ($$2.hasNext()) {
@@ -154,7 +153,7 @@ public interface CollisionGetter extends net.minecraft.world.level.BlockGetter {
       return Optional.ofNullable($$2);
    }
 
-   default Optional<Vec3> findFreePosition(@Nullable Entity $$0, VoxelShape $$1, Vec3 $$2, double $$3, double $$4, double $$5) {
+   default Optional<Vec3> findFreePosition(Entity $$0, VoxelShape $$1, Vec3 $$2, double $$3, double $$4, double $$5) {
       if ($$1.isEmpty()) {
          return Optional.empty();
       } else {

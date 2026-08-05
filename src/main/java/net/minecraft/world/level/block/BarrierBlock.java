@@ -16,7 +16,6 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import org.jspecify.annotations.Nullable;
 
 public class BarrierBlock extends Block implements SimpleWaterloggedBlock {
    public static final MapCodec<BarrierBlock> CODEC = simpleCodec(BarrierBlock::new);
@@ -70,7 +69,7 @@ public class BarrierBlock extends Block implements SimpleWaterloggedBlock {
       return $$0.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState($$0);
    }
 
-   @Nullable
+   
    @Override
    public BlockState getStateForPlacement(BlockPlaceContext $$0) {
       return this.defaultBlockState().setValue(WATERLOGGED, $$0.getLevel().getFluidState($$0.getClickedPos()).getType() == Fluids.WATER);
@@ -82,12 +81,12 @@ public class BarrierBlock extends Block implements SimpleWaterloggedBlock {
    }
 
    @Override
-   public ItemStack pickupBlock(@Nullable LivingEntity $$0, net.minecraft.world.level.LevelAccessor $$1, BlockPos $$2, BlockState $$3) {
+   public ItemStack pickupBlock(LivingEntity $$0, net.minecraft.world.level.LevelAccessor $$1, BlockPos $$2, BlockState $$3) {
       return $$0 instanceof Player $$4 && $$4.isCreative() ? SimpleWaterloggedBlock.super.pickupBlock($$0, $$1, $$2, $$3) : ItemStack.EMPTY;
    }
 
    @Override
-   public boolean canPlaceLiquid(@Nullable LivingEntity $$0, net.minecraft.world.level.BlockGetter $$1, BlockPos $$2, BlockState $$3, Fluid $$4) {
+   public boolean canPlaceLiquid(LivingEntity $$0, net.minecraft.world.level.BlockGetter $$1, BlockPos $$2, BlockState $$3, Fluid $$4) {
       return $$0 instanceof Player $$5 && $$5.isCreative() ? SimpleWaterloggedBlock.super.canPlaceLiquid($$0, $$1, $$2, $$3, $$4) : false;
    }
 }

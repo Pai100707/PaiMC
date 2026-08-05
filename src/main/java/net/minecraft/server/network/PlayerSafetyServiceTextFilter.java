@@ -21,7 +21,6 @@ import java.util.Locale;
 import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import net.minecraft.util.GsonHelper;
-import org.jspecify.annotations.Nullable;
 
 public class PlayerSafetyServiceTextFilter extends ServerTextFilter {
    private final ConfidentialClientApplication client;
@@ -46,7 +45,7 @@ public class PlayerSafetyServiceTextFilter extends ServerTextFilter {
       this.connectionReadTimeoutMs = $$7;
    }
 
-   @Nullable
+   
    public static ServerTextFilter createTextFilterFromConfig(String $$0) {
       JsonObject $$1 = GsonHelper.parse($$0);
       URI $$2 = URI.create(GsonHelper.getAsString($$1, "apiServer"));

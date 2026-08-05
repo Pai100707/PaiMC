@@ -8,7 +8,6 @@ import net.minecraft.server.jsonrpc.JsonRpcLogger;
 import net.minecraft.server.jsonrpc.methods.ClientInfo;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.players.NameAndId;
-import org.jspecify.annotations.Nullable;
 
 public class MinecraftPlayerListServiceImpl implements MinecraftPlayerListService {
    private final JsonRpcLogger jsonRpcLogger;
@@ -24,7 +23,7 @@ public class MinecraftPlayerListServiceImpl implements MinecraftPlayerListServic
       return this.server.getPlayerList().getPlayers();
    }
 
-   @Nullable
+   
    @Override
    public ServerPlayer getPlayer(UUID $$0) {
       return this.server.getPlayerList().getPlayer($$0);
@@ -65,7 +64,7 @@ public class MinecraftPlayerListServiceImpl implements MinecraftPlayerListServic
       this.jsonRpcLogger.log($$1, "Remove player '{}'", $$0.getPlainTextName());
    }
 
-   @Nullable
+   
    @Override
    public ServerPlayer getPlayerByName(String $$0) {
       return this.server.getPlayerList().getPlayerByName($$0);

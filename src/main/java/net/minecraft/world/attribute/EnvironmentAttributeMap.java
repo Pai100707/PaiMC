@@ -12,7 +12,6 @@ import java.util.Map;
 import java.util.Set;
 import net.minecraft.util.Util;
 import net.minecraft.world.attribute.modifier.AttributeModifier;
-import org.jspecify.annotations.Nullable;
 
 public final class EnvironmentAttributeMap {
    public static final net.minecraft.world.attribute.EnvironmentAttributeMap EMPTY = new net.minecraft.world.attribute.EnvironmentAttributeMap(Map.of());
@@ -45,7 +44,7 @@ public final class EnvironmentAttributeMap {
       return new net.minecraft.world.attribute.EnvironmentAttributeMap.Builder();
    }
 
-   @Nullable
+   
    public <Value> net.minecraft.world.attribute.EnvironmentAttributeMap.Entry<Value, ?> get(net.minecraft.world.attribute.EnvironmentAttribute<Value> $$0) {
       return (net.minecraft.world.attribute.EnvironmentAttributeMap.Entry<Value, ?>)this.entries.get($$0);
    }

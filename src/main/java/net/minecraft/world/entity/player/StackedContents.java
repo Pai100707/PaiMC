@@ -11,7 +11,6 @@ import it.unimi.dsi.fastutil.objects.Reference2IntMap.Entry;
 import java.util.ArrayList;
 import java.util.BitSet;
 import java.util.List;
-import org.jspecify.annotations.Nullable;
 
 public class StackedContents<T> {
    public final Reference2IntOpenHashMap<T> amounts = new Reference2IntOpenHashMap();
@@ -31,11 +30,11 @@ public class StackedContents<T> {
       this.amounts.addTo($$0, $$1);
    }
 
-   public boolean tryPick(List<? extends StackedContents.IngredientInfo<T>> $$0, int $$1, @Nullable StackedContents.Output<T> $$2) {
+   public boolean tryPick(List<? extends StackedContents.IngredientInfo<T>> $$0, int $$1, StackedContents.Output<T> $$2) {
       return new StackedContents.RecipePicker($$0).tryPick($$1, $$2);
    }
 
-   public int tryPickAll(List<? extends StackedContents.IngredientInfo<T>> $$0, int $$1, @Nullable StackedContents.Output<T> $$2) {
+   public int tryPickAll(List<? extends StackedContents.IngredientInfo<T>> $$0, int $$1, StackedContents.Output<T> $$2) {
       return new StackedContents.RecipePicker($$0).tryPickAll($$1, $$2);
    }
 
@@ -143,7 +142,7 @@ public class StackedContents<T> {
          }
       }
 
-      public boolean tryPick(int $$0, @Nullable StackedContents.Output<T> $$1) {
+      public boolean tryPick(int $$0, StackedContents.Output<T> $$1) {
          if ($$0 <= 0) {
             return true;
          } else {
@@ -200,7 +199,7 @@ public class StackedContents<T> {
          return ($$0 & 1) == 0;
       }
 
-      @Nullable
+      
       private IntList tryAssigningNewItem(int $$0) {
          this.clearAllVisited();
 
@@ -216,7 +215,7 @@ public class StackedContents<T> {
          return null;
       }
 
-      @Nullable
+      
       private IntList findNewItemAssignmentPath(int $$0) {
          this.path.clear();
          this.visitItem($$0);
@@ -399,7 +398,7 @@ public class StackedContents<T> {
          this.data.clear($$0, $$0 + $$1);
       }
 
-      public int tryPickAll(int $$0, @Nullable StackedContents.Output<T> $$1) {
+      public int tryPickAll(int $$0, StackedContents.Output<T> $$1) {
          int $$2 = 0;
          int $$3 = Math.min($$0, StackedContents.this.getResultUpperBound(this.ingredients)) + 1;
 

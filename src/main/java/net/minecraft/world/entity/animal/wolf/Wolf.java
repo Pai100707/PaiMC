@@ -76,7 +76,6 @@ import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class Wolf extends net.minecraft.world.entity.TamableAnimal implements net.minecraft.world.entity.NeutralMob {
    private static final EntityDataAccessor<Boolean> DATA_INTERESTED_ID = SynchedEntityData.defineId(Wolf.class, EntityDataSerializers.BOOLEAN);
@@ -104,7 +103,7 @@ public class Wolf extends net.minecraft.world.entity.TamableAnimal implements ne
    private float shakeAnim;
    private float shakeAnimO;
    private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
-   @Nullable
+   
    private net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> persistentAngerTarget;
 
    public Wolf(net.minecraft.world.entity.EntityType<? extends Wolf> $$0, Level $$1) {
@@ -163,7 +162,7 @@ public class Wolf extends net.minecraft.world.entity.TamableAnimal implements ne
       this.entityData.set(DATA_SOUND_VARIANT_ID, $$0);
    }
 
-   @Nullable
+   
    @Override
    public <T> T get(DataComponentType<? extends T> $$0) {
       if ($$0 == DataComponents.WOLF_VARIANT) {
@@ -239,13 +238,13 @@ public class Wolf extends net.minecraft.world.entity.TamableAnimal implements ne
          .ifPresent(this::setSoundVariant);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       if ($$3 instanceof Wolf.WolfPackData $$4) {
          this.setVariant($$4.type);
@@ -571,14 +570,14 @@ public class Wolf extends net.minecraft.world.entity.TamableAnimal implements ne
       this.setTimeToRemainAngry(PERSISTENT_ANGER_TIME.sample(this.random));
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> getPersistentAngerTarget() {
       return this.persistentAngerTarget;
    }
 
    @Override
-   public void setPersistentAngerTarget(@Nullable net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> $$0) {
+   public void setPersistentAngerTarget(net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> $$0) {
       this.persistentAngerTarget = $$0;
    }
 
@@ -590,7 +589,7 @@ public class Wolf extends net.minecraft.world.entity.TamableAnimal implements ne
       this.entityData.set(DATA_COLLAR_COLOR, $$0.getId());
    }
 
-   @Nullable
+   
    public Wolf getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       Wolf $$2 = net.minecraft.world.entity.EntityType.WOLF.create($$0, net.minecraft.world.entity.EntitySpawnReason.BREEDING);
       if ($$2 != null && $$1 instanceof Wolf $$3) {

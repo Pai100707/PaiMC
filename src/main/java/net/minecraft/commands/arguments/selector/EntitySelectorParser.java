@@ -30,7 +30,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class EntitySelectorParser {
    public static final char SYNTAX_SELECTOR_START = '@';
@@ -75,33 +74,33 @@ public class EntitySelectorParser {
    private int maxResults;
    private boolean includesEntities;
    private boolean worldLimited;
-   @Nullable
+   
    private net.minecraft.advancements.criterion.MinMaxBounds.Doubles distance;
-   @Nullable
+   
    private Ints level;
-   @Nullable
+   
    private Double x;
-   @Nullable
+   
    private Double y;
-   @Nullable
+   
    private Double z;
-   @Nullable
+   
    private Double deltaX;
-   @Nullable
+   
    private Double deltaY;
-   @Nullable
+   
    private Double deltaZ;
-   @Nullable
+   
    private FloatDegrees rotX;
-   @Nullable
+   
    private FloatDegrees rotY;
    private final List<Predicate<Entity>> predicates = new ArrayList<>();
    private BiConsumer<Vec3, List<? extends Entity>> order = EntitySelector.ORDER_ARBITRARY;
    private boolean currentEntity;
-   @Nullable
+   
    private String playerName;
    private int startPosition;
-   @Nullable
+   
    private UUID entityUUID;
    private BiFunction<SuggestionsBuilder, Consumer<SuggestionsBuilder>, CompletableFuture<Suggestions>> suggestions = SUGGEST_NOTHING;
    private boolean hasNameEquals;
@@ -112,7 +111,7 @@ public class EntitySelectorParser {
    private boolean hasGamemodeNotEquals;
    private boolean hasTeamEquals;
    private boolean hasTeamNotEquals;
-   @Nullable
+   
    private EntityType<?> type;
    private boolean typeInverse;
    private boolean hasScores;
@@ -372,7 +371,7 @@ public class EntitySelectorParser {
       this.worldLimited = true;
    }
 
-   @Nullable
+   
    public net.minecraft.advancements.criterion.MinMaxBounds.Doubles getDistance() {
       return this.distance;
    }
@@ -381,7 +380,7 @@ public class EntitySelectorParser {
       this.distance = $$0;
    }
 
-   @Nullable
+   
    public Ints getLevel() {
       return this.level;
    }
@@ -390,7 +389,7 @@ public class EntitySelectorParser {
       this.level = $$0;
    }
 
-   @Nullable
+   
    public FloatDegrees getRotX() {
       return this.rotX;
    }
@@ -399,7 +398,7 @@ public class EntitySelectorParser {
       this.rotX = $$0;
    }
 
-   @Nullable
+   
    public FloatDegrees getRotY() {
       return this.rotY;
    }
@@ -408,17 +407,17 @@ public class EntitySelectorParser {
       this.rotY = $$0;
    }
 
-   @Nullable
+   
    public Double getX() {
       return this.x;
    }
 
-   @Nullable
+   
    public Double getY() {
       return this.y;
    }
 
-   @Nullable
+   
    public Double getZ() {
       return this.z;
    }
@@ -447,17 +446,17 @@ public class EntitySelectorParser {
       this.deltaZ = $$0;
    }
 
-   @Nullable
+   
    public Double getDeltaX() {
       return this.deltaX;
    }
 
-   @Nullable
+   
    public Double getDeltaY() {
       return this.deltaY;
    }
 
-   @Nullable
+   
    public Double getDeltaZ() {
       return this.deltaZ;
    }

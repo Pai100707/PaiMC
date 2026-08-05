@@ -9,13 +9,12 @@ import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.ai.util.LandRandomPos;
 import net.minecraft.world.level.levelgen.Heightmap.Types;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class StrollThroughVillageGoal extends Goal {
    private static final int DISTANCE_THRESHOLD = 10;
    private final net.minecraft.world.entity.PathfinderMob mob;
    private final int interval;
-   @Nullable
+   
    private BlockPos wantedPos;
 
    public StrollThroughVillageGoal(net.minecraft.world.entity.PathfinderMob $$0, int $$1) {

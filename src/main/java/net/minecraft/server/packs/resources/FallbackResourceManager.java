@@ -25,7 +25,6 @@ import java.util.stream.Stream;
 import net.minecraft.resources.Identifier;
 import net.minecraft.server.packs.PackResources;
 import net.minecraft.server.packs.PackType;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class FallbackResourceManager implements ResourceManager {
@@ -51,7 +50,7 @@ public class FallbackResourceManager implements ResourceManager {
       this.pushInternal($$0, null, $$1);
    }
 
-   private void pushInternal(String $$0, @Nullable PackResources $$1, @Nullable Predicate<Identifier> $$2) {
+   private void pushInternal(String $$0, PackResources $$1, Predicate<Identifier> $$2) {
       this.fallbacks.add(new FallbackResourceManager.PackEntry($$0, $$1, $$2));
    }
 
@@ -337,7 +336,7 @@ public class FallbackResourceManager implements ResourceManager {
       }
    }
 
-   record PackEntry(String name, @Nullable PackResources resources, @Nullable Predicate<Identifier> filter) {
+   record PackEntry(String name, PackResources resources, Predicate<Identifier> filter) {
 
       public void filterAll(Collection<Identifier> $$0) {
          if (this.filter != null) {

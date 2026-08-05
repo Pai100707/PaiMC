@@ -10,7 +10,6 @@ import net.minecraft.server.jsonrpc.api.MethodInfo;
 import net.minecraft.server.jsonrpc.api.ParamInfo;
 import net.minecraft.server.jsonrpc.api.ResultInfo;
 import net.minecraft.server.jsonrpc.api.Schema;
-import org.jspecify.annotations.Nullable;
 
 public interface OutgoingRpcMethod<Params, Result> {
    String NOTIFICATION_PREFIX = "notification/";
@@ -19,12 +18,12 @@ public interface OutgoingRpcMethod<Params, Result> {
 
    OutgoingRpcMethod.Attributes attributes();
 
-   @Nullable
+   
    default JsonElement encodeParams(Params $$0) {
       return null;
    }
 
-   @Nullable
+   
    default Result decodeResult(JsonElement $$0) {
       return null;
    }
@@ -54,7 +53,7 @@ public interface OutgoingRpcMethod<Params, Result> {
    }
 
    public record Method<Params, Result>(MethodInfo<Params, Result> info, OutgoingRpcMethod.Attributes attributes) implements OutgoingRpcMethod<Params, Result> {
-      @Nullable
+      
       @Override
       public JsonElement encodeParams(Params $$0) {
          if (this.info.params().isEmpty()) {
@@ -75,7 +74,7 @@ public interface OutgoingRpcMethod<Params, Result> {
    }
 
    public record Notification<Params>(MethodInfo<Params, Void> info, OutgoingRpcMethod.Attributes attributes) implements OutgoingRpcMethod<Params, Void> {
-      @Nullable
+      
       @Override
       public JsonElement encodeParams(Params $$0) {
          if (this.info.params().isEmpty()) {
@@ -90,9 +89,9 @@ public interface OutgoingRpcMethod<Params, Result> {
       public static final OutgoingRpcMethod.Attributes DEFAULT_ATTRIBUTES = new OutgoingRpcMethod.Attributes(true);
       private final OutgoingRpcMethod.Factory<Params, Result> method;
       private String description = "";
-      @Nullable
+      
       private ParamInfo<Params> paramInfo;
-      @Nullable
+      
       private ResultInfo<Result> resultInfo;
 
       public OutgoingRpcMethodBuilder(OutgoingRpcMethod.Factory<Params, Result> $$0) {

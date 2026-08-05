@@ -31,7 +31,6 @@ import net.minecraft.world.level.levelgen.WorldGenSettings;
 import net.minecraft.world.level.levelgen.WorldOptions;
 import net.minecraft.world.level.timers.TimerCallbacks;
 import net.minecraft.world.level.timers.TimerQueue;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class PrimaryLevelData implements ServerLevelData, WorldData {
@@ -46,7 +45,7 @@ public class PrimaryLevelData implements ServerLevelData, WorldData {
    private LevelData.RespawnData respawnData;
    private long gameTime;
    private long dayTime;
-   @Nullable
+   
    private final CompoundTag loadedPlayerTag;
    private final int version;
    private int clearWeatherTime;
@@ -59,11 +58,11 @@ public class PrimaryLevelData implements ServerLevelData, WorldData {
    @Deprecated
    private Optional<WorldBorder.Settings> legacyWorldBorderSettings;
    private EndDragonFight.Data endDragonFightData;
-   @Nullable
+   
    private CompoundTag customBossEvents;
    private int wanderingTraderSpawnDelay;
    private int wanderingTraderSpawnChance;
-   @Nullable
+   
    private UUID wanderingTraderId;
    private final Set<String> knownServerBrands;
    private boolean wasModded;
@@ -71,7 +70,7 @@ public class PrimaryLevelData implements ServerLevelData, WorldData {
    private final TimerQueue<MinecraftServer> scheduledEvents;
 
    private PrimaryLevelData(
-      @Nullable CompoundTag $$0,
+      CompoundTag $$0,
       boolean $$1,
       LevelData.RespawnData $$2,
       long $$3,
@@ -87,11 +86,11 @@ public class PrimaryLevelData implements ServerLevelData, WorldData {
       Optional<WorldBorder.Settings> $$13,
       int $$14,
       int $$15,
-      @Nullable UUID $$16,
+      UUID $$16,
       Set<String> $$17,
       Set<String> $$18,
       TimerQueue<MinecraftServer> $$19,
-      @Nullable CompoundTag $$20,
+      CompoundTag $$20,
       EndDragonFight.Data $$21,
       net.minecraft.world.level.LevelSettings $$22,
       WorldOptions $$23,
@@ -192,7 +191,7 @@ public class PrimaryLevelData implements ServerLevelData, WorldData {
    }
 
    @Override
-   public CompoundTag createTag(RegistryAccess $$0, @Nullable CompoundTag $$1) {
+   public CompoundTag createTag(RegistryAccess $$0, CompoundTag $$1) {
       if ($$1 == null) {
          $$1 = this.loadedPlayerTag;
       }
@@ -202,7 +201,7 @@ public class PrimaryLevelData implements ServerLevelData, WorldData {
       return $$2;
    }
 
-   private void setTagData(RegistryAccess $$0, CompoundTag $$1, @Nullable CompoundTag $$2) {
+   private void setTagData(RegistryAccess $$0, CompoundTag $$1, CompoundTag $$2) {
       $$1.put("ServerBrands", stringCollectionToTag(this.knownServerBrands));
       $$1.putBoolean("WasModded", this.wasModded);
       if (!this.removedFeatureFlags.isEmpty()) {
@@ -276,7 +275,7 @@ public class PrimaryLevelData implements ServerLevelData, WorldData {
       return this.dayTime;
    }
 
-   @Nullable
+   
    @Override
    public CompoundTag getLoadedPlayerTag() {
       return this.loadedPlayerTag;
@@ -473,14 +472,14 @@ public class PrimaryLevelData implements ServerLevelData, WorldData {
       this.settings = this.settings.withDataConfiguration($$0);
    }
 
-   @Nullable
+   
    @Override
    public CompoundTag getCustomBossEvents() {
       return this.customBossEvents;
    }
 
    @Override
-   public void setCustomBossEvents(@Nullable CompoundTag $$0) {
+   public void setCustomBossEvents(CompoundTag $$0) {
       this.customBossEvents = $$0;
    }
 
@@ -504,7 +503,7 @@ public class PrimaryLevelData implements ServerLevelData, WorldData {
       this.wanderingTraderSpawnChance = $$0;
    }
 
-   @Nullable
+   
    @Override
    public UUID getWanderingTraderId() {
       return this.wanderingTraderId;

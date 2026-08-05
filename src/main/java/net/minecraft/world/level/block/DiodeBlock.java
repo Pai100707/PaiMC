@@ -18,7 +18,6 @@ import net.minecraft.world.level.redstone.Orientation;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.ticks.TickPriority;
-import org.jspecify.annotations.Nullable;
 
 public abstract class DiodeBlock extends HorizontalDirectionalBlock {
    public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
@@ -77,7 +76,7 @@ public abstract class DiodeBlock extends HorizontalDirectionalBlock {
    }
 
    @Override
-   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, @Nullable Orientation $$4, boolean $$5) {
+   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, Orientation $$4, boolean $$5) {
       if ($$0.canSurvive($$1, $$2)) {
          this.checkTickOnNeighbor($$1, $$2, $$0);
       } else {
@@ -147,7 +146,7 @@ public abstract class DiodeBlock extends HorizontalDirectionalBlock {
    }
 
    @Override
-   public void setPlacedBy(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, @Nullable LivingEntity $$3, ItemStack $$4) {
+   public void setPlacedBy(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, LivingEntity $$3, ItemStack $$4) {
       if (this.shouldTurnOn($$0, $$1, $$2)) {
          $$0.scheduleTick($$1, this, 1);
       }

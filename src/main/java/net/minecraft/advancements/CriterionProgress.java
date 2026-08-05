@@ -2,10 +2,9 @@ package net.minecraft.advancements;
 
 import java.time.Instant;
 import net.minecraft.network.FriendlyByteBuf;
-import org.jspecify.annotations.Nullable;
 
 public class CriterionProgress {
-   @Nullable
+   
    private Instant obtained;
 
    public CriterionProgress() {
@@ -27,7 +26,7 @@ public class CriterionProgress {
       this.obtained = null;
    }
 
-   @Nullable
+   
    public Instant getObtained() {
       return this.obtained;
    }

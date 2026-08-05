@@ -46,7 +46,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.chunk.storage.RegionFileVersion;
 import net.minecraft.world.level.chunk.storage.RegionStorageInfo;
 import net.minecraft.world.level.levelgen.structure.Structure;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class JfrProfiler implements JvmProfiler {
@@ -74,7 +73,7 @@ public class JfrProfiler implements JvmProfiler {
       .toFormatter(Locale.ROOT)
       .withZone(ZoneId.systemDefault());
    private static final JfrProfiler INSTANCE = new JfrProfiler();
-   @Nullable
+   
    Recording recording;
    private int currentFPS;
    private float currentAverageTickTimeServer;
@@ -273,7 +272,7 @@ public class JfrProfiler implements JvmProfiler {
       }
    }
 
-   @Nullable
+   
    @Override
    public ProfiledDuration onWorldLoadedStarted() {
       if (!WorldLoadFinishedEvent.TYPE.isEnabled()) {
@@ -285,7 +284,7 @@ public class JfrProfiler implements JvmProfiler {
       }
    }
 
-   @Nullable
+   
    @Override
    public ProfiledDuration onChunkGenerate(ChunkPos $$0, ResourceKey<Level> $$1, String $$2) {
       if (!ChunkGenerationEvent.TYPE.isEnabled()) {
@@ -297,7 +296,7 @@ public class JfrProfiler implements JvmProfiler {
       }
    }
 
-   @Nullable
+   
    @Override
    public ProfiledDuration onStructureGenerate(ChunkPos $$0, ResourceKey<Level> $$1, Holder<Structure> $$2) {
       if (!StructureGenerationEvent.TYPE.isEnabled()) {

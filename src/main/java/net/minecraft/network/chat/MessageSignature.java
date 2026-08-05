@@ -9,7 +9,6 @@ import java.util.Optional;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.SignatureUpdater;
 import net.minecraft.util.SignatureValidator;
-import org.jspecify.annotations.Nullable;
 
 public record MessageSignature(byte[] bytes) {
    public static final Codec<MessageSignature> CODEC = ExtraCodecs.BASE64_STRING.xmap(MessageSignature::new, MessageSignature::bytes);
@@ -53,7 +52,7 @@ public record MessageSignature(byte[] bytes) {
       return Base64.getEncoder().encodeToString(this.bytes);
    }
 
-   public static String describe(@Nullable MessageSignature $$0) {
+   public static String describe(MessageSignature $$0) {
       return $$0 == null ? "<no signature>" : $$0.toString();
    }
 
@@ -66,7 +65,7 @@ public record MessageSignature(byte[] bytes) {
       return Arrays.hashCode(this.bytes);
    }
 
-   public record Packed(int id, @Nullable MessageSignature fullSignature) {
+   public record Packed(int id, MessageSignature fullSignature) {
       public static final int FULL_SIGNATURE = -1;
 
       public Packed(MessageSignature $$0) {

@@ -26,7 +26,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.CreakingHeartState;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
-import org.jspecify.annotations.Nullable;
 
 public class CreakingHeartBlock extends BaseEntityBlock {
    public static final MapCodec<CreakingHeartBlock> CODEC = simpleCodec(CreakingHeartBlock::new);
@@ -49,7 +48,7 @@ public class CreakingHeartBlock extends BaseEntityBlock {
       return new CreakingHeartBlockEntity($$0, $$1);
    }
 
-   @Nullable
+   
    @Override
    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(net.minecraft.world.level.Level $$0, BlockState $$1, BlockEntityType<T> $$2) {
       if ($$0.isClientSide()) {
@@ -130,7 +129,7 @@ public class CreakingHeartBlock extends BaseEntityBlock {
       return true;
    }
 
-   @Nullable
+   
    @Override
    public BlockState getStateForPlacement(BlockPlaceContext $$0) {
       return updateState(this.defaultBlockState().setValue(AXIS, $$0.getClickedFace().getAxis()), $$0.getLevel(), $$0.getClickedPos());

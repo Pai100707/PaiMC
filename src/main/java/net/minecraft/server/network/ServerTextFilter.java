@@ -31,7 +31,6 @@ import net.minecraft.util.LenientJsonParser;
 import net.minecraft.util.StringUtil;
 import net.minecraft.util.Util;
 import net.minecraft.util.thread.ConsecutiveExecutor;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public abstract class ServerTextFilter implements AutoCloseable {
@@ -58,16 +57,16 @@ public abstract class ServerTextFilter implements AutoCloseable {
       this.chatEncoder = $$1;
    }
 
-   protected static URL getEndpoint(URI $$0, @Nullable JsonObject $$1, String $$2, String $$3) throws MalformedURLException {
+   protected static URL getEndpoint(URI $$0, JsonObject $$1, String $$2, String $$3) throws MalformedURLException {
       String $$4 = getEndpointFromConfig($$1, $$2, $$3);
       return $$0.resolve("/" + $$4).toURL();
    }
 
-   protected static String getEndpointFromConfig(@Nullable JsonObject $$0, String $$1, String $$2) {
+   protected static String getEndpointFromConfig(JsonObject $$0, String $$1, String $$2) {
       return $$0 != null ? GsonHelper.getAsString($$0, $$1, $$2) : $$2;
    }
 
-   @Nullable
+   
    public static ServerTextFilter createFromConfig(DedicatedServerProperties $$0) {
       String $$1 = $$0.textFilteringConfig;
       if (StringUtil.isBlank($$1)) {

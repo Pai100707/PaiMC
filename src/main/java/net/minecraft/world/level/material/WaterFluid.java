@@ -23,7 +23,6 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.gamerules.GameRules;
-import org.jspecify.annotations.Nullable;
 
 public abstract class WaterFluid extends FlowingFluid {
    @Override
@@ -61,7 +60,7 @@ public abstract class WaterFluid extends FlowingFluid {
       }
    }
 
-   @Nullable
+   
    @Override
    public ParticleOptions getDripParticle() {
       return ParticleTypes.DRIPPING_WATER;

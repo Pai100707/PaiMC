@@ -8,7 +8,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SignBlock;
 import net.minecraft.world.level.block.entity.SignBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jspecify.annotations.Nullable;
 
 public class SignItem extends net.minecraft.world.item.StandingAndWallBlockItem {
    public SignItem(Block $$0, Block $$1, net.minecraft.world.item.Item.Properties $$2) {
@@ -20,7 +19,7 @@ public class SignItem extends net.minecraft.world.item.StandingAndWallBlockItem 
    }
 
    @Override
-   protected boolean updateCustomBlockEntityTag(BlockPos $$0, Level $$1, @Nullable Player $$2, net.minecraft.world.item.ItemStack $$3, BlockState $$4) {
+   protected boolean updateCustomBlockEntityTag(BlockPos $$0, Level $$1, Player $$2, net.minecraft.world.item.ItemStack $$3, BlockState $$4) {
       boolean $$5 = super.updateCustomBlockEntityTag($$0, $$1, $$2, $$3, $$4);
       if (!$$1.isClientSide()
          && !$$5

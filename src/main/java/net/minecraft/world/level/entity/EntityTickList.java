@@ -7,12 +7,11 @@ import it.unimi.dsi.fastutil.ints.Int2ObjectMap.Entry;
 import it.unimi.dsi.fastutil.objects.ObjectIterator;
 import java.util.function.Consumer;
 import net.minecraft.world.entity.Entity;
-import org.jspecify.annotations.Nullable;
 
 public class EntityTickList {
    private Int2ObjectMap<Entity> active = new Int2ObjectLinkedOpenHashMap();
    private Int2ObjectMap<Entity> passive = new Int2ObjectLinkedOpenHashMap();
-   @Nullable
+   
    private Int2ObjectMap<Entity> iterated;
 
    private void ensureActiveIsNotIterated() {

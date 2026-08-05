@@ -34,7 +34,6 @@ import net.minecraft.world.level.material.MapColor.Brightness;
 import net.minecraft.world.level.saveddata.maps.MapId;
 import net.minecraft.world.level.saveddata.maps.MapItemSavedData;
 import net.minecraft.world.level.saveddata.maps.MapItemSavedData.HoldingPlayer;
-import org.jspecify.annotations.Nullable;
 
 public class MapItem extends net.minecraft.world.item.Item {
    public static final int IMAGE_WIDTH = 128;
@@ -51,12 +50,12 @@ public class MapItem extends net.minecraft.world.item.Item {
       return $$6;
    }
 
-   @Nullable
-   public static MapItemSavedData getSavedData(@Nullable MapId $$0, Level $$1) {
+   
+   public static MapItemSavedData getSavedData(MapId $$0, Level $$1) {
       return $$0 == null ? null : $$1.getMapData($$0);
    }
 
-   @Nullable
+   
    public static MapItemSavedData getSavedData(net.minecraft.world.item.ItemStack $$0, Level $$1) {
       MapId $$2 = (MapId)$$0.get(DataComponents.MAP_ID);
       return getSavedData($$2, $$1);
@@ -269,7 +268,7 @@ public class MapItem extends net.minecraft.world.item.Item {
    }
 
    @Override
-   public void inventoryTick(net.minecraft.world.item.ItemStack $$0, ServerLevel $$1, Entity $$2, @Nullable EquipmentSlot $$3) {
+   public void inventoryTick(net.minecraft.world.item.ItemStack $$0, ServerLevel $$1, Entity $$2, EquipmentSlot $$3) {
       MapItemSavedData $$4 = getSavedData($$0, $$1);
       if ($$4 != null) {
          if ($$2 instanceof Player $$5) {

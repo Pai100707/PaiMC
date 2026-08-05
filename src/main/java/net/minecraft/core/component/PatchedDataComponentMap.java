@@ -13,7 +13,6 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
-import org.jspecify.annotations.Nullable;
 
 public final class PatchedDataComponentMap implements DataComponentMap {
    private final DataComponentMap prototype;
@@ -59,7 +58,7 @@ public final class PatchedDataComponentMap implements DataComponentMap {
       return true;
    }
 
-   @Nullable
+   
    @Override
    public <T> T get(DataComponentType<? extends T> $$0) {
       Optional<? extends T> $$1 = (Optional<? extends T>)this.patch.get($$0);
@@ -70,8 +69,8 @@ public final class PatchedDataComponentMap implements DataComponentMap {
       return this.patch.containsKey($$0);
    }
 
-   @Nullable
-   public <T> T set(DataComponentType<T> $$0, @Nullable T $$1) {
+   
+   public <T> T set(DataComponentType<T> $$0, T $$1) {
       this.ensureMapOwnership();
       T $$2 = this.prototype.get($$0);
       Optional<T> $$3;
@@ -84,12 +83,12 @@ public final class PatchedDataComponentMap implements DataComponentMap {
       return $$3 != null ? $$3.orElse($$2) : $$2;
    }
 
-   @Nullable
+   
    public <T> T set(TypedDataComponent<T> $$0) {
       return this.set($$0.type(), $$0.value());
    }
 
-   @Nullable
+   
    public <T> T remove(DataComponentType<? extends T> $$0) {
       this.ensureMapOwnership();
       T $$1 = this.prototype.get($$0);

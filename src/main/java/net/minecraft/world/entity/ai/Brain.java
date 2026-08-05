@@ -40,7 +40,6 @@ import net.minecraft.world.entity.ai.sensing.SensorType;
 import net.minecraft.world.entity.schedule.Activity;
 import net.minecraft.world.phys.Vec3;
 import org.apache.commons.lang3.mutable.MutableObject;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class Brain<E extends net.minecraft.world.entity.LivingEntity> {
@@ -50,7 +49,7 @@ public class Brain<E extends net.minecraft.world.entity.LivingEntity> {
    private final Map<MemoryModuleType<?>, Optional<? extends ExpirableValue<?>>> memories = Maps.newHashMap();
    private final Map<SensorType<? extends Sensor<? super E>>, Sensor<? super E>> sensors = Maps.newLinkedHashMap();
    private final Map<Integer, Map<Activity, Set<BehaviorControl<? super E>>>> availableBehaviorsByPriority = Maps.newTreeMap();
-   @Nullable
+   
    private EnvironmentAttribute<Activity> schedule;
    private final Map<Activity, Set<Pair<MemoryModuleType<?>, MemoryStatus>>> activityRequirements = Maps.newHashMap();
    private final Map<Activity, Set<MemoryModuleType<?>>> activityMemoriesToEraseWhenStopped = Maps.newHashMap();
@@ -160,7 +159,7 @@ public class Brain<E extends net.minecraft.world.entity.LivingEntity> {
       this.setMemory($$0, Optional.empty());
    }
 
-   public <U> void setMemory(MemoryModuleType<U> $$0, @Nullable U $$1) {
+   public <U> void setMemory(MemoryModuleType<U> $$0, U $$1) {
       this.setMemory($$0, Optional.ofNullable($$1));
    }
 
@@ -191,7 +190,7 @@ public class Brain<E extends net.minecraft.world.entity.LivingEntity> {
       }
    }
 
-   @Nullable
+   
    public <U> Optional<U> getMemoryInternal(MemoryModuleType<U> $$0) {
       Optional<? extends ExpirableValue<?>> $$1 = this.memories.get($$0);
       return $$1 == null ? null : $$1.map(ExpirableValue::getValue);

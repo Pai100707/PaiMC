@@ -6,14 +6,13 @@ import it.unimi.dsi.fastutil.objects.Reference2ObjectOpenHashMap;
 import java.util.Collections;
 import java.util.Map;
 import java.util.function.Consumer;
-import org.jspecify.annotations.Nullable;
 
 class PlayerScores {
    private final Reference2ObjectOpenHashMap<net.minecraft.world.scores.Objective, net.minecraft.world.scores.Score> scores = new Reference2ObjectOpenHashMap(
       16, 0.5F
    );
 
-   @Nullable
+   
    public net.minecraft.world.scores.Score get(net.minecraft.world.scores.Objective $$0) {
       return (net.minecraft.world.scores.Score)this.scores.get($$0);
    }

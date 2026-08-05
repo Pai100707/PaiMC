@@ -17,7 +17,6 @@ import net.minecraft.server.packs.resources.IoSupplier;
 import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.server.packs.resources.ResourceProvider;
 import net.minecraft.util.FileUtil;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class VanillaPackResources implements PackResources {
@@ -36,7 +35,7 @@ public class VanillaPackResources implements PackResources {
       this.pathsForType = $$4;
    }
 
-   @Nullable
+   
    @Override
    public IoSupplier<InputStream> getRootResource(String... $$0) {
       FileUtil.validatePath($$0);
@@ -93,7 +92,7 @@ public class VanillaPackResources implements PackResources {
       PathPackResources.listPath($$1, $$4, $$3, $$0);
    }
 
-   @Nullable
+   
    @Override
    public IoSupplier<InputStream> getResource(PackType $$0, Identifier $$1) {
       return (IoSupplier<InputStream>)FileUtil.decomposePath($$1.getPath()).mapOrElse($$2 -> {
@@ -118,7 +117,7 @@ public class VanillaPackResources implements PackResources {
       return this.namespaces;
    }
 
-   @Nullable
+   
    @Override
    public <T> T getMetadataSection(MetadataSectionType<T> $$0) {
       IoSupplier<InputStream> $$1 = this.getRootResource("pack.mcmeta");

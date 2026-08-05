@@ -23,11 +23,10 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public abstract class BaseContainerBlockEntity extends BlockEntity implements Container, MenuProvider, Nameable {
    private LockCode lockKey = LockCode.NO_LOCK;
-   @Nullable
+   
    private Component name;
 
    protected BaseContainerBlockEntity(BlockEntityType<?> $$0, BlockPos $$1, BlockState $$2) {
@@ -56,7 +55,7 @@ public abstract class BaseContainerBlockEntity extends BlockEntity implements Co
       return this.getName();
    }
 
-   @Nullable
+   
    public Component getCustomName() {
       return this.name;
    }
@@ -124,7 +123,7 @@ public abstract class BaseContainerBlockEntity extends BlockEntity implements Co
       this.getItems().clear();
    }
 
-   @Nullable
+   
    public AbstractContainerMenu createMenu(int $$0, Inventory $$1, Player $$2) {
       if (this.canOpen($$2)) {
          return this.createMenu($$0, $$1);

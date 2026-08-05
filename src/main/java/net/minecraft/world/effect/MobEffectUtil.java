@@ -10,7 +10,6 @@ import net.minecraft.util.StringUtil;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public final class MobEffectUtil {
    public static Component formatDuration(net.minecraft.world.effect.MobEffectInstance $$0, float $$1, float $$2) {
@@ -53,7 +52,7 @@ public final class MobEffectUtil {
    }
 
    public static List<ServerPlayer> addEffectToPlayersAround(
-      ServerLevel $$0, @Nullable Entity $$1, Vec3 $$2, double $$3, net.minecraft.world.effect.MobEffectInstance $$4, int $$5
+      ServerLevel $$0, Entity $$1, Vec3 $$2, double $$3, net.minecraft.world.effect.MobEffectInstance $$4, int $$5
    ) {
       Holder<net.minecraft.world.effect.MobEffect> $$6 = $$4.getEffect();
       List<ServerPlayer> $$7 = $$0.getPlayers(

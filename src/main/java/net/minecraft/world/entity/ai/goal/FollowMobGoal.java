@@ -8,12 +8,11 @@ import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
 import net.minecraft.world.entity.ai.navigation.GroundPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.level.pathfinder.PathType;
-import org.jspecify.annotations.Nullable;
 
 public class FollowMobGoal extends Goal {
    private final net.minecraft.world.entity.Mob mob;
    private final Predicate<net.minecraft.world.entity.Mob> followPredicate;
-   @Nullable
+   
    private net.minecraft.world.entity.Mob followingMob;
    private final double speedModifier;
    private final PathNavigation navigation;

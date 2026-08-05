@@ -16,7 +16,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.players.IpBanList;
 import net.minecraft.server.players.IpBanListEntry;
-import org.jspecify.annotations.Nullable;
 
 public class BanIpCommands {
    private static final SimpleCommandExceptionType ERROR_INVALID_IP = new SimpleCommandExceptionType(Component.translatable("commands.banip.invalid"));
@@ -40,7 +39,7 @@ public class BanIpCommands {
       );
    }
 
-   private static int banIpOrName(CommandSourceStack $$0, String $$1, @Nullable Component $$2) throws CommandSyntaxException {
+   private static int banIpOrName(CommandSourceStack $$0, String $$1, Component $$2) throws CommandSyntaxException {
       if (InetAddresses.isInetAddress($$1)) {
          return banIp($$0, $$1, $$2);
       } else {
@@ -53,7 +52,7 @@ public class BanIpCommands {
       }
    }
 
-   private static int banIp(CommandSourceStack $$0, String $$1, @Nullable Component $$2) throws CommandSyntaxException {
+   private static int banIp(CommandSourceStack $$0, String $$1, Component $$2) throws CommandSyntaxException {
       IpBanList $$3 = $$0.getServer().getPlayerList().getIpBans();
       if ($$3.isBanned($$1)) {
          throw ERROR_ALREADY_BANNED.create();

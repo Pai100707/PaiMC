@@ -37,7 +37,6 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class Ravager extends Raider {
    private static final Predicate<net.minecraft.world.entity.Entity> ROAR_TARGET_WITH_GRIEFING = $$0 -> !($$0 instanceof Ravager) && $$0.isAlive();
@@ -299,7 +298,7 @@ public class Ravager extends Raider {
       return super.doHurtTarget($$0, $$1);
    }
 
-   @Nullable
+   
    @Override
    protected SoundEvent getAmbientSound() {
       return SoundEvents.RAVAGER_AMBIENT;

@@ -21,7 +21,6 @@ import net.minecraft.CrashReportCategory;
 import net.minecraft.util.DelegateDataOutput;
 import net.minecraft.util.FastBufferedInputStream;
 import net.minecraft.util.Util;
-import org.jspecify.annotations.Nullable;
 
 public class NbtIo {
    private static final OpenOption[] SYNC_OUTPUT_OPTIONS = new OpenOption[]{
@@ -97,7 +96,7 @@ public class NbtIo {
       }
    }
 
-   @Nullable
+   
    public static net.minecraft.nbt.CompoundTag read(Path $$0) throws IOException {
       if (!Files.exists($$0)) {
          return null;

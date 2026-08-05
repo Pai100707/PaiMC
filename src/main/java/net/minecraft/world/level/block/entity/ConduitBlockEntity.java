@@ -29,7 +29,6 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class ConduitBlockEntity extends BlockEntity {
    private static final int BLOCK_REFRESH_RATE = 2;
@@ -44,7 +43,7 @@ public class ConduitBlockEntity extends BlockEntity {
    private boolean isActive;
    private boolean isHunting;
    private final List<BlockPos> effectBlocks = Lists.newArrayList();
-   @Nullable
+   
    private EntityReference<LivingEntity> destroyTarget;
    private long nextAmbientSoundActivation;
 
@@ -193,8 +192,8 @@ public class ConduitBlockEntity extends BlockEntity {
       }
    }
 
-   @Nullable
-   private static EntityReference<LivingEntity> updateDestroyTarget(@Nullable EntityReference<LivingEntity> $$0, ServerLevel $$1, BlockPos $$2, boolean $$3) {
+   
+   private static EntityReference<LivingEntity> updateDestroyTarget(EntityReference<LivingEntity> $$0, ServerLevel $$1, BlockPos $$2, boolean $$3) {
       if (!$$3) {
          return null;
       } else if ($$0 == null) {
@@ -205,7 +204,7 @@ public class ConduitBlockEntity extends BlockEntity {
       }
    }
 
-   @Nullable
+   
    private static EntityReference<LivingEntity> selectNewTarget(ServerLevel $$0, BlockPos $$1) {
       List<LivingEntity> $$2 = $$0.getEntitiesOfClass(LivingEntity.class, getDestroyRangeAABB($$1), $$0x -> $$0x instanceof Enemy && $$0x.isInWaterOrRain());
       return $$2.isEmpty() ? null : EntityReference.of((LivingEntity)Util.getRandom($$2, $$0.random));
@@ -215,7 +214,7 @@ public class ConduitBlockEntity extends BlockEntity {
       return new AABB($$0).inflate(8.0);
    }
 
-   private static void animationTick(net.minecraft.world.level.Level $$0, BlockPos $$1, List<BlockPos> $$2, @Nullable Entity $$3, int $$4) {
+   private static void animationTick(net.minecraft.world.level.Level $$0, BlockPos $$1, List<BlockPos> $$2, Entity $$3, int $$4) {
       RandomSource $$5 = $$0.random;
       double $$6 = Mth.sin(($$4 + 35) * 0.1F) / 2.0F + 0.5F;
       $$6 = ($$6 * $$6 + $$6) * 0.3F;

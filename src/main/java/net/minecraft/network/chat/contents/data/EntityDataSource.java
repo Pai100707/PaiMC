@@ -13,9 +13,8 @@ import net.minecraft.commands.arguments.selector.EntitySelector;
 import net.minecraft.commands.arguments.selector.EntitySelectorParser;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.Entity;
-import org.jspecify.annotations.Nullable;
 
-public record EntityDataSource(String selectorPattern, @Nullable EntitySelector compiledSelector) implements DataSource {
+public record EntityDataSource(String selectorPattern, EntitySelector compiledSelector) implements DataSource {
    public static final MapCodec<EntityDataSource> MAP_CODEC = RecordCodecBuilder.mapCodec(
       $$0 -> $$0.group(Codec.STRING.fieldOf("entity").forGetter(EntityDataSource::selectorPattern)).apply($$0, EntityDataSource::new)
    );
@@ -24,7 +23,7 @@ public record EntityDataSource(String selectorPattern, @Nullable EntitySelector 
       this($$0, compileSelector($$0));
    }
 
-   @Nullable
+   
    private static EntitySelector compileSelector(String $$0) {
       try {
          EntitySelectorParser $$1 = new EntitySelectorParser(new StringReader($$0), true);

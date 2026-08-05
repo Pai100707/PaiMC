@@ -6,15 +6,14 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
 import io.netty.handler.codec.CorruptedFrameException;
 import java.util.List;
-import org.jspecify.annotations.Nullable;
 
 public class Varint21FrameDecoder extends ByteToMessageDecoder {
    private static final int MAX_VARINT21_BYTES = 3;
    private final ByteBuf helperBuf = Unpooled.directBuffer(3);
-   @Nullable
+   
    private final net.minecraft.network.BandwidthDebugMonitor monitor;
 
-   public Varint21FrameDecoder(@Nullable net.minecraft.network.BandwidthDebugMonitor $$0) {
+   public Varint21FrameDecoder(net.minecraft.network.BandwidthDebugMonitor $$0) {
       this.monitor = $$0;
    }
 

@@ -9,12 +9,11 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.util.VisibleForDebug;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public final class Path {
    public static final StreamCodec<FriendlyByteBuf, Path> STREAM_CODEC = StreamCodec.of(($$0, $$1) -> $$1.writeToStream($$0), Path::createFromStream);
    private final List<Node> nodes;
-   @Nullable
+   
    private Path.DebugData debugData;
    private int nextNodeIndex;
    private final BlockPos target;
@@ -40,7 +39,7 @@ public final class Path {
       return this.nextNodeIndex >= this.nodes.size();
    }
 
-   @Nullable
+   
    public Node getEndNode() {
       return !this.nodes.isEmpty() ? this.nodes.get(this.nodes.size() - 1) : null;
    }
@@ -95,12 +94,12 @@ public final class Path {
       return this.nodes.get(this.nextNodeIndex);
    }
 
-   @Nullable
+   
    public Node getPreviousNode() {
       return this.nextNodeIndex > 0 ? this.nodes.get(this.nextNodeIndex - 1) : null;
    }
 
-   public boolean sameAs(@Nullable Path $$0) {
+   public boolean sameAs(Path $$0) {
       return $$0 != null && this.nodes.equals($$0.nodes);
    }
 
@@ -129,7 +128,7 @@ public final class Path {
       this.debugData = new Path.DebugData($$0, $$1, $$2);
    }
 
-   @Nullable
+   
    public Path.DebugData debugData() {
       return this.debugData;
    }

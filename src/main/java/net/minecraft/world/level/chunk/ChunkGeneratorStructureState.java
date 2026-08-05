@@ -27,7 +27,6 @@ import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureSet;
 import net.minecraft.world.level.levelgen.structure.placement.ConcentricRingsStructurePlacement;
 import net.minecraft.world.level.levelgen.structure.placement.StructurePlacement;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class ChunkGeneratorStructureState {
@@ -162,7 +161,7 @@ public class ChunkGeneratorStructureState {
       }
    }
 
-   @Nullable
+   
    public List<net.minecraft.world.level.ChunkPos> getRingPositionsFor(ConcentricRingsStructurePlacement $$0) {
       this.ensureStructuresGenerated();
       CompletableFuture<List<net.minecraft.world.level.ChunkPos>> $$1 = this.ringPositions.get($$0);

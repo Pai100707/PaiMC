@@ -21,7 +21,6 @@ import net.minecraft.world.level.biome.BiomeManager;
 import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.timeline.Timeline;
-import org.jspecify.annotations.Nullable;
 
 public class EnvironmentAttributeSystem implements net.minecraft.world.attribute.EnvironmentAttributeReader {
    private final Map<net.minecraft.world.attribute.EnvironmentAttribute<?>, net.minecraft.world.attribute.EnvironmentAttributeSystem.ValueSampler<?>> attributeSamplers = new Reference2ObjectOpenHashMap();
@@ -98,7 +97,7 @@ public class EnvironmentAttributeSystem implements net.minecraft.world.attribute
       this.attributeSamplers.values().forEach(net.minecraft.world.attribute.EnvironmentAttributeSystem.ValueSampler::invalidateTickCache);
    }
 
-   @Nullable
+   
    private <Value> net.minecraft.world.attribute.EnvironmentAttributeSystem.ValueSampler<Value> getValueSampler(
       net.minecraft.world.attribute.EnvironmentAttribute<Value> $$0
    ) {
@@ -117,7 +116,7 @@ public class EnvironmentAttributeSystem implements net.minecraft.world.attribute
 
    @Override
    public <Value> Value getValue(
-      net.minecraft.world.attribute.EnvironmentAttribute<Value> $$0, Vec3 $$1, @Nullable net.minecraft.world.attribute.SpatialAttributeInterpolator $$2
+      net.minecraft.world.attribute.EnvironmentAttribute<Value> $$0, Vec3 $$1, net.minecraft.world.attribute.SpatialAttributeInterpolator $$2
    ) {
       net.minecraft.world.attribute.EnvironmentAttributeSystem.ValueSampler<Value> $$3 = this.getValueSampler($$0);
       return $$3 == null ? $$0.defaultValue() : $$3.getValue($$1, $$2);
@@ -212,7 +211,7 @@ public class EnvironmentAttributeSystem implements net.minecraft.world.attribute
       final Value baseValue;
       private final List<net.minecraft.world.attribute.EnvironmentAttributeLayer<Value>> layers;
       final boolean isAffectedByPosition;
-      @Nullable
+      
       private Value cachedTickValue;
       private int cacheTickId;
 
@@ -243,11 +242,11 @@ public class EnvironmentAttributeSystem implements net.minecraft.world.attribute
          }
       }
 
-      public Value getValue(Vec3 $$0, @Nullable net.minecraft.world.attribute.SpatialAttributeInterpolator $$1) {
+      public Value getValue(Vec3 $$0, net.minecraft.world.attribute.SpatialAttributeInterpolator $$1) {
          return !this.isAffectedByPosition ? this.getDimensionValue() : this.computeValuePositional($$0, $$1);
       }
 
-      private Value computeValuePositional(Vec3 $$0, @Nullable net.minecraft.world.attribute.SpatialAttributeInterpolator $$1) {
+      private Value computeValuePositional(Vec3 $$0, net.minecraft.world.attribute.SpatialAttributeInterpolator $$1) {
          Value $$2 = this.baseValue;
 
          for (net.minecraft.world.attribute.EnvironmentAttributeLayer<Value> $$3 : this.layers) {

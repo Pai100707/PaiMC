@@ -37,7 +37,6 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.redstone.Orientation;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class DispenserBlock extends BaseEntityBlock {
@@ -111,7 +110,7 @@ public class DispenserBlock extends BaseEntityBlock {
    }
 
    @Override
-   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, @Nullable Orientation $$4, boolean $$5) {
+   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, Orientation $$4, boolean $$5) {
       boolean $$6 = $$1.hasNeighborSignal($$2) || $$1.hasNeighborSignal($$2.above());
       boolean $$7 = $$0.getValue(TRIGGERED);
       if ($$6 && !$$7) {

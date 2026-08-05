@@ -35,7 +35,6 @@ import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 
 public class Tadpole extends AbstractFish {
    private static final int DEFAULT_AGE = 0;
@@ -128,19 +127,19 @@ public class Tadpole extends AbstractFish {
       this.setAge($$0.getIntOr("Age", 0));
    }
 
-   @Nullable
+   
    @Override
    protected SoundEvent getAmbientSound() {
       return null;
    }
 
-   @Nullable
+   
    @Override
    protected SoundEvent getHurtSound(DamageSource $$0) {
       return SoundEvents.TADPOLE_HURT;
    }
 
-   @Nullable
+   
    @Override
    protected SoundEvent getDeathSound() {
       return SoundEvents.TADPOLE_DEATH;

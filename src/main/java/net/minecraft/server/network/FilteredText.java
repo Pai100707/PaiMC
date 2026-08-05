@@ -2,7 +2,6 @@ package net.minecraft.server.network;
 
 import java.util.Objects;
 import net.minecraft.network.chat.FilterMask;
-import org.jspecify.annotations.Nullable;
 
 public record FilteredText(String raw, FilterMask mask) {
    public static final FilteredText EMPTY = passThrough("");
@@ -15,7 +14,7 @@ public record FilteredText(String raw, FilterMask mask) {
       return new FilteredText($$0, FilterMask.FULLY_FILTERED);
    }
 
-   @Nullable
+   
    public String filtered() {
       return this.mask.apply(this.raw);
    }

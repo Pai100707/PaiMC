@@ -4,7 +4,6 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.PacketType;
 import net.minecraft.world.entity.Entity;
-import org.jspecify.annotations.Nullable;
 
 public class ClientboundSetEntityLinkPacket implements Packet<ClientGamePacketListener> {
    public static final StreamCodec<net.minecraft.network.FriendlyByteBuf, ClientboundSetEntityLinkPacket> STREAM_CODEC = Packet.codec(
@@ -13,7 +12,7 @@ public class ClientboundSetEntityLinkPacket implements Packet<ClientGamePacketLi
    private final int sourceId;
    private final int destId;
 
-   public ClientboundSetEntityLinkPacket(Entity $$0, @Nullable Entity $$1) {
+   public ClientboundSetEntityLinkPacket(Entity $$0, Entity $$1) {
       this.sourceId = $$0.getId();
       this.destId = $$1 != null ? $$1.getId() : 0;
    }

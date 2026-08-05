@@ -24,7 +24,6 @@ import net.minecraft.world.level.chunk.LevelChunk;
 import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.levelgen.Heightmap.Types;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class PlayerSpawnFinder {
    private static final EntityDimensions PLAYER_DIMENSIONS = EntityType.PLAYER.getDimensions();
@@ -143,7 +142,7 @@ public class PlayerSpawnFinder {
       }
    }
 
-   @Nullable
+   
    protected static BlockPos getOverworldRespawnPos(ServerLevel $$0, int $$1, int $$2) {
       boolean $$3 = $$0.dimensionType().hasCeiling();
       LevelChunk $$4 = $$0.getChunk(SectionPos.blockToSectionCoord($$1), SectionPos.blockToSectionCoord($$2));
@@ -174,7 +173,7 @@ public class PlayerSpawnFinder {
       }
    }
 
-   @Nullable
+   
    public static BlockPos getSpawnPosInChunk(ServerLevel $$0, ChunkPos $$1) {
       if (SharedConstants.debugVoidTerrain($$1)) {
          return null;

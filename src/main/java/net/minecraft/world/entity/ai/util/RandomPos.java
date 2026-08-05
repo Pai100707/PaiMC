@@ -10,7 +10,6 @@ import net.minecraft.core.BlockPos.MutableBlockPos;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class RandomPos {
    private static final int RANDOM_POS_ATTEMPTS = 10;
@@ -22,7 +21,7 @@ public class RandomPos {
       return new BlockPos($$3, $$4, $$5);
    }
 
-   @Nullable
+   
    public static BlockPos generateRandomDirectionWithinRadians(RandomSource $$0, double $$1, double $$2, int $$3, int $$4, double $$5, double $$6, double $$7) {
       double $$8 = Mth.atan2($$6, $$5) - (float) (Math.PI / 2);
       double $$9 = $$8 + (2.0F * $$0.nextFloat() - 1.0F) * $$7;
@@ -79,12 +78,12 @@ public class RandomPos {
       }
    }
 
-   @Nullable
+   
    public static Vec3 generateRandomPos(net.minecraft.world.entity.PathfinderMob $$0, Supplier<BlockPos> $$1) {
       return generateRandomPos($$1, $$0::getWalkTargetValue);
    }
 
-   @Nullable
+   
    public static Vec3 generateRandomPos(Supplier<BlockPos> $$0, ToDoubleFunction<BlockPos> $$1) {
       double $$2 = Double.NEGATIVE_INFINITY;
       BlockPos $$3 = null;

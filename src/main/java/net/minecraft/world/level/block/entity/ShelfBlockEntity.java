@@ -25,7 +25,6 @@ import net.minecraft.world.level.storage.TagValueOutput;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class ShelfBlockEntity extends BlockEntity implements ItemOwner, ListBackedContainer {
@@ -97,7 +96,7 @@ public class ShelfBlockEntity extends BlockEntity implements ItemOwner, ListBack
       return $$2;
    }
 
-   public void setChanged(@Nullable Reference<GameEvent> $$0) {
+   public void setChanged(Reference<GameEvent> $$0) {
       super.setChanged();
       if (this.level != null) {
          if ($$0 != null) {

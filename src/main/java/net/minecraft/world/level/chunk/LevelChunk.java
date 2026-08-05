@@ -62,7 +62,6 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.storage.TagValueInput;
 import net.minecraft.world.ticks.LevelChunkTicks;
 import net.minecraft.world.ticks.TickContainerAccess;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class LevelChunk extends ChunkAccess implements DebugValueSource {
@@ -90,9 +89,9 @@ public class LevelChunk extends ChunkAccess implements DebugValueSource {
    private final Map<BlockPos, LevelChunk.RebindableTickingBlockEntityWrapper> tickersInLevel = Maps.newHashMap();
    private boolean loaded;
    final net.minecraft.world.level.Level level;
-   @Nullable
+   
    private Supplier<FullChunkStatus> fullStatus;
-   @Nullable
+   
    private LevelChunk.PostLoadProcessor postLoad;
    private final Int2ObjectMap<GameEventListenerRegistry> gameEventListenerRegistrySections;
    private final LevelChunkTicks<Block> blockTicks;
@@ -110,9 +109,9 @@ public class LevelChunk extends ChunkAccess implements DebugValueSource {
       LevelChunkTicks<Block> $$3,
       LevelChunkTicks<Fluid> $$4,
       long $$5,
-      @Nullable LevelChunkSection[] $$6,
-      @Nullable LevelChunk.PostLoadProcessor $$7,
-      @Nullable BlendingData $$8
+      LevelChunkSection[] $$6,
+      LevelChunk.PostLoadProcessor $$7,
+      BlendingData $$8
    ) {
       super($$1, $$2, $$0, $$0.palettedContainerFactory(), $$5, $$6, $$8);
       this.level = $$0;
@@ -129,7 +128,7 @@ public class LevelChunk extends ChunkAccess implements DebugValueSource {
       this.fluidTicks = $$4;
    }
 
-   public LevelChunk(ServerLevel $$0, ProtoChunk $$1, @Nullable LevelChunk.PostLoadProcessor $$2) {
+   public LevelChunk(ServerLevel $$0, ProtoChunk $$1, LevelChunk.PostLoadProcessor $$2) {
       this(
          $$0,
          $$1.getPos(),
@@ -268,7 +267,7 @@ public class LevelChunk extends ChunkAccess implements DebugValueSource {
       }
    }
 
-   @Nullable
+   
    @Override
    public BlockState setBlockState(BlockPos $$0, BlockState $$1, @Block.UpdateFlags int $$2) {
       int $$3 = $$0.getY();
@@ -363,19 +362,19 @@ public class LevelChunk extends ChunkAccess implements DebugValueSource {
    public void addEntity(Entity $$0) {
    }
 
-   @Nullable
+   
    private BlockEntity createBlockEntity(BlockPos $$0) {
       BlockState $$1 = this.getBlockState($$0);
       return !$$1.hasBlockEntity() ? null : ((EntityBlock)$$1.getBlock()).newBlockEntity($$0, $$1);
    }
 
-   @Nullable
+   
    @Override
    public BlockEntity getBlockEntity(BlockPos $$0) {
       return this.getBlockEntity($$0, LevelChunk.EntityCreationType.CHECK);
    }
 
-   @Nullable
+   
    public BlockEntity getBlockEntity(BlockPos $$0, LevelChunk.EntityCreationType $$1) {
       BlockEntity $$2 = this.blockEntities.get($$0);
       if ($$2 == null) {
@@ -459,7 +458,7 @@ public class LevelChunk extends ChunkAccess implements DebugValueSource {
       }
    }
 
-   @Nullable
+   
    @Override
    public CompoundTag getBlockEntityNbtForSaving(BlockPos $$0, Provider $$1) {
       BlockEntity $$2 = this.getBlockEntity($$0);
@@ -618,7 +617,7 @@ public class LevelChunk extends ChunkAccess implements DebugValueSource {
       this.upgradeData.upgrade(this);
    }
 
-   @Nullable
+   
    private BlockEntity promotePendingBlockEntity(BlockPos $$0, CompoundTag $$1) {
       BlockState $$2 = this.getBlockState($$0);
       BlockEntity $$3;

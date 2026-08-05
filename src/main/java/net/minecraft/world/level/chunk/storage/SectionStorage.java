@@ -35,7 +35,6 @@ import net.minecraft.nbt.NbtOps;
 import net.minecraft.nbt.Tag;
 import net.minecraft.resources.RegistryOps;
 import net.minecraft.util.Util;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class SectionStorage<R, P> implements AutoCloseable {
@@ -115,7 +114,7 @@ public class SectionStorage<R, P> implements AutoCloseable {
       return !this.dirtyChunks.isEmpty();
    }
 
-   @Nullable
+   
    protected Optional<R> get(long $$0) {
       return (Optional<R>)this.storage.get($$0);
    }
@@ -208,7 +207,7 @@ public class SectionStorage<R, P> implements AutoCloseable {
          });
    }
 
-   private void unpackChunk(net.minecraft.world.level.ChunkPos $$0, @Nullable SectionStorage.PackedChunk<P> $$1) {
+   private void unpackChunk(net.minecraft.world.level.ChunkPos $$0, SectionStorage.PackedChunk<P> $$1) {
       if ($$1 == null) {
          for (int $$2 = this.levelHeightAccessor.getMinSectionY(); $$2 <= this.levelHeightAccessor.getMaxSectionY(); $$2++) {
             this.storage.put(getKey($$0, $$2), Optional.empty());

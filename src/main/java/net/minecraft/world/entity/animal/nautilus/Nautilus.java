@@ -9,7 +9,6 @@ import net.minecraft.util.profiling.ProfilerFiller;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.ai.Brain;
 import net.minecraft.world.level.Level;
-import org.jspecify.annotations.Nullable;
 
 public class Nautilus extends AbstractNautilus {
    private static final int NAUTILUS_TOTAL_AIR_SUPPLY = 300;
@@ -33,7 +32,7 @@ public class Nautilus extends AbstractNautilus {
       return (Brain<Nautilus>)super.getBrain();
    }
 
-   @Nullable
+   
    public Nautilus getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       Nautilus $$2 = net.minecraft.world.entity.EntityType.NAUTILUS.create($$0, net.minecraft.world.entity.EntitySpawnReason.BREEDING);
       if ($$2 != null && this.isTame()) {

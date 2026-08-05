@@ -18,7 +18,6 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.ShapelessRecipe;
 import net.minecraft.world.level.ItemLike;
-import org.jspecify.annotations.Nullable;
 
 public class ShapelessRecipeBuilder implements RecipeBuilder {
    private final HolderGetter<Item> items;
@@ -26,7 +25,7 @@ public class ShapelessRecipeBuilder implements RecipeBuilder {
    private final ItemStack result;
    private final List<Ingredient> ingredients = new ArrayList<>();
    private final Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
-   @Nullable
+   
    private String group;
 
    private ShapelessRecipeBuilder(HolderGetter<Item> $$0, RecipeCategory $$1, ItemStack $$2) {
@@ -80,7 +79,7 @@ public class ShapelessRecipeBuilder implements RecipeBuilder {
       return this;
    }
 
-   public ShapelessRecipeBuilder group(@Nullable String $$0) {
+   public ShapelessRecipeBuilder group(String $$0) {
       this.group = $$0;
       return this;
    }

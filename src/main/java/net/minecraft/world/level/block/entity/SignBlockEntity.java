@@ -30,7 +30,6 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class SignBlockEntity extends BlockEntity {
@@ -38,7 +37,7 @@ public class SignBlockEntity extends BlockEntity {
    private static final int MAX_TEXT_LINE_WIDTH = 90;
    private static final int TEXT_LINE_HEIGHT = 10;
    private static final boolean DEFAULT_IS_WAXED = false;
-   @Nullable
+   
    private UUID playerWhoMayEdit;
    private SignText frontText;
    private SignText backText;
@@ -211,7 +210,7 @@ public class SignBlockEntity extends BlockEntity {
       return $$4;
    }
 
-   private static CommandSourceStack createCommandSourceStack(@Nullable Player $$0, ServerLevel $$1, BlockPos $$2) {
+   private static CommandSourceStack createCommandSourceStack(Player $$0, ServerLevel $$1, BlockPos $$2) {
       String $$3 = $$0 == null ? "Sign" : $$0.getPlainTextName();
       Component $$4 = (Component)($$0 == null ? Component.literal("Sign") : $$0.getDisplayName());
       return new CommandSourceStack(
@@ -228,11 +227,11 @@ public class SignBlockEntity extends BlockEntity {
       return this.saveCustomOnly($$0);
    }
 
-   public void setAllowedPlayerEditor(@Nullable UUID $$0) {
+   public void setAllowedPlayerEditor(UUID $$0) {
       this.playerWhoMayEdit = $$0;
    }
 
-   @Nullable
+   
    public UUID getPlayerWhoMayEdit() {
       return this.playerWhoMayEdit;
    }

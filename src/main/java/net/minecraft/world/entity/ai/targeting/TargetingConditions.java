@@ -2,7 +2,6 @@ package net.minecraft.world.entity.ai.targeting;
 
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Difficulty;
-import org.jspecify.annotations.Nullable;
 
 public class TargetingConditions {
    public static final TargetingConditions DEFAULT = forCombat();
@@ -11,7 +10,7 @@ public class TargetingConditions {
    private double range = -1.0;
    private boolean checkLineOfSight = true;
    private boolean testInvisible = true;
-   @Nullable
+   
    private TargetingConditions.Selector selector;
 
    private TargetingConditions(boolean $$0) {
@@ -50,12 +49,12 @@ public class TargetingConditions {
       return this;
    }
 
-   public TargetingConditions selector(@Nullable TargetingConditions.Selector $$0) {
+   public TargetingConditions selector(TargetingConditions.Selector $$0) {
       this.selector = $$0;
       return this;
    }
 
-   public boolean test(ServerLevel $$0, @Nullable net.minecraft.world.entity.LivingEntity $$1, net.minecraft.world.entity.LivingEntity $$2) {
+   public boolean test(ServerLevel $$0, net.minecraft.world.entity.LivingEntity $$1, net.minecraft.world.entity.LivingEntity $$2) {
       if ($$1 == $$2) {
          return false;
       } else if (!$$2.canBeSeenByAnyone()) {

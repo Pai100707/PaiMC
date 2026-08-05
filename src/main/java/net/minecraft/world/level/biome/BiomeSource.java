@@ -22,7 +22,6 @@ import net.minecraft.core.BlockPos.MutableBlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
-import org.jspecify.annotations.Nullable;
 
 public abstract class BiomeSource implements BiomeResolver {
    public static final Codec<BiomeSource> CODEC = BuiltInRegistries.BIOME_SOURCE.byNameCodec().dispatchStable(BiomeSource::codec, Function.identity());
@@ -67,14 +66,14 @@ public abstract class BiomeSource implements BiomeResolver {
       return $$14;
    }
 
-   @Nullable
+   
    public Pair<BlockPos, Holder<Biome>> findBiomeHorizontal(
       int $$0, int $$1, int $$2, int $$3, Predicate<Holder<Biome>> $$4, RandomSource $$5, Climate.Sampler $$6
    ) {
       return this.findBiomeHorizontal($$0, $$1, $$2, $$3, 1, $$4, $$5, false, $$6);
    }
 
-   @Nullable
+   
    public Pair<BlockPos, Holder<Biome>> findClosestBiome3d(
       BlockPos $$0, int $$1, int $$2, int $$3, Predicate<Holder<Biome>> $$4, Climate.Sampler $$5, net.minecraft.world.level.LevelReader $$6
    ) {
@@ -104,7 +103,7 @@ public abstract class BiomeSource implements BiomeResolver {
       }
    }
 
-   @Nullable
+   
    public Pair<BlockPos, Holder<Biome>> findBiomeHorizontal(
       int $$0, int $$1, int $$2, int $$3, int $$4, Predicate<Holder<Biome>> $$5, RandomSource $$6, boolean $$7, Climate.Sampler $$8
    ) {

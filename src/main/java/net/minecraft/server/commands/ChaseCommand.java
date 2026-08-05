@@ -16,7 +16,6 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.chase.ChaseClient;
 import net.minecraft.server.chase.ChaseServer;
 import net.minecraft.world.level.Level;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class ChaseCommand {
@@ -26,9 +25,9 @@ public class ChaseCommand {
    private static final int DEFAULT_PORT = 10000;
    private static final int BROADCAST_INTERVAL_MS = 100;
    public static BiMap<String, ResourceKey<Level>> DIMENSION_NAMES = ImmutableBiMap.of("o", Level.OVERWORLD, "n", Level.NETHER, "e", Level.END);
-   @Nullable
+   
    private static ChaseServer chaseServer;
-   @Nullable
+   
    private static ChaseClient chaseClient;
 
    public static void register(CommandDispatcher<CommandSourceStack> $$0) {

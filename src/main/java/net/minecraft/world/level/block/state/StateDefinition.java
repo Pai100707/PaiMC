@@ -23,7 +23,6 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import net.minecraft.world.level.block.state.properties.Property;
-import org.jspecify.annotations.Nullable;
 
 public class StateDefinition<O, S extends StateHolder<O, S>> {
    static final Pattern NAME_PATTERN = Pattern.compile("^[a-z0-9_]+$");
@@ -111,7 +110,7 @@ public class StateDefinition<O, S extends StateHolder<O, S>> {
          .toString();
    }
 
-   @Nullable
+   
    public Property<?> getProperty(String $$0) {
       return (Property<?>)this.propertiesByName.get($$0);
    }

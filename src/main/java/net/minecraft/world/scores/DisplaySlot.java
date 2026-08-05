@@ -6,7 +6,6 @@ import net.minecraft.util.ByIdMap;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.util.ByIdMap.OutOfBoundsStrategy;
 import net.minecraft.util.StringRepresentable.EnumCodec;
-import org.jspecify.annotations.Nullable;
 
 public enum DisplaySlot implements StringRepresentable {
    LIST(0, "list"),
@@ -49,7 +48,7 @@ public enum DisplaySlot implements StringRepresentable {
       return this.name;
    }
 
-   @Nullable
+   
    public static net.minecraft.world.scores.DisplaySlot teamColorToSlot(ChatFormatting $$0) {
       return switch ($$0) {
          case BLACK -> TEAM_BLACK;

@@ -4,7 +4,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jspecify.annotations.Nullable;
 
 public class InstantNeighborUpdater implements NeighborUpdater {
    private final net.minecraft.world.level.Level level;
@@ -19,13 +18,13 @@ public class InstantNeighborUpdater implements NeighborUpdater {
    }
 
    @Override
-   public void neighborChanged(BlockPos $$0, Block $$1, @Nullable Orientation $$2) {
+   public void neighborChanged(BlockPos $$0, Block $$1, Orientation $$2) {
       BlockState $$3 = this.level.getBlockState($$0);
       this.neighborChanged($$3, $$0, $$1, $$2, false);
    }
 
    @Override
-   public void neighborChanged(BlockState $$0, BlockPos $$1, Block $$2, @Nullable Orientation $$3, boolean $$4) {
+   public void neighborChanged(BlockState $$0, BlockPos $$1, Block $$2, Orientation $$3, boolean $$4) {
       NeighborUpdater.executeUpdate(this.level, $$0, $$1, $$2, $$3, $$4);
    }
 }

@@ -9,7 +9,6 @@ import net.minecraft.server.Bootstrap;
 import net.minecraft.util.profiling.jfr.parse.JfrStatsParser;
 import net.minecraft.util.profiling.jfr.parse.JfrStatsResult;
 import org.apache.commons.lang3.StringUtils;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class SummaryReporter {
@@ -20,7 +19,7 @@ public class SummaryReporter {
       this.onDeregistration = $$0;
    }
 
-   public void recordingStopped(@Nullable Path $$0) {
+   public void recordingStopped(Path $$0) {
       if ($$0 != null) {
          this.onDeregistration.run();
          infoWithFallback(() -> "Dumped flight recorder profiling to " + $$0);

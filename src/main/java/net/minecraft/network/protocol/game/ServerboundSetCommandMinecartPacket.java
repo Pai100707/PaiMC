@@ -7,7 +7,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.vehicle.minecart.MinecartCommandBlock;
 import net.minecraft.world.level.BaseCommandBlock;
 import net.minecraft.world.level.Level;
-import org.jspecify.annotations.Nullable;
 
 public class ServerboundSetCommandMinecartPacket implements Packet<ServerGamePacketListener> {
    public static final StreamCodec<net.minecraft.network.FriendlyByteBuf, ServerboundSetCommandMinecartPacket> STREAM_CODEC = Packet.codec(
@@ -44,7 +43,7 @@ public class ServerboundSetCommandMinecartPacket implements Packet<ServerGamePac
       $$0.handleSetCommandMinecart(this);
    }
 
-   @Nullable
+   
    public BaseCommandBlock getCommandBlock(Level $$0) {
       Entity $$1 = $$0.getEntity(this.entity);
       return $$1 instanceof MinecartCommandBlock ? ((MinecartCommandBlock)$$1).getCommandBlock() : null;

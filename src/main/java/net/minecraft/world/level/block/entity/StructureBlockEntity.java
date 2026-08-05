@@ -34,7 +34,6 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 
 public class StructureBlockEntity extends BlockEntity implements BoundingBoxRenderable {
    private static final int SCAN_CORNER_BLOCKS_RANGE = 5;
@@ -54,7 +53,7 @@ public class StructureBlockEntity extends BlockEntity implements BoundingBoxRend
    private static final boolean DEFAULT_SHOW_BOUNDING_BOX = true;
    private static final float DEFAULT_INTEGRITY = 1.0F;
    private static final long DEFAULT_SEED = 0L;
-   @Nullable
+   
    private Identifier structureName;
    private String author = "";
    private String metaData = "";
@@ -166,11 +165,11 @@ public class StructureBlockEntity extends BlockEntity implements BoundingBoxRend
       return this.structureName != null;
    }
 
-   public void setStructureName(@Nullable String $$0) {
+   public void setStructureName(String $$0) {
       this.setStructureName(StringUtil.isNullOrEmpty($$0) ? null : Identifier.tryParse($$0));
    }
 
-   public void setStructureName(@Nullable Identifier $$0) {
+   public void setStructureName(Identifier $$0) {
       this.structureName = $$0;
    }
 
@@ -396,7 +395,7 @@ public class StructureBlockEntity extends BlockEntity implements BoundingBoxRend
       }
    }
 
-   @Nullable
+   
    private StructureTemplate getStructureTemplate(ServerLevel $$0) {
       return this.structureName == null ? null : $$0.getStructureManager().get(this.structureName).orElse(null);
    }

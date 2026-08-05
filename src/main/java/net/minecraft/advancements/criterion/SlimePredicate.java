@@ -6,7 +6,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.monster.Slime;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public record SlimePredicate(MinMaxBounds.Ints size) implements EntitySubPredicate {
    public static final MapCodec<SlimePredicate> CODEC = RecordCodecBuilder.mapCodec(
@@ -18,7 +17,7 @@ public record SlimePredicate(MinMaxBounds.Ints size) implements EntitySubPredica
    }
 
    @Override
-   public boolean matches(Entity $$0, ServerLevel $$1, @Nullable Vec3 $$2) {
+   public boolean matches(Entity $$0, ServerLevel $$1, Vec3 $$2) {
       return $$0 instanceof Slime $$3 ? this.size.matches($$3.getSize()) : false;
    }
 

@@ -30,7 +30,6 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.EntityCollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class PowderSnowBlock extends Block implements BucketPickup {
    public static final MapCodec<PowderSnowBlock> CODEC = simpleCodec(PowderSnowBlock::new);
@@ -141,7 +140,7 @@ public class PowderSnowBlock extends Block implements BucketPickup {
    }
 
    @Override
-   public ItemStack pickupBlock(@Nullable LivingEntity $$0, net.minecraft.world.level.LevelAccessor $$1, BlockPos $$2, BlockState $$3) {
+   public ItemStack pickupBlock(LivingEntity $$0, net.minecraft.world.level.LevelAccessor $$1, BlockPos $$2, BlockState $$3) {
       $$1.setBlock($$2, Blocks.AIR.defaultBlockState(), 11);
       if (!$$1.isClientSide()) {
          $$1.levelEvent(2001, $$2, Block.getId($$3));

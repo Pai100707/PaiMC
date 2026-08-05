@@ -51,7 +51,6 @@ import net.minecraft.world.level.levelgen.RandomState;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 import net.minecraft.world.level.storage.DimensionDataStorage;
 import net.minecraft.world.level.storage.LevelStorageSource.LevelStorageAccess;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class ServerChunkCache extends ChunkSource {
@@ -73,7 +72,7 @@ public class ServerChunkCache extends ChunkSource {
    private final List<LevelChunk> spawningChunks = new ObjectArrayList();
    private final Set<ChunkHolder> chunkHoldersToBroadcast = new ReferenceOpenHashSet();
    @VisibleForDebug
-   @Nullable
+   
    private SpawnState lastSpawnState;
 
    public ServerChunkCache(
@@ -113,12 +112,12 @@ public class ServerChunkCache extends ChunkSource {
       return this.lightEngine;
    }
 
-   @Nullable
+   
    private ChunkHolder getVisibleChunkIfPresent(long $$0) {
       return this.chunkMap.getVisibleChunkIfPresent($$0);
    }
 
-   private void storeInCache(long $$0, @Nullable ChunkAccess $$1, ChunkStatus $$2) {
+   private void storeInCache(long $$0, ChunkAccess $$1, ChunkStatus $$2) {
       for (int $$3 = 3; $$3 > 0; $$3--) {
          this.lastChunkPos[$$3] = this.lastChunkPos[$$3 - 1];
          this.lastChunkStatus[$$3] = this.lastChunkStatus[$$3 - 1];
@@ -130,7 +129,7 @@ public class ServerChunkCache extends ChunkSource {
       this.lastChunk[0] = $$1;
    }
 
-   @Nullable
+   
    public ChunkAccess getChunk(int $$0, int $$1, ChunkStatus $$2, boolean $$3) {
       if (Thread.currentThread() != this.mainThread) {
          return CompletableFuture.<ChunkAccess>supplyAsync(() -> this.getChunk($$0, $$1, $$2, $$3), this.mainThreadProcessor).join();
@@ -162,7 +161,7 @@ public class ServerChunkCache extends ChunkSource {
       }
    }
 
-   @Nullable
+   
    public LevelChunk getChunkNow(int $$0, int $$1) {
       if (Thread.currentThread() != this.mainThread) {
          return null;
@@ -238,7 +237,7 @@ public class ServerChunkCache extends ChunkSource {
       return this.chunkAbsent($$7, $$6) ? GenerationChunkHolder.UNLOADED_CHUNK_FUTURE : $$7.scheduleChunkGenerationTask($$2, this.chunkMap);
    }
 
-   private boolean chunkAbsent(@Nullable ChunkHolder $$0, int $$1) {
+   private boolean chunkAbsent(ChunkHolder $$0, int $$1) {
       return $$0 == null || $$0.getTicketLevel() > $$1;
    }
 
@@ -248,7 +247,7 @@ public class ServerChunkCache extends ChunkSource {
       return !this.chunkAbsent($$2, $$3);
    }
 
-   @Nullable
+   
    public LightChunk getChunkForLighting(int $$0, int $$1) {
       long $$2 = ChunkPos.asLong($$0, $$1);
       ChunkHolder $$3 = this.getVisibleChunkIfPresent($$2);
@@ -545,7 +544,7 @@ public class ServerChunkCache extends ChunkSource {
    }
 
    @VisibleForDebug
-   @Nullable
+   
    public SpawnState getLastSpawnState() {
       return this.lastSpawnState;
    }

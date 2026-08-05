@@ -22,7 +22,6 @@ import java.nio.file.attribute.FileTime;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
-import org.jspecify.annotations.Nullable;
 
 class LinkFSPath implements Path {
    private static final BasicFileAttributes DIRECTORY_ATTRIBUTES = new DummyFileAttributes() {
@@ -50,22 +49,22 @@ class LinkFSPath implements Path {
    private static final Comparator<LinkFSPath> PATH_COMPARATOR = Comparator.comparing(LinkFSPath::pathToString);
    private final String name;
    private final LinkFileSystem fileSystem;
-   @Nullable
+   
    private final LinkFSPath parent;
-   @Nullable
+   
    private List<String> pathToRoot;
-   @Nullable
+   
    private String pathString;
    private final PathContents pathContents;
 
-   public LinkFSPath(LinkFileSystem $$0, String $$1, @Nullable LinkFSPath $$2, PathContents $$3) {
+   public LinkFSPath(LinkFileSystem $$0, String $$1, LinkFSPath $$2, PathContents $$3) {
       this.fileSystem = $$0;
       this.name = $$1;
       this.parent = $$2;
       this.pathContents = $$3;
    }
 
-   private LinkFSPath createRelativePath(@Nullable LinkFSPath $$0, String $$1) {
+   private LinkFSPath createRelativePath(LinkFSPath $$0, String $$1) {
       return new LinkFSPath(this.fileSystem, $$1, $$0, PathContents.RELATIVE);
    }
 
@@ -87,7 +86,7 @@ class LinkFSPath implements Path {
       }
    }
 
-   @Nullable
+   
    public LinkFSPath getRoot() {
       return this.isAbsolute() ? this.fileSystem.rootPath() : null;
    }
@@ -96,7 +95,7 @@ class LinkFSPath implements Path {
       return this.createRelativePath(null, this.name);
    }
 
-   @Nullable
+   
    public LinkFSPath getParent() {
       return this.parent;
    }
@@ -338,7 +337,7 @@ class LinkFSPath implements Path {
       return this.pathString;
    }
 
-   private LinkFSPath toLinkPath(@Nullable Path $$0) {
+   private LinkFSPath toLinkPath(Path $$0) {
       if ($$0 == null) {
          throw new NullPointerException();
       } else if ($$0 instanceof LinkFSPath $$1 && $$1.fileSystem == this.fileSystem) {
@@ -352,12 +351,12 @@ class LinkFSPath implements Path {
       return this.hasRealContents();
    }
 
-   @Nullable
+   
    public Path getTargetPath() {
       return this.pathContents instanceof PathContents.FileContents $$0 ? $$0.contents() : null;
    }
 
-   @Nullable
+   
    public PathContents.DirectoryContents getDirectoryContents() {
       return this.pathContents instanceof PathContents.DirectoryContents $$0 ? $$0 : null;
    }

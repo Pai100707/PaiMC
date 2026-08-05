@@ -67,7 +67,6 @@ import net.minecraft.world.level.storage.TagValueInput;
 import net.minecraft.world.ticks.LevelChunkTicks;
 import net.minecraft.world.ticks.ProtoChunkTicks;
 import net.minecraft.world.ticks.SavedTick;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public record SerializableChunkData(
@@ -77,10 +76,10 @@ public record SerializableChunkData(
    long lastUpdateTime,
    long inhabitedTime,
    ChunkStatus chunkStatus,
-   @Nullable BlendingData.Packed blendingData,
-   @Nullable BelowZeroRetrogen belowZeroRetrogen,
+   BlendingData.Packed blendingData,
+   BelowZeroRetrogen belowZeroRetrogen,
    UpgradeData upgradeData,
-   @Nullable long[] carvingMask,
+   long[] carvingMask,
    Map<Heightmap.Types, long[]> heightmaps,
    ChunkAccess.PackedTicks packedTicks,
    ShortList[] postProcessingSections,
@@ -455,11 +454,11 @@ public record SerializableChunkData(
       $$0.store("fluid_ticks", FLUID_TICKS_CODEC, $$1.fluids());
    }
 
-   public static ChunkStatus getChunkStatusFromTag(@Nullable CompoundTag $$0) {
+   public static ChunkStatus getChunkStatusFromTag(CompoundTag $$0) {
       return $$0 != null ? $$0.read("Status", ChunkStatus.CODEC).orElse(ChunkStatus.EMPTY) : ChunkStatus.EMPTY;
    }
 
-   @Nullable
+   
    private static LevelChunk.PostLoadProcessor postLoadChunk(ServerLevel $$0, List<CompoundTag> $$1, List<CompoundTag> $$2) {
       return $$1.isEmpty() && $$2.isEmpty() ? null : $$3 -> {
          if (!$$1.isEmpty()) {
@@ -592,6 +591,6 @@ public record SerializableChunkData(
       }
    }
 
-   public record SectionData(int y, @Nullable LevelChunkSection chunkSection, @Nullable DataLayer blockLight, @Nullable DataLayer skyLight) {
+   public record SectionData(int y, LevelChunkSection chunkSection, DataLayer blockLight, DataLayer skyLight) {
    }
 }

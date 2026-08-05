@@ -6,7 +6,6 @@ import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.PacketType;
 import net.minecraft.world.scores.DisplaySlot;
 import net.minecraft.world.scores.Objective;
-import org.jspecify.annotations.Nullable;
 
 public class ClientboundSetDisplayObjectivePacket implements Packet<ClientGamePacketListener> {
    public static final StreamCodec<net.minecraft.network.FriendlyByteBuf, ClientboundSetDisplayObjectivePacket> STREAM_CODEC = Packet.codec(
@@ -15,7 +14,7 @@ public class ClientboundSetDisplayObjectivePacket implements Packet<ClientGamePa
    private final DisplaySlot slot;
    private final String objectiveName;
 
-   public ClientboundSetDisplayObjectivePacket(DisplaySlot $$0, @Nullable Objective $$1) {
+   public ClientboundSetDisplayObjectivePacket(DisplaySlot $$0, Objective $$1) {
       this.slot = $$0;
       if ($$1 == null) {
          this.objectiveName = "";
@@ -47,7 +46,7 @@ public class ClientboundSetDisplayObjectivePacket implements Packet<ClientGamePa
       return this.slot;
    }
 
-   @Nullable
+   
    public String getObjectiveName() {
       return Objects.equals(this.objectiveName, "") ? null : this.objectiveName;
    }

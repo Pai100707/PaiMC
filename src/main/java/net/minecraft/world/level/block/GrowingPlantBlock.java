@@ -10,7 +10,6 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public abstract class GrowingPlantBlock extends Block {
    protected final Direction growthDirection;
@@ -27,7 +26,7 @@ public abstract class GrowingPlantBlock extends Block {
    @Override
    protected abstract MapCodec<? extends GrowingPlantBlock> codec();
 
-   @Nullable
+   
    @Override
    public BlockState getStateForPlacement(BlockPlaceContext $$0) {
       BlockState $$1 = $$0.getLevel().getBlockState($$0.getClickedPos().relative(this.growthDirection));

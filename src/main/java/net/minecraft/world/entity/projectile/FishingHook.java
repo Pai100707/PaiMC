@@ -41,7 +41,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class FishingHook extends Projectile {
@@ -58,7 +57,7 @@ public class FishingHook extends Projectile {
    private int timeUntilHooked;
    private float fishAngle;
    private boolean openWater = true;
-   @Nullable
+   
    private net.minecraft.world.entity.Entity hookedIn;
    private FishingHook.FishHookState currentState = FishingHook.FishHookState.FLYING;
    private final int luck;
@@ -283,7 +282,7 @@ public class FishingHook extends Projectile {
       this.setDeltaMovement(this.getDeltaMovement().normalize().scale($$0.distanceTo(this)));
    }
 
-   private void setHookedEntity(@Nullable net.minecraft.world.entity.Entity $$0) {
+   private void setHookedEntity(net.minecraft.world.entity.Entity $$0) {
       this.hookedIn = $$0;
       this.getEntityData().set(DATA_HOOKED_ENTITY, $$0 == null ? 0 : $$0.getId() + 1);
    }
@@ -515,24 +514,24 @@ public class FishingHook extends Projectile {
    }
 
    @Override
-   public void setOwner(@Nullable net.minecraft.world.entity.Entity $$0) {
+   public void setOwner(net.minecraft.world.entity.Entity $$0) {
       super.setOwner($$0);
       this.updateOwnerInfo(this);
    }
 
-   private void updateOwnerInfo(@Nullable FishingHook $$0) {
+   private void updateOwnerInfo(FishingHook $$0) {
       Player $$1 = this.getPlayerOwner();
       if ($$1 != null) {
          $$1.fishing = $$0;
       }
    }
 
-   @Nullable
+   
    public Player getPlayerOwner() {
       return this.getOwner() instanceof Player $$1 ? $$1 : null;
    }
 
-   @Nullable
+   
    public net.minecraft.world.entity.Entity getHookedIn() {
       return this.hookedIn;
    }

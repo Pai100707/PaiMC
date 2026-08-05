@@ -22,7 +22,6 @@ import net.minecraft.util.Util;
 import net.minecraft.util.datafix.DataFixTypes;
 import net.minecraft.world.level.chunk.storage.LegacyTagFixer;
 import net.minecraft.world.level.storage.DimensionDataStorage;
-import org.jspecify.annotations.Nullable;
 
 public class LegacyStructureDataHandler implements LegacyTagFixer {
    public static final int LAST_MONOLYTH_STRUCTURE_DATA_VERSION = 1493;
@@ -68,14 +67,14 @@ public class LegacyStructureDataHandler implements LegacyTagFixer {
    private final boolean hasLegacyData;
    private final Map<String, Long2ObjectMap<CompoundTag>> dataMap = Maps.newHashMap();
    private final Map<String, StructureFeatureIndexSavedData> indexMap = Maps.newHashMap();
-   @Nullable
+   
    private final DimensionDataStorage dimensionDataStorage;
    private final List<String> legacyKeys;
    private final List<String> currentKeys;
    private final DataFixer dataFixer;
    private boolean cachesInitialized;
 
-   public LegacyStructureDataHandler(@Nullable DimensionDataStorage $$0, List<String> $$1, List<String> $$2, DataFixer $$3) {
+   public LegacyStructureDataHandler(DimensionDataStorage $$0, List<String> $$1, List<String> $$2, DataFixer $$3) {
       this.dimensionDataStorage = $$0;
       this.legacyKeys = $$1;
       this.currentKeys = $$2;

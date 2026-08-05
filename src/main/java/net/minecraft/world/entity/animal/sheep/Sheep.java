@@ -44,7 +44,6 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
-import org.jspecify.annotations.Nullable;
 
 public class Sheep extends Animal implements net.minecraft.world.entity.Shearable {
    private static final int EAT_ANIMATION_TICKS = 40;
@@ -221,7 +220,7 @@ public class Sheep extends Animal implements net.minecraft.world.entity.Shearabl
       this.entityData.set(DATA_WOOL_ID, (byte)($$1 & 240 | $$0.getId() & 15));
    }
 
-   @Nullable
+   
    @Override
    public <T> T get(DataComponentType<? extends T> $$0) {
       return $$0 == DataComponents.SHEEP_COLOR ? castComponentValue((DataComponentType<T>)$$0, this.getColor()) : super.get($$0);
@@ -261,7 +260,7 @@ public class Sheep extends Animal implements net.minecraft.world.entity.Shearabl
       return SheepColorSpawnRules.getSheepColor($$2, $$0.getRandom());
    }
 
-   @Nullable
+   
    public Sheep getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       Sheep $$2 = net.minecraft.world.entity.EntityType.SHEEP.create($$0, net.minecraft.world.entity.EntitySpawnReason.BREEDING);
       if ($$2 != null) {
@@ -282,13 +281,13 @@ public class Sheep extends Animal implements net.minecraft.world.entity.Shearabl
       }
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       this.setColor(getRandomSheepColor($$0, this.blockPosition()));
       return super.finalizeSpawn($$0, $$1, $$2, $$3);

@@ -41,7 +41,6 @@ import net.minecraft.world.phys.Vec3;
 import org.apache.commons.lang3.mutable.MutableBoolean;
 import org.apache.commons.lang3.mutable.MutableFloat;
 import org.apache.commons.lang3.mutable.MutableObject;
-import org.jspecify.annotations.Nullable;
 
 public class EnchantmentHelper {
    public static int getItemEnchantmentLevel(Holder<Enchantment> $$0, net.minecraft.world.item.ItemStack $$1) {
@@ -102,7 +101,7 @@ public class EnchantmentHelper {
       return $$3.intValue();
    }
 
-   public static int processMobExperience(ServerLevel $$0, @Nullable Entity $$1, Entity $$2, int $$3) {
+   public static int processMobExperience(ServerLevel $$0, Entity $$1, Entity $$2, int $$3) {
       if ($$1 instanceof LivingEntity $$4) {
          MutableFloat $$5 = new MutableFloat($$3);
          runIterationOnEquipment($$4, ($$3x, $$4x, $$5x) -> ((Enchantment)$$3x.value()).modifyMobExperience($$0, $$4x, $$5x.itemStack(), $$2, $$5));
@@ -200,12 +199,12 @@ public class EnchantmentHelper {
       }
    }
 
-   public static void doPostAttackEffectsWithItemSource(ServerLevel $$0, Entity $$1, DamageSource $$2, @Nullable net.minecraft.world.item.ItemStack $$3) {
+   public static void doPostAttackEffectsWithItemSource(ServerLevel $$0, Entity $$1, DamageSource $$2, net.minecraft.world.item.ItemStack $$3) {
       doPostAttackEffectsWithItemSourceOnBreak($$0, $$1, $$2, $$3, null);
    }
 
    public static void doPostAttackEffectsWithItemSourceOnBreak(
-      ServerLevel $$0, Entity $$1, DamageSource $$2, @Nullable net.minecraft.world.item.ItemStack $$3, @Nullable Consumer<net.minecraft.world.item.Item> $$4
+      ServerLevel $$0, Entity $$1, DamageSource $$2, net.minecraft.world.item.ItemStack $$3, Consumer<net.minecraft.world.item.Item> $$4
    ) {
       if ($$1 instanceof LivingEntity $$5) {
          runIterationOnEquipment($$5, ($$3x, $$4x, $$5x) -> ((Enchantment)$$3x.value()).doPostAttack($$0, $$4x, $$5x, EnchantmentTarget.VICTIM, $$1, $$2));
@@ -287,9 +286,9 @@ public class EnchantmentHelper {
    public static void onHitBlock(
       ServerLevel $$0,
       net.minecraft.world.item.ItemStack $$1,
-      @Nullable LivingEntity $$2,
+      LivingEntity $$2,
       Entity $$3,
-      @Nullable EquipmentSlot $$4,
+      EquipmentSlot $$4,
       Vec3 $$5,
       BlockState $$6,
       Consumer<net.minecraft.world.item.Item> $$7

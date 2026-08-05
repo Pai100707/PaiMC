@@ -9,32 +9,31 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.util.ExtraCodecs;
-import org.jspecify.annotations.Nullable;
 
 public final class Style {
    public static final Style EMPTY = new Style(null, null, null, null, null, null, null, null, null, null, null);
    public static final int NO_SHADOW = 0;
-   @Nullable
+   
    final TextColor color;
-   @Nullable
+   
    final Integer shadowColor;
-   @Nullable
+   
    final Boolean bold;
-   @Nullable
+   
    final Boolean italic;
-   @Nullable
+   
    final Boolean underlined;
-   @Nullable
+   
    final Boolean strikethrough;
-   @Nullable
+   
    final Boolean obfuscated;
-   @Nullable
+   
    final ClickEvent clickEvent;
-   @Nullable
+   
    final HoverEvent hoverEvent;
-   @Nullable
+   
    final String insertion;
-   @Nullable
+   
    final FontDescription font;
 
    private static Style create(
@@ -67,17 +66,17 @@ public final class Style {
    }
 
    private Style(
-      @Nullable TextColor $$0,
-      @Nullable Integer $$1,
-      @Nullable Boolean $$2,
-      @Nullable Boolean $$3,
-      @Nullable Boolean $$4,
-      @Nullable Boolean $$5,
-      @Nullable Boolean $$6,
-      @Nullable ClickEvent $$7,
-      @Nullable HoverEvent $$8,
-      @Nullable String $$9,
-      @Nullable FontDescription $$10
+      TextColor $$0,
+      Integer $$1,
+      Boolean $$2,
+      Boolean $$3,
+      Boolean $$4,
+      Boolean $$5,
+      Boolean $$6,
+      ClickEvent $$7,
+      HoverEvent $$8,
+      String $$9,
+      FontDescription $$10
    ) {
       this.color = $$0;
       this.shadowColor = $$1;
@@ -92,12 +91,12 @@ public final class Style {
       this.font = $$10;
    }
 
-   @Nullable
+   
    public TextColor getColor() {
       return this.color;
    }
 
-   @Nullable
+   
    public Integer getShadowColor() {
       return this.shadowColor;
    }
@@ -126,17 +125,17 @@ public final class Style {
       return this == EMPTY;
    }
 
-   @Nullable
+   
    public ClickEvent getClickEvent() {
       return this.clickEvent;
    }
 
-   @Nullable
+   
    public HoverEvent getHoverEvent() {
       return this.hoverEvent;
    }
 
-   @Nullable
+   
    public String getInsertion() {
       return this.insertion;
    }
@@ -145,11 +144,11 @@ public final class Style {
       return (FontDescription)(this.font != null ? this.font : FontDescription.DEFAULT);
    }
 
-   private static <T> Style checkEmptyAfterChange(Style $$0, @Nullable T $$1, @Nullable T $$2) {
+   private static <T> Style checkEmptyAfterChange(Style $$0, T $$1, T $$2) {
       return $$1 != null && $$2 == null && $$0.equals(EMPTY) ? EMPTY : $$0;
    }
 
-   public Style withColor(@Nullable TextColor $$0) {
+   public Style withColor(TextColor $$0) {
       return Objects.equals(this.color, $$0)
          ? this
          : checkEmptyAfterChange(
@@ -171,7 +170,7 @@ public final class Style {
          );
    }
 
-   public Style withColor(@Nullable ChatFormatting $$0) {
+   public Style withColor(ChatFormatting $$0) {
       return this.withColor($$0 != null ? TextColor.fromLegacyFormat($$0) : null);
    }
 
@@ -205,7 +204,7 @@ public final class Style {
       return this.withShadowColor(0);
    }
 
-   public Style withBold(@Nullable Boolean $$0) {
+   public Style withBold(Boolean $$0) {
       return Objects.equals(this.bold, $$0)
          ? this
          : checkEmptyAfterChange(
@@ -227,7 +226,7 @@ public final class Style {
          );
    }
 
-   public Style withItalic(@Nullable Boolean $$0) {
+   public Style withItalic(Boolean $$0) {
       return Objects.equals(this.italic, $$0)
          ? this
          : checkEmptyAfterChange(
@@ -249,7 +248,7 @@ public final class Style {
          );
    }
 
-   public Style withUnderlined(@Nullable Boolean $$0) {
+   public Style withUnderlined(Boolean $$0) {
       return Objects.equals(this.underlined, $$0)
          ? this
          : checkEmptyAfterChange(
@@ -271,7 +270,7 @@ public final class Style {
          );
    }
 
-   public Style withStrikethrough(@Nullable Boolean $$0) {
+   public Style withStrikethrough(Boolean $$0) {
       return Objects.equals(this.strikethrough, $$0)
          ? this
          : checkEmptyAfterChange(
@@ -293,7 +292,7 @@ public final class Style {
          );
    }
 
-   public Style withObfuscated(@Nullable Boolean $$0) {
+   public Style withObfuscated(Boolean $$0) {
       return Objects.equals(this.obfuscated, $$0)
          ? this
          : checkEmptyAfterChange(
@@ -315,7 +314,7 @@ public final class Style {
          );
    }
 
-   public Style withClickEvent(@Nullable ClickEvent $$0) {
+   public Style withClickEvent(ClickEvent $$0) {
       return Objects.equals(this.clickEvent, $$0)
          ? this
          : checkEmptyAfterChange(
@@ -337,7 +336,7 @@ public final class Style {
          );
    }
 
-   public Style withHoverEvent(@Nullable HoverEvent $$0) {
+   public Style withHoverEvent(HoverEvent $$0) {
       return Objects.equals(this.hoverEvent, $$0)
          ? this
          : checkEmptyAfterChange(
@@ -359,7 +358,7 @@ public final class Style {
          );
    }
 
-   public Style withInsertion(@Nullable String $$0) {
+   public Style withInsertion(String $$0) {
       return Objects.equals(this.insertion, $$0)
          ? this
          : checkEmptyAfterChange(
@@ -381,7 +380,7 @@ public final class Style {
          );
    }
 
-   public Style withFont(@Nullable FontDescription $$0) {
+   public Style withFont(FontDescription $$0) {
       return Objects.equals(this.font, $$0)
          ? this
          : checkEmptyAfterChange(
@@ -544,7 +543,7 @@ public final class Style {
             this.isNotFirst = true;
          }
 
-         void addFlagString(String $$0x, @Nullable Boolean $$1) {
+         void addFlagString(String $$0x, Boolean $$1) {
             if ($$1 != null) {
                this.prependSeparator();
                if (!$$1) {
@@ -555,7 +554,7 @@ public final class Style {
             }
          }
 
-         void addValueString(String $$0x, @Nullable Object $$1) {
+         void addValueString(String $$0x, Object $$1) {
             if ($$1 != null) {
                this.prependSeparator();
                $$0.append($$0);

@@ -21,7 +21,6 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import org.jspecify.annotations.Nullable;
 
 public class EffectCommands {
    private static final SimpleCommandExceptionType ERROR_GIVE_FAILED = new SimpleCommandExceptionType(Component.translatable("commands.effect.give.failed"));
@@ -160,7 +159,7 @@ public class EffectCommands {
       );
    }
 
-   private static int giveEffect(CommandSourceStack $$0, Collection<? extends Entity> $$1, Holder<MobEffect> $$2, @Nullable Integer $$3, int $$4, boolean $$5) throws CommandSyntaxException {
+   private static int giveEffect(CommandSourceStack $$0, Collection<? extends Entity> $$1, Holder<MobEffect> $$2, Integer $$3, int $$4, boolean $$5) throws CommandSyntaxException {
       MobEffect $$6 = (MobEffect)$$2.value();
       int $$7 = 0;
       int $$8;

@@ -35,7 +35,6 @@ import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class SculkShriekerBlockEntity extends BlockEntity implements GameEventListener.Provider<VibrationSystem.Listener>, VibrationSystem {
    private static final int WARNING_SOUND_RADIUS = 10;
@@ -84,8 +83,8 @@ public class SculkShriekerBlockEntity extends BlockEntity implements GameEventLi
       $$0.store("listener", VibrationSystem.Data.CODEC, this.vibrationData);
    }
 
-   @Nullable
-   public static ServerPlayer tryGetPlayer(@Nullable Entity $$0) {
+   
+   public static ServerPlayer tryGetPlayer(Entity $$0) {
       if ($$0 instanceof ServerPlayer $$1) {
          return $$1;
       } else if ($$0 != null && $$0.getControllingPassenger() instanceof ServerPlayer $$2) {
@@ -97,7 +96,7 @@ public class SculkShriekerBlockEntity extends BlockEntity implements GameEventLi
       }
    }
 
-   public void tryShriek(ServerLevel $$0, @Nullable ServerPlayer $$1) {
+   public void tryShriek(ServerLevel $$0, ServerPlayer $$1) {
       if ($$1 != null) {
          BlockState $$2 = this.getBlockState();
          if (!$$2.getValue(SculkShriekerBlock.SHRIEKING)) {
@@ -115,7 +114,7 @@ public class SculkShriekerBlockEntity extends BlockEntity implements GameEventLi
       return $$2.isPresent();
    }
 
-   private void shriek(ServerLevel $$0, @Nullable Entity $$1) {
+   private void shriek(ServerLevel $$0, Entity $$1) {
       BlockPos $$2 = this.getBlockPos();
       BlockState $$3 = this.getBlockState();
       $$0.setBlock($$2, $$3.setValue(SculkShriekerBlock.SHRIEKING, true), 2);
@@ -198,7 +197,7 @@ public class SculkShriekerBlockEntity extends BlockEntity implements GameEventLi
       }
 
       @Override
-      public void onReceiveVibration(ServerLevel $$0, BlockPos $$1, Holder<GameEvent> $$2, @Nullable Entity $$3, @Nullable Entity $$4, float $$5) {
+      public void onReceiveVibration(ServerLevel $$0, BlockPos $$1, Holder<GameEvent> $$2, Entity $$3, Entity $$4, float $$5) {
          SculkShriekerBlockEntity.this.tryShriek($$0, SculkShriekerBlockEntity.tryGetPlayer($$4 != null ? $$4 : $$3));
       }
 

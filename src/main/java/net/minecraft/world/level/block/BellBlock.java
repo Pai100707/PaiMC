@@ -35,7 +35,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class BellBlock extends BaseEntityBlock {
    public static final MapCodec<BellBlock> CODEC = simpleCodec(BellBlock::new);
@@ -62,7 +61,7 @@ public class BellBlock extends BaseEntityBlock {
    }
 
    @Override
-   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, @Nullable Orientation $$4, boolean $$5) {
+   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, Orientation $$4, boolean $$5) {
       boolean $$6 = $$1.hasNeighborSignal($$2);
       if ($$6 != $$0.getValue(POWERED)) {
          if ($$6) {
@@ -84,7 +83,7 @@ public class BellBlock extends BaseEntityBlock {
       return (InteractionResult)(this.onHit($$1, $$0, $$4, $$3, true) ? InteractionResult.SUCCESS : InteractionResult.PASS);
    }
 
-   public boolean onHit(net.minecraft.world.level.Level $$0, BlockState $$1, BlockHitResult $$2, @Nullable Player $$3, boolean $$4) {
+   public boolean onHit(net.minecraft.world.level.Level $$0, BlockState $$1, BlockHitResult $$2, Player $$3, boolean $$4) {
       Direction $$5 = $$2.getDirection();
       BlockPos $$6 = $$2.getBlockPos();
       boolean $$7 = !$$4 || this.isProperHit($$1, $$5, $$2.getLocation().y - $$6.getY());
@@ -120,11 +119,11 @@ public class BellBlock extends BaseEntityBlock {
       }
    }
 
-   public boolean attemptToRing(net.minecraft.world.level.Level $$0, BlockPos $$1, @Nullable Direction $$2) {
+   public boolean attemptToRing(net.minecraft.world.level.Level $$0, BlockPos $$1, Direction $$2) {
       return this.attemptToRing(null, $$0, $$1, $$2);
    }
 
-   public boolean attemptToRing(@Nullable Entity $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, @Nullable Direction $$3) {
+   public boolean attemptToRing(Entity $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Direction $$3) {
       BlockEntity $$4 = $$1.getBlockEntity($$2);
       if (!$$1.isClientSide() && $$4 instanceof BellBlockEntity) {
          if ($$3 == null) {
@@ -161,7 +160,7 @@ public class BellBlock extends BaseEntityBlock {
       return this.getVoxelShape($$0);
    }
 
-   @Nullable
+   
    @Override
    public BlockState getStateForPlacement(BlockPlaceContext $$0) {
       Direction $$1 = $$0.getClickedFace();
@@ -260,13 +259,13 @@ public class BellBlock extends BaseEntityBlock {
       $$0.add(FACING, ATTACHMENT, POWERED);
    }
 
-   @Nullable
+   
    @Override
    public BlockEntity newBlockEntity(BlockPos $$0, BlockState $$1) {
       return new BellBlockEntity($$0, $$1);
    }
 
-   @Nullable
+   
    @Override
    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(net.minecraft.world.level.Level $$0, BlockState $$1, BlockEntityType<T> $$2) {
       return createTickerHelper($$2, BlockEntityType.BELL, $$0.isClientSide() ? BellBlockEntity::clientTick : BellBlockEntity::serverTick);

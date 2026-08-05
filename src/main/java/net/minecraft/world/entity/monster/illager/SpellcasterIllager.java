@@ -17,7 +17,6 @@ import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 
 public abstract class SpellcasterIllager extends AbstractIllager {
    private static final EntityDataAccessor<Byte> DATA_SPELL_CASTING_ID = SynchedEntityData.defineId(SpellcasterIllager.class, EntityDataSerializers.BYTE);
@@ -224,7 +223,7 @@ public abstract class SpellcasterIllager extends AbstractIllager {
 
       protected abstract int getCastingInterval();
 
-      @Nullable
+      
       protected abstract SoundEvent getSpellPrepareSound();
 
       protected abstract SpellcasterIllager.IllagerSpell getSpell();

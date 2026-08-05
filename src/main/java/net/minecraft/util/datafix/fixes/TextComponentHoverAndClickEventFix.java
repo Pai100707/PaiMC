@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 import net.minecraft.util.datafix.ExtraDataFixUtils;
-import org.jspecify.annotations.Nullable;
 
 public class TextComponentHoverAndClickEventFix extends DataFix {
    public TextComponentHoverAndClickEventFix(Schema $$0) {
@@ -103,7 +102,7 @@ public class TextComponentHoverAndClickEventFix extends DataFix {
       };
    }
 
-   @Nullable
+   
    private static <T> Dynamic<T> fixClickEvent(Dynamic<T> $$0) {
       String $$1 = $$0.get("action").asString("");
       String $$2 = $$0.get("value").asString("");
@@ -125,7 +124,7 @@ public class TextComponentHoverAndClickEventFix extends DataFix {
       };
    }
 
-   @Nullable
+   
    private static Integer parseOldPage(Dynamic<?> $$0) {
       Optional<Number> $$1 = $$0.asNumber().result();
       if ($$1.isPresent()) {

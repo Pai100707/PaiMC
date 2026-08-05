@@ -11,7 +11,6 @@ import java.util.stream.Stream;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.util.Util;
 import net.minecraft.world.entity.EquipmentSlot;
-import org.jspecify.annotations.Nullable;
 
 public class SlotRanges {
    private static final List<net.minecraft.world.inventory.SlotRange> SLOTS = (List<net.minecraft.world.inventory.SlotRange>)Util.make(
@@ -85,7 +84,7 @@ public class SlotRanges {
       $$0.add(create($$1, $$2));
    }
 
-   @Nullable
+   
    public static net.minecraft.world.inventory.SlotRange nameToIds(String $$0) {
       return NAME_LOOKUP.apply($$0);
    }

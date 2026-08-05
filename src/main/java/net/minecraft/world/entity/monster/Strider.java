@@ -60,7 +60,6 @@ import net.minecraft.world.level.pathfinder.WalkNodeEvaluator;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
-import org.jspecify.annotations.Nullable;
 
 public class Strider extends Animal implements net.minecraft.world.entity.ItemSteerable {
    private static final Identifier SUFFOCATING_MODIFIER_ID = Identifier.withDefaultNamespace("suffocating");
@@ -72,7 +71,7 @@ public class Strider extends Animal implements net.minecraft.world.entity.ItemSt
    private static final EntityDataAccessor<Integer> DATA_BOOST_TIME = SynchedEntityData.defineId(Strider.class, EntityDataSerializers.INT);
    private static final EntityDataAccessor<Boolean> DATA_SUFFOCATING = SynchedEntityData.defineId(Strider.class, EntityDataSerializers.BOOLEAN);
    private final net.minecraft.world.entity.ItemBasedSteering steering = new net.minecraft.world.entity.ItemBasedSteering(this.entityData, DATA_BOOST_TIME);
-   @Nullable
+   
    private TemptGoal temptGoal;
 
    public Strider(net.minecraft.world.entity.EntityType<? extends Strider> $$0, Level $$1) {
@@ -179,7 +178,7 @@ public class Strider extends Animal implements net.minecraft.world.entity.ItemSt
       return $$0.isUnobstructed(this);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.LivingEntity getControllingPassenger() {
       return (net.minecraft.world.entity.LivingEntity)(this.isSaddled()
@@ -320,7 +319,7 @@ public class Strider extends Animal implements net.minecraft.world.entity.ItemSt
       return Animal.createAnimalAttributes().add(Attributes.MOVEMENT_SPEED, 0.175F);
    }
 
-   @Nullable
+   
    @Override
    protected SoundEvent getAmbientSound() {
       return !this.isPanicking() && !this.isBeingTempted() ? SoundEvents.STRIDER_AMBIENT : null;
@@ -365,7 +364,7 @@ public class Strider extends Animal implements net.minecraft.world.entity.ItemSt
       }
    }
 
-   @Nullable
+   
    public Strider getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       return net.minecraft.world.entity.EntityType.STRIDER.create($$0, net.minecraft.world.entity.EntitySpawnReason.BREEDING);
    }
@@ -416,13 +415,13 @@ public class Strider extends Animal implements net.minecraft.world.entity.ItemSt
       return new Vec3(0.0, 0.6F * this.getEyeHeight(), this.getBbWidth() * 0.4F);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       if (this.isBaby()) {
          return super.finalizeSpawn($$0, $$1, $$2, $$3);
@@ -453,7 +452,7 @@ public class Strider extends Animal implements net.minecraft.world.entity.ItemSt
    }
 
    private net.minecraft.world.entity.SpawnGroupData spawnJockey(
-      ServerLevelAccessor $$0, DifficultyInstance $$1, net.minecraft.world.entity.Mob $$2, @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      ServerLevelAccessor $$0, DifficultyInstance $$1, net.minecraft.world.entity.Mob $$2, net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       $$2.snapTo(this.getX(), this.getY(), this.getZ(), this.getYRot(), 0.0F);
       $$2.finalizeSpawn($$0, $$1, net.minecraft.world.entity.EntitySpawnReason.JOCKEY, $$3);

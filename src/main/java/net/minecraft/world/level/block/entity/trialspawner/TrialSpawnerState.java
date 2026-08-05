@@ -24,7 +24,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
-import org.jspecify.annotations.Nullable;
 
 public enum TrialSpawnerState implements StringRepresentable {
    INACTIVE("inactive", 0, TrialSpawnerState.ParticleEmission.NONE, -1.0, false),
@@ -195,7 +194,7 @@ public enum TrialSpawnerState implements StringRepresentable {
       return !$$1.getBlockState($$6).getCollisionShape($$1, $$6).isEmpty() ? Optional.empty() : Optional.of($$5);
    }
 
-   @Nullable
+   
    private static Entity selectEntityToSpawnItemAbove(List<Player> $$0, Set<UUID> $$1, TrialSpawner $$2, BlockPos $$3, ServerLevel $$4) {
       Stream<Entity> $$5 = $$1.stream()
          .map($$4::getEntity)

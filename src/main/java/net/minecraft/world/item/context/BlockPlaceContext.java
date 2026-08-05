@@ -8,7 +8,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class BlockPlaceContext extends UseOnContext {
    private final BlockPos relativePos;
@@ -22,7 +21,7 @@ public class BlockPlaceContext extends UseOnContext {
       this($$0.getLevel(), $$0.getPlayer(), $$0.getHand(), $$0.getItemInHand(), $$0.getHitResult());
    }
 
-   protected BlockPlaceContext(Level $$0, @Nullable Player $$1, InteractionHand $$2, net.minecraft.world.item.ItemStack $$3, BlockHitResult $$4) {
+   protected BlockPlaceContext(Level $$0, Player $$1, InteractionHand $$2, net.minecraft.world.item.ItemStack $$3, BlockHitResult $$4) {
       super($$0, $$1, $$2, $$3, $$4);
       this.relativePos = $$4.getBlockPos().relative($$4.getDirection());
       this.replaceClicked = $$0.getBlockState($$4.getBlockPos()).canBeReplaced(this);

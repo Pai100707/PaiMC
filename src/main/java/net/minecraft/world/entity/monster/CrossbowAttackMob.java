@@ -5,12 +5,11 @@ import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.item.CrossbowItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import org.jspecify.annotations.Nullable;
 
 public interface CrossbowAttackMob extends RangedAttackMob {
    void setChargingCrossbow(boolean var1);
 
-   @Nullable
+   
    net.minecraft.world.entity.LivingEntity getTarget();
 
    void onCrossbowAttackPerformed();

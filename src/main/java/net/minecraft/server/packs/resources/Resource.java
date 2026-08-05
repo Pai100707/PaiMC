@@ -8,13 +8,12 @@ import java.nio.charset.StandardCharsets;
 import java.util.Optional;
 import net.minecraft.server.packs.PackResources;
 import net.minecraft.server.packs.repository.KnownPack;
-import org.jspecify.annotations.Nullable;
 
 public class Resource {
    private final PackResources source;
    private final IoSupplier<InputStream> streamSupplier;
    private final IoSupplier<ResourceMetadata> metadataSupplier;
-   @Nullable
+   
    private ResourceMetadata cachedMetadata;
 
    public Resource(PackResources $$0, IoSupplier<InputStream> $$1, IoSupplier<ResourceMetadata> $$2) {

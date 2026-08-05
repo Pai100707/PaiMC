@@ -54,7 +54,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class Llama extends AbstractChestedHorse implements RangedAttackMob {
    private static final int MAX_STRENGTH = 5;
@@ -68,9 +67,9 @@ public class Llama extends AbstractChestedHorse implements RangedAttackMob {
       )
       .scale(0.5F);
    boolean didSpit;
-   @Nullable
+   
    private Llama caravanHead;
-   @Nullable
+   
    private Llama caravanTail;
 
    public Llama(net.minecraft.world.entity.EntityType<? extends Llama> $$0, Level $$1) {
@@ -145,7 +144,7 @@ public class Llama extends AbstractChestedHorse implements RangedAttackMob {
       this.entityData.set(DATA_VARIANT_ID, $$0.id);
    }
 
-   @Nullable
+   
    @Override
    public <T> T get(DataComponentType<? extends T> $$0) {
       return $$0 == DataComponents.LLAMA_VARIANT ? castComponentValue((DataComponentType<T>)$$0, this.getVariant()) : super.get($$0);
@@ -235,13 +234,13 @@ public class Llama extends AbstractChestedHorse implements RangedAttackMob {
       return this.isDeadOrDying() || this.isEating();
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       RandomSource $$4 = $$0.getRandom();
       this.setRandomStrength($$4);
@@ -317,7 +316,7 @@ public class Llama extends AbstractChestedHorse implements RangedAttackMob {
       return $$0 != this && $$0 instanceof Llama && this.canParent() && ((Llama)$$0).canParent();
    }
 
-   @Nullable
+   
    public Llama getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       Llama $$2 = this.makeNewLlama();
       if ($$2 != null) {
@@ -335,7 +334,7 @@ public class Llama extends AbstractChestedHorse implements RangedAttackMob {
       return $$2;
    }
 
-   @Nullable
+   
    protected Llama makeNewLlama() {
       return net.minecraft.world.entity.EntityType.LLAMA.create(this.level(), net.minecraft.world.entity.EntitySpawnReason.BREEDING);
    }
@@ -408,7 +407,7 @@ public class Llama extends AbstractChestedHorse implements RangedAttackMob {
       return this.caravanHead != null;
    }
 
-   @Nullable
+   
    public Llama getCaravanHead() {
       return this.caravanHead;
    }

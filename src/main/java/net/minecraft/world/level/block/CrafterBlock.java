@@ -36,7 +36,6 @@ import net.minecraft.world.level.redstone.Orientation;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class CrafterBlock extends BaseEntityBlock {
    public static final MapCodec<CrafterBlock> CODEC = simpleCodec(CrafterBlock::new);
@@ -69,7 +68,7 @@ public class CrafterBlock extends BaseEntityBlock {
    }
 
    @Override
-   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, @Nullable Orientation $$4, boolean $$5) {
+   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, Orientation $$4, boolean $$5) {
       boolean $$6 = $$1.hasNeighborSignal($$2);
       boolean $$7 = $$0.getValue(TRIGGERED);
       BlockEntity $$8 = $$1.getBlockEntity($$2);
@@ -88,13 +87,13 @@ public class CrafterBlock extends BaseEntityBlock {
       this.dispenseFrom($$0, $$1, $$2);
    }
 
-   @Nullable
+   
    @Override
    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(net.minecraft.world.level.Level $$0, BlockState $$1, BlockEntityType<T> $$2) {
       return $$0.isClientSide() ? null : createTickerHelper($$2, BlockEntityType.CRAFTER, CrafterBlockEntity::serverTick);
    }
 
-   private void setBlockEntityTriggered(@Nullable BlockEntity $$0, boolean $$1) {
+   private void setBlockEntityTriggered(BlockEntity $$0, boolean $$1) {
       if ($$0 instanceof CrafterBlockEntity $$2) {
          $$2.setTriggered($$1);
       }
@@ -123,7 +122,7 @@ public class CrafterBlock extends BaseEntityBlock {
    }
 
    @Override
-   public void setPlacedBy(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, @Nullable LivingEntity $$3, ItemStack $$4) {
+   public void setPlacedBy(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, LivingEntity $$3, ItemStack $$4) {
       if ($$2.getValue(TRIGGERED)) {
          $$0.scheduleTick($$1, this, 4);
       }

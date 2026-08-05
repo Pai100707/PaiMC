@@ -15,7 +15,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.SimpleExplosionDamageCalculator;
 import net.minecraft.world.level.Level.ExplosionInteraction;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class WindCharge extends AbstractWindCharge {
    private static final ExplosionDamageCalculator EXPLOSION_DAMAGE_CALCULATOR = new SimpleExplosionDamageCalculator(
@@ -48,8 +47,8 @@ public class WindCharge extends AbstractWindCharge {
    @Override
    public boolean deflect(
       ProjectileDeflection $$0,
-      @Nullable net.minecraft.world.entity.Entity $$1,
-      @Nullable net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.Entity> $$2,
+      net.minecraft.world.entity.Entity $$1,
+      net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.Entity> $$2,
       boolean $$3
    ) {
       return this.noDeflectTicks > 0 ? false : super.deflect($$0, $$1, $$2, $$3);

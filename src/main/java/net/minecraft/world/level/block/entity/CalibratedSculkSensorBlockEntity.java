@@ -8,7 +8,6 @@ import net.minecraft.world.level.block.CalibratedSculkSensorBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.gameevent.vibrations.VibrationSystem;
-import org.jspecify.annotations.Nullable;
 
 public class CalibratedSculkSensorBlockEntity extends SculkSensorBlockEntity {
    public CalibratedSculkSensorBlockEntity(BlockPos $$0, BlockState $$1) {
@@ -31,7 +30,7 @@ public class CalibratedSculkSensorBlockEntity extends SculkSensorBlockEntity {
       }
 
       @Override
-      public boolean canReceiveVibration(ServerLevel $$0, BlockPos $$1, Holder<GameEvent> $$2, @Nullable GameEvent.Context $$3) {
+      public boolean canReceiveVibration(ServerLevel $$0, BlockPos $$1, Holder<GameEvent> $$2, GameEvent.Context $$3) {
          int $$4 = this.getBackSignal($$0, this.blockPos, CalibratedSculkSensorBlockEntity.this.getBlockState());
          return $$4 != 0 && VibrationSystem.getGameEventFrequency($$2) != $$4 ? false : super.canReceiveVibration($$0, $$1, $$2, $$3);
       }

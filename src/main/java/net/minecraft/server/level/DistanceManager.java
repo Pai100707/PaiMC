@@ -29,7 +29,6 @@ import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.NaturalSpawner;
 import net.minecraft.world.level.TicketStorage;
 import net.minecraft.world.level.chunk.LevelChunk;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public abstract class DistanceManager {
@@ -58,11 +57,11 @@ public abstract class DistanceManager {
 
    protected abstract boolean isChunkToRemove(long var1);
 
-   @Nullable
+   
    protected abstract ChunkHolder getChunk(long var1);
 
-   @Nullable
-   protected abstract ChunkHolder updateChunkScheduling(long var1, int var3, @Nullable ChunkHolder var4, int var5);
+   
+   protected abstract ChunkHolder updateChunkScheduling(long var1, int var3, ChunkHolder var4, int var5);
 
    public boolean runAllUpdates(ChunkMap $$0) {
       this.naturalSpawnChunkCounter.runAllUpdates();

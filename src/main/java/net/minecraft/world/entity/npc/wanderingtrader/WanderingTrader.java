@@ -42,11 +42,10 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
 import org.apache.commons.lang3.tuple.Pair;
-import org.jspecify.annotations.Nullable;
 
 public class WanderingTrader extends AbstractVillager implements OverrideConsumeSound {
    private static final int DEFAULT_DESPAWN_DELAY = 0;
-   @Nullable
+   
    private BlockPos wanderTarget;
    private int despawnDelay = 0;
 
@@ -91,7 +90,7 @@ public class WanderingTrader extends AbstractVillager implements OverrideConsume
       this.goalSelector.addGoal(10, new LookAtPlayerGoal(this, net.minecraft.world.entity.Mob.class, 8.0F));
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.AgeableMob getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       return null;
@@ -214,11 +213,11 @@ public class WanderingTrader extends AbstractVillager implements OverrideConsume
       }
    }
 
-   public void setWanderTarget(@Nullable BlockPos $$0) {
+   public void setWanderTarget(BlockPos $$0) {
       this.wanderTarget = $$0;
    }
 
-   @Nullable
+   
    BlockPos getWanderTarget() {
       return this.wanderTarget;
    }

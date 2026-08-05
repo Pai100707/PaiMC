@@ -21,7 +21,6 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class Interaction extends net.minecraft.world.entity.Entity implements net.minecraft.world.entity.Attackable, net.minecraft.world.entity.Targeting {
    private static final EntityDataAccessor<Float> DATA_WIDTH_ID = SynchedEntityData.defineId(
@@ -41,9 +40,9 @@ public class Interaction extends net.minecraft.world.entity.Entity implements ne
    private static final float DEFAULT_WIDTH = 1.0F;
    private static final float DEFAULT_HEIGHT = 1.0F;
    private static final boolean DEFAULT_RESPONSE = false;
-   @Nullable
+   
    private net.minecraft.world.entity.Interaction.PlayerAction attack;
-   @Nullable
+   
    private net.minecraft.world.entity.Interaction.PlayerAction interaction;
 
    public Interaction(net.minecraft.world.entity.EntityType<?> $$0, Level $$1) {
@@ -140,13 +139,13 @@ public class Interaction extends net.minecraft.world.entity.Entity implements ne
    public void tick() {
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.LivingEntity getLastAttacker() {
       return this.attack != null ? this.level().getPlayerByUUID(this.attack.player()) : null;
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.LivingEntity getTarget() {
       return this.interaction != null ? this.level().getPlayerByUUID(this.interaction.player()) : null;

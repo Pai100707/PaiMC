@@ -12,7 +12,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
-import org.jspecify.annotations.Nullable;
 
 public class SolidBucketItem extends net.minecraft.world.item.BlockItem implements net.minecraft.world.item.DispensibleContainerItem {
    private final SoundEvent placeSound;
@@ -39,7 +38,7 @@ public class SolidBucketItem extends net.minecraft.world.item.BlockItem implemen
    }
 
    @Override
-   public boolean emptyContents(@Nullable LivingEntity $$0, Level $$1, BlockPos $$2, @Nullable BlockHitResult $$3) {
+   public boolean emptyContents(LivingEntity $$0, Level $$1, BlockPos $$2, BlockHitResult $$3) {
       if ($$1.isInWorldBounds($$2) && $$1.isEmptyBlock($$2)) {
          if (!$$1.isClientSide()) {
             $$1.setBlock($$2, this.getBlock().defaultBlockState(), 3);

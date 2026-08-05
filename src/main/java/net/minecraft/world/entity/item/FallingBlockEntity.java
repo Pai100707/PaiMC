@@ -48,7 +48,6 @@ import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.HitResult.Type;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class FallingBlockEntity extends net.minecraft.world.entity.Entity {
@@ -66,7 +65,7 @@ public class FallingBlockEntity extends net.minecraft.world.entity.Entity {
    private boolean hurtEntities;
    private int fallDamageMax = 40;
    private float fallDamagePerDistance = 0.0F;
-   @Nullable
+   
    public CompoundTag blockData;
    public boolean forceTickAfterTeleportToDuplicate;
    protected static final EntityDataAccessor<BlockPos> DATA_START_POS = SynchedEntityData.defineId(FallingBlockEntity.class, EntityDataSerializers.BLOCK_POS);
@@ -364,7 +363,7 @@ public class FallingBlockEntity extends net.minecraft.world.entity.Entity {
       this.setStartPos(this.blockPosition());
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.Entity teleport(TeleportTransition $$0) {
       ResourceKey<Level> $$1 = $$0.newLevel().dimension();

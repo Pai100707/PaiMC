@@ -20,7 +20,6 @@ import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class VineBlock extends Block {
    public static final MapCodec<VineBlock> CODEC = simpleCodec(VineBlock::new);
@@ -280,7 +279,7 @@ public class VineBlock extends Block {
       return $$2.is(this) ? this.countFaces($$2) < PROPERTY_BY_DIRECTION.size() : super.canBeReplaced($$0, $$1);
    }
 
-   @Nullable
+   
    @Override
    public BlockState getStateForPlacement(BlockPlaceContext $$0) {
       BlockState $$1 = $$0.getLevel().getBlockState($$0.getClickedPos());

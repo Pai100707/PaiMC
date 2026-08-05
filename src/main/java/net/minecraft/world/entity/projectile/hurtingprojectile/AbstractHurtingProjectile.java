@@ -14,7 +14,6 @@ import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.HitResult.Type;
-import org.jspecify.annotations.Nullable;
 
 public abstract class AbstractHurtingProjectile extends Projectile {
    public static final double INITAL_ACCELERATION_POWER = 0.1;
@@ -139,7 +138,7 @@ public abstract class AbstractHurtingProjectile extends Projectile {
       return true;
    }
 
-   @Nullable
+   
    protected ParticleOptions getTrailParticle() {
       return ParticleTypes.SMOKE;
    }

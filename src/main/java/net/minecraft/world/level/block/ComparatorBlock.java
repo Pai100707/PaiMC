@@ -22,7 +22,6 @@ import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.ticks.TickPriority;
-import org.jspecify.annotations.Nullable;
 
 public class ComparatorBlock extends DiodeBlock implements EntityBlock {
    public static final MapCodec<ComparatorBlock> CODEC = simpleCodec(ComparatorBlock::new);
@@ -114,7 +113,7 @@ public class ComparatorBlock extends DiodeBlock implements EntityBlock {
       return $$3;
    }
 
-   @Nullable
+   
    private ItemFrame getItemFrame(net.minecraft.world.level.Level $$0, Direction $$1, BlockPos $$2) {
       List<ItemFrame> $$3 = $$0.getEntitiesOfClass(
          ItemFrame.class, new AABB($$2.getX(), $$2.getY(), $$2.getZ(), $$2.getX() + 1, $$2.getY() + 1, $$2.getZ() + 1), $$1x -> $$1x.getDirection() == $$1

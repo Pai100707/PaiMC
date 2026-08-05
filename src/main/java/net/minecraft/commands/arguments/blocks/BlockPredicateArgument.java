@@ -23,7 +23,6 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.pattern.BlockInWorld;
 import net.minecraft.world.level.block.state.properties.Property;
-import org.jspecify.annotations.Nullable;
 
 public class BlockPredicateArgument implements ArgumentType<BlockPredicateArgument.Result> {
    private static final Collection<String> EXAMPLES = Arrays.asList("stone", "minecraft:stone", "stone[foo=bar]", "#stone", "#stone[foo=bar]{baz=nbt}");
@@ -64,10 +63,10 @@ public class BlockPredicateArgument implements ArgumentType<BlockPredicateArgume
    static class BlockPredicate implements BlockPredicateArgument.Result {
       private final BlockState state;
       private final Set<Property<?>> properties;
-      @Nullable
+      
       private final CompoundTag nbt;
 
-      public BlockPredicate(BlockState $$0, Set<Property<?>> $$1, @Nullable CompoundTag $$2) {
+      public BlockPredicate(BlockState $$0, Set<Property<?>> $$1, CompoundTag $$2) {
          this.state = $$0;
          this.properties = $$1;
          this.nbt = $$2;
@@ -105,11 +104,11 @@ public class BlockPredicateArgument implements ArgumentType<BlockPredicateArgume
 
    static class TagPredicate implements BlockPredicateArgument.Result {
       private final HolderSet<Block> tag;
-      @Nullable
+      
       private final CompoundTag nbt;
       private final Map<String, String> vagueProperties;
 
-      TagPredicate(HolderSet<Block> $$0, Map<String, String> $$1, @Nullable CompoundTag $$2) {
+      TagPredicate(HolderSet<Block> $$0, Map<String, String> $$1, CompoundTag $$2) {
          this.tag = $$0;
          this.vagueProperties = $$1;
          this.nbt = $$2;

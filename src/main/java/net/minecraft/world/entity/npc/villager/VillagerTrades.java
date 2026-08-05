@@ -57,7 +57,6 @@ import net.minecraft.world.level.saveddata.maps.MapDecorationType;
 import net.minecraft.world.level.saveddata.maps.MapDecorationTypes;
 import net.minecraft.world.level.saveddata.maps.MapItemSavedData;
 import org.apache.commons.lang3.tuple.Pair;
-import org.jspecify.annotations.Nullable;
 
 public class VillagerTrades {
    private static final int DEFAULT_SUPPLY = 12;
@@ -1331,7 +1330,7 @@ public class VillagerTrades {
          this.villagerXp = $$2;
       }
 
-      @Nullable
+      
       @Override
       public MerchantOffer getOffer(ServerLevel $$0, net.minecraft.world.entity.Entity $$1, RandomSource $$2) {
          if ($$1 instanceof VillagerDataHolder $$3) {
@@ -1436,7 +1435,7 @@ public class VillagerTrades {
    }
 
    public interface ItemListing {
-      @Nullable
+      
       MerchantOffer getOffer(ServerLevel var1, net.minecraft.world.entity.Entity var2, RandomSource var3);
    }
 
@@ -1471,7 +1470,7 @@ public class VillagerTrades {
          this.enchantmentProvider = $$6;
       }
 
-      @Nullable
+      
       @Override
       public MerchantOffer getOffer(ServerLevel $$0, net.minecraft.world.entity.Entity $$1, RandomSource $$2) {
          ItemStack $$3 = this.toItem.copy();
@@ -1553,7 +1552,7 @@ public class VillagerTrades {
          this.priceMultiplier = $$2;
       }
 
-      @Nullable
+      
       @Override
       public MerchantOffer getOffer(ServerLevel $$0, net.minecraft.world.entity.Entity $$1, RandomSource $$2) {
          ItemStack $$3 = new ItemStack(Items.SUSPICIOUS_STEW, 1);
@@ -1614,7 +1613,7 @@ public class VillagerTrades {
          this.villagerXp = $$5;
       }
 
-      @Nullable
+      
       @Override
       public MerchantOffer getOffer(ServerLevel $$0, net.minecraft.world.entity.Entity $$1, RandomSource $$2) {
          BlockPos $$3 = $$0.findNearestMapStructure(this.destination, $$1.blockPosition(), 100, true);
@@ -1638,7 +1637,7 @@ public class VillagerTrades {
          return new VillagerTrades.TypeSpecificTrade(Arrays.stream($$1).collect(Collectors.toMap($$0x -> $$0x, $$1x -> $$0)));
       }
 
-      @Nullable
+      
       @Override
       public MerchantOffer getOffer(ServerLevel $$0, net.minecraft.world.entity.Entity $$1, RandomSource $$2) {
          if ($$1 instanceof VillagerDataHolder $$3) {

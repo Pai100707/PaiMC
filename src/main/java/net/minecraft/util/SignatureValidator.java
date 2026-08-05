@@ -8,7 +8,6 @@ import java.security.PublicKey;
 import java.security.Signature;
 import java.security.SignatureException;
 import java.util.Collection;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public interface SignatureValidator {
@@ -39,7 +38,7 @@ public interface SignatureValidator {
       };
    }
 
-   @Nullable
+   
    static net.minecraft.util.SignatureValidator from(ServicesKeySet $$0, ServicesKeyType $$1) {
       Collection<ServicesKeyInfo> $$2 = $$0.keys($$1);
       return $$2.isEmpty() ? null : ($$1x, $$2x) -> $$2.stream().anyMatch($$2xx -> {

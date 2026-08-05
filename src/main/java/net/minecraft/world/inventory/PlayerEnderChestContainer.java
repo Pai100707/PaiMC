@@ -8,10 +8,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.EnderChestBlockEntity;
 import net.minecraft.world.level.storage.ValueInput.TypedInputList;
 import net.minecraft.world.level.storage.ValueOutput.TypedOutputList;
-import org.jspecify.annotations.Nullable;
 
 public class PlayerEnderChestContainer extends SimpleContainer {
-   @Nullable
+   
    private EnderChestBlockEntity activeChest;
 
    public PlayerEnderChestContainer() {

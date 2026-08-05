@@ -21,7 +21,6 @@ import net.minecraft.world.level.levelgen.feature.configurations.EndGatewayConfi
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class TheEndGatewayBlockEntity extends TheEndPortalBlockEntity {
@@ -35,7 +34,7 @@ public class TheEndGatewayBlockEntity extends TheEndPortalBlockEntity {
    private static final boolean DEFAULT_EXACT_TELEPORT = false;
    private long age = 0L;
    private int teleportCooldown;
-   @Nullable
+   
    private BlockPos exitPortal;
    private boolean exactTeleport = false;
 
@@ -126,7 +125,7 @@ public class TheEndGatewayBlockEntity extends TheEndPortalBlockEntity {
       }
    }
 
-   @Nullable
+   
    public Vec3 getPortalPosition(ServerLevel $$0, BlockPos $$1) {
       if (this.exitPortal == null && $$0.dimension() == net.minecraft.world.level.Level.END) {
          BlockPos $$2 = findOrCreateValidTeleportPos($$0, $$1);
@@ -215,7 +214,7 @@ public class TheEndGatewayBlockEntity extends TheEndPortalBlockEntity {
       return $$0.getChunk(Mth.floor($$1.x / 16.0), Mth.floor($$1.z / 16.0));
    }
 
-   @Nullable
+   
    private static BlockPos findValidSpawnInChunk(LevelChunk $$0) {
       net.minecraft.world.level.ChunkPos $$1 = $$0.getPos();
       BlockPos $$2 = new BlockPos($$1.getMinBlockX(), 30, $$1.getMinBlockZ());

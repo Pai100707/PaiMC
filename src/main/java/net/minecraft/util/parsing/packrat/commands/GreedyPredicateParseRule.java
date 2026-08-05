@@ -5,7 +5,6 @@ import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import net.minecraft.util.parsing.packrat.DelayedException;
 import net.minecraft.util.parsing.packrat.ParseState;
 import net.minecraft.util.parsing.packrat.Rule;
-import org.jspecify.annotations.Nullable;
 
 public abstract class GreedyPredicateParseRule implements Rule<StringReader, String> {
    private final int minSize;
@@ -22,7 +21,7 @@ public abstract class GreedyPredicateParseRule implements Rule<StringReader, Str
       this.error = $$2;
    }
 
-   @Nullable
+   
    public String parse(ParseState<StringReader> $$0) {
       StringReader $$1 = $$0.input();
       String $$2 = $$1.getString();

@@ -20,7 +20,6 @@ import net.minecraft.world.scores.Objective;
 import net.minecraft.world.scores.ReadOnlyScoreInfo;
 import net.minecraft.world.scores.ScoreHolder;
 import net.minecraft.world.scores.Scoreboard;
-import org.jspecify.annotations.Nullable;
 
 public record ScoreContents(Either<SelectorPattern, String> name, String objective) implements ComponentContents {
    public static final MapCodec<ScoreContents> INNER_CODEC = RecordCodecBuilder.mapCodec(
@@ -72,7 +71,7 @@ public record ScoreContents(Either<SelectorPattern, String> name, String objecti
    }
 
    @Override
-   public MutableComponent resolve(@Nullable CommandSourceStack $$0, @Nullable Entity $$1, int $$2) throws CommandSyntaxException {
+   public MutableComponent resolve(CommandSourceStack $$0, Entity $$1, int $$2) throws CommandSyntaxException {
       if ($$0 == null) {
          return Component.empty();
       } else {

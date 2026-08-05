@@ -69,7 +69,6 @@ import net.minecraft.world.level.validation.ContentValidationException;
 import net.minecraft.world.level.validation.DirectoryValidator;
 import net.minecraft.world.level.validation.ForbiddenSymlinkInfo;
 import net.minecraft.world.level.validation.PathAllowList;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class LevelStorageSource {
@@ -262,7 +261,7 @@ public class LevelStorageSource {
       return $$1 == null ? -1L : $$1.toEpochMilli();
    }
 
-   @Nullable
+   
    static Instant getFileModificationTime(Path $$0) {
       try {
          return Files.getLastModifiedTime($$0).toInstant();
@@ -295,7 +294,7 @@ public class LevelStorageSource {
       return FeatureFlags.REGISTRY.fromNames($$1, $$0x -> {});
    }
 
-   @Nullable
+   
    private static Tag readLightweightData(Path $$0) throws IOException {
       SkipFields $$1 = new SkipFields(
          new FieldSelector[]{new FieldSelector("Data", CompoundTag.TYPE, "Player"), new FieldSelector("Data", CompoundTag.TYPE, "WorldGenSettings")}
@@ -488,7 +487,7 @@ public class LevelStorageSource {
          this.saveDataTag($$0, $$1, null);
       }
 
-      public void saveDataTag(RegistryAccess $$0, WorldData $$1, @Nullable CompoundTag $$2) {
+      public void saveDataTag(RegistryAccess $$0, WorldData $$1, CompoundTag $$2) {
          CompoundTag $$3 = $$1.createTag($$0, $$2);
          CompoundTag $$4 = new CompoundTag();
          $$4.put("Data", $$3);
@@ -532,7 +531,7 @@ public class LevelStorageSource {
                      return FileVisitResult.CONTINUE;
                   }
 
-                  public FileVisitResult postVisitDirectory(Path $$0x, @Nullable IOException $$1x) throws IOException {
+                  public FileVisitResult postVisitDirectory(Path $$0x, IOException $$1x) throws IOException {
                      if ($$1x != null) {
                         throw $$1x;
                      } else {
@@ -629,7 +628,7 @@ public class LevelStorageSource {
          );
       }
 
-      @Nullable
+      
       public Instant getFileModificationTime(boolean $$0) {
          return LevelStorageSource.getFileModificationTime($$0 ? this.levelDirectory.oldDataFile() : this.levelDirectory.dataFile());
       }

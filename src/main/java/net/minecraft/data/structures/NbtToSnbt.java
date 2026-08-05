@@ -19,7 +19,6 @@ import net.minecraft.nbt.NbtIo;
 import net.minecraft.nbt.NbtUtils;
 import net.minecraft.util.FastBufferedInputStream;
 import net.minecraft.util.Util;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class NbtToSnbt implements net.minecraft.data.DataProvider {
@@ -76,7 +75,7 @@ public class NbtToSnbt implements net.minecraft.data.DataProvider {
       return $$2.substring(0, $$2.length() - ".nbt".length());
    }
 
-   @Nullable
+   
    public static Path convertStructure(net.minecraft.data.CachedOutput $$0, Path $$1, String $$2, Path $$3) {
       try {
          Path var7;

@@ -31,7 +31,6 @@ import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import net.minecraft.world.level.material.FluidState;
 import org.apache.commons.lang3.mutable.MutableDouble;
 import org.apache.commons.lang3.mutable.MutableObject;
-import org.jspecify.annotations.Nullable;
 
 public class Blender {
    private static final Blender EMPTY = new Blender(new Long2ObjectOpenHashMap(), new Long2ObjectOpenHashMap()) {
@@ -63,7 +62,7 @@ public class Blender {
       return EMPTY;
    }
 
-   public static Blender of(@Nullable WorldGenRegion $$0) {
+   public static Blender of(WorldGenRegion $$0) {
       if (!SharedConstants.DEBUG_DISABLE_BLENDING && $$0 != null) {
          net.minecraft.world.level.ChunkPos $$1 = $$0.getCenter();
          if (!$$0.isOldChunkAround($$1, HEIGHT_BLENDING_RANGE_CHUNKS)) {
@@ -346,7 +345,7 @@ public class Blender {
       }
    }
 
-   public static Blender.DistanceGetter makeOldChunkDistanceGetter(@Nullable BlendingData $$0, Map<Direction8, BlendingData> $$1) {
+   public static Blender.DistanceGetter makeOldChunkDistanceGetter(BlendingData $$0, Map<Direction8, BlendingData> $$1) {
       List<Blender.DistanceGetter> $$2 = Lists.newArrayList();
       if ($$0 != null) {
          $$2.add(makeOffsetOldChunkDistanceGetter(null, $$0));
@@ -367,7 +366,7 @@ public class Blender {
       };
    }
 
-   private static Blender.DistanceGetter makeOffsetOldChunkDistanceGetter(@Nullable Direction8 $$0, BlendingData $$1) {
+   private static Blender.DistanceGetter makeOffsetOldChunkDistanceGetter(Direction8 $$0, BlendingData $$1) {
       double $$2 = 0.0;
       double $$3 = 0.0;
       if ($$0 != null) {

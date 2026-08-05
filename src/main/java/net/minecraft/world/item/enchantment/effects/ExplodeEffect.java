@@ -23,7 +23,6 @@ import net.minecraft.world.level.SimpleExplosionDamageCalculator;
 import net.minecraft.world.level.Level.ExplosionInteraction;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public record ExplodeEffect(
    boolean attributeToUser,
@@ -82,7 +81,7 @@ public record ExplodeEffect(
       );
    }
 
-   @Nullable
+   
    private DamageSource getDamageSource(Entity $$0, Vec3 $$1) {
       if (this.damageType.isEmpty()) {
          return null;

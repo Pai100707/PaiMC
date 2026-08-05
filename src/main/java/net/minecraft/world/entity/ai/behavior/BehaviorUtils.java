@@ -17,7 +17,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ProjectileWeaponItem;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class BehaviorUtils {
    private BehaviorUtils() {
@@ -147,7 +146,7 @@ public class BehaviorUtils {
          .map($$0x -> $$0x instanceof net.minecraft.world.entity.LivingEntity $$1x ? $$1x : null);
    }
 
-   @Nullable
+   
    public static Vec3 getRandomSwimmablePos(net.minecraft.world.entity.PathfinderMob $$0, int $$1, int $$2) {
       Vec3 $$3 = DefaultRandomPos.getPos($$0, $$1, $$2);
       int $$4 = 0;

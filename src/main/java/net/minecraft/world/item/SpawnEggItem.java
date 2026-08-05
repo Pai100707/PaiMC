@@ -34,7 +34,6 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.HitResult.Type;
-import org.jspecify.annotations.Nullable;
 
 public class SpawnEggItem extends net.minecraft.world.item.Item {
    private static final Map<EntityType<?>, net.minecraft.world.item.SpawnEggItem> BY_ID = Maps.newIdentityHashMap();
@@ -87,7 +86,7 @@ public class SpawnEggItem extends net.minecraft.world.item.Item {
       }
    }
 
-   private InteractionResult spawnMob(@Nullable LivingEntity $$0, net.minecraft.world.item.ItemStack $$1, Level $$2, BlockPos $$3, boolean $$4, boolean $$5) {
+   private InteractionResult spawnMob(LivingEntity $$0, net.minecraft.world.item.ItemStack $$1, Level $$2, BlockPos $$3, boolean $$4, boolean $$5) {
       EntityType<?> $$6 = this.getType($$1);
       if ($$6 == null) {
          return InteractionResult.FAIL;
@@ -132,8 +131,8 @@ public class SpawnEggItem extends net.minecraft.world.item.Item {
       return Objects.equals(this.getType($$0), $$1);
    }
 
-   @Nullable
-   public static net.minecraft.world.item.SpawnEggItem byId(@Nullable EntityType<?> $$0) {
+   
+   public static net.minecraft.world.item.SpawnEggItem byId(EntityType<?> $$0) {
       return BY_ID.get($$0);
    }
 
@@ -141,7 +140,7 @@ public class SpawnEggItem extends net.minecraft.world.item.Item {
       return Iterables.unmodifiableIterable(BY_ID.values());
    }
 
-   @Nullable
+   
    public EntityType<?> getType(net.minecraft.world.item.ItemStack $$0) {
       TypedEntityData<EntityType<?>> $$1 = (TypedEntityData<EntityType<?>>)$$0.get(DataComponents.ENTITY_DATA);
       return $$1 != null ? $$1.type() : null;
@@ -186,7 +185,7 @@ public class SpawnEggItem extends net.minecraft.world.item.Item {
    }
 
    @Override
-   public boolean shouldPrintOpWarning(net.minecraft.world.item.ItemStack $$0, @Nullable Player $$1) {
+   public boolean shouldPrintOpWarning(net.minecraft.world.item.ItemStack $$0, Player $$1) {
       if ($$1 != null && $$1.permissions().hasPermission(Permissions.COMMANDS_GAMEMASTER)) {
          TypedEntityData<EntityType<?>> $$2 = (TypedEntityData<EntityType<?>>)$$0.get(DataComponents.ENTITY_DATA);
          if ($$2 != null) {

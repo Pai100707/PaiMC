@@ -49,7 +49,6 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SuspiciousEffectHolder;
-import org.jspecify.annotations.Nullable;
 
 public abstract class RecipeProvider {
    protected final Provider registries;
@@ -115,11 +114,11 @@ public abstract class RecipeProvider {
          .forEach($$1 -> this.generateRecipes($$1, $$0));
    }
 
-   protected void oneToOneConversionRecipe(ItemLike $$0, ItemLike $$1, @Nullable String $$2) {
+   protected void oneToOneConversionRecipe(ItemLike $$0, ItemLike $$1, String $$2) {
       this.oneToOneConversionRecipe($$0, $$1, $$2, 1);
    }
 
-   protected void oneToOneConversionRecipe(ItemLike $$0, ItemLike $$1, @Nullable String $$2, int $$3) {
+   protected void oneToOneConversionRecipe(ItemLike $$0, ItemLike $$1, String $$2, int $$3) {
       this.shapeless(RecipeCategory.MISC, $$0, $$3)
          .requires($$1)
          .group($$2)
@@ -291,7 +290,7 @@ public abstract class RecipeProvider {
       this.colorWithDye($$0, $$1, null, $$2, $$3);
    }
 
-   protected void colorWithDye(List<Item> $$0, List<Item> $$1, @Nullable Item $$2, String $$3, RecipeCategory $$4) {
+   protected void colorWithDye(List<Item> $$0, List<Item> $$1, Item $$2, String $$3, RecipeCategory $$4) {
       for (int $$5 = 0; $$5 < $$0.size(); $$5++) {
          Item $$6 = $$0.get($$5);
          Item $$7 = $$1.get($$5);
@@ -497,7 +496,7 @@ public abstract class RecipeProvider {
    }
 
    private void nineBlockStorageRecipes(
-      RecipeCategory $$0, ItemLike $$1, RecipeCategory $$2, ItemLike $$3, String $$4, @Nullable String $$5, String $$6, @Nullable String $$7
+      RecipeCategory $$0, ItemLike $$1, RecipeCategory $$2, ItemLike $$3, String $$4, String $$5, String $$6, String $$7
    ) {
       this.shapeless($$0, $$1, 9)
          .requires($$3)
@@ -761,7 +760,7 @@ public abstract class RecipeProvider {
                   final List<CompletableFuture<?>> $$5 = new ArrayList<>();
                   RecipeOutput $$6 = new RecipeOutput() {
                      @Override
-                     public void accept(ResourceKey<Recipe<?>> $$0x, Recipe<?> $$1x, @Nullable AdvancementHolder $$2x) {
+                     public void accept(ResourceKey<Recipe<?>> $$0x, Recipe<?> $$1x, AdvancementHolder $$2x) {
                         if (!$$4.add($$0)) {
                            throw new IllegalStateException("Duplicate recipe " + $$0.identifier());
                         } else {

@@ -5,14 +5,13 @@ import java.util.List;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.animal.Animal;
-import org.jspecify.annotations.Nullable;
 
 public class BreedGoal extends Goal {
    private static final TargetingConditions PARTNER_TARGETING = TargetingConditions.forNonCombat().range(8.0).ignoreLineOfSight();
    protected final Animal animal;
    private final Class<? extends Animal> partnerClass;
    protected final ServerLevel level;
-   @Nullable
+   
    protected Animal partner;
    private int loveTime;
    private final double speedModifier;
@@ -60,7 +59,7 @@ public class BreedGoal extends Goal {
       }
    }
 
-   @Nullable
+   
    private Animal getFreePartner() {
       List<? extends Animal> $$0 = this.level.getNearbyEntities(this.partnerClass, PARTNER_TARGETING, this.animal, this.animal.getBoundingBox().inflate(8.0));
       double $$1 = Double.MAX_VALUE;

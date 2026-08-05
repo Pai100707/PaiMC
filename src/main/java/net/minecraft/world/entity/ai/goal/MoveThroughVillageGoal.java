@@ -18,12 +18,11 @@ import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.pathfinder.Node;
 import net.minecraft.world.level.pathfinder.Path;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class MoveThroughVillageGoal extends Goal {
    protected final net.minecraft.world.entity.PathfinderMob mob;
    private final double speedModifier;
-   @Nullable
+   
    private Path path;
    private BlockPos poiPos;
    private final boolean onlyAtNight;

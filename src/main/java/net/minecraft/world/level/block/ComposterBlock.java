@@ -36,7 +36,6 @@ import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class ComposterBlock extends Block implements WorldlyContainerHolder {
    public static final MapCodec<ComposterBlock> CODEC = simpleCodec(ComposterBlock::new);
@@ -295,14 +294,14 @@ public class ComposterBlock extends Block implements WorldlyContainerHolder {
       return $$6;
    }
 
-   static BlockState empty(@Nullable Entity $$0, BlockState $$1, net.minecraft.world.level.LevelAccessor $$2, BlockPos $$3) {
+   static BlockState empty(Entity $$0, BlockState $$1, net.minecraft.world.level.LevelAccessor $$2, BlockPos $$3) {
       BlockState $$4 = $$1.setValue(LEVEL, 0);
       $$2.setBlock($$3, $$4, 3);
       $$2.gameEvent(GameEvent.BLOCK_CHANGE, $$3, GameEvent.Context.of($$0, $$4));
       return $$4;
    }
 
-   static BlockState addItem(@Nullable Entity $$0, BlockState $$1, net.minecraft.world.level.LevelAccessor $$2, BlockPos $$3, ItemStack $$4) {
+   static BlockState addItem(Entity $$0, BlockState $$1, net.minecraft.world.level.LevelAccessor $$2, BlockPos $$3, ItemStack $$4) {
       int $$5 = $$1.getValue(LEVEL);
       float $$6 = COMPOSTABLES.getFloat($$4.getItem());
       if (($$5 != 0 || !($$6 > 0.0F)) && !($$2.getRandom().nextDouble() < $$6)) {
@@ -366,7 +365,7 @@ public class ComposterBlock extends Block implements WorldlyContainerHolder {
          return new int[0];
       }
 
-      public boolean canPlaceItemThroughFace(int $$0, ItemStack $$1, @Nullable Direction $$2) {
+      public boolean canPlaceItemThroughFace(int $$0, ItemStack $$1, Direction $$2) {
          return false;
       }
 
@@ -396,7 +395,7 @@ public class ComposterBlock extends Block implements WorldlyContainerHolder {
          return $$0 == Direction.UP ? new int[]{0} : new int[0];
       }
 
-      public boolean canPlaceItemThroughFace(int $$0, ItemStack $$1, @Nullable Direction $$2) {
+      public boolean canPlaceItemThroughFace(int $$0, ItemStack $$1, Direction $$2) {
          return !this.changed && $$2 == Direction.UP && ComposterBlock.COMPOSTABLES.containsKey($$1.getItem());
       }
 
@@ -436,7 +435,7 @@ public class ComposterBlock extends Block implements WorldlyContainerHolder {
          return $$0 == Direction.DOWN ? new int[]{0} : new int[0];
       }
 
-      public boolean canPlaceItemThroughFace(int $$0, ItemStack $$1, @Nullable Direction $$2) {
+      public boolean canPlaceItemThroughFace(int $$0, ItemStack $$1, Direction $$2) {
          return false;
       }
 

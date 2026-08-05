@@ -1,7 +1,6 @@
 package net.minecraft.world;
 
 import net.minecraft.world.item.ItemStack;
-import org.jspecify.annotations.Nullable;
 
 public sealed interface InteractionResult
    permits InteractionResult.Success,
@@ -22,7 +21,7 @@ public sealed interface InteractionResult
    public record Fail() implements InteractionResult {
    }
 
-   public record ItemContext(boolean wasItemInteraction, @Nullable ItemStack heldItemTransformedTo) {
+   public record ItemContext(boolean wasItemInteraction, ItemStack heldItemTransformedTo) {
       static InteractionResult.ItemContext NONE = new InteractionResult.ItemContext(false, null);
       static InteractionResult.ItemContext DEFAULT = new InteractionResult.ItemContext(true, null);
    }
@@ -48,7 +47,7 @@ public sealed interface InteractionResult
          return this.itemContext.wasItemInteraction;
       }
 
-      @Nullable
+      
       public ItemStack heldItemTransformedTo() {
          return this.itemContext.heldItemTransformedTo;
       }

@@ -10,7 +10,6 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
-import org.jspecify.annotations.Nullable;
 
 public class FlyNodeEvaluator extends WalkNodeEvaluator {
    private final Long2ObjectMap<PathType> pathTypeByPosCache = new Long2ObjectOpenHashMap();
@@ -253,15 +252,15 @@ public class FlyNodeEvaluator extends WalkNodeEvaluator {
       return $$2;
    }
 
-   private boolean hasMalus(@Nullable Node $$0) {
+   private boolean hasMalus(Node $$0) {
       return $$0 != null && $$0.costMalus >= 0.0F;
    }
 
-   private boolean isOpen(@Nullable Node $$0) {
+   private boolean isOpen(Node $$0) {
       return $$0 != null && !$$0.closed;
    }
 
-   @Nullable
+   
    protected Node findAcceptedNode(int $$0, int $$1, int $$2) {
       Node $$3 = null;
       PathType $$4 = this.getCachedPathType($$0, $$1, $$2);

@@ -35,7 +35,6 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class SculkSensorBlock extends BaseEntityBlock implements SimpleWaterloggedBlock {
    public static final MapCodec<SculkSensorBlock> CODEC = simpleCodec(SculkSensorBlock::new);
@@ -63,7 +62,7 @@ public class SculkSensorBlock extends BaseEntityBlock implements SimpleWaterlogg
       this.registerDefaultState(this.stateDefinition.any().setValue(PHASE, SculkSensorPhase.INACTIVE).setValue(POWER, 0).setValue(WATERLOGGED, false));
    }
 
-   @Nullable
+   
    @Override
    public BlockState getStateForPlacement(BlockPlaceContext $$0) {
       BlockPos $$1 = $$0.getClickedPos();
@@ -144,13 +143,13 @@ public class SculkSensorBlock extends BaseEntityBlock implements SimpleWaterlogg
       $$0.updateNeighborsAt($$1.below(), $$3);
    }
 
-   @Nullable
+   
    @Override
    public BlockEntity newBlockEntity(BlockPos $$0, BlockState $$1) {
       return new SculkSensorBlockEntity($$0, $$1);
    }
 
-   @Nullable
+   
    @Override
    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(net.minecraft.world.level.Level $$0, BlockState $$1, BlockEntityType<T> $$2) {
       return !$$0.isClientSide()
@@ -199,7 +198,7 @@ public class SculkSensorBlock extends BaseEntityBlock implements SimpleWaterlogg
       return 30;
    }
 
-   public void activate(@Nullable Entity $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, BlockState $$3, int $$4, int $$5) {
+   public void activate(Entity $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, BlockState $$3, int $$4, int $$5) {
       $$1.setBlock($$2, $$3.setValue(PHASE, SculkSensorPhase.ACTIVE).setValue(POWER, $$4), 3);
       $$1.scheduleTick($$2, $$3.getBlock(), this.getActiveTicks());
       updateNeighbours($$1, $$2, $$3);
@@ -219,7 +218,7 @@ public class SculkSensorBlock extends BaseEntityBlock implements SimpleWaterlogg
       }
    }
 
-   public static void tryResonateVibration(@Nullable Entity $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, int $$3) {
+   public static void tryResonateVibration(Entity $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, int $$3) {
       for (Direction $$4 : Direction.values()) {
          BlockPos $$5 = $$2.relative($$4);
          BlockState $$6 = $$1.getBlockState($$5);

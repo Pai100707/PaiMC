@@ -68,7 +68,6 @@ import net.minecraft.world.level.pathfinder.Path;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class Rabbit extends Animal {
    public static final double STROLL_SPEED_MOD = 0.6;
@@ -319,7 +318,7 @@ public class Rabbit extends Animal {
       return this.getVariant() == Rabbit.Variant.EVIL ? SoundSource.HOSTILE : SoundSource.NEUTRAL;
    }
 
-   @Nullable
+   
    public Rabbit getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       Rabbit $$2 = net.minecraft.world.entity.EntityType.RABBIT.create($$0, net.minecraft.world.entity.EntitySpawnReason.BREEDING);
       if ($$2 != null) {
@@ -366,7 +365,7 @@ public class Rabbit extends Animal {
       this.entityData.set(DATA_TYPE_ID, $$0.id);
    }
 
-   @Nullable
+   
    @Override
    public <T> T get(DataComponentType<? extends T> $$0) {
       return $$0 == DataComponents.RABBIT_VARIANT ? castComponentValue((DataComponentType<T>)$$0, this.getVariant()) : super.get($$0);
@@ -388,13 +387,13 @@ public class Rabbit extends Animal {
       }
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       Rabbit.Variant $$4 = getRandomRabbitVariant($$0, this.blockPosition());
       if ($$3 instanceof Rabbit.RabbitGroupData) {

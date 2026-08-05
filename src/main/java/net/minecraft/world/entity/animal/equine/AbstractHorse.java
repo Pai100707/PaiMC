@@ -61,7 +61,6 @@ import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public abstract class AbstractHorse
    extends Animal
@@ -112,7 +111,7 @@ public abstract class AbstractHorse
    private float mouthAnimO;
    protected boolean canGallop = true;
    protected int gallopSoundCounter;
-   @Nullable
+   
    private net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> owner;
 
    protected AbstractHorse(net.minecraft.world.entity.EntityType<? extends AbstractHorse> $$0, Level $$1) {
@@ -164,13 +163,13 @@ public abstract class AbstractHorse
       return this.getFlag(2);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> getOwnerReference() {
       return this.owner;
    }
 
-   public void setOwner(@Nullable net.minecraft.world.entity.LivingEntity $$0) {
+   public void setOwner(net.minecraft.world.entity.LivingEntity $$0) {
       this.owner = net.minecraft.world.entity.EntityReference.of($$0);
    }
 
@@ -323,12 +322,12 @@ public abstract class AbstractHorse
       return true;
    }
 
-   @Nullable
+   
    protected SoundEvent getEatingSound() {
       return null;
    }
 
-   @Nullable
+   
    protected SoundEvent getAngrySound() {
       return null;
    }
@@ -678,7 +677,7 @@ public abstract class AbstractHorse
       this.standCounter = 0;
    }
 
-   @Nullable
+   
    public SoundEvent getAmbientStandSound() {
       return this.getAmbientSound();
    }
@@ -807,7 +806,7 @@ public abstract class AbstractHorse
       return false;
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.AgeableMob getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       return null;
@@ -936,14 +935,14 @@ public abstract class AbstractHorse
       return false;
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SlotAccess getSlot(int $$0) {
       int $$1 = $$0 - 500;
       return $$1 >= 0 && $$1 < this.inventory.getContainerSize() ? this.inventory.getSlot($$1) : super.getSlot($$0);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.LivingEntity getControllingPassenger() {
       return (net.minecraft.world.entity.LivingEntity)(this.isSaddled() && this.getFirstPassenger() instanceof Player $$0
@@ -951,7 +950,7 @@ public abstract class AbstractHorse
          : super.getControllingPassenger());
    }
 
-   @Nullable
+   
    private Vec3 getDismountLocationInDirection(Vec3 $$0, net.minecraft.world.entity.LivingEntity $$1) {
       double $$2 = this.getX() + $$0.x;
       double $$3 = this.getBoundingBox().minY;
@@ -1006,13 +1005,13 @@ public abstract class AbstractHorse
    protected void randomizeAttributes(RandomSource $$0) {
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       if ($$3 == null) {
          $$3 = new net.minecraft.world.entity.AgeableMob.AgeableMobGroupData(0.2F);

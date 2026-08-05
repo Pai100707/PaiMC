@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.Optional;
 import net.minecraft.core.NonNullList;
 import net.minecraft.server.level.ServerLevel;
-import org.jspecify.annotations.Nullable;
 
 public class RecipeCache {
    private final RecipeCache.Entry[] entries;
@@ -55,7 +54,7 @@ public class RecipeCache {
       }
    }
 
-   private void insert(CraftingInput $$0, @Nullable RecipeHolder<CraftingRecipe> $$1) {
+   private void insert(CraftingInput $$0, RecipeHolder<CraftingRecipe> $$1) {
       NonNullList<net.minecraft.world.item.ItemStack> $$2 = NonNullList.withSize($$0.size(), net.minecraft.world.item.ItemStack.EMPTY);
 
       for (int $$3 = 0; $$3 < $$0.size(); $$3++) {
@@ -66,7 +65,7 @@ public class RecipeCache {
       this.entries[0] = new RecipeCache.Entry($$2, $$0.width(), $$0.height(), $$1);
    }
 
-   record Entry(NonNullList<net.minecraft.world.item.ItemStack> key, int width, int height, @Nullable RecipeHolder<CraftingRecipe> value) {
+   record Entry(NonNullList<net.minecraft.world.item.ItemStack> key, int width, int height, RecipeHolder<CraftingRecipe> value) {
       public boolean matches(CraftingInput $$0) {
          if (this.width == $$0.width() && this.height == $$0.height()) {
             for (int $$1 = 0; $$1 < this.key.size(); $$1++) {

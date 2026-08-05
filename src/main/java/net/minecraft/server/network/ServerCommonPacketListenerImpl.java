@@ -27,7 +27,6 @@ import net.minecraft.server.players.NameAndId;
 import net.minecraft.util.Util;
 import net.minecraft.util.VisibleForDebug;
 import net.minecraft.util.profiling.Profiler;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public abstract class ServerCommonPacketListenerImpl implements ServerCommonPacketListener {
@@ -149,7 +148,7 @@ public abstract class ServerCommonPacketListenerImpl implements ServerCommonPack
       this.send($$0, null);
    }
 
-   public void send(Packet<?> $$0, @Nullable ChannelFutureListener $$1) {
+   public void send(Packet<?> $$0, ChannelFutureListener $$1) {
       if ($$0.isTerminal()) {
          this.close();
       }

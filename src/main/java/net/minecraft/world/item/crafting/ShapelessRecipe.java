@@ -12,14 +12,13 @@ import net.minecraft.world.item.crafting.display.RecipeDisplay;
 import net.minecraft.world.item.crafting.display.ShapelessCraftingRecipeDisplay;
 import net.minecraft.world.item.crafting.display.SlotDisplay;
 import net.minecraft.world.level.Level;
-import org.jspecify.annotations.Nullable;
 
 public class ShapelessRecipe implements CraftingRecipe {
    final String group;
    final CraftingBookCategory category;
    final net.minecraft.world.item.ItemStack result;
    final List<Ingredient> ingredients;
-   @Nullable
+   
    private PlacementInfo placementInfo;
 
    public ShapelessRecipe(String $$0, CraftingBookCategory $$1, net.minecraft.world.item.ItemStack $$2, List<Ingredient> $$3) {

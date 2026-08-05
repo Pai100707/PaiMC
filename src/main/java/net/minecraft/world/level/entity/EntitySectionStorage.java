@@ -18,7 +18,6 @@ import net.minecraft.core.SectionPos;
 import net.minecraft.util.AbortableIterationConsumer;
 import net.minecraft.util.VisibleForDebug;
 import net.minecraft.world.phys.AABB;
-import org.jspecify.annotations.Nullable;
 
 public class EntitySectionStorage<T extends EntityAccess> {
    public static final int CHONKY_ENTITY_SEARCH_GRACE = 2;
@@ -90,7 +89,7 @@ public class EntitySectionStorage<T extends EntityAccess> {
       return (EntitySection<T>)this.sections.computeIfAbsent($$0, this::createSection);
    }
 
-   @Nullable
+   
    public EntitySection<T> getSection(long $$0) {
       return (EntitySection<T>)this.sections.get($$0);
    }

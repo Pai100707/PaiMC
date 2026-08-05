@@ -11,7 +11,6 @@ import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.level.dimension.end.EndDragonFight;
 import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.levelgen.WorldOptions;
-import org.jspecify.annotations.Nullable;
 
 public interface WorldData {
    int ANVIL_VERSION_ID = 19133;
@@ -50,16 +49,16 @@ public interface WorldData {
       }
    }
 
-   @Nullable
+   
    CompoundTag getCustomBossEvents();
 
-   void setCustomBossEvents(@Nullable CompoundTag var1);
+   void setCustomBossEvents(CompoundTag var1);
 
    ServerLevelData overworldData();
 
    net.minecraft.world.level.LevelSettings getLevelSettings();
 
-   CompoundTag createTag(RegistryAccess var1, @Nullable CompoundTag var2);
+   CompoundTag createTag(RegistryAccess var1, CompoundTag var2);
 
    boolean isHardcore();
 
@@ -83,7 +82,7 @@ public interface WorldData {
 
    GameRules getGameRules();
 
-   @Nullable
+   
    CompoundTag getLoadedPlayerTag();
 
    EndDragonFight.Data endDragonFightData();

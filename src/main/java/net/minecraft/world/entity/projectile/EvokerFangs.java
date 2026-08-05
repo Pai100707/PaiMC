@@ -9,7 +9,6 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 
 public class EvokerFangs extends net.minecraft.world.entity.Entity implements net.minecraft.world.entity.TraceableEntity {
    public static final int ATTACK_DURATION = 20;
@@ -20,7 +19,7 @@ public class EvokerFangs extends net.minecraft.world.entity.Entity implements ne
    private boolean sentSpikeEvent;
    private int lifeTicks = 22;
    private boolean clientSideAttackStarted;
-   @Nullable
+   
    private net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> owner;
 
    public EvokerFangs(net.minecraft.world.entity.EntityType<? extends EvokerFangs> $$0, Level $$1) {
@@ -39,11 +38,11 @@ public class EvokerFangs extends net.minecraft.world.entity.Entity implements ne
    protected void defineSynchedData(Builder $$0) {
    }
 
-   public void setOwner(@Nullable net.minecraft.world.entity.LivingEntity $$0) {
+   public void setOwner(net.minecraft.world.entity.LivingEntity $$0) {
       this.owner = net.minecraft.world.entity.EntityReference.of($$0);
    }
 
-   @Nullable
+   
    public net.minecraft.world.entity.LivingEntity getOwner() {
       return net.minecraft.world.entity.EntityReference.getLivingEntity(this.owner, this.level());
    }

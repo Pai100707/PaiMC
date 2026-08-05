@@ -14,7 +14,6 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentTable;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootTable;
-import org.jspecify.annotations.Nullable;
 
 public class TrialSpawnerConfigs {
    private static final TrialSpawnerConfigs.Keys TRIAL_CHAMBER_BREEZE = TrialSpawnerConfigs.Keys.of("trial_chamber/breeze");
@@ -279,7 +278,7 @@ public class TrialSpawnerConfigs {
    }
 
    private static <T extends Entity> net.minecraft.world.level.SpawnData customSpawnDataWithEquipment(
-      EntityType<T> $$0, Consumer<CompoundTag> $$1, @Nullable ResourceKey<LootTable> $$2
+      EntityType<T> $$0, Consumer<CompoundTag> $$1, ResourceKey<LootTable> $$2
    ) {
       CompoundTag $$3 = new CompoundTag();
       $$3.putString("id", BuiltInRegistries.ENTITY_TYPE.getKey($$0).toString());

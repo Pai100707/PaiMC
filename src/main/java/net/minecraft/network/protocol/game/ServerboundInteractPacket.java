@@ -10,7 +10,6 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class ServerboundInteractPacket implements Packet<ServerGamePacketListener> {
    public static final StreamCodec<net.minecraft.network.FriendlyByteBuf, ServerboundInteractPacket> STREAM_CODEC = Packet.codec(
@@ -76,7 +75,7 @@ public class ServerboundInteractPacket implements Packet<ServerGamePacketListene
       $$0.handleInteract(this);
    }
 
-   @Nullable
+   
    public Entity getTarget(ServerLevel $$0) {
       return $$0.getEntityOrPart(this.entityId);
    }

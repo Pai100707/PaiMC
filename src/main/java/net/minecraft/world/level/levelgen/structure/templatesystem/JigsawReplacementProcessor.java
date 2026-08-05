@@ -10,7 +10,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class JigsawReplacementProcessor extends StructureProcessor {
@@ -21,7 +20,7 @@ public class JigsawReplacementProcessor extends StructureProcessor {
    private JigsawReplacementProcessor() {
    }
 
-   @Nullable
+   
    @Override
    public StructureTemplate.StructureBlockInfo processBlock(
       net.minecraft.world.level.LevelReader $$0,

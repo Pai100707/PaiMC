@@ -34,7 +34,6 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class DoorBlock extends Block {
    public static final MapCodec<DoorBlock> CODEC = RecordCodecBuilder.mapCodec(
@@ -125,7 +124,7 @@ public class DoorBlock extends Block {
       };
    }
 
-   @Nullable
+   
    @Override
    public BlockState getStateForPlacement(BlockPlaceContext $$0) {
       BlockPos $$1 = $$0.getClickedPos();
@@ -144,7 +143,7 @@ public class DoorBlock extends Block {
    }
 
    @Override
-   public void setPlacedBy(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, @Nullable LivingEntity $$3, ItemStack $$4) {
+   public void setPlacedBy(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, LivingEntity $$3, ItemStack $$4) {
       $$0.setBlock($$1.above(), $$2.setValue(HALF, DoubleBlockHalf.UPPER), 3);
    }
 
@@ -204,7 +203,7 @@ public class DoorBlock extends Block {
       return $$0.getValue(OPEN);
    }
 
-   public void setOpen(@Nullable Entity $$0, net.minecraft.world.level.Level $$1, BlockState $$2, BlockPos $$3, boolean $$4) {
+   public void setOpen(Entity $$0, net.minecraft.world.level.Level $$1, BlockState $$2, BlockPos $$3, boolean $$4) {
       if ($$2.is(this) && $$2.getValue(OPEN) != $$4) {
          $$1.setBlock($$3, $$2.setValue(OPEN, $$4), 10);
          this.playSound($$0, $$1, $$3, $$4);
@@ -213,7 +212,7 @@ public class DoorBlock extends Block {
    }
 
    @Override
-   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, @Nullable Orientation $$4, boolean $$5) {
+   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, Orientation $$4, boolean $$5) {
       boolean $$6 = $$1.hasNeighborSignal($$2)
          || $$1.hasNeighborSignal($$2.relative($$0.getValue(HALF) == DoubleBlockHalf.LOWER ? Direction.UP : Direction.DOWN));
       if (!this.defaultBlockState().is($$3) && $$6 != $$0.getValue(POWERED)) {
@@ -233,7 +232,7 @@ public class DoorBlock extends Block {
       return $$0.getValue(HALF) == DoubleBlockHalf.LOWER ? $$4.isFaceSturdy($$1, $$3, Direction.UP) : $$4.is(this);
    }
 
-   private void playSound(@Nullable Entity $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, boolean $$3) {
+   private void playSound(Entity $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, boolean $$3) {
       $$1.playSound($$0, $$2, $$3 ? this.type.doorOpen() : this.type.doorClose(), SoundSource.BLOCKS, 1.0F, $$1.getRandom().nextFloat() * 0.1F + 0.9F);
    }
 

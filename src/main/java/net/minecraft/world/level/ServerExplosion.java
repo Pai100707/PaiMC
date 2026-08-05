@@ -34,7 +34,6 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.HitResult.Type;
-import org.jspecify.annotations.Nullable;
 
 public class ServerExplosion implements net.minecraft.world.level.Explosion {
    private static final net.minecraft.world.level.ExplosionDamageCalculator EXPLOSION_DAMAGE_CALCULATOR = new net.minecraft.world.level.ExplosionDamageCalculator();
@@ -44,7 +43,7 @@ public class ServerExplosion implements net.minecraft.world.level.Explosion {
    private final net.minecraft.world.level.Explosion.BlockInteraction blockInteraction;
    private final ServerLevel level;
    private final Vec3 center;
-   @Nullable
+   
    private final Entity source;
    private final float radius;
    private final DamageSource damageSource;
@@ -53,9 +52,9 @@ public class ServerExplosion implements net.minecraft.world.level.Explosion {
 
    public ServerExplosion(
       ServerLevel $$0,
-      @Nullable Entity $$1,
-      @Nullable DamageSource $$2,
-      @Nullable net.minecraft.world.level.ExplosionDamageCalculator $$3,
+      Entity $$1,
+      DamageSource $$2,
+      net.minecraft.world.level.ExplosionDamageCalculator $$3,
       Vec3 $$4,
       float $$5,
       boolean $$6,
@@ -71,7 +70,7 @@ public class ServerExplosion implements net.minecraft.world.level.Explosion {
       this.damageCalculator = $$3 == null ? this.makeDamageCalculator($$1) : $$3;
    }
 
-   private net.minecraft.world.level.ExplosionDamageCalculator makeDamageCalculator(@Nullable Entity $$0) {
+   private net.minecraft.world.level.ExplosionDamageCalculator makeDamageCalculator(Entity $$0) {
       return (net.minecraft.world.level.ExplosionDamageCalculator)($$0 == null
          ? EXPLOSION_DAMAGE_CALCULATOR
          : new net.minecraft.world.level.EntityBasedExplosionDamageCalculator($$0));
@@ -279,13 +278,13 @@ public class ServerExplosion implements net.minecraft.world.level.Explosion {
       return this.level;
    }
 
-   @Nullable
+   
    @Override
    public LivingEntity getIndirectSourceEntity() {
       return net.minecraft.world.level.Explosion.getIndirectSourceEntity(this.source);
    }
 
-   @Nullable
+   
    @Override
    public Entity getDirectSourceEntity() {
       return this.source;

@@ -12,13 +12,12 @@ import net.minecraft.world.level.levelgen.Heightmap.Types;
 import net.minecraft.world.level.levelgen.feature.EndPodiumFeature;
 import net.minecraft.world.level.pathfinder.Path;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class DragonHoldingPatternPhase extends AbstractDragonPhaseInstance {
    private static final TargetingConditions NEW_TARGET_TARGETING = TargetingConditions.forCombat().ignoreLineOfSight();
-   @Nullable
+   
    private Path currentPath;
-   @Nullable
+   
    private Vec3 targetLocation;
    private boolean clockwise;
 
@@ -45,7 +44,7 @@ public class DragonHoldingPatternPhase extends AbstractDragonPhaseInstance {
       this.targetLocation = null;
    }
 
-   @Nullable
+   
    @Override
    public Vec3 getFlyTargetLocation() {
       return this.targetLocation;
@@ -130,7 +129,7 @@ public class DragonHoldingPatternPhase extends AbstractDragonPhaseInstance {
    }
 
    @Override
-   public void onCrystalDestroyed(EndCrystal $$0, BlockPos $$1, DamageSource $$2, @Nullable Player $$3) {
+   public void onCrystalDestroyed(EndCrystal $$0, BlockPos $$1, DamageSource $$2, Player $$3) {
       if ($$3 != null && this.dragon.canAttack($$3)) {
          this.strafePlayer($$3);
       }

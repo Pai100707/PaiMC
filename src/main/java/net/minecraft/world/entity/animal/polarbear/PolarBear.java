@@ -44,7 +44,6 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 
 public class PolarBear extends Animal implements net.minecraft.world.entity.NeutralMob {
    private static final EntityDataAccessor<Boolean> DATA_STANDING_ID = SynchedEntityData.defineId(PolarBear.class, EntityDataSerializers.BOOLEAN);
@@ -54,14 +53,14 @@ public class PolarBear extends Animal implements net.minecraft.world.entity.Neut
    private int warningSoundTicks;
    private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
    private long persistentAngerEndTime;
-   @Nullable
+   
    private net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> persistentAngerTarget;
 
    public PolarBear(net.minecraft.world.entity.EntityType<? extends PolarBear> $$0, Level $$1) {
       super($$0, $$1);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.AgeableMob getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       return net.minecraft.world.entity.EntityType.POLAR_BEAR.create($$0, net.minecraft.world.entity.EntitySpawnReason.BREEDING);
@@ -144,11 +143,11 @@ public class PolarBear extends Animal implements net.minecraft.world.entity.Neut
    }
 
    @Override
-   public void setPersistentAngerTarget(@Nullable net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> $$0) {
+   public void setPersistentAngerTarget(net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> $$0) {
       this.persistentAngerTarget = $$0;
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> getPersistentAngerTarget() {
       return this.persistentAngerTarget;
@@ -245,7 +244,7 @@ public class PolarBear extends Animal implements net.minecraft.world.entity.Neut
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       if ($$3 == null) {
          $$3 = new net.minecraft.world.entity.AgeableMob.AgeableMobGroupData(1.0F);

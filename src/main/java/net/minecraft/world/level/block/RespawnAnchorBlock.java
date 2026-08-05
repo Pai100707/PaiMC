@@ -39,7 +39,6 @@ import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.level.storage.LevelData;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class RespawnAnchorBlock extends Block {
    public static final MapCodec<RespawnAnchorBlock> CODEC = simpleCodec(RespawnAnchorBlock::new);
@@ -161,7 +160,7 @@ public class RespawnAnchorBlock extends Block {
       return (Boolean)$$0.environmentAttributes().getValue(EnvironmentAttributes.RESPAWN_ANCHOR_WORKS, $$1);
    }
 
-   public static void charge(@Nullable Entity $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, BlockState $$3) {
+   public static void charge(Entity $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, BlockState $$3) {
       BlockState $$4 = $$3.setValue(CHARGE, $$3.getValue(CHARGE) + 1);
       $$1.setBlock($$2, $$4, 3);
       $$1.gameEvent(GameEvent.BLOCK_CHANGE, $$2, GameEvent.Context.of($$0, $$4));

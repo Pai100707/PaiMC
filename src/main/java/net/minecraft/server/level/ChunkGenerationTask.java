@@ -11,12 +11,11 @@ import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.status.ChunkDependencies;
 import net.minecraft.world.level.chunk.status.ChunkPyramid;
 import net.minecraft.world.level.chunk.status.ChunkStatus;
-import org.jspecify.annotations.Nullable;
 
 public class ChunkGenerationTask {
    private final GeneratingChunkMap chunkMap;
    private final ChunkPos pos;
-   @Nullable
+   
    private ChunkStatus scheduledStatus = null;
    public final ChunkStatus targetStatus;
    private volatile boolean markedForCancellation;
@@ -37,7 +36,7 @@ public class ChunkGenerationTask {
       return new ChunkGenerationTask($$0, $$1, $$2, $$4);
    }
 
-   @Nullable
+   
    public CompletableFuture<?> runUntilWait() {
       while (true) {
          CompletableFuture<?> $$0 = this.waitForScheduledLayer();
@@ -176,7 +175,7 @@ public class ChunkGenerationTask {
       }
    }
 
-   @Nullable
+   
    private CompletableFuture<?> waitForScheduledLayer() {
       while (!this.scheduledLayer.isEmpty()) {
          CompletableFuture<ChunkResult<ChunkAccess>> $$0 = this.scheduledLayer.getLast();

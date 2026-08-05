@@ -7,14 +7,13 @@ import net.minecraft.util.KeyframeTrackSampler;
 import net.minecraft.world.attribute.LerpFunction;
 import net.minecraft.world.attribute.EnvironmentAttributeLayer.TimeBased;
 import net.minecraft.world.attribute.modifier.AttributeModifier;
-import org.jspecify.annotations.Nullable;
 
 public class AttributeTrackSampler<Value, Argument> implements TimeBased<Value> {
    private final AttributeModifier<Value, Argument> modifier;
    private final KeyframeTrackSampler<Argument> argumentSampler;
    private final LongSupplier dayTimeGetter;
    private int cachedTickId;
-   @Nullable
+   
    private Argument cachedArgument;
 
    public AttributeTrackSampler(

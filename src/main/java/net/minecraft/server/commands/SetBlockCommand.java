@@ -17,7 +17,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.pattern.BlockInWorld;
-import org.jspecify.annotations.Nullable;
 
 public class SetBlockCommand {
    private static final SimpleCommandExceptionType ERROR_FAILED = new SimpleCommandExceptionType(Component.translatable("commands.setblock.failed"));
@@ -100,7 +99,7 @@ public class SetBlockCommand {
    }
 
    private static int setBlock(
-      CommandSourceStack $$0, BlockPos $$1, BlockInput $$2, SetBlockCommand.Mode $$3, @Nullable Predicate<BlockInWorld> $$4, boolean $$5
+      CommandSourceStack $$0, BlockPos $$1, BlockInput $$2, SetBlockCommand.Mode $$3, Predicate<BlockInWorld> $$4, boolean $$5
    ) throws CommandSyntaxException {
       ServerLevel $$6 = $$0.getLevel();
       if ($$6.isDebug()) {

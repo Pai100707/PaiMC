@@ -27,7 +27,6 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult.Type;
-import org.jspecify.annotations.Nullable;
 
 public class BucketItem extends net.minecraft.world.item.Item implements net.minecraft.world.item.DispensibleContainerItem {
    private final Fluid content;
@@ -95,11 +94,11 @@ public class BucketItem extends net.minecraft.world.item.Item implements net.min
    }
 
    @Override
-   public void checkExtraContent(@Nullable LivingEntity $$0, Level $$1, net.minecraft.world.item.ItemStack $$2, BlockPos $$3) {
+   public void checkExtraContent(LivingEntity $$0, Level $$1, net.minecraft.world.item.ItemStack $$2, BlockPos $$3) {
    }
 
    @Override
-   public boolean emptyContents(@Nullable LivingEntity $$0, Level $$1, BlockPos $$2, @Nullable BlockHitResult $$3) {
+   public boolean emptyContents(LivingEntity $$0, Level $$1, BlockPos $$2, BlockHitResult $$3) {
       if (!(this.content instanceof FlowingFluid $$4)) {
          return false;
       } else {
@@ -143,7 +142,7 @@ public class BucketItem extends net.minecraft.world.item.Item implements net.min
       }
    }
 
-   protected void playEmptySound(@Nullable LivingEntity $$0, LevelAccessor $$1, BlockPos $$2) {
+   protected void playEmptySound(LivingEntity $$0, LevelAccessor $$1, BlockPos $$2) {
       SoundEvent $$3 = this.content.is(FluidTags.LAVA) ? SoundEvents.BUCKET_EMPTY_LAVA : SoundEvents.BUCKET_EMPTY;
       $$1.playSound($$0, $$2, $$3, SoundSource.BLOCKS, 1.0F, 1.0F);
       $$1.gameEvent($$0, GameEvent.FLUID_PLACE, $$2);

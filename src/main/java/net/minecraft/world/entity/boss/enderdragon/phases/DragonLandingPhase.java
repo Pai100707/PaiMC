@@ -8,10 +8,9 @@ import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.level.levelgen.Heightmap.Types;
 import net.minecraft.world.level.levelgen.feature.EndPodiumFeature;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class DragonLandingPhase extends AbstractDragonPhaseInstance {
-   @Nullable
+   
    private Vec3 targetLocation;
 
    public DragonLandingPhase(EnderDragon $$0) {
@@ -78,7 +77,7 @@ public class DragonLandingPhase extends AbstractDragonPhaseInstance {
       this.targetLocation = null;
    }
 
-   @Nullable
+   
    @Override
    public Vec3 getFlyTargetLocation() {
       return this.targetLocation;

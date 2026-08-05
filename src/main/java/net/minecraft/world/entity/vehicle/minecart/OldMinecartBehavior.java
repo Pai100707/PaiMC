@@ -18,7 +18,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.RailShape;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class OldMinecartBehavior extends MinecartBehavior {
    private static final double MINECART_RIDABLE_THRESHOLD = 0.01;
@@ -267,7 +266,7 @@ public class OldMinecartBehavior extends MinecartBehavior {
       }
    }
 
-   @Nullable
+   
    public Vec3 getPosOffs(double $$0, double $$1, double $$2, double $$3) {
       int $$4 = Mth.floor($$0);
       int $$5 = Mth.floor($$1);
@@ -306,7 +305,7 @@ public class OldMinecartBehavior extends MinecartBehavior {
       }
    }
 
-   @Nullable
+   
    public Vec3 getPos(double $$0, double $$1, double $$2) {
       int $$3 = Mth.floor($$0);
       int $$4 = Mth.floor($$1);

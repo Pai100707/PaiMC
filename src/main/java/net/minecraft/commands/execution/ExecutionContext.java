@@ -10,7 +10,6 @@ import net.minecraft.commands.execution.tasks.BuildContexts;
 import net.minecraft.commands.execution.tasks.CallFunction;
 import net.minecraft.commands.functions.InstantiatedFunction;
 import net.minecraft.util.profiling.ProfilerFiller;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class ExecutionContext<T> implements AutoCloseable {
@@ -19,7 +18,7 @@ public class ExecutionContext<T> implements AutoCloseable {
    private final int commandLimit;
    private final int forkLimit;
    private final ProfilerFiller profiler;
-   @Nullable
+   
    private TraceCallbacks tracer;
    private int commandQuota;
    private boolean queueOverflow;
@@ -118,11 +117,11 @@ public class ExecutionContext<T> implements AutoCloseable {
       this.newTopCommands.clear();
    }
 
-   public void tracer(@Nullable TraceCallbacks $$0) {
+   public void tracer(TraceCallbacks $$0) {
       this.tracer = $$0;
    }
 
-   @Nullable
+   
    public TraceCallbacks tracer() {
       return this.tracer;
    }

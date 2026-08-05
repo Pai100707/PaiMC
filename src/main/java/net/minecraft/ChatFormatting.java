@@ -12,7 +12,6 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import net.minecraft.util.StringRepresentable;
 import org.jetbrains.annotations.Contract;
-import org.jspecify.annotations.Nullable;
 
 public enum ChatFormatting implements StringRepresentable {
    BLACK("BLACK", '0', 0, 0),
@@ -51,14 +50,14 @@ public enum ChatFormatting implements StringRepresentable {
    private final boolean isFormat;
    private final String toString;
    private final int id;
-   @Nullable
+   
    private final Integer color;
 
    private static String cleanName(String $$0) {
       return $$0.toLowerCase(Locale.ROOT).replaceAll("[^a-z]", "");
    }
 
-   private ChatFormatting(final String $$0, final char $$1, final int $$2, @Nullable final Integer $$3) {
+   private ChatFormatting(final String $$0, final char $$1, final int $$2, final Integer $$3) {
       this($$0, $$1, false, $$2, $$3);
    }
 
@@ -66,7 +65,7 @@ public enum ChatFormatting implements StringRepresentable {
       this($$0, $$1, $$2, -1, null);
    }
 
-   private ChatFormatting(final String $$0, final char $$1, final boolean $$2, final int $$3, @Nullable final Integer $$4) {
+   private ChatFormatting(final String $$0, final char $$1, final boolean $$2, final int $$3, final Integer $$4) {
       this.name = $$0;
       this.code = $$1;
       this.isFormat = $$2;
@@ -91,7 +90,7 @@ public enum ChatFormatting implements StringRepresentable {
       return !this.isFormat && this != RESET;
    }
 
-   @Nullable
+   
    public Integer getColor() {
       return this.color;
    }
@@ -106,17 +105,17 @@ public enum ChatFormatting implements StringRepresentable {
    }
 
    @Contract("!null->!null;_->_")
-   @Nullable
-   public static String stripFormatting(@Nullable String $$0) {
+   
+   public static String stripFormatting(String $$0) {
       return $$0 == null ? null : STRIP_FORMATTING_PATTERN.matcher($$0).replaceAll("");
    }
 
-   @Nullable
-   public static ChatFormatting getByName(@Nullable String $$0) {
+   
+   public static ChatFormatting getByName(String $$0) {
       return $$0 == null ? null : FORMATTING_BY_NAME.get(cleanName($$0));
    }
 
-   @Nullable
+   
    public static ChatFormatting getById(int $$0) {
       if ($$0 < 0) {
          return RESET;
@@ -131,7 +130,7 @@ public enum ChatFormatting implements StringRepresentable {
       }
    }
 
-   @Nullable
+   
    public static ChatFormatting getByCode(char $$0) {
       char $$1 = Character.toLowerCase($$0);
 

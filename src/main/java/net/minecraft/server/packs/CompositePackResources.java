@@ -12,7 +12,6 @@ import java.util.Set;
 import net.minecraft.resources.Identifier;
 import net.minecraft.server.packs.metadata.MetadataSectionType;
 import net.minecraft.server.packs.resources.IoSupplier;
-import org.jspecify.annotations.Nullable;
 
 public class CompositePackResources implements PackResources {
    private final PackResources primaryPackResources;
@@ -26,13 +25,13 @@ public class CompositePackResources implements PackResources {
       this.packResourcesStack = List.copyOf($$2);
    }
 
-   @Nullable
+   
    @Override
    public IoSupplier<InputStream> getRootResource(String... $$0) {
       return this.primaryPackResources.getRootResource($$0);
    }
 
-   @Nullable
+   
    @Override
    public IoSupplier<InputStream> getResource(PackType $$0, Identifier $$1) {
       for (PackResources $$2 : this.packResourcesStack) {
@@ -67,7 +66,7 @@ public class CompositePackResources implements PackResources {
       return $$1;
    }
 
-   @Nullable
+   
    @Override
    public <T> T getMetadataSection(MetadataSectionType<T> $$0) throws IOException {
       return this.primaryPackResources.getMetadataSection($$0);

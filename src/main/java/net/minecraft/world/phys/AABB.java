@@ -9,7 +9,6 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import org.joml.Vector3f;
 import org.joml.Vector3fc;
-import org.jspecify.annotations.Nullable;
 
 public class AABB {
    private static final double EPSILON = 1.0E-7;
@@ -308,7 +307,7 @@ public class AABB {
       }
    }
 
-   @Nullable
+   
    public static net.minecraft.world.phys.BlockHitResult clip(
       Iterable<net.minecraft.world.phys.AABB> $$0, net.minecraft.world.phys.Vec3 $$1, net.minecraft.world.phys.Vec3 $$2, BlockPos $$3
    ) {
@@ -330,14 +329,14 @@ public class AABB {
       }
    }
 
-   @Nullable
+   
    private static Direction getDirection(
-      net.minecraft.world.phys.AABB $$0, net.minecraft.world.phys.Vec3 $$1, double[] $$2, @Nullable Direction $$3, double $$4, double $$5, double $$6
+      net.minecraft.world.phys.AABB $$0, net.minecraft.world.phys.Vec3 $$1, double[] $$2, Direction $$3, double $$4, double $$5, double $$6
    ) {
       return getDirection($$0.minX, $$0.minY, $$0.minZ, $$0.maxX, $$0.maxY, $$0.maxZ, $$1, $$2, $$3, $$4, $$5, $$6);
    }
 
-   @Nullable
+   
    private static Direction getDirection(
       double $$0,
       double $$1,
@@ -347,7 +346,7 @@ public class AABB {
       double $$5,
       net.minecraft.world.phys.Vec3 $$6,
       double[] $$7,
-      @Nullable Direction $$8,
+      Direction $$8,
       double $$9,
       double $$10,
       double $$11
@@ -373,10 +372,10 @@ public class AABB {
       return $$8;
    }
 
-   @Nullable
+   
    private static Direction clipPoint(
       double[] $$0,
-      @Nullable Direction $$1,
+      Direction $$1,
       double $$2,
       double $$3,
       double $$4,

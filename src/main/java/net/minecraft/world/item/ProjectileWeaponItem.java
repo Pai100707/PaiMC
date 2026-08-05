@@ -14,7 +14,6 @@ import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
-import org.jspecify.annotations.Nullable;
 
 public abstract class ProjectileWeaponItem extends net.minecraft.world.item.Item {
    public static final Predicate<net.minecraft.world.item.ItemStack> ARROW_ONLY = $$0 -> $$0.is(ItemTags.ARROWS);
@@ -53,7 +52,7 @@ public abstract class ProjectileWeaponItem extends net.minecraft.world.item.Item
       float $$5,
       float $$6,
       boolean $$7,
-      @Nullable LivingEntity $$8
+      LivingEntity $$8
    ) {
       float $$9 = EnchantmentHelper.processProjectileSpread($$0, $$3, $$1, 0.0F);
       float $$10 = $$4.size() == 1 ? 0.0F : 2.0F * $$9 / ($$4.size() - 1);
@@ -81,7 +80,7 @@ public abstract class ProjectileWeaponItem extends net.minecraft.world.item.Item
       return 1;
    }
 
-   protected abstract void shootProjectile(LivingEntity var1, Projectile var2, int var3, float var4, float var5, float var6, @Nullable LivingEntity var7);
+   protected abstract void shootProjectile(LivingEntity var1, Projectile var2, int var3, float var4, float var5, float var6, LivingEntity var7);
 
    protected Projectile createProjectile(
       Level $$0, LivingEntity $$1, net.minecraft.world.item.ItemStack $$2, net.minecraft.world.item.ItemStack $$3, boolean $$4

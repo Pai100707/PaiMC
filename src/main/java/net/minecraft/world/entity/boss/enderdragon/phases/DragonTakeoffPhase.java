@@ -8,13 +8,12 @@ import net.minecraft.world.level.levelgen.Heightmap.Types;
 import net.minecraft.world.level.levelgen.feature.EndPodiumFeature;
 import net.minecraft.world.level.pathfinder.Path;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class DragonTakeoffPhase extends AbstractDragonPhaseInstance {
    private boolean firstTick;
-   @Nullable
+   
    private Path currentPath;
-   @Nullable
+   
    private Vec3 targetLocation;
 
    public DragonTakeoffPhase(EnderDragon $$0) {
@@ -77,7 +76,7 @@ public class DragonTakeoffPhase extends AbstractDragonPhaseInstance {
       }
    }
 
-   @Nullable
+   
    @Override
    public Vec3 getFlyTargetLocation() {
       return this.targetLocation;

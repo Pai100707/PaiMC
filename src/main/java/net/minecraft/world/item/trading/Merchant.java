@@ -6,12 +6,11 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.MerchantMenu;
-import org.jspecify.annotations.Nullable;
 
 public interface Merchant {
-   void setTradingPlayer(@Nullable Player var1);
+   void setTradingPlayer(Player var1);
 
-   @Nullable
+   
    Player getTradingPlayer();
 
    MerchantOffers getOffers();

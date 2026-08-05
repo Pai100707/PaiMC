@@ -16,7 +16,6 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class TallSeagrassBlock extends DoublePlantBlock implements LiquidBlockContainer {
    public static final MapCodec<TallSeagrassBlock> CODEC = simpleCodec(TallSeagrassBlock::new);
@@ -47,7 +46,7 @@ public class TallSeagrassBlock extends DoublePlantBlock implements LiquidBlockCo
       return new ItemStack(Blocks.SEAGRASS);
    }
 
-   @Nullable
+   
    @Override
    public BlockState getStateForPlacement(BlockPlaceContext $$0) {
       BlockState $$1 = super.getStateForPlacement($$0);
@@ -78,7 +77,7 @@ public class TallSeagrassBlock extends DoublePlantBlock implements LiquidBlockCo
    }
 
    @Override
-   public boolean canPlaceLiquid(@Nullable LivingEntity $$0, net.minecraft.world.level.BlockGetter $$1, BlockPos $$2, BlockState $$3, Fluid $$4) {
+   public boolean canPlaceLiquid(LivingEntity $$0, net.minecraft.world.level.BlockGetter $$1, BlockPos $$2, BlockState $$3, Fluid $$4) {
       return false;
    }
 

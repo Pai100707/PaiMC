@@ -18,7 +18,6 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class MangrovePropaguleBlock extends SaplingBlock implements SimpleWaterloggedBlock {
    public static final MapCodec<MangrovePropaguleBlock> CODEC = RecordCodecBuilder.mapCodec(
@@ -51,7 +50,7 @@ public class MangrovePropaguleBlock extends SaplingBlock implements SimpleWaterl
       return super.mayPlaceOn($$0, $$1, $$2) || $$0.is(Blocks.CLAY);
    }
 
-   @Nullable
+   
    @Override
    public BlockState getStateForPlacement(BlockPlaceContext $$0) {
       FluidState $$1 = $$0.getLevel().getFluidState($$0.getClickedPos());

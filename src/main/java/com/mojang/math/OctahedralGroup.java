@@ -11,7 +11,6 @@ import net.minecraft.util.Util;
 import org.joml.Matrix3f;
 import org.joml.Matrix3fc;
 import org.joml.Vector3i;
-import org.jspecify.annotations.Nullable;
 
 public enum OctahedralGroup implements StringRepresentable {
    IDENTITY("identity", SymmetricGroup3.P123, false, false, false),
@@ -74,7 +73,7 @@ public enum OctahedralGroup implements StringRepresentable {
    public static final OctahedralGroup BLOCK_ROT_Z_90 = ROT_90_Z_NEG;
    private final Matrix3fc transformation;
    private final String name;
-   @Nullable
+   
    private Map<Direction, Direction> rotatedDirections;
    private final boolean invertX;
    private final boolean invertY;

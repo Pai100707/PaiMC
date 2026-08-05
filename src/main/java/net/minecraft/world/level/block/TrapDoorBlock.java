@@ -30,7 +30,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class TrapDoorBlock extends HorizontalDirectionalBlock implements SimpleWaterloggedBlock {
    public static final MapCodec<TrapDoorBlock> CODEC = RecordCodecBuilder.mapCodec(
@@ -100,7 +99,7 @@ public class TrapDoorBlock extends HorizontalDirectionalBlock implements SimpleW
       super.onExplosionHit($$0, $$1, $$2, $$3, $$4);
    }
 
-   private void toggle(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, @Nullable Player $$3) {
+   private void toggle(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Player $$3) {
       BlockState $$4 = $$0.cycle(OPEN);
       $$1.setBlock($$2, $$4, 2);
       if ($$4.getValue(WATERLOGGED)) {
@@ -110,13 +109,13 @@ public class TrapDoorBlock extends HorizontalDirectionalBlock implements SimpleW
       this.playSound($$3, $$1, $$2, $$4.getValue(OPEN));
    }
 
-   protected void playSound(@Nullable Player $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, boolean $$3) {
+   protected void playSound(Player $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, boolean $$3) {
       $$1.playSound($$0, $$2, $$3 ? this.type.trapdoorOpen() : this.type.trapdoorClose(), SoundSource.BLOCKS, 1.0F, $$1.getRandom().nextFloat() * 0.1F + 0.9F);
       $$1.gameEvent($$0, $$3 ? GameEvent.BLOCK_OPEN : GameEvent.BLOCK_CLOSE, $$2);
    }
 
    @Override
-   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, @Nullable Orientation $$4, boolean $$5) {
+   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, Orientation $$4, boolean $$5) {
       if (!$$1.isClientSide()) {
          boolean $$6 = $$1.hasNeighborSignal($$2);
          if ($$6 != $$0.getValue(POWERED)) {

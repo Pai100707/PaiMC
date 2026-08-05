@@ -19,7 +19,6 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class AmethystClusterBlock extends AmethystBlock implements SimpleWaterloggedBlock {
    public static final MapCodec<AmethystClusterBlock> CODEC = RecordCodecBuilder.mapCodec(
@@ -79,7 +78,7 @@ public class AmethystClusterBlock extends AmethystBlock implements SimpleWaterlo
          : super.updateShape($$0, $$1, $$2, $$3, $$4, $$5, $$6, $$7);
    }
 
-   @Nullable
+   
    @Override
    public BlockState getStateForPlacement(BlockPlaceContext $$0) {
       net.minecraft.world.level.LevelAccessor $$1 = $$0.getLevel();

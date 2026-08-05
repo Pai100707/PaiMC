@@ -15,7 +15,6 @@ import net.minecraft.network.protocol.game.ClientboundStopSoundPacket;
 import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
-import org.jspecify.annotations.Nullable;
 
 public class StopSoundCommand {
    public static void register(CommandDispatcher<CommandSourceStack> $$0) {
@@ -57,7 +56,7 @@ public class StopSoundCommand {
       );
    }
 
-   private static int stopSound(CommandSourceStack $$0, Collection<ServerPlayer> $$1, @Nullable SoundSource $$2, @Nullable Identifier $$3) {
+   private static int stopSound(CommandSourceStack $$0, Collection<ServerPlayer> $$1, SoundSource $$2, Identifier $$3) {
       ClientboundStopSoundPacket $$4 = new ClientboundStopSoundPacket($$3, $$2);
 
       for (ServerPlayer $$5 : $$1) {

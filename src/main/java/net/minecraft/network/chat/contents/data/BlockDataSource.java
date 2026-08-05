@@ -13,9 +13,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import org.jspecify.annotations.Nullable;
 
-public record BlockDataSource(String posPattern, @Nullable Coordinates compiledPos) implements DataSource {
+public record BlockDataSource(String posPattern, Coordinates compiledPos) implements DataSource {
    public static final MapCodec<BlockDataSource> MAP_CODEC = RecordCodecBuilder.mapCodec(
       $$0 -> $$0.group(Codec.STRING.fieldOf("block").forGetter(BlockDataSource::posPattern)).apply($$0, BlockDataSource::new)
    );
@@ -24,7 +23,7 @@ public record BlockDataSource(String posPattern, @Nullable Coordinates compiledP
       this($$0, compilePos($$0));
    }
 
-   @Nullable
+   
    private static Coordinates compilePos(String $$0) {
       try {
          return BlockPosArgument.blockPos().parse(new StringReader($$0));

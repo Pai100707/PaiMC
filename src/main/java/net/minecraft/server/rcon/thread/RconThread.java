@@ -9,7 +9,6 @@ import java.net.Socket;
 import java.net.SocketTimeoutException;
 import java.util.List;
 import net.minecraft.server.dedicated.DedicatedServerProperties;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class RconThread extends GenericThread {
@@ -53,7 +52,7 @@ public class RconThread extends GenericThread {
       }
    }
 
-   @Nullable
+   
    public static RconThread create(net.minecraft.server.ServerInterface $$0) {
       DedicatedServerProperties $$1 = $$0.getProperties();
       String $$2 = $$0.getServerIp();

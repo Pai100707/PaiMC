@@ -25,7 +25,6 @@ import net.minecraft.network.chat.contents.data.DataSource;
 import net.minecraft.network.chat.contents.data.DataSources;
 import net.minecraft.resources.RegistryOps;
 import net.minecraft.world.entity.Entity;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class NbtContents implements ComponentContents {
@@ -43,14 +42,14 @@ public class NbtContents implements ComponentContents {
    private final Optional<Component> separator;
    private final String nbtPathPattern;
    private final DataSource dataSource;
-   @Nullable
+   
    protected final NbtPath compiledNbtPath;
 
    public NbtContents(String $$0, boolean $$1, Optional<Component> $$2, DataSource $$3) {
       this($$0, compileNbtPath($$0), $$1, $$2, $$3);
    }
 
-   private NbtContents(String $$0, @Nullable NbtPath $$1, boolean $$2, Optional<Component> $$3, DataSource $$4) {
+   private NbtContents(String $$0, NbtPath $$1, boolean $$2, Optional<Component> $$3, DataSource $$4) {
       this.nbtPathPattern = $$0;
       this.compiledNbtPath = $$1;
       this.interpreting = $$2;
@@ -58,7 +57,7 @@ public class NbtContents implements ComponentContents {
       this.dataSource = $$4;
    }
 
-   @Nullable
+   
    private static NbtPath compileNbtPath(String $$0) {
       try {
          return new NbtPathArgument().parse(new StringReader($$0));
@@ -108,7 +107,7 @@ public class NbtContents implements ComponentContents {
    }
 
    @Override
-   public MutableComponent resolve(@Nullable CommandSourceStack $$0, @Nullable Entity $$1, int $$2) throws CommandSyntaxException {
+   public MutableComponent resolve(CommandSourceStack $$0, Entity $$1, int $$2) throws CommandSyntaxException {
       if ($$0 != null && this.compiledNbtPath != null) {
          Stream<Tag> $$3 = this.dataSource.getData($$0).flatMap($$0x -> {
             try {

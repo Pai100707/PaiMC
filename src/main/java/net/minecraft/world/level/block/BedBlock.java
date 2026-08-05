@@ -42,7 +42,6 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.apache.commons.lang3.ArrayUtils;
-import org.jspecify.annotations.Nullable;
 
 public class BedBlock extends HorizontalDirectionalBlock implements EntityBlock {
    public static final MapCodec<BedBlock> CODEC = RecordCodecBuilder.mapCodec(
@@ -68,7 +67,7 @@ public class BedBlock extends HorizontalDirectionalBlock implements EntityBlock 
       this.registerDefaultState(this.stateDefinition.any().setValue(PART, BedPart.FOOT).setValue(OCCUPIED, false));
    }
 
-   @Nullable
+   
    public static Direction getBedOrientation(net.minecraft.world.level.BlockGetter $$0, BlockPos $$1) {
       BlockState $$2 = $$0.getBlockState($$1);
       return $$2.getBlock() instanceof BedBlock ? $$2.getValue(FACING) : null;
@@ -189,7 +188,7 @@ public class BedBlock extends HorizontalDirectionalBlock implements EntityBlock 
       return super.playerWillDestroy($$0, $$1, $$2, $$3);
    }
 
-   @Nullable
+   
    @Override
    public BlockState getStateForPlacement(BlockPlaceContext $$0) {
       Direction $$1 = $$0.getHorizontalDirection();
@@ -287,7 +286,7 @@ public class BedBlock extends HorizontalDirectionalBlock implements EntityBlock 
    }
 
    @Override
-   public void setPlacedBy(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, @Nullable LivingEntity $$3, ItemStack $$4) {
+   public void setPlacedBy(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, LivingEntity $$3, ItemStack $$4) {
       super.setPlacedBy($$0, $$1, $$2, $$3, $$4);
       if (!$$0.isClientSide()) {
          BlockPos $$5 = $$1.relative($$2.getValue(FACING));

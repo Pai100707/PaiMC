@@ -13,7 +13,6 @@ import net.minecraft.world.entity.projectile.hurtingprojectile.Fireball;
 import net.minecraft.world.entity.projectile.hurtingprojectile.WitherSkull;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class DamageSources {
    private final Registry<net.minecraft.world.damagesource.DamageType> damageTypes;
@@ -76,12 +75,12 @@ public class DamageSources {
       return new net.minecraft.world.damagesource.DamageSource(this.damageTypes.getOrThrow($$0));
    }
 
-   private net.minecraft.world.damagesource.DamageSource source(ResourceKey<net.minecraft.world.damagesource.DamageType> $$0, @Nullable Entity $$1) {
+   private net.minecraft.world.damagesource.DamageSource source(ResourceKey<net.minecraft.world.damagesource.DamageType> $$0, Entity $$1) {
       return new net.minecraft.world.damagesource.DamageSource(this.damageTypes.getOrThrow($$0), $$1);
    }
 
    private net.minecraft.world.damagesource.DamageSource source(
-      ResourceKey<net.minecraft.world.damagesource.DamageType> $$0, @Nullable Entity $$1, @Nullable Entity $$2
+      ResourceKey<net.minecraft.world.damagesource.DamageType> $$0, Entity $$1, Entity $$2
    ) {
       return new net.minecraft.world.damagesource.DamageSource(this.damageTypes.getOrThrow($$0), $$1, $$2);
    }
@@ -206,31 +205,31 @@ public class DamageSources {
       return this.source(net.minecraft.world.damagesource.DamageTypes.PLAYER_ATTACK, $$0);
    }
 
-   public net.minecraft.world.damagesource.DamageSource arrow(AbstractArrow $$0, @Nullable Entity $$1) {
+   public net.minecraft.world.damagesource.DamageSource arrow(AbstractArrow $$0, Entity $$1) {
       return this.source(net.minecraft.world.damagesource.DamageTypes.ARROW, $$0, $$1);
    }
 
-   public net.minecraft.world.damagesource.DamageSource trident(Entity $$0, @Nullable Entity $$1) {
+   public net.minecraft.world.damagesource.DamageSource trident(Entity $$0, Entity $$1) {
       return this.source(net.minecraft.world.damagesource.DamageTypes.TRIDENT, $$0, $$1);
    }
 
-   public net.minecraft.world.damagesource.DamageSource mobProjectile(Entity $$0, @Nullable LivingEntity $$1) {
+   public net.minecraft.world.damagesource.DamageSource mobProjectile(Entity $$0, LivingEntity $$1) {
       return this.source(net.minecraft.world.damagesource.DamageTypes.MOB_PROJECTILE, $$0, $$1);
    }
 
-   public net.minecraft.world.damagesource.DamageSource spit(Entity $$0, @Nullable LivingEntity $$1) {
+   public net.minecraft.world.damagesource.DamageSource spit(Entity $$0, LivingEntity $$1) {
       return this.source(net.minecraft.world.damagesource.DamageTypes.SPIT, $$0, $$1);
    }
 
-   public net.minecraft.world.damagesource.DamageSource windCharge(Entity $$0, @Nullable LivingEntity $$1) {
+   public net.minecraft.world.damagesource.DamageSource windCharge(Entity $$0, LivingEntity $$1) {
       return this.source(net.minecraft.world.damagesource.DamageTypes.WIND_CHARGE, $$0, $$1);
    }
 
-   public net.minecraft.world.damagesource.DamageSource fireworks(FireworkRocketEntity $$0, @Nullable Entity $$1) {
+   public net.minecraft.world.damagesource.DamageSource fireworks(FireworkRocketEntity $$0, Entity $$1) {
       return this.source(net.minecraft.world.damagesource.DamageTypes.FIREWORKS, $$0, $$1);
    }
 
-   public net.minecraft.world.damagesource.DamageSource fireball(Fireball $$0, @Nullable Entity $$1) {
+   public net.minecraft.world.damagesource.DamageSource fireball(Fireball $$0, Entity $$1) {
       return $$1 == null
          ? this.source(net.minecraft.world.damagesource.DamageTypes.UNATTRIBUTED_FIREBALL, $$0)
          : this.source(net.minecraft.world.damagesource.DamageTypes.FIREBALL, $$0, $$1);
@@ -240,11 +239,11 @@ public class DamageSources {
       return this.source(net.minecraft.world.damagesource.DamageTypes.WITHER_SKULL, $$0, $$1);
    }
 
-   public net.minecraft.world.damagesource.DamageSource thrown(Entity $$0, @Nullable Entity $$1) {
+   public net.minecraft.world.damagesource.DamageSource thrown(Entity $$0, Entity $$1) {
       return this.source(net.minecraft.world.damagesource.DamageTypes.THROWN, $$0, $$1);
    }
 
-   public net.minecraft.world.damagesource.DamageSource indirectMagic(Entity $$0, @Nullable Entity $$1) {
+   public net.minecraft.world.damagesource.DamageSource indirectMagic(Entity $$0, Entity $$1) {
       return this.source(net.minecraft.world.damagesource.DamageTypes.INDIRECT_MAGIC, $$0, $$1);
    }
 
@@ -252,11 +251,11 @@ public class DamageSources {
       return this.source(net.minecraft.world.damagesource.DamageTypes.THORNS, $$0);
    }
 
-   public net.minecraft.world.damagesource.DamageSource explosion(@Nullable Explosion $$0) {
+   public net.minecraft.world.damagesource.DamageSource explosion(Explosion $$0) {
       return $$0 != null ? this.explosion($$0.getDirectSourceEntity(), $$0.getIndirectSourceEntity()) : this.explosion(null, null);
    }
 
-   public net.minecraft.world.damagesource.DamageSource explosion(@Nullable Entity $$0, @Nullable Entity $$1) {
+   public net.minecraft.world.damagesource.DamageSource explosion(Entity $$0, Entity $$1) {
       return this.source(
          $$1 != null && $$0 != null ? net.minecraft.world.damagesource.DamageTypes.PLAYER_EXPLOSION : net.minecraft.world.damagesource.DamageTypes.EXPLOSION,
          $$0,

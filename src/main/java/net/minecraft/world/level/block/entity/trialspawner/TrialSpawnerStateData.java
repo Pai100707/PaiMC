@@ -36,7 +36,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
-import org.jspecify.annotations.Nullable;
 
 public class TrialSpawnerStateData {
    private static final String TAG_SPAWN_DATA = "spawn_data";
@@ -50,9 +49,9 @@ public class TrialSpawnerStateData {
    int totalMobsSpawned;
    Optional<net.minecraft.world.level.SpawnData> nextSpawnData = Optional.empty();
    Optional<ResourceKey<LootTable>> ejectingLootTable = Optional.empty();
-   @Nullable
+   
    private Entity displayEntity;
-   @Nullable
+   
    private WeightedList<ItemStack> dispensing;
    double spin;
    double oSpin;
@@ -234,7 +233,7 @@ public class TrialSpawnerStateData {
       }
    }
 
-   @Nullable
+   
    public Entity getOrCreateDisplayEntity(TrialSpawner $$0, net.minecraft.world.level.Level $$1, TrialSpawnerState $$2) {
       if (!$$2.hasSpinningMob()) {
          return null;

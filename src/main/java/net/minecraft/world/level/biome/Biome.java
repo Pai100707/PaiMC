@@ -26,7 +26,6 @@ import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.synth.PerlinSimplexNoise;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import org.jspecify.annotations.Nullable;
 
 public final class Biome {
    public static final Codec<Biome> DIRECT_CODEC = RecordCodecBuilder.create(
@@ -237,17 +236,17 @@ public final class Biome {
 
    public static class BiomeBuilder {
       private boolean hasPrecipitation = true;
-      @Nullable
+      
       private Float temperature;
       private Biome.TemperatureModifier temperatureModifier = Biome.TemperatureModifier.NONE;
-      @Nullable
+      
       private Float downfall;
       private final Builder attributes = EnvironmentAttributeMap.builder();
-      @Nullable
+      
       private BiomeSpecialEffects specialEffects;
-      @Nullable
+      
       private MobSpawnSettings mobSpawnSettings;
-      @Nullable
+      
       private BiomeGenerationSettings generationSettings;
 
       public Biome.BiomeBuilder hasPrecipitation(boolean $$0) {

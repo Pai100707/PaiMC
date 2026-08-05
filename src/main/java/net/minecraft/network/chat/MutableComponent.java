@@ -6,14 +6,13 @@ import java.util.function.UnaryOperator;
 import net.minecraft.ChatFormatting;
 import net.minecraft.locale.Language;
 import net.minecraft.util.FormattedCharSequence;
-import org.jspecify.annotations.Nullable;
 
 public final class MutableComponent implements Component {
    private final ComponentContents contents;
    private final List<Component> siblings;
    private Style style;
    private FormattedCharSequence visualOrderText = FormattedCharSequence.EMPTY;
-   @Nullable
+   
    private Language decomposedWith;
 
    MutableComponent(ComponentContents $$0, List<Component> $$1, Style $$2) {

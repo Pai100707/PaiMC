@@ -31,7 +31,6 @@ import net.minecraft.world.entity.schedule.Activity;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jspecify.annotations.Nullable;
 
 public class CopperGolemAi {
    private static final float SPEED_MULTIPLIER_WHEN_PANICKING = 1.5F;
@@ -137,7 +136,7 @@ public class CopperGolemAi {
       );
    }
 
-   private static TransportItemsBetweenContainers.OnTargetReachedInteraction onReachedTargetInteraction(CopperGolemState $$0, @Nullable SoundEvent $$1) {
+   private static TransportItemsBetweenContainers.OnTargetReachedInteraction onReachedTargetInteraction(CopperGolemState $$0, SoundEvent $$1) {
       return ($$2, $$3, $$4) -> {
          if ($$2 instanceof CopperGolem $$5) {
             Container $$6 = $$3.container();

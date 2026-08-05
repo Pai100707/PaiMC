@@ -9,7 +9,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 
 public class SpectralArrow extends AbstractArrow {
    private static final int DEFAULT_DURATION = 200;
@@ -19,11 +18,11 @@ public class SpectralArrow extends AbstractArrow {
       super($$0, $$1);
    }
 
-   public SpectralArrow(Level $$0, net.minecraft.world.entity.LivingEntity $$1, ItemStack $$2, @Nullable ItemStack $$3) {
+   public SpectralArrow(Level $$0, net.minecraft.world.entity.LivingEntity $$1, ItemStack $$2, ItemStack $$3) {
       super(net.minecraft.world.entity.EntityType.SPECTRAL_ARROW, $$1, $$0, $$2, $$3);
    }
 
-   public SpectralArrow(Level $$0, double $$1, double $$2, double $$3, ItemStack $$4, @Nullable ItemStack $$5) {
+   public SpectralArrow(Level $$0, double $$1, double $$2, double $$3, ItemStack $$4, ItemStack $$5) {
       super(net.minecraft.world.entity.EntityType.SPECTRAL_ARROW, $$1, $$2, $$3, $$0, $$4, $$5);
    }
 

@@ -3,14 +3,13 @@ package net.minecraft.server.players;
 import com.google.gson.JsonObject;
 import java.util.Date;
 import net.minecraft.network.chat.Component;
-import org.jspecify.annotations.Nullable;
 
 public class IpBanListEntry extends BanListEntry<String> {
    public IpBanListEntry(String $$0) {
       this($$0, null, null, null, null);
    }
 
-   public IpBanListEntry(String $$0, @Nullable Date $$1, @Nullable String $$2, @Nullable Date $$3, @Nullable String $$4) {
+   public IpBanListEntry(String $$0, Date $$1, String $$2, Date $$3, String $$4) {
       super($$0, $$1, $$2, $$3, $$4);
    }
 

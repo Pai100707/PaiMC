@@ -10,12 +10,11 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.gameevent.GameEvent.Context;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class JukeboxSongPlayer {
    public static final int PLAY_EVENT_INTERVAL_TICKS = 20;
    private long ticksSinceSongStarted;
-   @Nullable
+   
    private Holder<net.minecraft.world.item.JukeboxSong> song;
    private final BlockPos blockPos;
    private final net.minecraft.world.item.JukeboxSongPlayer.OnSongChanged onSongChanged;
@@ -29,7 +28,7 @@ public class JukeboxSongPlayer {
       return this.song != null;
    }
 
-   @Nullable
+   
    public net.minecraft.world.item.JukeboxSong getSong() {
       return this.song == null ? null : (net.minecraft.world.item.JukeboxSong)this.song.value();
    }
@@ -53,7 +52,7 @@ public class JukeboxSongPlayer {
       this.onSongChanged.notifyChange();
    }
 
-   public void stop(LevelAccessor $$0, @Nullable BlockState $$1) {
+   public void stop(LevelAccessor $$0, BlockState $$1) {
       if (this.song != null) {
          this.song = null;
          this.ticksSinceSongStarted = 0L;
@@ -63,7 +62,7 @@ public class JukeboxSongPlayer {
       }
    }
 
-   public void tick(LevelAccessor $$0, @Nullable BlockState $$1) {
+   public void tick(LevelAccessor $$0, BlockState $$1) {
       if (this.song != null) {
          if (((net.minecraft.world.item.JukeboxSong)this.song.value()).hasFinished(this.ticksSinceSongStarted)) {
             this.stop($$0, $$1);

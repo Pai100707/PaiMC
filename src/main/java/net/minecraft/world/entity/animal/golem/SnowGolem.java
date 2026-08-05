@@ -38,7 +38,6 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class SnowGolem extends AbstractGolem implements net.minecraft.world.entity.Shearable, RangedAttackMob {
    private static final EntityDataAccessor<Byte> DATA_PUMPKIN_ID = SynchedEntityData.defineId(SnowGolem.class, EntityDataSerializers.BYTE);
@@ -168,19 +167,19 @@ public class SnowGolem extends AbstractGolem implements net.minecraft.world.enti
       }
    }
 
-   @Nullable
+   
    @Override
    protected SoundEvent getAmbientSound() {
       return SoundEvents.SNOW_GOLEM_AMBIENT;
    }
 
-   @Nullable
+   
    @Override
    protected SoundEvent getHurtSound(DamageSource $$0) {
       return SoundEvents.SNOW_GOLEM_HURT;
    }
 
-   @Nullable
+   
    @Override
    protected SoundEvent getDeathSound() {
       return SoundEvents.SNOW_GOLEM_DEATH;

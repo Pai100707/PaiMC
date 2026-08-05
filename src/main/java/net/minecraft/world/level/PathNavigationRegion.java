@@ -21,7 +21,6 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class PathNavigationRegion implements net.minecraft.world.level.CollisionGetter {
    protected final int centerX;
@@ -85,11 +84,11 @@ public class PathNavigationRegion implements net.minecraft.world.level.Collision
    }
 
    @Override
-   public List<VoxelShape> getEntityCollisions(@Nullable Entity $$0, AABB $$1) {
+   public List<VoxelShape> getEntityCollisions(Entity $$0, AABB $$1) {
       return List.of();
    }
 
-   @Nullable
+   
    @Override
    public BlockEntity getBlockEntity(BlockPos $$0) {
       ChunkAccess $$1 = this.getChunk($$0);

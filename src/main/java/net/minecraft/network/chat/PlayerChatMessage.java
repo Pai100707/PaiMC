@@ -13,10 +13,9 @@ import java.util.stream.Collectors;
 import net.minecraft.util.SignatureValidator;
 import net.minecraft.util.Util;
 import net.minecraft.util.SignatureUpdater.Output;
-import org.jspecify.annotations.Nullable;
 
 public record PlayerChatMessage(
-   SignedMessageLink link, @Nullable MessageSignature signature, SignedMessageBody signedBody, @Nullable Component unsignedContent, FilterMask filterMask
+   SignedMessageLink link, MessageSignature signature, SignedMessageBody signedBody, Component unsignedContent, FilterMask filterMask
 ) {
    public static final MapCodec<PlayerChatMessage> MAP_CODEC = RecordCodecBuilder.mapCodec(
       $$0 -> $$0.group(

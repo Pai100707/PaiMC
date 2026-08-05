@@ -17,7 +17,6 @@ import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.VanillaPackResources;
 import net.minecraft.world.level.validation.DirectoryValidator;
 import org.apache.commons.lang3.StringUtils;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public abstract class BuiltInPackSource implements RepositorySource {
@@ -47,7 +46,7 @@ public abstract class BuiltInPackSource implements RepositorySource {
       this.listBundledPacks($$0);
    }
 
-   @Nullable
+   
    protected abstract Pack createVanillaPack(PackResources var1);
 
    protected abstract Component getPackTitle(String var1);
@@ -71,7 +70,7 @@ public abstract class BuiltInPackSource implements RepositorySource {
       this.vanillaPack.listRawPaths(this.packType, this.packDir, $$1 -> this.discoverPacksInPath($$1, $$0));
    }
 
-   protected void discoverPacksInPath(@Nullable Path $$0, BiConsumer<String, Function<String, Pack>> $$1) {
+   protected void discoverPacksInPath(Path $$0, BiConsumer<String, Function<String, Pack>> $$1) {
       if ($$0 != null && Files.isDirectory($$0)) {
          try {
             FolderRepositorySource.discoverPacks(
@@ -87,7 +86,7 @@ public abstract class BuiltInPackSource implements RepositorySource {
       return StringUtils.removeEnd($$0.getFileName().toString(), ".zip");
    }
 
-   @Nullable
+   
    protected abstract Pack createBuiltinPack(String var1, Pack.ResourcesSupplier var2, Component var3);
 
    protected static Pack.ResourcesSupplier fixedResources(final PackResources $$0) {

@@ -5,7 +5,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class FleeSunGoal extends Goal {
    protected final net.minecraft.world.entity.PathfinderMob mob;
@@ -59,7 +58,7 @@ public class FleeSunGoal extends Goal {
       this.mob.getNavigation().moveTo(this.wantedX, this.wantedY, this.wantedZ, this.speedModifier);
    }
 
-   @Nullable
+   
    protected Vec3 getHidePos() {
       RandomSource $$0 = this.mob.getRandom();
       BlockPos $$1 = this.mob.blockPosition();

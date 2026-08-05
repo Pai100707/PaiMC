@@ -59,7 +59,6 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.ticks.LevelTickAccess;
 import net.minecraft.world.ticks.WorldGenTickAccess;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class WorldGenRegion implements WorldGenLevel {
@@ -75,7 +74,7 @@ public class WorldGenRegion implements WorldGenLevel {
    private final WorldGenTickAccess<Fluid> fluidTicks = new WorldGenTickAccess($$0x -> this.getChunk($$0x).getFluidTicks());
    private final BiomeManager biomeManager;
    private final ChunkStep generatingStep;
-   @Nullable
+   
    private Supplier<String> currentlyGenerating;
    private final AtomicLong subTickCount = new AtomicLong();
    private static final Identifier WORLDGEN_REGION_RANDOM = Identifier.withDefaultNamespace("worldgen_region_random");
@@ -100,7 +99,7 @@ public class WorldGenRegion implements WorldGenLevel {
       return this.center.getPos();
    }
 
-   public void setCurrentlyGenerating(@Nullable Supplier<String> $$0) {
+   public void setCurrentlyGenerating(Supplier<String> $$0) {
       this.currentlyGenerating = $$0;
    }
 
@@ -108,7 +107,7 @@ public class WorldGenRegion implements WorldGenLevel {
       return this.getChunk($$0, $$1, ChunkStatus.EMPTY);
    }
 
-   @Nullable
+   
    public ChunkAccess getChunk(int $$0, int $$1, ChunkStatus $$2, boolean $$3) {
       int $$4 = this.center.getPos().getChessboardDistance($$0, $$1);
       ChunkStatus $$5 = $$4 >= this.generatingStep.directDependencies().size() ? null : this.generatingStep.directDependencies().get($$4);
@@ -153,8 +152,8 @@ public class WorldGenRegion implements WorldGenLevel {
       return this.getChunk($$0).getFluidState($$0);
    }
 
-   @Nullable
-   public Player getNearestPlayer(double $$0, double $$1, double $$2, double $$3, @Nullable Predicate<Entity> $$4) {
+   
+   public Player getNearestPlayer(double $$0, double $$1, double $$2, double $$3, Predicate<Entity> $$4) {
       return null;
    }
 
@@ -178,7 +177,7 @@ public class WorldGenRegion implements WorldGenLevel {
       return this.level.getLightEngine();
    }
 
-   public boolean destroyBlock(BlockPos $$0, boolean $$1, @Nullable Entity $$2, int $$3) {
+   public boolean destroyBlock(BlockPos $$0, boolean $$1, Entity $$2, int $$3) {
       BlockState $$4 = this.getBlockState($$0);
       if ($$4.isAir()) {
          return false;
@@ -192,7 +191,7 @@ public class WorldGenRegion implements WorldGenLevel {
       }
    }
 
-   @Nullable
+   
    public BlockEntity getBlockEntity(BlockPos $$0) {
       ChunkAccess $$1 = this.getChunk($$0);
       BlockEntity $$2 = $$1.getBlockEntity($$0);
@@ -343,7 +342,7 @@ public class WorldGenRegion implements WorldGenLevel {
       }
    }
 
-   @Nullable
+   
    public net.minecraft.server.MinecraftServer getServer() {
       return this.level.getServer();
    }
@@ -376,13 +375,13 @@ public class WorldGenRegion implements WorldGenLevel {
       return this.getChunk(SectionPos.blockToSectionCoord($$1), SectionPos.blockToSectionCoord($$2)).getHeight($$0, $$1 & 15, $$2 & 15) + 1;
    }
 
-   public void playSound(@Nullable Entity $$0, BlockPos $$1, SoundEvent $$2, SoundSource $$3, float $$4, float $$5) {
+   public void playSound(Entity $$0, BlockPos $$1, SoundEvent $$2, SoundSource $$3, float $$4, float $$5) {
    }
 
    public void addParticle(ParticleOptions $$0, double $$1, double $$2, double $$3, double $$4, double $$5, double $$6) {
    }
 
-   public void levelEvent(@Nullable Entity $$0, int $$1, BlockPos $$2, int $$3) {
+   public void levelEvent(Entity $$0, int $$1, BlockPos $$2, int $$3) {
    }
 
    public void gameEvent(Holder<GameEvent> $$0, Vec3 $$1, Context $$2) {
@@ -404,7 +403,7 @@ public class WorldGenRegion implements WorldGenLevel {
       return Collections.emptyList();
    }
 
-   public List<Entity> getEntities(@Nullable Entity $$0, AABB $$1, @Nullable Predicate<? super Entity> $$2) {
+   public List<Entity> getEntities(Entity $$0, AABB $$1, Predicate<? super Entity> $$2) {
       return Collections.emptyList();
    }
 

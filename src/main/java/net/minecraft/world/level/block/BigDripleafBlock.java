@@ -37,7 +37,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class BigDripleafBlock extends HorizontalDirectionalBlock implements BonemealableBlock, SimpleWaterloggedBlock {
    public static final MapCodec<BigDripleafBlock> CODEC = simpleCodec(BigDripleafBlock::new);
@@ -206,7 +205,7 @@ public class BigDripleafBlock extends HorizontalDirectionalBlock implements Bone
    }
 
    @Override
-   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, @Nullable Orientation $$4, boolean $$5) {
+   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, Orientation $$4, boolean $$5) {
       if ($$1.hasNeighborSignal($$2)) {
          resetTilt($$0, $$1, $$2);
       }
@@ -221,7 +220,7 @@ public class BigDripleafBlock extends HorizontalDirectionalBlock implements Bone
       return $$1.onGround() && $$1.position().y > $$0.getY() + 0.6875F;
    }
 
-   private void setTiltAndScheduleTick(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Tilt $$3, @Nullable SoundEvent $$4) {
+   private void setTiltAndScheduleTick(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Tilt $$3, SoundEvent $$4) {
       setTilt($$0, $$1, $$2, $$3);
       if ($$4 != null) {
          playTiltSound($$1, $$2, $$4);

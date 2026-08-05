@@ -14,7 +14,6 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.gameevent.vibrations.VibrationSystem;
-import org.jspecify.annotations.Nullable;
 
 public class CalibratedSculkSensorBlock extends SculkSensorBlock {
    public static final MapCodec<CalibratedSculkSensorBlock> CODEC = simpleCodec(CalibratedSculkSensorBlock::new);
@@ -30,13 +29,13 @@ public class CalibratedSculkSensorBlock extends SculkSensorBlock {
       this.registerDefaultState(this.defaultBlockState().setValue(FACING, Direction.NORTH));
    }
 
-   @Nullable
+   
    @Override
    public BlockEntity newBlockEntity(BlockPos $$0, BlockState $$1) {
       return new CalibratedSculkSensorBlockEntity($$0, $$1);
    }
 
-   @Nullable
+   
    @Override
    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(net.minecraft.world.level.Level $$0, BlockState $$1, BlockEntityType<T> $$2) {
       return !$$0.isClientSide()
@@ -48,7 +47,7 @@ public class CalibratedSculkSensorBlock extends SculkSensorBlock {
          : null;
    }
 
-   @Nullable
+   
    @Override
    public BlockState getStateForPlacement(BlockPlaceContext $$0) {
       return super.getStateForPlacement($$0).setValue(FACING, $$0.getHorizontalDirection());

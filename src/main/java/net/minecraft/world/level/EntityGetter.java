@@ -13,10 +13,9 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public interface EntityGetter {
-   List<Entity> getEntities(@Nullable Entity var1, AABB var2, Predicate<? super Entity> var3);
+   List<Entity> getEntities(Entity var1, AABB var2, Predicate<? super Entity> var3);
 
    <T extends Entity> List<T> getEntities(EntityTypeTest<Entity, T> var1, AABB var2, Predicate<? super T> var3);
 
@@ -26,11 +25,11 @@ public interface EntityGetter {
 
    List<? extends Player> players();
 
-   default List<Entity> getEntities(@Nullable Entity $$0, AABB $$1) {
+   default List<Entity> getEntities(Entity $$0, AABB $$1) {
       return this.getEntities($$0, $$1, EntitySelector.NO_SPECTATORS);
    }
 
-   default boolean isUnobstructed(@Nullable Entity $$0, VoxelShape $$1) {
+   default boolean isUnobstructed(Entity $$0, VoxelShape $$1) {
       if ($$1.isEmpty()) {
          return true;
       } else {
@@ -51,7 +50,7 @@ public interface EntityGetter {
       return this.getEntitiesOfClass($$0, $$1, EntitySelector.NO_SPECTATORS);
    }
 
-   default List<VoxelShape> getEntityCollisions(@Nullable Entity $$0, AABB $$1) {
+   default List<VoxelShape> getEntityCollisions(Entity $$0, AABB $$1) {
       if ($$1.getSize() < 1.0E-7) {
          return List.of();
       } else {
@@ -71,8 +70,8 @@ public interface EntityGetter {
       }
    }
 
-   @Nullable
-   default Player getNearestPlayer(double $$0, double $$1, double $$2, double $$3, @Nullable Predicate<Entity> $$4) {
+   
+   default Player getNearestPlayer(double $$0, double $$1, double $$2, double $$3, Predicate<Entity> $$4) {
       double $$5 = -1.0;
       Player $$6 = null;
 
@@ -89,12 +88,12 @@ public interface EntityGetter {
       return $$6;
    }
 
-   @Nullable
+   
    default Player getNearestPlayer(Entity $$0, double $$1) {
       return this.getNearestPlayer($$0.getX(), $$0.getY(), $$0.getZ(), $$1, false);
    }
 
-   @Nullable
+   
    default Player getNearestPlayer(double $$0, double $$1, double $$2, double $$3, boolean $$4) {
       Predicate<Entity> $$5 = $$4 ? EntitySelector.NO_CREATIVE_OR_SPECTATOR : EntitySelector.NO_SPECTATORS;
       return this.getNearestPlayer($$0, $$1, $$2, $$3, $$5);
@@ -113,7 +112,7 @@ public interface EntityGetter {
       return false;
    }
 
-   @Nullable
+   
    default Player getPlayerByUUID(UUID $$0) {
       for (int $$1 = 0; $$1 < this.players().size(); $$1++) {
          Player $$2 = this.players().get($$1);

@@ -4,7 +4,6 @@ import com.google.gson.JsonObject;
 import java.io.File;
 import java.net.SocketAddress;
 import net.minecraft.server.notifications.NotificationService;
-import org.jspecify.annotations.Nullable;
 
 public class IpBanList extends StoredUserList<String, IpBanListEntry> {
    public IpBanList(File $$0, NotificationService $$1) {
@@ -25,7 +24,7 @@ public class IpBanList extends StoredUserList<String, IpBanListEntry> {
       return this.contains($$0);
    }
 
-   @Nullable
+   
    public IpBanListEntry get(SocketAddress $$0) {
       String $$1 = this.getIpFromAddress($$0);
       return this.get($$1);

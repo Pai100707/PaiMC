@@ -16,7 +16,6 @@ import java.util.stream.IntStream;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.levelgen.PositionalRandomFactory;
-import org.jspecify.annotations.Nullable;
 
 public class PerlinNoise {
    private static final int ROUND_OFF = 33554432;
@@ -181,7 +180,7 @@ public class PerlinNoise {
       return $$1;
    }
 
-   @Nullable
+   
    public ImprovedNoise getOctaveNoise(int $$0) {
       return this.noiseLevels[this.noiseLevels.length - 1 - $$0];
    }

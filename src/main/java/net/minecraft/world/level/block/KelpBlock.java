@@ -13,7 +13,6 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class KelpBlock extends GrowingPlantHeadBlock implements LiquidBlockContainer {
    public static final MapCodec<KelpBlock> CODEC = simpleCodec(KelpBlock::new);
@@ -45,7 +44,7 @@ public class KelpBlock extends GrowingPlantHeadBlock implements LiquidBlockConta
    }
 
    @Override
-   public boolean canPlaceLiquid(@Nullable LivingEntity $$0, net.minecraft.world.level.BlockGetter $$1, BlockPos $$2, BlockState $$3, Fluid $$4) {
+   public boolean canPlaceLiquid(LivingEntity $$0, net.minecraft.world.level.BlockGetter $$1, BlockPos $$2, BlockState $$3, Fluid $$4) {
       return false;
    }
 
@@ -59,7 +58,7 @@ public class KelpBlock extends GrowingPlantHeadBlock implements LiquidBlockConta
       return 1;
    }
 
-   @Nullable
+   
    @Override
    public BlockState getStateForPlacement(BlockPlaceContext $$0) {
       FluidState $$1 = $$0.getLevel().getFluidState($$0.getClickedPos());

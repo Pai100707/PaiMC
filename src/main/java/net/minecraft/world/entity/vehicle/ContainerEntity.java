@@ -25,17 +25,16 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public interface ContainerEntity extends Container, MenuProvider {
    Vec3 position();
 
    AABB getBoundingBox();
 
-   @Nullable
+   
    ResourceKey<LootTable> getContainerLootTable();
 
-   void setContainerLootTable(@Nullable ResourceKey<LootTable> var1);
+   void setContainerLootTable(ResourceKey<LootTable> var1);
 
    long getContainerLootTableSeed();
 
@@ -89,7 +88,7 @@ public interface ContainerEntity extends Container, MenuProvider {
       return InteractionResult.SUCCESS;
    }
 
-   default void unpackChestVehicleLootTable(@Nullable Player $$0) {
+   default void unpackChestVehicleLootTable(Player $$0) {
       MinecraftServer $$1 = this.level().getServer();
       if (this.getContainerLootTable() != null && $$1 != null) {
          LootTable $$2 = $$1.reloadableRegistries().getLootTable(this.getContainerLootTable());
@@ -149,7 +148,7 @@ public interface ContainerEntity extends Container, MenuProvider {
       $$1.limitSize(this.getMaxStackSize($$1));
    }
 
-   @Nullable
+   
    default net.minecraft.world.entity.SlotAccess getChestVehicleSlot(final int $$0) {
       return $$0 >= 0 && $$0 < this.getContainerSize() ? new net.minecraft.world.entity.SlotAccess() {
          @Override

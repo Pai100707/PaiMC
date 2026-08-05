@@ -3,9 +3,8 @@ package net.minecraft.network.protocol.game;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.PacketType;
-import org.jspecify.annotations.Nullable;
 
-public record ClientboundResetScorePacket(String owner, @Nullable String objectiveName) implements Packet<ClientGamePacketListener> {
+public record ClientboundResetScorePacket(String owner, String objectiveName) implements Packet<ClientGamePacketListener> {
    public static final StreamCodec<net.minecraft.network.FriendlyByteBuf, ClientboundResetScorePacket> STREAM_CODEC = Packet.codec(
       ClientboundResetScorePacket::write, ClientboundResetScorePacket::new
    );

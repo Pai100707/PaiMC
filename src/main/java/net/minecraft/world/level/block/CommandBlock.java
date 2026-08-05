@@ -27,7 +27,6 @@ import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.redstone.Orientation;
 import net.minecraft.world.phys.BlockHitResult;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class CommandBlock extends BaseEntityBlock implements GameMasterBlock {
@@ -58,7 +57,7 @@ public class CommandBlock extends BaseEntityBlock implements GameMasterBlock {
    }
 
    @Override
-   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, @Nullable Orientation $$4, boolean $$5) {
+   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, Orientation $$4, boolean $$5) {
       if (!$$1.isClientSide()) {
          if ($$1.getBlockEntity($$2) instanceof CommandBlockEntity $$7) {
             this.setPoweredAndUpdate($$1, $$2, $$7, $$1.hasNeighborSignal($$2));
@@ -144,7 +143,7 @@ public class CommandBlock extends BaseEntityBlock implements GameMasterBlock {
    }
 
    @Override
-   public void setPlacedBy(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, @Nullable LivingEntity $$3, ItemStack $$4) {
+   public void setPlacedBy(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, LivingEntity $$3, ItemStack $$4) {
       if ($$0.getBlockEntity($$1) instanceof CommandBlockEntity $$6) {
          net.minecraft.world.level.BaseCommandBlock $$8 = $$6.getCommandBlock();
          if ($$0 instanceof ServerLevel $$9) {

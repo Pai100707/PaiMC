@@ -3,16 +3,15 @@ package net.minecraft.server.players;
 import com.google.gson.JsonObject;
 import java.util.Date;
 import net.minecraft.network.chat.Component;
-import org.jspecify.annotations.Nullable;
 
 public class UserBanListEntry extends BanListEntry<NameAndId> {
    private static final Component MESSAGE_UNKNOWN_USER = Component.translatable("commands.banlist.entry.unknown");
 
-   public UserBanListEntry(@Nullable NameAndId $$0) {
+   public UserBanListEntry(NameAndId $$0) {
       this($$0, null, null, null, null);
    }
 
-   public UserBanListEntry(@Nullable NameAndId $$0, @Nullable Date $$1, @Nullable String $$2, @Nullable Date $$3, @Nullable String $$4) {
+   public UserBanListEntry(NameAndId $$0, Date $$1, String $$2, Date $$3, String $$4) {
       super($$0, $$1, $$2, $$3, $$4);
    }
 

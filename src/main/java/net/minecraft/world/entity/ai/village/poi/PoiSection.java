@@ -22,7 +22,6 @@ import net.minecraft.core.SectionPos;
 import net.minecraft.util.Util;
 import net.minecraft.util.VisibleForDebug;
 import net.minecraft.util.debug.DebugPoiInfo;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class PoiSection {
@@ -55,7 +54,7 @@ public class PoiSection {
          .filter($$1.getTest());
    }
 
-   @Nullable
+   
    public PoiRecord add(BlockPos $$0, Holder<PoiType> $$1) {
       PoiRecord $$2 = new PoiRecord($$0, $$1, this.setDirty);
       if (this.add($$2)) {

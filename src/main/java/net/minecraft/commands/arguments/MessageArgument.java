@@ -20,7 +20,6 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.network.FilteredText;
 import net.minecraft.server.permissions.Permissions;
-import org.jspecify.annotations.Nullable;
 
 public class MessageArgument implements SignedArgument<MessageArgument.Message> {
    private static final Collection<String> EXAMPLES = Arrays.asList("Hello world!", "foo", "@e", "Hello @p :)");
@@ -77,7 +76,7 @@ public class MessageArgument implements SignedArgument<MessageArgument.Message> 
       return MessageArgument.Message.parseText($$0, true);
    }
 
-   public <S> MessageArgument.Message parse(StringReader $$0, @Nullable S $$1) throws CommandSyntaxException {
+   public <S> MessageArgument.Message parse(StringReader $$0, S $$1) throws CommandSyntaxException {
       return MessageArgument.Message.parseText($$0, EntitySelectorParser.allowSelectors($$1));
    }
 

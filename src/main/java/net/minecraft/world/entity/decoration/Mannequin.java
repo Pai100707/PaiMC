@@ -20,7 +20,6 @@ import net.minecraft.world.item.component.ResolvableProfile.Static;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 
 public class Mannequin extends net.minecraft.world.entity.Avatar {
    protected static final EntityDataAccessor<ResolvableProfile> DATA_PROFILE = SynchedEntityData.defineId(
@@ -68,7 +67,7 @@ public class Mannequin extends net.minecraft.world.entity.Avatar {
       this(net.minecraft.world.entity.EntityType.MANNEQUIN, $$0);
    }
 
-   @Nullable
+   
    public static Mannequin create(net.minecraft.world.entity.EntityType<Mannequin> $$0, Level $$1) {
       return constructor.create($$0, $$1);
    }
@@ -97,7 +96,7 @@ public class Mannequin extends net.minecraft.world.entity.Avatar {
       this.entityData.set(DATA_IMMOVABLE, $$0);
    }
 
-   @Nullable
+   
    protected Component getDescription() {
       return (Component)((Optional)this.entityData.get(DATA_DESCRIPTION)).orElse(null);
    }
@@ -156,7 +155,7 @@ public class Mannequin extends net.minecraft.world.entity.Avatar {
       this.setDescription($$0.read("description", ComponentSerialization.CODEC).orElse(DEFAULT_DESCRIPTION));
    }
 
-   @Nullable
+   
    @Override
    public <T> T get(DataComponentType<? extends T> $$0) {
       return $$0 == DataComponents.PROFILE ? castComponentValue((DataComponentType<T>)$$0, this.getProfile()) : super.get($$0);

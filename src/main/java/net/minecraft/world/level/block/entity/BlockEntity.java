@@ -34,14 +34,13 @@ import net.minecraft.world.level.storage.TagValueInput;
 import net.minecraft.world.level.storage.TagValueOutput;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public abstract class BlockEntity implements DebugValueSource {
    private static final Codec<BlockEntityType<?>> TYPE_CODEC = BuiltInRegistries.BLOCK_ENTITY_TYPE.byNameCodec();
    private static final Logger LOGGER = LogUtils.getLogger();
    private final BlockEntityType<?> type;
-   @Nullable
+   
    protected net.minecraft.world.level.Level level;
    protected final BlockPos worldPosition;
    protected boolean remove;
@@ -80,7 +79,7 @@ public abstract class BlockEntity implements DebugValueSource {
       return new BlockPos($$2, $$3, $$4);
    }
 
-   @Nullable
+   
    public net.minecraft.world.level.Level getLevel() {
       return this.level;
    }
@@ -208,7 +207,7 @@ public abstract class BlockEntity implements DebugValueSource {
       $$0.putInt("z", this.worldPosition.getZ());
    }
 
-   @Nullable
+   
    public static BlockEntity loadStatic(BlockPos $$0, BlockState $$1, CompoundTag $$2, Provider $$3) {
       BlockEntityType<?> $$4 = (BlockEntityType<?>)$$2.read("id", TYPE_CODEC).orElse(null);
       if ($$4 == null) {
@@ -270,7 +269,7 @@ public abstract class BlockEntity implements DebugValueSource {
       return this.blockState;
    }
 
-   @Nullable
+   
    public Packet<ClientGamePacketListener> getUpdatePacket() {
       return null;
    }
@@ -339,7 +338,7 @@ public abstract class BlockEntity implements DebugValueSource {
       $$2.add(DataComponents.BLOCK_STATE);
       final DataComponentMap $$3 = PatchedDataComponentMap.fromPatch($$0, $$1);
       this.applyImplicitComponents(new DataComponentGetter() {
-         @Nullable
+         
          public <T> T get(DataComponentType<? extends T> $$0) {
             $$2.add($$0);
             return (T)$$3.get($$0);
@@ -376,7 +375,7 @@ public abstract class BlockEntity implements DebugValueSource {
       this.components = $$0;
    }
 
-   @Nullable
+   
    public static Component parseCustomNameSafe(ValueInput $$0, String $$1) {
       return $$0.<Component>read($$1, ComponentSerialization.CODEC).orElse(null);
    }

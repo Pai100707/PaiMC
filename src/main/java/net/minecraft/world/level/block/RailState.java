@@ -7,7 +7,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.Direction.Plane;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.RailShape;
-import org.jspecify.annotations.Nullable;
 
 public class RailState {
    private final net.minecraft.world.level.Level level;
@@ -91,7 +90,7 @@ public class RailState {
       return BaseRailBlock.isRail(this.level, $$0) || BaseRailBlock.isRail(this.level, $$0.above()) || BaseRailBlock.isRail(this.level, $$0.below());
    }
 
-   @Nullable
+   
    private RailState getRail(BlockPos $$0) {
       BlockState $$2 = this.level.getBlockState($$0);
       if (BaseRailBlock.isRail($$2)) {

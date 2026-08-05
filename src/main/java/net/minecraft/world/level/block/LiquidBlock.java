@@ -32,7 +32,6 @@ import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class LiquidBlock extends Block implements BucketPickup {
    private static final Codec<FlowingFluid> FLOWING_FLUID = BuiltInRegistries.FLUID
@@ -151,7 +150,7 @@ public class LiquidBlock extends Block implements BucketPickup {
    }
 
    @Override
-   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, @Nullable Orientation $$4, boolean $$5) {
+   protected void neighborChanged(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Block $$3, Orientation $$4, boolean $$5) {
       if (this.shouldSpreadLiquid($$1, $$2, $$0)) {
          $$1.scheduleTick($$2, $$0.getFluidState().getType(), this.fluid.getTickDelay($$1));
       }
@@ -193,7 +192,7 @@ public class LiquidBlock extends Block implements BucketPickup {
    }
 
    @Override
-   public ItemStack pickupBlock(@Nullable LivingEntity $$0, net.minecraft.world.level.LevelAccessor $$1, BlockPos $$2, BlockState $$3) {
+   public ItemStack pickupBlock(LivingEntity $$0, net.minecraft.world.level.LevelAccessor $$1, BlockPos $$2, BlockState $$3) {
       if ($$3.getValue(LEVEL) == 0) {
          $$1.setBlock($$2, Blocks.AIR.defaultBlockState(), 11);
          return new ItemStack(this.fluid.getBucket());

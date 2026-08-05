@@ -10,7 +10,6 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.util.Util;
-import org.jspecify.annotations.Nullable;
 
 public interface DataComponentType<T> {
    Codec<DataComponentType<?>> CODEC = Codec.lazyInitialized(() -> BuiltInRegistries.DATA_COMPONENT_TYPE.byNameCodec());
@@ -28,7 +27,7 @@ public interface DataComponentType<T> {
       return new DataComponentType.Builder<>();
    }
 
-   @Nullable
+   
    Codec<T> codec();
 
    default Codec<T> codecOrThrow() {
@@ -49,9 +48,9 @@ public interface DataComponentType<T> {
    StreamCodec<? super RegistryFriendlyByteBuf, T> streamCodec();
 
    public static class Builder<T> {
-      @Nullable
+      
       private Codec<T> codec;
-      @Nullable
+      
       private StreamCodec<? super RegistryFriendlyByteBuf, T> streamCodec;
       private boolean cacheEncoding;
       private boolean ignoreSwapAnimation;
@@ -85,12 +84,12 @@ public interface DataComponentType<T> {
       }
 
       static class SimpleType<T> implements DataComponentType<T> {
-         @Nullable
+         
          private final Codec<T> codec;
          private final StreamCodec<? super RegistryFriendlyByteBuf, T> streamCodec;
          private final boolean ignoreSwapAnimation;
 
-         SimpleType(@Nullable Codec<T> $$0, StreamCodec<? super RegistryFriendlyByteBuf, T> $$1, boolean $$2) {
+         SimpleType(Codec<T> $$0, StreamCodec<? super RegistryFriendlyByteBuf, T> $$1, boolean $$2) {
             this.codec = $$0;
             this.streamCodec = $$1;
             this.ignoreSwapAnimation = $$2;
@@ -101,7 +100,7 @@ public interface DataComponentType<T> {
             return this.ignoreSwapAnimation;
          }
 
-         @Nullable
+         
          @Override
          public Codec<T> codec() {
             return this.codec;

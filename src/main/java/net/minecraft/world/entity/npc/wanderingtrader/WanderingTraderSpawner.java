@@ -16,7 +16,6 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.levelgen.Heightmap.Types;
 import net.minecraft.world.level.storage.ServerLevelData;
-import org.jspecify.annotations.Nullable;
 
 public class WanderingTraderSpawner implements CustomSpawner {
    private static final int DEFAULT_TICK_DELAY = 1200;
@@ -112,7 +111,7 @@ public class WanderingTraderSpawner implements CustomSpawner {
       }
    }
 
-   @Nullable
+   
    private BlockPos findSpawnPositionNear(LevelReader $$0, BlockPos $$1, int $$2) {
       BlockPos $$3 = null;
       net.minecraft.world.entity.SpawnPlacementType $$4 = net.minecraft.world.entity.SpawnPlacements.getPlacementType(

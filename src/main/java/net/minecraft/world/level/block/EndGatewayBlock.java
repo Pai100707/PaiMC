@@ -20,7 +20,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.portal.TeleportTransition;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class EndGatewayBlock extends BaseEntityBlock implements Portal {
    public static final MapCodec<EndGatewayBlock> CODEC = simpleCodec(EndGatewayBlock::new);
@@ -39,7 +38,7 @@ public class EndGatewayBlock extends BaseEntityBlock implements Portal {
       return new TheEndGatewayBlockEntity($$0, $$1);
    }
 
-   @Nullable
+   
    @Override
    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(net.minecraft.world.level.Level $$0, BlockState $$1, BlockEntityType<T> $$2) {
       return createTickerHelper(
@@ -92,7 +91,7 @@ public class EndGatewayBlock extends BaseEntityBlock implements Portal {
       }
    }
 
-   @Nullable
+   
    @Override
    public TeleportTransition getPortalDestination(ServerLevel $$0, Entity $$1, BlockPos $$2) {
       if ($$0.getBlockEntity($$2) instanceof TheEndGatewayBlockEntity $$4) {

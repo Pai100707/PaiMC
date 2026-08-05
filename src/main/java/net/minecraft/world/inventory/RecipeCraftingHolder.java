@@ -7,12 +7,11 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.gamerules.GameRules;
-import org.jspecify.annotations.Nullable;
 
 public interface RecipeCraftingHolder {
-   void setRecipeUsed(@Nullable RecipeHolder<?> var1);
+   void setRecipeUsed(RecipeHolder<?> var1);
 
-   @Nullable
+   
    RecipeHolder<?> getRecipeUsed();
 
    default void awardUsedRecipes(Player $$0, List<ItemStack> $$1) {

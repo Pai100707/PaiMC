@@ -20,7 +20,6 @@ import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraft.world.item.crafting.ShapedRecipePattern;
 import net.minecraft.world.level.ItemLike;
-import org.jspecify.annotations.Nullable;
 
 public class ShapedRecipeBuilder implements RecipeBuilder {
    private final HolderGetter<Item> items;
@@ -30,7 +29,7 @@ public class ShapedRecipeBuilder implements RecipeBuilder {
    private final List<String> rows = Lists.newArrayList();
    private final Map<Character, Ingredient> key = Maps.newLinkedHashMap();
    private final Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
-   @Nullable
+   
    private String group;
    private boolean showNotification = true;
 
@@ -82,7 +81,7 @@ public class ShapedRecipeBuilder implements RecipeBuilder {
       return this;
    }
 
-   public ShapedRecipeBuilder group(@Nullable String $$0) {
+   public ShapedRecipeBuilder group(String $$0) {
       this.group = $$0;
       return this;
    }

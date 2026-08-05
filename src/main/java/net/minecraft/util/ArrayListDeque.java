@@ -9,7 +9,6 @@ import java.util.Objects;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
-import org.jspecify.annotations.Nullable;
 
 public class ArrayListDeque<T> extends AbstractList<T> implements net.minecraft.util.ListAndDeque<T> {
    private static final int MIN_GROWTH = 1;
@@ -217,13 +216,13 @@ public class ArrayListDeque<T> extends AbstractList<T> implements net.minecraft.
       return new net.minecraft.util.ArrayListDeque.ReversedView(this);
    }
 
-   @Nullable
+   
    @Override
    public T pollFirst() {
       return this.size == 0 ? null : this.removeFirst();
    }
 
-   @Nullable
+   
    @Override
    public T pollLast() {
       return this.size == 0 ? null : this.removeLast();
@@ -247,13 +246,13 @@ public class ArrayListDeque<T> extends AbstractList<T> implements net.minecraft.
       }
    }
 
-   @Nullable
+   
    @Override
    public T peekFirst() {
       return this.size == 0 ? null : this.getFirst();
    }
 
-   @Nullable
+   
    @Override
    public T peekLast() {
       return this.size == 0 ? null : this.getLast();
@@ -354,25 +353,25 @@ public class ArrayListDeque<T> extends AbstractList<T> implements net.minecraft.
          return this.source.offerFirst($$0);
       }
 
-      @Nullable
+      
       @Override
       public T pollFirst() {
          return this.source.pollLast();
       }
 
-      @Nullable
+      
       @Override
       public T pollLast() {
          return this.source.pollFirst();
       }
 
-      @Nullable
+      
       @Override
       public T peekFirst() {
          return this.source.peekLast();
       }
 
-      @Nullable
+      
       @Override
       public T peekLast() {
          return this.source.peekFirst();

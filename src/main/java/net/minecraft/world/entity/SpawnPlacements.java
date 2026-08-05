@@ -43,7 +43,6 @@ import net.minecraft.world.entity.monster.zombie.ZombifiedPiglin;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.levelgen.Heightmap.Types;
-import org.jspecify.annotations.Nullable;
 
 public class SpawnPlacements {
    private static final Map<net.minecraft.world.entity.EntityType<?>, net.minecraft.world.entity.SpawnPlacements.Data> DATA_BY_TYPE = Maps.newHashMap();
@@ -69,7 +68,7 @@ public class SpawnPlacements {
       return getPlacementType($$0).isSpawnPositionOk($$1, $$2, $$0);
    }
 
-   public static Types getHeightmapType(@Nullable net.minecraft.world.entity.EntityType<?> $$0) {
+   public static Types getHeightmapType(net.minecraft.world.entity.EntityType<?> $$0) {
       net.minecraft.world.entity.SpawnPlacements.Data $$1 = DATA_BY_TYPE.get($$0);
       return $$1 == null ? Types.MOTION_BLOCKING_NO_LEAVES : $$1.heightMap;
    }

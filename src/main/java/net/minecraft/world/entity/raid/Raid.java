@@ -54,7 +54,6 @@ import net.minecraft.world.level.block.entity.BannerPatterns;
 import net.minecraft.world.level.block.entity.BannerPatternLayers.Builder;
 import net.minecraft.world.level.levelgen.Heightmap.Types;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class Raid {
    public static final net.minecraft.world.entity.SpawnPlacementType RAVAGER_SPAWN_PLACEMENT_TYPE = net.minecraft.world.entity.SpawnPlacements.getPlacementType(
@@ -548,7 +547,7 @@ public class Raid {
       this.setDirty($$0);
    }
 
-   public void joinRaid(ServerLevel $$0, int $$1, Raider $$2, @Nullable BlockPos $$3, boolean $$4) {
+   public void joinRaid(ServerLevel $$0, int $$1, Raider $$2, BlockPos $$3, boolean $$4) {
       boolean $$5 = this.addWaveMob($$0, $$1, $$2);
       if ($$5) {
          $$2.setCurrentRaid(this);
@@ -628,12 +627,12 @@ public class Raid {
       return $$1;
    }
 
-   @Nullable
+   
    public Raider getLeader(int $$0) {
       return this.groupToLeaderMap.get($$0);
    }
 
-   @Nullable
+   
    private BlockPos findRandomSpawnPos(ServerLevel $$0, int $$1) {
       int $$2 = this.raidCooldownTicks / 20;
       float $$3 = 0.22F * $$2 - 0.24F;

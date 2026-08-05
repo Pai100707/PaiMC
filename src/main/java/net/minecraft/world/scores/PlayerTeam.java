@@ -15,7 +15,6 @@ import net.minecraft.network.chat.ComponentUtils;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.Style;
 import net.minecraft.network.chat.HoverEvent.ShowText;
-import org.jspecify.annotations.Nullable;
 
 public class PlayerTeam extends net.minecraft.world.scores.Team {
    private static final int BIT_FRIENDLY_FIRE = 0;
@@ -89,7 +88,7 @@ public class PlayerTeam extends net.minecraft.world.scores.Team {
       }
    }
 
-   public void setPlayerPrefix(@Nullable Component $$0) {
+   public void setPlayerPrefix(Component $$0) {
       this.playerPrefix = $$0 == null ? CommonComponents.EMPTY : $$0;
       this.scoreboard.onTeamChanged(this);
    }
@@ -98,7 +97,7 @@ public class PlayerTeam extends net.minecraft.world.scores.Team {
       return this.playerPrefix;
    }
 
-   public void setPlayerSuffix(@Nullable Component $$0) {
+   public void setPlayerSuffix(Component $$0) {
       this.playerSuffix = $$0 == null ? CommonComponents.EMPTY : $$0;
       this.scoreboard.onTeamChanged(this);
    }
@@ -123,7 +122,7 @@ public class PlayerTeam extends net.minecraft.world.scores.Team {
       return $$1;
    }
 
-   public static MutableComponent formatNameForTeam(@Nullable net.minecraft.world.scores.Team $$0, Component $$1) {
+   public static MutableComponent formatNameForTeam(net.minecraft.world.scores.Team $$0, Component $$1) {
       return $$0 == null ? $$1.copy() : $$0.getFormattedName($$1);
    }
 

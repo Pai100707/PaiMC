@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.apache.commons.lang3.StringEscapeUtils;
-import org.jspecify.annotations.Nullable;
 
 public class CsvOutput {
    private static final String LINE_SEPARATOR = "\r\n";
@@ -37,7 +36,7 @@ public class CsvOutput {
       this.output.write($$0.map(net.minecraft.util.CsvOutput::getStringValue).collect(Collectors.joining(",")) + "\r\n");
    }
 
-   private static String getStringValue(@Nullable Object $$0) {
+   private static String getStringValue(Object $$0) {
       return StringEscapeUtils.escapeCsv($$0 != null ? $$0.toString() : "[null]");
    }
 

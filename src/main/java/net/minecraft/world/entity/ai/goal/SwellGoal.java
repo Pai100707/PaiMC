@@ -2,11 +2,10 @@ package net.minecraft.world.entity.ai.goal;
 
 import java.util.EnumSet;
 import net.minecraft.world.entity.monster.Creeper;
-import org.jspecify.annotations.Nullable;
 
 public class SwellGoal extends Goal {
    private final Creeper creeper;
-   @Nullable
+   
    private net.minecraft.world.entity.LivingEntity target;
 
    public SwellGoal(Creeper $$0) {

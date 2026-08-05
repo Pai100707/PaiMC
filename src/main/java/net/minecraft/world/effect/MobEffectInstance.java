@@ -19,7 +19,6 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity.RemovalReason;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class MobEffectInstance implements Comparable<net.minecraft.world.effect.MobEffectInstance> {
@@ -47,7 +46,7 @@ public class MobEffectInstance implements Comparable<net.minecraft.world.effect.
    private boolean ambient;
    private boolean visible;
    private boolean showIcon;
-   @Nullable
+   
    private net.minecraft.world.effect.MobEffectInstance hiddenEffect;
    private final net.minecraft.world.effect.MobEffectInstance.BlendState blendState = new net.minecraft.world.effect.MobEffectInstance.BlendState();
 
@@ -78,7 +77,7 @@ public class MobEffectInstance implements Comparable<net.minecraft.world.effect.
       boolean $$3,
       boolean $$4,
       boolean $$5,
-      @Nullable net.minecraft.world.effect.MobEffectInstance $$6
+      net.minecraft.world.effect.MobEffectInstance $$6
    ) {
       this.effect = $$0;
       this.duration = $$1;

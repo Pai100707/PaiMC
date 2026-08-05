@@ -22,13 +22,12 @@ import net.minecraft.util.profiling.jfr.stats.ThreadAllocationStat;
 import net.minecraft.util.profiling.jfr.stats.TickTimeStat;
 import net.minecraft.util.profiling.jfr.stats.TimedStatSummary;
 import net.minecraft.world.level.chunk.status.ChunkStatus;
-import org.jspecify.annotations.Nullable;
 
 public record JfrStatsResult(
    Instant recordingStarted,
    Instant recordingEnded,
    Duration recordingDuration,
-   @Nullable Duration worldCreationDuration,
+   Duration worldCreationDuration,
    List<FpsStat> fps,
    List<TickTimeStat> serverTickTimes,
    List<CpuLoadStat> cpuLoadStats,

@@ -66,7 +66,6 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Contract;
-import org.jspecify.annotations.Nullable;
 
 public class Warden extends Monster implements VibrationSystem {
    private static final int VIBRATION_COOLDOWN_TICKS = 40;
@@ -189,7 +188,7 @@ public class Warden extends Monster implements VibrationSystem {
       return 4.0F;
    }
 
-   @Nullable
+   
    @Override
    protected SoundEvent getAmbientSound() {
       return !this.hasPose(net.minecraft.world.entity.Pose.ROARING) && !this.isDiggingOrEmerging() ? this.getAngerLevel().getAmbientSound() : null;
@@ -376,7 +375,7 @@ public class Warden extends Monster implements VibrationSystem {
    }
 
    @Contract("null->false")
-   public boolean canTargetEntity(@Nullable net.minecraft.world.entity.Entity $$0) {
+   public boolean canTargetEntity(net.minecraft.world.entity.Entity $$0) {
       return $$0 instanceof net.minecraft.world.entity.LivingEntity $$1
          && this.level() == $$0.level()
          && net.minecraft.world.entity.EntitySelector.NO_CREATIVE_OR_SPECTATOR.test($$0)
@@ -388,7 +387,7 @@ public class Warden extends Monster implements VibrationSystem {
          && this.level().getWorldBorder().isWithinBounds($$1.getBoundingBox());
    }
 
-   public static void applyDarknessAround(ServerLevel $$0, Vec3 $$1, @Nullable net.minecraft.world.entity.Entity $$2, int $$3) {
+   public static void applyDarknessAround(ServerLevel $$0, Vec3 $$1, net.minecraft.world.entity.Entity $$2, int $$3) {
       MobEffectInstance $$4 = new MobEffectInstance(MobEffects.DARKNESS, 260, 0, false, false);
       MobEffectUtil.addEffectToPlayersAround($$0, $$2, $$1, $$3, $$4, 200);
    }
@@ -427,12 +426,12 @@ public class Warden extends Monster implements VibrationSystem {
       this.angerManagement.clearAnger($$0);
    }
 
-   public void increaseAngerAt(@Nullable net.minecraft.world.entity.Entity $$0) {
+   public void increaseAngerAt(net.minecraft.world.entity.Entity $$0) {
       this.increaseAngerAt($$0, 35, true);
    }
 
    @VisibleForTesting
-   public void increaseAngerAt(@Nullable net.minecraft.world.entity.Entity $$0, int $$1, boolean $$2) {
+   public void increaseAngerAt(net.minecraft.world.entity.Entity $$0, int $$1, boolean $$2) {
       if (!this.isNoAi() && this.canTargetEntity($$0)) {
          WardenAi.setDigCooldown(this);
          boolean $$3 = !(this.getTarget() instanceof Player);
@@ -451,7 +450,7 @@ public class Warden extends Monster implements VibrationSystem {
       return this.getAngerLevel().isAngry() ? this.angerManagement.getActiveEntity() : Optional.empty();
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.LivingEntity getTarget() {
       return this.getTargetFromBrain();
@@ -462,13 +461,13 @@ public class Warden extends Monster implements VibrationSystem {
       return false;
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       this.getBrain().setMemoryWithExpiry(MemoryModuleType.DIG_COOLDOWN, Unit.INSTANCE, 1200L);
       if ($$2 == net.minecraft.world.entity.EntitySpawnReason.TRIGGERED) {
@@ -587,8 +586,8 @@ public class Warden extends Monster implements VibrationSystem {
          ServerLevel $$0,
          BlockPos $$1,
          Holder<GameEvent> $$2,
-         @Nullable net.minecraft.world.entity.Entity $$3,
-         @Nullable net.minecraft.world.entity.Entity $$4,
+         net.minecraft.world.entity.Entity $$3,
+         net.minecraft.world.entity.Entity $$4,
          float $$5
       ) {
          if (!Warden.this.isDeadOrDying()) {

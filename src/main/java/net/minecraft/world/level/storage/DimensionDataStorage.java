@@ -33,7 +33,6 @@ import net.minecraft.util.Util;
 import net.minecraft.util.datafix.DataFixTypes;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.world.level.saveddata.SavedDataType;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class DimensionDataStorage implements AutoCloseable {
@@ -65,7 +64,7 @@ public class DimensionDataStorage implements AutoCloseable {
       }
    }
 
-   @Nullable
+   
    public <T extends SavedData> T get(SavedDataType<T> $$0) {
       Optional<SavedData> $$1 = this.cache.get($$0);
       if ($$1 == null) {
@@ -76,7 +75,7 @@ public class DimensionDataStorage implements AutoCloseable {
       return (T)$$1.orElse(null);
    }
 
-   @Nullable
+   
    private <T extends SavedData> T readSavedData(SavedDataType<T> $$0) {
       try {
          Path $$1 = this.getDataFile($$0.id());

@@ -28,7 +28,6 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
-import org.jspecify.annotations.Nullable;
 
 public class ChiseledBookShelfBlock extends BaseEntityBlock implements SelectableSlotContainer {
    public static final MapCodec<ChiseledBookShelfBlock> CODEC = simpleCodec(ChiseledBookShelfBlock::new);
@@ -133,7 +132,7 @@ public class ChiseledBookShelfBlock extends BaseEntityBlock implements Selectabl
       }
    }
 
-   @Nullable
+   
    @Override
    public BlockEntity newBlockEntity(BlockPos $$0, BlockState $$1) {
       return new ChiseledBookShelfBlockEntity($$0, $$1);

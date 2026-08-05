@@ -14,7 +14,6 @@ import net.minecraft.util.ProblemReporter;
 import net.minecraft.util.ProblemReporter.FieldPathElement;
 import net.minecraft.util.ProblemReporter.IndexedFieldPathElement;
 import net.minecraft.util.ProblemReporter.Problem;
-import org.jspecify.annotations.Nullable;
 
 public class TagValueOutput implements ValueOutput {
    private final ProblemReporter problemReporter;
@@ -51,7 +50,7 @@ public class TagValueOutput implements ValueOutput {
    }
 
    @Override
-   public <T> void storeNullable(String $$0, Codec<T> $$1, @Nullable T $$2) {
+   public <T> void storeNullable(String $$0, Codec<T> $$1, T $$2) {
       if ($$2 != null) {
          this.store($$0, $$1, $$2);
       }

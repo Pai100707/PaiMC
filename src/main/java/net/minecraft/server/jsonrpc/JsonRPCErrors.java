@@ -3,7 +3,6 @@ package net.minecraft.server.jsonrpc;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonNull;
 import com.google.gson.JsonObject;
-import org.jspecify.annotations.Nullable;
 
 public enum JsonRPCErrors {
    PARSE_ERROR(-32700, "Parse error"),
@@ -20,7 +19,7 @@ public enum JsonRPCErrors {
       this.message = $$1;
    }
 
-   public JsonObject createWithUnknownId(@Nullable String $$0) {
+   public JsonObject createWithUnknownId(String $$0) {
       return JsonRPCUtils.createError(JsonNull.INSTANCE, this.message, this.errorCode, $$0);
    }
 

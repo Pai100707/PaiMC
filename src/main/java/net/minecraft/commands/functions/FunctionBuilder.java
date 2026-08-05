@@ -6,12 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.commands.execution.UnboundEntryAction;
 import net.minecraft.resources.Identifier;
-import org.jspecify.annotations.Nullable;
 
 class FunctionBuilder<T extends net.minecraft.commands.ExecutionCommandSource<T>> {
-   @Nullable
+   
    private List<UnboundEntryAction<T>> plainEntries = new ArrayList<>();
-   @Nullable
+   
    private List<MacroFunction.Entry<T>> macroEntries;
    private final List<String> macroArguments = new ArrayList<>();
 

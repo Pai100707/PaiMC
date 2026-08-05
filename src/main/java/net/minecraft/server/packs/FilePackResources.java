@@ -18,7 +18,6 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.server.packs.repository.Pack;
 import net.minecraft.server.packs.resources.IoSupplier;
 import org.apache.commons.io.IOUtils;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class FilePackResources extends AbstractPackResources {
@@ -36,7 +35,7 @@ public class FilePackResources extends AbstractPackResources {
       return String.format(Locale.ROOT, "%s/%s/%s", $$0.getDirectory(), $$1.getNamespace(), $$1.getPath());
    }
 
-   @Nullable
+   
    @Override
    public IoSupplier<InputStream> getRootResource(String... $$0) {
       return this.getResource(String.join("/", $$0));
@@ -51,7 +50,7 @@ public class FilePackResources extends AbstractPackResources {
       return this.prefix.isEmpty() ? $$0 : this.prefix + "/" + $$0;
    }
 
-   @Nullable
+   
    private IoSupplier<InputStream> getResource(String $$0) {
       ZipFile $$1 = this.zipFileAccess.getOrCreateZipFile();
       if ($$1 == null) {
@@ -169,7 +168,7 @@ public class FilePackResources extends AbstractPackResources {
 
    static class SharedZipFileAccess implements AutoCloseable {
       final File file;
-      @Nullable
+      
       private ZipFile zipFile;
       private boolean failedToLoad;
 
@@ -177,7 +176,7 @@ public class FilePackResources extends AbstractPackResources {
          this.file = $$0;
       }
 
-      @Nullable
+      
       ZipFile getOrCreateZipFile() {
          if (this.failedToLoad) {
             return null;

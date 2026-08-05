@@ -18,7 +18,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import org.jspecify.annotations.Nullable;
 
 public final class TreeGrower {
    private static final Map<String, TreeGrower> GROWERS = new Object2ObjectArrayMap();
@@ -103,7 +102,7 @@ public final class TreeGrower {
       GROWERS.put($$0, this);
    }
 
-   @Nullable
+   
    private ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource $$0, boolean $$1) {
       if ($$0.nextFloat() < this.secondaryChance) {
          if ($$1 && this.secondaryFlowers.isPresent()) {
@@ -118,7 +117,7 @@ public final class TreeGrower {
       return $$1 && this.flowers.isPresent() ? this.flowers.get() : this.tree.orElse(null);
    }
 
-   @Nullable
+   
    private ResourceKey<ConfiguredFeature<?, ?>> getConfiguredMegaFeature(RandomSource $$0) {
       return this.secondaryMegaTree.isPresent() && $$0.nextFloat() < this.secondaryChance ? this.secondaryMegaTree.get() : this.megaTree.orElse(null);
    }

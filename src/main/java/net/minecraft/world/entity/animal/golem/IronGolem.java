@@ -40,7 +40,6 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class IronGolem extends AbstractGolem implements net.minecraft.world.entity.NeutralMob {
    protected static final EntityDataAccessor<Byte> DATA_FLAGS_ID = SynchedEntityData.defineId(IronGolem.class, EntityDataSerializers.BYTE);
@@ -50,7 +49,7 @@ public class IronGolem extends AbstractGolem implements net.minecraft.world.enti
    private int offerFlowerTick;
    private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
    private long persistentAngerEndTime;
-   @Nullable
+   
    private net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> persistentAngerTarget;
 
    public IronGolem(net.minecraft.world.entity.EntityType<? extends IronGolem> $$0, Level $$1) {
@@ -168,11 +167,11 @@ public class IronGolem extends AbstractGolem implements net.minecraft.world.enti
    }
 
    @Override
-   public void setPersistentAngerTarget(@Nullable net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> $$0) {
+   public void setPersistentAngerTarget(net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> $$0) {
       this.persistentAngerTarget = $$0;
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> getPersistentAngerTarget() {
       return this.persistentAngerTarget;

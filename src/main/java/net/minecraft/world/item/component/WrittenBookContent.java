@@ -27,7 +27,6 @@ import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.util.StringUtil;
 import net.minecraft.world.entity.player.Player;
-import org.jspecify.annotations.Nullable;
 
 public record WrittenBookContent(Filterable<String> title, String author, int generation, List<Filterable<Component>> pages, boolean resolved)
    implements BookContent<Component, WrittenBookContent>,
@@ -84,12 +83,12 @@ public record WrittenBookContent(Filterable<String> title, String author, int ge
       return pageCodec($$0).listOf();
    }
 
-   @Nullable
+   
    public WrittenBookContent tryCraftCopy() {
       return this.generation >= 2 ? null : new WrittenBookContent(this.title, this.author, this.generation + 1, this.pages, this.resolved);
    }
 
-   public static boolean resolveForItem(net.minecraft.world.item.ItemStack $$0, CommandSourceStack $$1, @Nullable Player $$2) {
+   public static boolean resolveForItem(net.minecraft.world.item.ItemStack $$0, CommandSourceStack $$1, Player $$2) {
       WrittenBookContent $$3 = (WrittenBookContent)$$0.get(DataComponents.WRITTEN_BOOK_CONTENT);
       if ($$3 != null && !$$3.resolved()) {
          WrittenBookContent $$4 = $$3.resolve($$1, $$2);
@@ -104,8 +103,8 @@ public record WrittenBookContent(Filterable<String> title, String author, int ge
       return false;
    }
 
-   @Nullable
-   public WrittenBookContent resolve(CommandSourceStack $$0, @Nullable Player $$1) {
+   
+   public WrittenBookContent resolve(CommandSourceStack $$0, Player $$1) {
       if (this.resolved) {
          return null;
       } else {
@@ -128,7 +127,7 @@ public record WrittenBookContent(Filterable<String> title, String author, int ge
       return new WrittenBookContent(this.title, this.author, this.generation, this.pages, true);
    }
 
-   private static Optional<Filterable<Component>> resolvePage(CommandSourceStack $$0, @Nullable Player $$1, Filterable<Component> $$2) {
+   private static Optional<Filterable<Component>> resolvePage(CommandSourceStack $$0, Player $$1, Filterable<Component> $$2) {
       return $$2.resolve($$2x -> {
          try {
             Component $$3 = ComponentUtils.updateForEntity($$0, $$2x, $$1, 0);

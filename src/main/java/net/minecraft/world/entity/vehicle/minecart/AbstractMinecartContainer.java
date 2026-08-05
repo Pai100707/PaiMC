@@ -17,11 +17,10 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public abstract class AbstractMinecartContainer extends AbstractMinecart implements ContainerEntity {
    private NonNullList<ItemStack> itemStacks = NonNullList.withSize(36, ItemStack.EMPTY);
-   @Nullable
+   
    private ResourceKey<LootTable> lootTable;
    private long lootTableSeed;
 
@@ -113,7 +112,7 @@ public abstract class AbstractMinecartContainer extends AbstractMinecart impleme
       this.lootTableSeed = $$1;
    }
 
-   @Nullable
+   
    public AbstractContainerMenu createMenu(int $$0, Inventory $$1, Player $$2) {
       if (this.lootTable != null && $$2.isSpectator()) {
          return null;
@@ -125,14 +124,14 @@ public abstract class AbstractMinecartContainer extends AbstractMinecart impleme
 
    protected abstract AbstractContainerMenu createMenu(int var1, Inventory var2);
 
-   @Nullable
+   
    @Override
    public ResourceKey<LootTable> getContainerLootTable() {
       return this.lootTable;
    }
 
    @Override
-   public void setContainerLootTable(@Nullable ResourceKey<LootTable> $$0) {
+   public void setContainerLootTable(ResourceKey<LootTable> $$0) {
       this.lootTable = $$0;
    }
 

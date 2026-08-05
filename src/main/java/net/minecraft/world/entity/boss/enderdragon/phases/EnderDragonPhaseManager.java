@@ -3,14 +3,13 @@ package net.minecraft.world.entity.boss.enderdragon.phases;
 import com.mojang.logging.LogUtils;
 import java.util.Objects;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class EnderDragonPhaseManager {
    private static final Logger LOGGER = LogUtils.getLogger();
    private final EnderDragon dragon;
    private final DragonPhaseInstance[] phases = new DragonPhaseInstance[EnderDragonPhase.getCount()];
-   @Nullable
+   
    private DragonPhaseInstance currentPhase;
 
    public EnderDragonPhaseManager(EnderDragon $$0) {

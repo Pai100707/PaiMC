@@ -33,7 +33,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class Illusioner extends SpellcasterIllager implements RangedAttackMob {
    private static final int NUM_ILLUSIONS = 4;
@@ -80,7 +79,7 @@ public class Illusioner extends SpellcasterIllager implements RangedAttackMob {
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       this.setItemSlot(net.minecraft.world.entity.EquipmentSlot.MAINHAND, new ItemStack(Items.BOW));
       return super.finalizeSpawn($$0, $$1, $$2, $$3);
@@ -265,7 +264,7 @@ public class Illusioner extends SpellcasterIllager implements RangedAttackMob {
          Illusioner.this.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 1200));
       }
 
-      @Nullable
+      
       @Override
       protected SoundEvent getSpellPrepareSound() {
          return SoundEvents.ILLUSIONER_PREPARE_MIRROR;

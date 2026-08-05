@@ -146,7 +146,6 @@ import net.minecraft.world.waypoints.WaypointTransmitter.EntityAzimuthConnection
 import net.minecraft.world.waypoints.WaypointTransmitter.EntityBlockConnection;
 import net.minecraft.world.waypoints.WaypointTransmitter.EntityChunkConnection;
 import org.jetbrains.annotations.Contract;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public abstract class LivingEntity extends net.minecraft.world.entity.Entity implements net.minecraft.world.entity.Attackable, WaypointTransmitter {
@@ -246,7 +245,7 @@ public abstract class LivingEntity extends net.minecraft.world.entity.Entity imp
    public float yHeadRot;
    public float yHeadRotO;
    public final net.minecraft.world.entity.ElytraAnimationState elytraAnimationState = new net.minecraft.world.entity.ElytraAnimationState(this);
-   @Nullable
+   
    protected net.minecraft.world.entity.EntityReference<Player> lastHurtByPlayer;
    protected int lastHurtByPlayerMemoryTime;
    protected boolean dead;
@@ -260,10 +259,10 @@ public abstract class LivingEntity extends net.minecraft.world.entity.Entity imp
    protected double lerpYHeadRot;
    protected int lerpHeadSteps;
    private boolean effectsDirty = true;
-   @Nullable
+   
    private net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> lastHurtByMob;
    private int lastHurtByMobTimestamp;
-   @Nullable
+   
    private net.minecraft.world.entity.LivingEntity lastHurtMob;
    private int lastHurtMobTimestamp;
    private float speed;
@@ -275,14 +274,14 @@ public abstract class LivingEntity extends net.minecraft.world.entity.Entity imp
    private long lastKineticHitFeedbackTime = -2147483648L;
    private BlockPos lastPos;
    private Optional<BlockPos> lastClimbablePos = Optional.empty();
-   @Nullable
+   
    private DamageSource lastDamageSource;
    private long lastDamageStamp;
    protected int autoSpinAttackTicks;
    protected float autoSpinAttackDmg;
-   @Nullable
+   
    protected ItemStack autoSpinAttackItemStack;
-   @Nullable
+   
    protected Object2LongMap<net.minecraft.world.entity.Entity> recentKineticEnemies;
    private float swimAmount;
    private float swimAmountO;
@@ -306,7 +305,7 @@ public abstract class LivingEntity extends net.minecraft.world.entity.Entity imp
       this.brain = this.makeBrain(EMPTY_BRAIN);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.LivingEntity asLivingEntity() {
       return this;
@@ -609,7 +608,7 @@ public abstract class LivingEntity extends net.minecraft.world.entity.Entity imp
       return Math.min($$0 + 4, this.getMaxAirSupply());
    }
 
-   public final int getExperienceReward(ServerLevel $$0, @Nullable net.minecraft.world.entity.Entity $$1) {
+   public final int getExperienceReward(ServerLevel $$0, net.minecraft.world.entity.Entity $$1) {
       return EnchantmentHelper.processMobExperience($$0, $$1, this, this.getBaseExperienceReward($$0));
    }
 
@@ -621,12 +620,12 @@ public abstract class LivingEntity extends net.minecraft.world.entity.Entity imp
       return false;
    }
 
-   @Nullable
+   
    public net.minecraft.world.entity.LivingEntity getLastHurtByMob() {
       return net.minecraft.world.entity.EntityReference.getLivingEntity(this.lastHurtByMob, this.level());
    }
 
-   @Nullable
+   
    public Player getLastHurtByPlayer() {
       return net.minecraft.world.entity.EntityReference.getPlayer(this.lastHurtByPlayer, this.level());
    }
@@ -653,12 +652,12 @@ public abstract class LivingEntity extends net.minecraft.world.entity.Entity imp
       this.lastHurtByPlayerMemoryTime = $$1;
    }
 
-   public void setLastHurtByMob(@Nullable net.minecraft.world.entity.LivingEntity $$0) {
+   public void setLastHurtByMob(net.minecraft.world.entity.LivingEntity $$0) {
       this.lastHurtByMob = net.minecraft.world.entity.EntityReference.of($$0);
       this.lastHurtByMobTimestamp = this.tickCount;
    }
 
-   @Nullable
+   
    public net.minecraft.world.entity.LivingEntity getLastHurtMob() {
       return this.lastHurtMob;
    }
@@ -781,7 +780,7 @@ public abstract class LivingEntity extends net.minecraft.world.entity.Entity imp
       }
    }
 
-   @Nullable
+   
    public ItemEntity drop(ItemStack $$0, boolean $$1, boolean $$2) {
       if ($$0.isEmpty()) {
          return null;
@@ -919,7 +918,7 @@ public abstract class LivingEntity extends net.minecraft.world.entity.Entity imp
       }
    }
 
-   public double getVisibilityPercent(@Nullable net.minecraft.world.entity.Entity $$0) {
+   public double getVisibilityPercent(net.minecraft.world.entity.Entity $$0) {
       double $$1 = 1.0;
       if (this.isDiscrete()) {
          $$1 *= 0.8;
@@ -1000,7 +999,7 @@ public abstract class LivingEntity extends net.minecraft.world.entity.Entity imp
       return this.activeEffects.containsKey($$0);
    }
 
-   @Nullable
+   
    public MobEffectInstance getEffect(Holder<MobEffect> $$0) {
       return this.activeEffects.get($$0);
    }
@@ -1014,7 +1013,7 @@ public abstract class LivingEntity extends net.minecraft.world.entity.Entity imp
       return this.addEffect($$0, null);
    }
 
-   public boolean addEffect(MobEffectInstance $$0, @Nullable net.minecraft.world.entity.Entity $$1) {
+   public boolean addEffect(MobEffectInstance $$0, net.minecraft.world.entity.Entity $$1) {
       if (!this.canBeAffected($$0)) {
          return false;
       } else {
@@ -1045,7 +1044,7 @@ public abstract class LivingEntity extends net.minecraft.world.entity.Entity imp
       }
    }
 
-   public void forceAddEffect(MobEffectInstance $$0, @Nullable net.minecraft.world.entity.Entity $$1) {
+   public void forceAddEffect(MobEffectInstance $$0, net.minecraft.world.entity.Entity $$1) {
       if (this.canBeAffected($$0)) {
          MobEffectInstance $$2 = this.activeEffects.put($$0.getEffect(), $$0);
          if ($$2 == null) {
@@ -1061,7 +1060,7 @@ public abstract class LivingEntity extends net.minecraft.world.entity.Entity imp
       return this.getType().is(EntityTypeTags.INVERTED_HEALING_AND_HARM);
    }
 
-   @Nullable
+   
    public final MobEffectInstance removeEffectNoUpdate(Holder<MobEffect> $$0) {
       return this.activeEffects.remove($$0);
    }
@@ -1076,7 +1075,7 @@ public abstract class LivingEntity extends net.minecraft.world.entity.Entity imp
       }
    }
 
-   protected void onEffectAdded(MobEffectInstance $$0, @Nullable net.minecraft.world.entity.Entity $$1) {
+   protected void onEffectAdded(MobEffectInstance $$0, net.minecraft.world.entity.Entity $$1) {
       if (!this.level().isClientSide()) {
          this.effectsDirty = true;
          ((MobEffect)$$0.getEffect().value()).addAttributeModifiers(this.getAttributes(), $$0.getAmplifier());
@@ -1092,7 +1091,7 @@ public abstract class LivingEntity extends net.minecraft.world.entity.Entity imp
       }
    }
 
-   protected void onEffectUpdated(MobEffectInstance $$0, boolean $$1, @Nullable net.minecraft.world.entity.Entity $$2) {
+   protected void onEffectUpdated(MobEffectInstance $$0, boolean $$1, net.minecraft.world.entity.Entity $$2) {
       if (!this.level().isClientSide()) {
          this.effectsDirty = true;
          if ($$1) {
@@ -1354,7 +1353,7 @@ public abstract class LivingEntity extends net.minecraft.world.entity.Entity imp
       }
    }
 
-   @Nullable
+   
    protected Player resolvePlayerResponsibleForDamage(DamageSource $$0) {
       net.minecraft.world.entity.Entity $$1 = $$0.getEntity();
       if ($$1 instanceof Player $$2) {
@@ -1412,7 +1411,7 @@ public abstract class LivingEntity extends net.minecraft.world.entity.Entity imp
       }
    }
 
-   @Nullable
+   
    public DamageSource getLastDamageSource() {
       if (this.level().getGameTime() - this.lastDamageStamp > 40L) {
          this.lastDamageSource = null;
@@ -1425,7 +1424,7 @@ public abstract class LivingEntity extends net.minecraft.world.entity.Entity imp
       this.makeSound(this.getHurtSound($$0));
    }
 
-   public void makeSound(@Nullable SoundEvent $$0) {
+   public void makeSound(SoundEvent $$0) {
       if ($$0 != null) {
          this.playSound($$0, this.getSoundVolume(), this.getVoicePitch());
       }
@@ -1485,7 +1484,7 @@ public abstract class LivingEntity extends net.minecraft.world.entity.Entity imp
       }
    }
 
-   protected void createWitherRose(@Nullable net.minecraft.world.entity.LivingEntity $$0) {
+   protected void createWitherRose(net.minecraft.world.entity.LivingEntity $$0) {
       if (this.level() instanceof ServerLevel $$1) {
          boolean var6 = false;
          if ($$0 instanceof WitherBoss) {
@@ -1520,7 +1519,7 @@ public abstract class LivingEntity extends net.minecraft.world.entity.Entity imp
    protected void dropEquipment(ServerLevel $$0) {
    }
 
-   protected void dropExperience(ServerLevel $$0, @Nullable net.minecraft.world.entity.Entity $$1) {
+   protected void dropExperience(ServerLevel $$0, net.minecraft.world.entity.Entity $$1) {
       if (!this.wasExperienceConsumed()
          && (
             this.isAlwaysExperienceDropper()
@@ -1571,7 +1570,7 @@ public abstract class LivingEntity extends net.minecraft.world.entity.Entity imp
    }
 
    public boolean dropFromEntityInteractLootTable(
-      ServerLevel $$0, ResourceKey<LootTable> $$1, @Nullable net.minecraft.world.entity.Entity $$2, ItemStack $$3, BiConsumer<ServerLevel, ItemStack> $$4
+      ServerLevel $$0, ResourceKey<LootTable> $$1, net.minecraft.world.entity.Entity $$2, ItemStack $$3, BiConsumer<ServerLevel, ItemStack> $$4
    ) {
       return this.dropFromLootTable(
          $$0,
@@ -1638,12 +1637,12 @@ public abstract class LivingEntity extends net.minecraft.world.entity.Entity imp
    public void indicateDamage(double $$0, double $$1) {
    }
 
-   @Nullable
+   
    protected SoundEvent getHurtSound(DamageSource $$0) {
       return SoundEvents.GENERIC_HURT;
    }
 
-   @Nullable
+   
    protected SoundEvent getDeathSound() {
       return SoundEvents.GENERIC_DEATH;
    }
@@ -1898,7 +1897,7 @@ public abstract class LivingEntity extends net.minecraft.world.entity.Entity imp
       return this.combatTracker;
    }
 
-   @Nullable
+   
    public net.minecraft.world.entity.LivingEntity getKillCredit() {
       if (this.lastHurtByPlayer != null) {
          return (net.minecraft.world.entity.LivingEntity)this.lastHurtByPlayer.getEntity(this.level(), Player.class);
@@ -2115,7 +2114,7 @@ public abstract class LivingEntity extends net.minecraft.world.entity.Entity imp
       this.attackAnim = (float)this.swingTime / $$0;
    }
 
-   @Nullable
+   
    public AttributeInstance getAttribute(Holder<Attribute> $$0) {
       return this.getAttributes().getInstance($$0);
    }
@@ -2820,7 +2819,7 @@ public abstract class LivingEntity extends net.minecraft.world.entity.Entity imp
       }
    }
 
-   @Nullable
+   
    private Map<net.minecraft.world.entity.EquipmentSlot, ItemStack> collectEquipmentChanges() {
       Map<net.minecraft.world.entity.EquipmentSlot, ItemStack> $$0 = null;
 
@@ -3307,7 +3306,7 @@ public abstract class LivingEntity extends net.minecraft.world.entity.Entity imp
       }
    }
 
-   @Nullable
+   
    private ItemEntity createItemStackToDrop(ItemStack $$0, boolean $$1, boolean $$2) {
       if ($$0.isEmpty()) {
          return null;
@@ -3500,7 +3499,7 @@ public abstract class LivingEntity extends net.minecraft.world.entity.Entity imp
       return this.getItemBlockingWith() != null;
    }
 
-   @Nullable
+   
    public ItemStack getItemBlockingWith() {
       if (!this.isUsingItem()) {
          return null;
@@ -3687,7 +3686,7 @@ public abstract class LivingEntity extends net.minecraft.world.entity.Entity imp
       this.clearSleepingPos();
    }
 
-   @Nullable
+   
    public Direction getBedOrientation() {
       BlockPos $$0 = this.getSleepingPos().orElse(null);
       return $$0 != null ? BedBlock.getBedOrientation(this.level(), $$0) : null;
@@ -3772,7 +3771,7 @@ public abstract class LivingEntity extends net.minecraft.world.entity.Entity imp
          : net.minecraft.world.entity.SlotAccess.forEquipmentSlot($$0, $$1);
    }
 
-   @Nullable
+   
    private static net.minecraft.world.entity.EquipmentSlot getEquipmentSlot(int $$0) {
       if ($$0 == 100 + net.minecraft.world.entity.EquipmentSlot.HEAD.getIndex()) {
          return net.minecraft.world.entity.EquipmentSlot.HEAD;
@@ -3793,7 +3792,7 @@ public abstract class LivingEntity extends net.minecraft.world.entity.Entity imp
       }
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SlotAccess getSlot(int $$0) {
       net.minecraft.world.entity.EquipmentSlot $$1 = getEquipmentSlot($$0);

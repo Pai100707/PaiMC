@@ -4,13 +4,12 @@ import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import it.unimi.dsi.fastutil.objects.ObjectList;
 import java.util.BitSet;
 import java.util.Objects;
-import org.jspecify.annotations.Nullable;
 
 public class LastSeenMessagesTracker {
    private final LastSeenTrackedEntry[] trackedMessages;
    private int tail;
    private int offset;
-   @Nullable
+   
    private MessageSignature lastTrackedMessage;
 
    public LastSeenMessagesTracker(int $$0) {
@@ -27,7 +26,7 @@ public class LastSeenMessagesTracker {
       }
    }
 
-   private void addEntry(@Nullable LastSeenTrackedEntry $$0) {
+   private void addEntry(LastSeenTrackedEntry $$0) {
       int $$1 = this.tail;
       this.tail = ($$1 + 1) % this.trackedMessages.length;
       this.offset++;

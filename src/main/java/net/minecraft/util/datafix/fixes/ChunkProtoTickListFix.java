@@ -23,7 +23,6 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 import org.apache.commons.lang3.mutable.MutableInt;
-import org.jspecify.annotations.Nullable;
 
 public class ChunkProtoTickListFix extends DataFix {
    private static final int SECTION_WIDTH = 16;
@@ -142,11 +141,11 @@ public class ChunkProtoTickListFix extends DataFix {
       return $$0.createList($$7);
    }
 
-   private static String getBlock(@Nullable Dynamic<?> $$0) {
+   private static String getBlock(Dynamic<?> $$0) {
       return $$0 != null ? $$0.get("Name").asString("minecraft:air") : "minecraft:air";
    }
 
-   private static String getLiquid(@Nullable Dynamic<?> $$0) {
+   private static String getLiquid(Dynamic<?> $$0) {
       if ($$0 == null) {
          return "minecraft:empty";
       } else {
@@ -163,7 +162,7 @@ public class ChunkProtoTickListFix extends DataFix {
 
    private Dynamic<?> createTick(
       Dynamic<?> $$0,
-      @Nullable Supplier<ChunkProtoTickListFix.PoorMansPalettedContainer> $$1,
+      Supplier<ChunkProtoTickListFix.PoorMansPalettedContainer> $$1,
       int $$2,
       int $$3,
       int $$4,
@@ -202,7 +201,7 @@ public class ChunkProtoTickListFix extends DataFix {
          this.valuesPerLong = (char)(64 / this.bits);
       }
 
-      @Nullable
+      
       public Dynamic<?> get(int $$0, int $$1, int $$2) {
          int $$3 = this.palette.size();
          if ($$3 < 1) {

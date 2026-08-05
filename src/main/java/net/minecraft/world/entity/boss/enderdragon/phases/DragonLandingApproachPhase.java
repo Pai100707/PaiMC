@@ -11,13 +11,12 @@ import net.minecraft.world.level.levelgen.feature.EndPodiumFeature;
 import net.minecraft.world.level.pathfinder.Node;
 import net.minecraft.world.level.pathfinder.Path;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class DragonLandingApproachPhase extends AbstractDragonPhaseInstance {
    private static final TargetingConditions NEAR_EGG_TARGETING = TargetingConditions.forCombat().ignoreLineOfSight();
-   @Nullable
+   
    private Path currentPath;
-   @Nullable
+   
    private Vec3 targetLocation;
 
    public DragonLandingApproachPhase(EnderDragon $$0) {
@@ -43,7 +42,7 @@ public class DragonLandingApproachPhase extends AbstractDragonPhaseInstance {
       }
    }
 
-   @Nullable
+   
    @Override
    public Vec3 getFlyTargetLocation() {
       return this.targetLocation;

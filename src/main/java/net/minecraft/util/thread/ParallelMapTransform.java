@@ -6,7 +6,6 @@ import java.util.Map.Entry;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
 import java.util.function.BiFunction;
-import org.jspecify.annotations.Nullable;
 
 public class ParallelMapTransform {
    private static final int DEFAULT_TASKS_PER_THREAD = 16;
@@ -97,17 +96,17 @@ public class ParallelMapTransform {
          this.values[$$0] = $$2;
       }
 
-      @Nullable
+      
       private K key(int $$0) {
          return (K)this.keys[$$0];
       }
 
-      @Nullable
+      
       private V output(int $$0) {
          return (V)this.values[$$0];
       }
 
-      @Nullable
+      
       private U input(int $$0) {
          return (U)this.values[$$0];
       }

@@ -2,7 +2,6 @@ package net.minecraft.world.attribute;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public interface EnvironmentAttributeReader {
    net.minecraft.world.attribute.EnvironmentAttributeReader EMPTY = new net.minecraft.world.attribute.EnvironmentAttributeReader() {
@@ -13,7 +12,7 @@ public interface EnvironmentAttributeReader {
 
       @Override
       public <Value> Value getValue(
-         net.minecraft.world.attribute.EnvironmentAttribute<Value> $$0, Vec3 $$1, @Nullable net.minecraft.world.attribute.SpatialAttributeInterpolator $$2
+         net.minecraft.world.attribute.EnvironmentAttribute<Value> $$0, Vec3 $$1, net.minecraft.world.attribute.SpatialAttributeInterpolator $$2
       ) {
          return $$0.defaultValue();
       }
@@ -30,6 +29,6 @@ public interface EnvironmentAttributeReader {
    }
 
    <Value> Value getValue(
-      net.minecraft.world.attribute.EnvironmentAttribute<Value> var1, Vec3 var2, @Nullable net.minecraft.world.attribute.SpatialAttributeInterpolator var3
+      net.minecraft.world.attribute.EnvironmentAttribute<Value> var1, Vec3 var2, net.minecraft.world.attribute.SpatialAttributeInterpolator var3
    );
 }

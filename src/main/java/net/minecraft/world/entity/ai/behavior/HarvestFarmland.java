@@ -24,12 +24,11 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.gameevent.GameEvent.Context;
 import net.minecraft.world.level.gamerules.GameRules;
-import org.jspecify.annotations.Nullable;
 
 public class HarvestFarmland extends Behavior<Villager> {
    private static final int HARVEST_DURATION = 200;
    public static final float SPEED_MODIFIER = 0.5F;
-   @Nullable
+   
    private BlockPos aboveFarmlandPos;
    private long nextOkStartTime;
    private int timeWorkedSoFar;
@@ -73,7 +72,7 @@ public class HarvestFarmland extends Behavior<Villager> {
       }
    }
 
-   @Nullable
+   
    private BlockPos getValidFarmland(ServerLevel $$0) {
       return this.validFarmlandAroundVillager.isEmpty()
          ? null

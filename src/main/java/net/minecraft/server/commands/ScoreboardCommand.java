@@ -46,7 +46,6 @@ import net.minecraft.world.scores.ScoreHolder;
 import net.minecraft.world.scores.Scoreboard;
 import net.minecraft.world.scores.criteria.ObjectiveCriteria;
 import net.minecraft.world.scores.criteria.ObjectiveCriteria.RenderType;
-import org.jspecify.annotations.Nullable;
 
 public class ScoreboardCommand {
    private static final SimpleCommandExceptionType ERROR_OBJECTIVE_ALREADY_EXISTS = new SimpleCommandExceptionType(
@@ -608,7 +607,7 @@ public class ScoreboardCommand {
       return $$3 * $$1.size();
    }
 
-   private static int setScoreDisplay(CommandSourceStack $$0, Collection<ScoreHolder> $$1, Objective $$2, @Nullable Component $$3) {
+   private static int setScoreDisplay(CommandSourceStack $$0, Collection<ScoreHolder> $$1, Objective $$2, Component $$3) {
       Scoreboard $$4 = $$0.getServer().getScoreboard();
 
       for (ScoreHolder $$5 : $$1) {
@@ -650,7 +649,7 @@ public class ScoreboardCommand {
       return $$1.size();
    }
 
-   private static int setScoreNumberFormat(CommandSourceStack $$0, Collection<ScoreHolder> $$1, Objective $$2, @Nullable NumberFormat $$3) {
+   private static int setScoreNumberFormat(CommandSourceStack $$0, Collection<ScoreHolder> $$1, Objective $$2, NumberFormat $$3) {
       Scoreboard $$4 = $$0.getServer().getScoreboard();
 
       for (ScoreHolder $$5 : $$1) {
@@ -844,7 +843,7 @@ public class ScoreboardCommand {
       return 0;
    }
 
-   private static int setObjectiveFormat(CommandSourceStack $$0, Objective $$1, @Nullable NumberFormat $$2) {
+   private static int setObjectiveFormat(CommandSourceStack $$0, Objective $$1, NumberFormat $$2) {
       $$1.setNumberFormat($$2);
       if ($$2 != null) {
          $$0.sendSuccess(() -> Component.translatable("commands.scoreboard.objectives.modify.objectiveFormat.set", new Object[]{$$1.getName()}), true);
@@ -901,6 +900,6 @@ public class ScoreboardCommand {
 
    @FunctionalInterface
    public interface NumberFormatCommandExecutor {
-      int run(CommandContext<CommandSourceStack> var1, @Nullable NumberFormat var2) throws CommandSyntaxException;
+      int run(CommandContext<CommandSourceStack> var1, NumberFormat var2) throws CommandSyntaxException;
    }
 }

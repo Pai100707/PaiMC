@@ -21,7 +21,6 @@ import net.minecraft.util.SimpleBitStorage;
 import net.minecraft.util.ThreadingDetector;
 import net.minecraft.util.ZeroBitStorage;
 import net.minecraft.util.SimpleBitStorage.InitializationException;
-import org.jspecify.annotations.Nullable;
 
 public class PalettedContainer<T> implements PaletteResize<T>, PalettedContainerRO<T> {
    private static final int MIN_PALETTE_BITS = 0;
@@ -74,7 +73,7 @@ public class PalettedContainer<T> implements PaletteResize<T>, PalettedContainer
       this.data.palette.idFor($$0, this);
    }
 
-   private PalettedContainer.Data<T> createOrReuseData(@Nullable PalettedContainer.Data<T> $$0, int $$1) {
+   private PalettedContainer.Data<T> createOrReuseData(PalettedContainer.Data<T> $$0, int $$1) {
       Configuration $$2 = this.strategy.getConfigurationForBitCount($$1);
       if ($$0 != null && $$2.equals($$0.configuration())) {
          return $$0;

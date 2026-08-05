@@ -1,9 +1,8 @@
 package net.minecraft.util;
 
-import org.jspecify.annotations.Nullable;
 
 public class MemoryReserve {
-   @Nullable
+   
    private static byte[] reserve;
 
    public static void allocate() {

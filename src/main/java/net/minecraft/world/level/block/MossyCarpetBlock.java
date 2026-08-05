@@ -25,7 +25,6 @@ import net.minecraft.world.level.block.state.properties.WallSide;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class MossyCarpetBlock extends Block implements BonemealableBlock {
    public static final MapCodec<MossyCarpetBlock> CODEC = simpleCodec(MossyCarpetBlock::new);
@@ -154,7 +153,7 @@ public class MossyCarpetBlock extends Block implements BonemealableBlock {
       return $$0;
    }
 
-   @Nullable
+   
    @Override
    public BlockState getStateForPlacement(BlockPlaceContext $$0) {
       return getUpdatedState(this.defaultBlockState(), $$0.getLevel(), $$0.getClickedPos(), true);
@@ -173,7 +172,7 @@ public class MossyCarpetBlock extends Block implements BonemealableBlock {
    }
 
    @Override
-   public void setPlacedBy(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, @Nullable LivingEntity $$3, ItemStack $$4) {
+   public void setPlacedBy(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, LivingEntity $$3, ItemStack $$4) {
       if (!$$0.isClientSide()) {
          RandomSource $$5 = $$0.getRandom();
          BlockState $$6 = createTopperWithSideChance($$0, $$1, $$5::nextBoolean);
@@ -256,7 +255,7 @@ public class MossyCarpetBlock extends Block implements BonemealableBlock {
       };
    }
 
-   @Nullable
+   
    public static EnumProperty<WallSide> getPropertyForFace(Direction $$0) {
       return PROPERTY_BY_DIRECTION.get($$0);
    }

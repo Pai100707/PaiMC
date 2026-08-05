@@ -16,7 +16,6 @@ import it.unimi.dsi.fastutil.ints.IntSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class TrappedChestBlockEntityFix extends DataFix {
@@ -93,7 +92,7 @@ public class TrappedChestBlockEntityFix extends DataFix {
    }
 
    public static final class TrappedChestSection extends LeavesFix.Section {
-      @Nullable
+      
       private IntSet chestIds;
 
       public TrappedChestSection(Typed<?> $$0, Schema $$1) {

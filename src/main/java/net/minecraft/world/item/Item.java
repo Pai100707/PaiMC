@@ -96,7 +96,6 @@ import net.minecraft.world.level.saveddata.maps.MapId;
 import net.minecraft.world.level.saveddata.maps.MapItemSavedData;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class Item implements FeatureElement, ItemLike {
@@ -118,7 +117,7 @@ public class Item implements FeatureElement, ItemLike {
    protected static final int APPROXIMATELY_INFINITE_USE_DURATION = 72000;
    private final Reference<net.minecraft.world.item.Item> builtInRegistryHolder = BuiltInRegistries.ITEM.createIntrusiveHolder(this);
    private final DataComponentMap components;
-   @Nullable
+   
    private final net.minecraft.world.item.Item craftingRemainingItem;
    protected final String descriptionId;
    private final FeatureFlagSet requiredFeatures;
@@ -245,7 +244,7 @@ public class Item implements FeatureElement, ItemLike {
    }
 
    @Deprecated
-   @Nullable
+   
    public DamageSource getItemDamageSource(LivingEntity $$0) {
       return null;
    }
@@ -287,7 +286,7 @@ public class Item implements FeatureElement, ItemLike {
       return this.craftingRemainingItem == null ? net.minecraft.world.item.ItemStack.EMPTY : new net.minecraft.world.item.ItemStack(this.craftingRemainingItem);
    }
 
-   public void inventoryTick(net.minecraft.world.item.ItemStack $$0, ServerLevel $$1, Entity $$2, @Nullable EquipmentSlot $$3) {
+   public void inventoryTick(net.minecraft.world.item.ItemStack $$0, ServerLevel $$1, Entity $$2, EquipmentSlot $$3) {
    }
 
    public void onCraftedBy(net.minecraft.world.item.ItemStack $$0, Player $$1) {
@@ -374,7 +373,7 @@ public class Item implements FeatureElement, ItemLike {
       return this.requiredFeatures;
    }
 
-   public boolean shouldPrintOpWarning(net.minecraft.world.item.ItemStack $$0, @Nullable Player $$1) {
+   public boolean shouldPrintOpWarning(net.minecraft.world.item.ItemStack $$0, Player $$1) {
       return false;
    }
 
@@ -382,10 +381,10 @@ public class Item implements FeatureElement, ItemLike {
       private static final DependantName<net.minecraft.world.item.Item, String> BLOCK_DESCRIPTION_ID = $$0 -> Util.makeDescriptionId("block", $$0.identifier());
       private static final DependantName<net.minecraft.world.item.Item, String> ITEM_DESCRIPTION_ID = $$0 -> Util.makeDescriptionId("item", $$0.identifier());
       private final Builder components = DataComponentMap.builder().addAll(DataComponents.COMMON_ITEM_COMPONENTS);
-      @Nullable
+      
       net.minecraft.world.item.Item craftingRemainingItem;
       FeatureFlagSet requiredFeatures = FeatureFlags.VANILLA_SET;
-      @Nullable
+      
       private ResourceKey<net.minecraft.world.item.Item> id;
       private DependantName<net.minecraft.world.item.Item, String> descriptionId = ITEM_DESCRIPTION_ID;
       private final DependantName<net.minecraft.world.item.Item, Identifier> model = ResourceKey::identifier;
@@ -653,7 +652,7 @@ public class Item implements FeatureElement, ItemLike {
 
    public interface TooltipContext {
       net.minecraft.world.item.Item.TooltipContext EMPTY = new net.minecraft.world.item.Item.TooltipContext() {
-         @Nullable
+         
          @Override
          public Provider registries() {
             return null;
@@ -664,7 +663,7 @@ public class Item implements FeatureElement, ItemLike {
             return 20.0F;
          }
 
-         @Nullable
+         
          @Override
          public MapItemSavedData mapData(MapId $$0) {
             return null;
@@ -676,17 +675,17 @@ public class Item implements FeatureElement, ItemLike {
          }
       };
 
-      @Nullable
+      
       Provider registries();
 
       float tickRate();
 
-      @Nullable
+      
       MapItemSavedData mapData(MapId var1);
 
       boolean isPeaceful();
 
-      static net.minecraft.world.item.Item.TooltipContext of(@Nullable final Level $$0) {
+      static net.minecraft.world.item.Item.TooltipContext of(final Level $$0) {
          return $$0 == null ? EMPTY : new net.minecraft.world.item.Item.TooltipContext() {
             @Override
             public Provider registries() {
@@ -722,7 +721,7 @@ public class Item implements FeatureElement, ItemLike {
                return 20.0F;
             }
 
-            @Nullable
+            
             @Override
             public MapItemSavedData mapData(MapId $$0x) {
                return null;

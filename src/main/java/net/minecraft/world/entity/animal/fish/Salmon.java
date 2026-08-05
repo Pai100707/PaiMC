@@ -27,7 +27,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 
 public class Salmon extends AbstractSchoolingFish {
    private static final String TAG_TYPE = "type";
@@ -108,7 +107,7 @@ public class Salmon extends AbstractSchoolingFish {
       return Salmon.Variant.BY_ID.apply((Integer)this.entityData.get(DATA_TYPE));
    }
 
-   @Nullable
+   
    @Override
    public <T> T get(DataComponentType<? extends T> $$0) {
       return $$0 == DataComponents.SALMON_SIZE ? castComponentValue((DataComponentType<T>)$$0, this.getVariant()) : super.get($$0);
@@ -130,13 +129,13 @@ public class Salmon extends AbstractSchoolingFish {
       }
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       Builder<Salmon.Variant> $$4 = WeightedList.builder();
       $$4.add(Salmon.Variant.SMALL, 30);

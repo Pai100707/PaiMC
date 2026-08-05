@@ -37,7 +37,6 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class ArmorStand extends net.minecraft.world.entity.LivingEntity {
    public static final int WOBBLE_TIME = 5;
@@ -559,13 +558,13 @@ public class ArmorStand extends net.minecraft.world.entity.LivingEntity {
       return new net.minecraft.world.entity.LivingEntity.Fallsounds(SoundEvents.ARMOR_STAND_FALL, SoundEvents.ARMOR_STAND_FALL);
    }
 
-   @Nullable
+   
    @Override
    protected SoundEvent getHurtSound(DamageSource $$0) {
       return SoundEvents.ARMOR_STAND_HIT;
    }
 
-   @Nullable
+   
    @Override
    protected SoundEvent getDeathSound() {
       return SoundEvents.ARMOR_STAND_BREAK;

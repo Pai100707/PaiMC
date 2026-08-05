@@ -12,7 +12,6 @@ import java.util.Set;
 import java.util.function.BiConsumer;
 import java.util.stream.Collectors;
 import net.minecraft.resources.ResourceKey;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public interface ProblemReporter {
@@ -33,7 +32,7 @@ public interface ProblemReporter {
 
    public static class Collector implements net.minecraft.util.ProblemReporter {
       public static final net.minecraft.util.ProblemReporter.PathElement EMPTY_ROOT = () -> "";
-      @Nullable
+      
       private final net.minecraft.util.ProblemReporter.Collector parent;
       private final net.minecraft.util.ProblemReporter.PathElement element;
       private final Set<net.minecraft.util.ProblemReporter.Collector.Entry> problems;

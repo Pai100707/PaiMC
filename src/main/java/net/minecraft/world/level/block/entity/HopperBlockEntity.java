@@ -25,7 +25,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
-import org.jspecify.annotations.Nullable;
 
 public class HopperBlockEntity extends RandomizableContainerBlockEntity implements Hopper {
    public static final int MOVE_ITEM_SPEED = 8;
@@ -273,7 +272,7 @@ public class HopperBlockEntity extends RandomizableContainerBlockEntity implemen
       return $$2;
    }
 
-   public static ItemStack addItem(@Nullable Container $$0, Container $$1, ItemStack $$2, @Nullable Direction $$3) {
+   public static ItemStack addItem(Container $$0, Container $$1, ItemStack $$2, Direction $$3) {
       if ($$1 instanceof WorldlyContainer $$4 && $$3 != null) {
          int[] $$5 = $$4.getSlotsForFace($$3);
 
@@ -291,7 +290,7 @@ public class HopperBlockEntity extends RandomizableContainerBlockEntity implemen
       return $$2;
    }
 
-   private static boolean canPlaceItemInContainer(Container $$0, ItemStack $$1, int $$2, @Nullable Direction $$3) {
+   private static boolean canPlaceItemInContainer(Container $$0, ItemStack $$1, int $$2, Direction $$3) {
       return !$$0.canPlaceItem($$2, $$1) ? false : !($$0 instanceof WorldlyContainer $$4 && !$$4.canPlaceItemThroughFace($$2, $$1, $$3));
    }
 
@@ -299,7 +298,7 @@ public class HopperBlockEntity extends RandomizableContainerBlockEntity implemen
       return !$$1.canTakeItem($$0, $$3, $$2) ? false : !($$1 instanceof WorldlyContainer $$5 && !$$5.canTakeItemThroughFace($$3, $$2, $$4));
    }
 
-   private static ItemStack tryMoveInItem(@Nullable Container $$0, Container $$1, ItemStack $$2, int $$3, @Nullable Direction $$4) {
+   private static ItemStack tryMoveInItem(Container $$0, Container $$1, ItemStack $$2, int $$3, Direction $$4) {
       ItemStack $$5 = $$1.getItem($$3);
       if (canPlaceItemInContainer($$1, $$2, $$3, $$4)) {
          boolean $$6 = false;
@@ -333,12 +332,12 @@ public class HopperBlockEntity extends RandomizableContainerBlockEntity implemen
       return $$2;
    }
 
-   @Nullable
+   
    private static Container getAttachedContainer(net.minecraft.world.level.Level $$0, BlockPos $$1, HopperBlockEntity $$2) {
       return getContainerAt($$0, $$1.relative($$2.facing));
    }
 
-   @Nullable
+   
    private static Container getSourceContainer(net.minecraft.world.level.Level $$0, Hopper $$1, BlockPos $$2, BlockState $$3) {
       return getContainerAt($$0, $$2, $$3, $$1.getLevelX(), $$1.getLevelY() + 1.0, $$1.getLevelZ());
    }
@@ -348,12 +347,12 @@ public class HopperBlockEntity extends RandomizableContainerBlockEntity implemen
       return $$0.getEntitiesOfClass(ItemEntity.class, $$2, EntitySelector.ENTITY_STILL_ALIVE);
    }
 
-   @Nullable
+   
    public static Container getContainerAt(net.minecraft.world.level.Level $$0, BlockPos $$1) {
       return getContainerAt($$0, $$1, $$0.getBlockState($$1), $$1.getX() + 0.5, $$1.getY() + 0.5, $$1.getZ() + 0.5);
    }
 
-   @Nullable
+   
    private static Container getContainerAt(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, double $$3, double $$4, double $$5) {
       Container $$6 = getBlockContainer($$0, $$1, $$2);
       if ($$6 == null) {
@@ -363,7 +362,7 @@ public class HopperBlockEntity extends RandomizableContainerBlockEntity implemen
       return $$6;
    }
 
-   @Nullable
+   
    private static Container getBlockContainer(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2) {
       Block $$3 = $$2.getBlock();
       if ($$3 instanceof WorldlyContainerHolder) {
@@ -379,7 +378,7 @@ public class HopperBlockEntity extends RandomizableContainerBlockEntity implemen
       }
    }
 
-   @Nullable
+   
    private static Container getEntityContainer(net.minecraft.world.level.Level $$0, double $$1, double $$2, double $$3) {
       List<Entity> $$4 = $$0.getEntities(
          (Entity)null, new AABB($$1 - 0.5, $$2 - 0.5, $$3 - 0.5, $$1 + 0.5, $$2 + 0.5, $$3 + 0.5), EntitySelector.CONTAINER_ENTITY_SELECTOR

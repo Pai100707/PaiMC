@@ -14,7 +14,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.vault.VaultBlockEntity;
 import net.minecraft.world.level.block.piston.PistonMovingBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class BlockEntityType<T extends BlockEntity> {
@@ -276,7 +275,7 @@ public class BlockEntityType<T extends BlockEntity> {
    private final Set<Block> validBlocks;
    private final Reference<BlockEntityType<?>> builtInRegistryHolder = BuiltInRegistries.BLOCK_ENTITY_TYPE.createIntrusiveHolder(this);
 
-   @Nullable
+   
    public static Identifier getKey(BlockEntityType<?> $$0) {
       return BuiltInRegistries.BLOCK_ENTITY_TYPE.getKey($$0);
    }
@@ -308,7 +307,7 @@ public class BlockEntityType<T extends BlockEntity> {
       return this.builtInRegistryHolder;
    }
 
-   @Nullable
+   
    public T getBlockEntity(net.minecraft.world.level.BlockGetter $$0, BlockPos $$1) {
       BlockEntity $$2 = $$0.getBlockEntity($$1);
       return (T)($$2 != null && $$2.getType() == this ? $$2 : null);

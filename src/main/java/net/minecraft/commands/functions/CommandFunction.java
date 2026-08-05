@@ -11,12 +11,11 @@ import net.minecraft.commands.execution.UnboundEntryAction;
 import net.minecraft.commands.execution.tasks.BuildContexts;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.Identifier;
-import org.jspecify.annotations.Nullable;
 
 public interface CommandFunction<T> {
    Identifier id();
 
-   InstantiatedFunction<T> instantiate(@Nullable CompoundTag var1, CommandDispatcher<T> var2) throws net.minecraft.commands.FunctionInstantiationException;
+   InstantiatedFunction<T> instantiate(CompoundTag var1, CommandDispatcher<T> var2) throws net.minecraft.commands.FunctionInstantiationException;
 
    private static boolean shouldConcatenateNextLine(CharSequence $$0) {
       int $$1 = $$0.length();

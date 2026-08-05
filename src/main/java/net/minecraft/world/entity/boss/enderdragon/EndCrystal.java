@@ -17,7 +17,6 @@ import net.minecraft.world.level.block.BaseFireBlock;
 import net.minecraft.world.level.dimension.end.EndDragonFight;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 
 public class EndCrystal extends net.minecraft.world.entity.Entity {
    private static final EntityDataAccessor<Optional<BlockPos>> DATA_BEAM_TARGET = SynchedEntityData.defineId(
@@ -118,11 +117,11 @@ public class EndCrystal extends net.minecraft.world.entity.Entity {
       }
    }
 
-   public void setBeamTarget(@Nullable BlockPos $$0) {
+   public void setBeamTarget(BlockPos $$0) {
       this.getEntityData().set(DATA_BEAM_TARGET, Optional.ofNullable($$0));
    }
 
-   @Nullable
+   
    public BlockPos getBeamTarget() {
       return (BlockPos)((Optional)this.getEntityData().get(DATA_BEAM_TARGET)).orElse(null);
    }

@@ -12,7 +12,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.TestBlockMode;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class TestBlockEntity extends BlockEntity {
@@ -53,7 +52,7 @@ public class TestBlockEntity extends BlockEntity {
       }
    }
 
-   @Nullable
+   
    public ClientboundBlockEntityDataPacket getUpdatePacket() {
       return ClientboundBlockEntityDataPacket.create(this);
    }

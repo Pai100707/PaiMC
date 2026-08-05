@@ -42,7 +42,6 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class EnderDragon extends net.minecraft.world.entity.Mob implements Enemy {
@@ -70,9 +69,9 @@ public class EnderDragon extends net.minecraft.world.entity.Mob implements Enemy
    public boolean inWall;
    public int dragonDeathTime = 0;
    public float yRotA;
-   @Nullable
+   
    public EndCrystal nearestCrystal;
-   @Nullable
+   
    private EndDragonFight dragonFight;
    private BlockPos fightOrigin = BlockPos.ZERO;
    private final EnderDragonPhaseManager phaseManager;
@@ -626,8 +625,8 @@ public class EnderDragon extends net.minecraft.world.entity.Mob implements Enemy
       return $$4;
    }
 
-   @Nullable
-   public Path findPath(int $$0, int $$1, @Nullable Node $$2) {
+   
+   public Path findPath(int $$0, int $$1, Node $$2) {
       for (int $$3 = 0; $$3 < 24; $$3++) {
          Node $$4 = this.nodes[$$3];
          $$4.closed = false;
@@ -824,13 +823,13 @@ public class EnderDragon extends net.minecraft.world.entity.Mob implements Enemy
       return this.phaseManager;
    }
 
-   @Nullable
+   
    public EndDragonFight getDragonFight() {
       return this.dragonFight;
    }
 
    @Override
-   public boolean addEffect(MobEffectInstance $$0, @Nullable net.minecraft.world.entity.Entity $$1) {
+   public boolean addEffect(MobEffectInstance $$0, net.minecraft.world.entity.Entity $$1) {
       return false;
    }
 

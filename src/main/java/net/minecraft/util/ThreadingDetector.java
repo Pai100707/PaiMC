@@ -11,7 +11,6 @@ import java.util.stream.Stream;
 import net.minecraft.CrashReport;
 import net.minecraft.CrashReportCategory;
 import net.minecraft.ReportedException;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class ThreadingDetector {
@@ -19,9 +18,9 @@ public class ThreadingDetector {
    private final String name;
    private final Semaphore lock = new Semaphore(1);
    private final Lock stackTraceLock = new ReentrantLock();
-   @Nullable
+   
    private volatile Thread threadThatFailedToAcquire;
-   @Nullable
+   
    private volatile ReportedException fullException;
 
    public ThreadingDetector(String $$0) {
@@ -70,7 +69,7 @@ public class ThreadingDetector {
       }
    }
 
-   public static ReportedException makeThreadingException(String $$0, @Nullable Thread $$1) {
+   public static ReportedException makeThreadingException(String $$0, Thread $$1) {
       String $$2 = Stream.of(Thread.currentThread(), $$1)
          .filter(Objects::nonNull)
          .map(net.minecraft.util.ThreadingDetector::stackTrace)

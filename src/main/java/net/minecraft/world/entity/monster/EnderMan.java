@@ -62,7 +62,6 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class EnderMan extends Monster implements net.minecraft.world.entity.NeutralMob {
    private static final Identifier SPEED_MODIFIER_ATTACKING_ID = Identifier.withDefaultNamespace("attacking");
@@ -80,7 +79,7 @@ public class EnderMan extends Monster implements net.minecraft.world.entity.Neut
    private int targetChangeTime;
    private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
    private long persistentAngerEndTime;
-   @Nullable
+   
    private net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> persistentAngerTarget;
 
    public EnderMan(net.minecraft.world.entity.EntityType<? extends EnderMan> $$0, Level $$1) {
@@ -119,7 +118,7 @@ public class EnderMan extends Monster implements net.minecraft.world.entity.Neut
    }
 
    @Override
-   public void setTarget(@Nullable net.minecraft.world.entity.LivingEntity $$0) {
+   public void setTarget(net.minecraft.world.entity.LivingEntity $$0) {
       super.setTarget($$0);
       AttributeInstance $$1 = this.getAttribute(Attributes.MOVEMENT_SPEED);
       if ($$0 == null) {
@@ -160,11 +159,11 @@ public class EnderMan extends Monster implements net.minecraft.world.entity.Neut
    }
 
    @Override
-   public void setPersistentAngerTarget(@Nullable net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> $$0) {
+   public void setPersistentAngerTarget(net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> $$0) {
       this.persistentAngerTarget = $$0;
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> getPersistentAngerTarget() {
       return this.persistentAngerTarget;
@@ -340,11 +339,11 @@ public class EnderMan extends Monster implements net.minecraft.world.entity.Neut
       }
    }
 
-   public void setCarriedBlock(@Nullable BlockState $$0) {
+   public void setCarriedBlock(BlockState $$0) {
       this.entityData.set(DATA_CARRY_STATE, Optional.ofNullable($$0));
    }
 
-   @Nullable
+   
    public BlockState getCarriedBlock() {
       return (BlockState)((Optional)this.entityData.get(DATA_CARRY_STATE)).orElse(null);
    }
@@ -401,7 +400,7 @@ public class EnderMan extends Monster implements net.minecraft.world.entity.Neut
 
    static class EndermanFreezeWhenLookedAt extends Goal {
       private final EnderMan enderman;
-      @Nullable
+      
       private net.minecraft.world.entity.LivingEntity target;
 
       public EndermanFreezeWhenLookedAt(EnderMan $$0) {
@@ -483,7 +482,7 @@ public class EnderMan extends Monster implements net.minecraft.world.entity.Neut
 
    static class EndermanLookForPlayerGoal extends NearestAttackableTargetGoal<Player> {
       private final EnderMan enderman;
-      @Nullable
+      
       private Player pendingTarget;
       private int aggroTime;
       private int teleportTime;
@@ -491,7 +490,7 @@ public class EnderMan extends Monster implements net.minecraft.world.entity.Neut
       private final TargetingConditions continueAggroTargetConditions = TargetingConditions.forCombat().ignoreLineOfSight();
       private final TargetingConditions.Selector isAngerInducing;
 
-      public EndermanLookForPlayerGoal(EnderMan $$0, @Nullable TargetingConditions.Selector $$1) {
+      public EndermanLookForPlayerGoal(EnderMan $$0, TargetingConditions.Selector $$1) {
          super($$0, Player.class, 10, false, false, $$1);
          this.enderman = $$0;
          this.isAngerInducing = ($$1x, $$2) -> ($$0.isBeingStaredBy((Player)$$1x) || $$0.isAngryAt($$1x, $$2)) && !$$0.hasIndirectPassenger($$1x);

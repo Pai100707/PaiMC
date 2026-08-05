@@ -31,16 +31,15 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class Vex extends Monster implements net.minecraft.world.entity.TraceableEntity {
    public static final float FLAP_DEGREES_PER_TICK = 45.836624F;
    public static final int TICKS_PER_FLAP = Mth.ceil((float) (Math.PI * 5.0 / 4.0));
    protected static final EntityDataAccessor<Byte> DATA_FLAGS_ID = SynchedEntityData.defineId(Vex.class, EntityDataSerializers.BYTE);
    private static final int FLAG_IS_CHARGING = 1;
-   @Nullable
+   
    private net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.Mob> owner;
-   @Nullable
+   
    private BlockPos boundOrigin;
    private boolean hasLimitedLife;
    private int limitedLifeTicks;
@@ -123,17 +122,17 @@ public class Vex extends Monster implements net.minecraft.world.entity.Traceable
       net.minecraft.world.entity.EntityReference.store(this.owner, $$0, "owner");
    }
 
-   @Nullable
+   
    public net.minecraft.world.entity.Mob getOwner() {
       return net.minecraft.world.entity.EntityReference.get(this.owner, this.level(), net.minecraft.world.entity.Mob.class);
    }
 
-   @Nullable
+   
    public BlockPos getBoundOrigin() {
       return this.boundOrigin;
    }
 
-   public void setBoundOrigin(@Nullable BlockPos $$0) {
+   public void setBoundOrigin(BlockPos $$0) {
       this.boundOrigin = $$0;
    }
 
@@ -190,13 +189,13 @@ public class Vex extends Monster implements net.minecraft.world.entity.Traceable
       return 1.0F;
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       RandomSource $$4 = $$0.getRandom();
       this.populateDefaultEquipmentSlots($$4, $$1);

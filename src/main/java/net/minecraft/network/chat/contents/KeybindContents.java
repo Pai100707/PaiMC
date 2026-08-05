@@ -9,14 +9,13 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.ComponentContents;
 import net.minecraft.network.chat.FormattedText;
 import net.minecraft.network.chat.Style;
-import org.jspecify.annotations.Nullable;
 
 public class KeybindContents implements ComponentContents {
    public static final MapCodec<KeybindContents> MAP_CODEC = RecordCodecBuilder.mapCodec(
       $$0 -> $$0.group(Codec.STRING.fieldOf("keybind").forGetter($$0x -> $$0x.name)).apply($$0, KeybindContents::new)
    );
    private final String name;
-   @Nullable
+   
    private Supplier<Component> nameResolver;
 
    public KeybindContents(String $$0) {

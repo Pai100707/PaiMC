@@ -26,7 +26,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class AnvilBlock extends FallingBlock {
    public static final MapCodec<AnvilBlock> CODEC = simpleCodec(AnvilBlock::new);
@@ -66,7 +65,7 @@ public class AnvilBlock extends FallingBlock {
       return InteractionResult.SUCCESS;
    }
 
-   @Nullable
+   
    @Override
    protected MenuProvider getMenuProvider(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2) {
       return new SimpleMenuProvider(($$2x, $$3, $$4) -> new AnvilMenu($$2x, $$3, ContainerLevelAccess.create($$1, $$2)), CONTAINER_TITLE);
@@ -101,7 +100,7 @@ public class AnvilBlock extends FallingBlock {
       return $$0.damageSources().anvil($$0);
    }
 
-   @Nullable
+   
    public static BlockState damage(BlockState $$0) {
       if ($$0.is(Blocks.ANVIL)) {
          return Blocks.CHIPPED_ANVIL.defaultBlockState().setValue(FACING, (Direction)$$0.getValue(FACING));

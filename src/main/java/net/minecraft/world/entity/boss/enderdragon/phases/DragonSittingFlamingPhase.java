@@ -9,7 +9,6 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class DragonSittingFlamingPhase extends AbstractDragonSittingPhase {
    private static final int FLAME_DURATION = 200;
@@ -17,7 +16,7 @@ public class DragonSittingFlamingPhase extends AbstractDragonSittingPhase {
    private static final int WARMUP_TIME = 10;
    private int flameTicks;
    private int flameCount;
-   @Nullable
+   
    private net.minecraft.world.entity.AreaEffectCloud flame;
 
    public DragonSittingFlamingPhase(EnderDragon $$0) {

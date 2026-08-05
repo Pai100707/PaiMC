@@ -39,7 +39,6 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
-import org.jspecify.annotations.Nullable;
 
 public abstract class AbstractSkeleton extends Monster implements RangedAttackMob {
    private static final int HARD_ATTACK_INTERVAL = 20;
@@ -105,13 +104,13 @@ public abstract class AbstractSkeleton extends Monster implements RangedAttackMo
       this.setItemSlot(net.minecraft.world.entity.EquipmentSlot.MAINHAND, new ItemStack(Items.BOW));
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       $$3 = super.finalizeSpawn($$0, $$1, $$2, $$3);
       RandomSource $$4 = $$0.getRandom();
@@ -170,7 +169,7 @@ public abstract class AbstractSkeleton extends Monster implements RangedAttackMo
       this.playSound(SoundEvents.SKELETON_SHOOT, 1.0F, 1.0F / (this.getRandom().nextFloat() * 0.4F + 0.8F));
    }
 
-   protected AbstractArrow getArrow(ItemStack $$0, float $$1, @Nullable ItemStack $$2) {
+   protected AbstractArrow getArrow(ItemStack $$0, float $$1, ItemStack $$2) {
       return ProjectileUtil.getMobArrow(this, $$0, $$1, $$2);
    }
 

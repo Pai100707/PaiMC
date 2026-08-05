@@ -14,13 +14,12 @@ import java.util.Map.Entry;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import net.minecraft.world.level.block.state.properties.Property;
-import org.jspecify.annotations.Nullable;
 
 public abstract class StateHolder<O, S> {
    public static final String NAME_TAG = "Name";
    public static final String PROPERTIES_TAG = "Properties";
    private static final Function<Entry<Property<?>, Comparable<?>>, String> PROPERTY_ENTRY_TO_STRING_FUNCTION = new Function<Entry<Property<?>, Comparable<?>>, String>() {
-      public String apply(@Nullable Entry<Property<?>, Comparable<?>> $$0) {
+      public String apply(Entry<Property<?>, Comparable<?>> $$0) {
          if ($$0 == null) {
             return "<NULL>";
          } else {
@@ -101,7 +100,7 @@ public abstract class StateHolder<O, S> {
       return Objects.requireNonNullElse(this.getNullableValue($$0), $$1);
    }
 
-   @Nullable
+   
    private <T extends Comparable<T>> T getNullableValue(Property<T> $$0) {
       Comparable<?> $$1 = (Comparable<?>)this.values.get($$0);
       return $$1 == null ? null : $$0.getValueClass().cast($$1);

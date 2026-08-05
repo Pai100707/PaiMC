@@ -20,7 +20,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.pathfinder.PathType;
-import org.jspecify.annotations.Nullable;
 
 public class WitherSkeleton extends AbstractSkeleton {
    public WitherSkeleton(net.minecraft.world.entity.EntityType<? extends WitherSkeleton> $$0, Level $$1) {
@@ -73,13 +72,13 @@ public class WitherSkeleton extends AbstractSkeleton {
    protected void populateDefaultEquipmentEnchantments(ServerLevelAccessor $$0, RandomSource $$1, DifficultyInstance $$2) {
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       net.minecraft.world.entity.SpawnGroupData $$4 = super.finalizeSpawn($$0, $$1, $$2, $$3);
       this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(4.0);
@@ -101,7 +100,7 @@ public class WitherSkeleton extends AbstractSkeleton {
    }
 
    @Override
-   protected AbstractArrow getArrow(ItemStack $$0, float $$1, @Nullable ItemStack $$2) {
+   protected AbstractArrow getArrow(ItemStack $$0, float $$1, ItemStack $$2) {
       AbstractArrow $$3 = super.getArrow($$0, $$1, $$2);
       $$3.igniteForSeconds(100.0F);
       return $$3;

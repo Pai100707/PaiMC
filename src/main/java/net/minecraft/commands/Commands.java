@@ -157,7 +157,6 @@ import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class Commands {
@@ -174,7 +173,7 @@ public class Commands {
          PermissionSet.NO_PERMISSIONS
       );
 
-      @Nullable
+      
       public Identifier suggestionId(ArgumentCommandNode<net.minecraft.commands.CommandSourceStack, ?> $$0) {
          SuggestionProvider<net.minecraft.commands.CommandSourceStack> $$1 = $$0.getCustomSuggestions();
          return $$1 != null ? SuggestionProviders.getName($$1) : null;
@@ -357,7 +356,7 @@ public class Commands {
       }
    }
 
-   @Nullable
+   
    private static ContextChain<net.minecraft.commands.CommandSourceStack> finishParsing(
       ParseResults<net.minecraft.commands.CommandSourceStack> $$0, String $$1, net.minecraft.commands.CommandSourceStack $$2
    ) {
@@ -466,7 +465,7 @@ public class Commands {
       }
    }
 
-   @Nullable
+   
    public static <S> CommandSyntaxException getParseException(ParseResults<S> $$0) {
       if (!$$0.getReader().canRead()) {
          return null;

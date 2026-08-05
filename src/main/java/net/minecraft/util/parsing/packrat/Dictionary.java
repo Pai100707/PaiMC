@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.function.Supplier;
-import org.jspecify.annotations.Nullable;
 
 public class Dictionary<S> {
    private final Map<Atom<?>, Dictionary.Entry<S, ?>> terms = new IdentityHashMap<>();
@@ -62,7 +61,7 @@ public class Dictionary<S> {
 
    static class Entry<S, T> implements NamedRule<S, T>, Supplier<String> {
       private final Atom<T> name;
-      @Nullable
+      
       Rule<S, T> value;
 
       private Entry(Atom<T> $$0) {

@@ -23,7 +23,6 @@ import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.gamerules.GameRules;
-import org.jspecify.annotations.Nullable;
 
 public abstract class LavaFluid extends FlowingFluid {
    public static final float MIN_LEVEL_CUTOFF = 0.44444445F;
@@ -129,7 +128,7 @@ public abstract class LavaFluid extends FlowingFluid {
       return $$0.isInsideBuildHeight($$1.getY()) && !$$0.hasChunkAt($$1) ? false : $$0.getBlockState($$1).ignitedByLava();
    }
 
-   @Nullable
+   
    @Override
    public ParticleOptions getDripParticle() {
       return ParticleTypes.DRIPPING_LAVA;

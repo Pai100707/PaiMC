@@ -22,7 +22,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.pattern.BlockInWorld;
-import org.jspecify.annotations.Nullable;
 
 public record BlockPredicate(
    Optional<HolderSet<Block>> blocks, Optional<StatePropertiesPredicate> properties, Optional<NbtPredicate> nbt, DataComponentMatchers components
@@ -77,11 +76,11 @@ public record BlockPredicate(
       return this.blocks.isPresent() && !$$0.is(this.blocks.get()) ? false : !this.properties.isPresent() || this.properties.get().matches($$0);
    }
 
-   private static boolean matchesBlockEntity(LevelReader $$0, @Nullable BlockEntity $$1, NbtPredicate $$2) {
+   private static boolean matchesBlockEntity(LevelReader $$0, BlockEntity $$1, NbtPredicate $$2) {
       return $$1 != null && $$2.matches($$1.saveWithFullMetadata($$0.registryAccess()));
    }
 
-   private static boolean matchesComponents(@Nullable BlockEntity $$0, DataComponentMatchers $$1) {
+   private static boolean matchesComponents(BlockEntity $$0, DataComponentMatchers $$1) {
       return $$0 != null && $$1.test((DataComponentGetter)$$0.collectComponents());
    }
 

@@ -23,7 +23,6 @@ import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class ThrownTrident extends AbstractArrow {
    private static final EntityDataAccessor<Byte> ID_LOYALTY = SynchedEntityData.defineId(ThrownTrident.class, EntityDataSerializers.BYTE);
@@ -102,7 +101,7 @@ public class ThrownTrident extends AbstractArrow {
       return (Boolean)this.entityData.get(ID_FOIL);
    }
 
-   @Nullable
+   
    @Override
    protected EntityHitResult findHitEntity(Vec3 $$0, Vec3 $$1) {
       return this.dealtDamage ? null : super.findHitEntity($$0, $$1);

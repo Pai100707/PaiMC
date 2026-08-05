@@ -28,7 +28,6 @@ import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.level.pathfinder.WalkNodeEvaluator;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.HitResult.Type;
-import org.jspecify.annotations.Nullable;
 
 public abstract class PathNavigation {
    private static final int MAX_TIME_RECOMPUTE = 20;
@@ -36,7 +35,7 @@ public abstract class PathNavigation {
    private static final float STUCK_THRESHOLD_DISTANCE_FACTOR = 0.25F;
    protected final net.minecraft.world.entity.Mob mob;
    protected final Level level;
-   @Nullable
+   
    protected Path path;
    protected double speedModifier;
    protected int tick;
@@ -50,7 +49,7 @@ public abstract class PathNavigation {
    protected boolean hasDelayedRecomputation;
    protected long timeLastRecompute;
    protected NodeEvaluator nodeEvaluator;
-   @Nullable
+   
    private BlockPos targetPos;
    private int reachRange;
    private float maxVisitedNodesMultiplier = 1.0F;
@@ -90,7 +89,7 @@ public abstract class PathNavigation {
       this.maxVisitedNodesMultiplier = $$0;
    }
 
-   @Nullable
+   
    public BlockPos getTargetPos() {
       return this.targetPos;
    }
@@ -114,42 +113,42 @@ public abstract class PathNavigation {
       }
    }
 
-   @Nullable
+   
    public final Path createPath(double $$0, double $$1, double $$2, int $$3) {
       return this.createPath(BlockPos.containing($$0, $$1, $$2), $$3);
    }
 
-   @Nullable
+   
    public Path createPath(Stream<BlockPos> $$0, int $$1) {
       return this.createPath($$0.collect(Collectors.toSet()), 8, false, $$1);
    }
 
-   @Nullable
+   
    public Path createPath(Set<BlockPos> $$0, int $$1) {
       return this.createPath($$0, 8, false, $$1);
    }
 
-   @Nullable
+   
    public Path createPath(BlockPos $$0, int $$1) {
       return this.createPath(ImmutableSet.of($$0), 8, false, $$1);
    }
 
-   @Nullable
+   
    public Path createPath(BlockPos $$0, int $$1, int $$2) {
       return this.createPath(ImmutableSet.of($$0), 8, false, $$1, $$2);
    }
 
-   @Nullable
+   
    public Path createPath(net.minecraft.world.entity.Entity $$0, int $$1) {
       return this.createPath(ImmutableSet.of($$0.blockPosition()), 16, true, $$1);
    }
 
-   @Nullable
+   
    protected Path createPath(Set<BlockPos> $$0, int $$1, boolean $$2, int $$3) {
       return this.createPath($$0, $$1, $$2, $$3, this.getMaxPathLength());
    }
 
-   @Nullable
+   
    protected Path createPath(Set<BlockPos> $$0, int $$1, boolean $$2, int $$3, float $$4) {
       if ($$0.isEmpty()) {
          return null;
@@ -190,7 +189,7 @@ public abstract class PathNavigation {
       return $$2 != null && this.moveTo($$2, $$1);
    }
 
-   public boolean moveTo(@Nullable Path $$0, double $$1) {
+   public boolean moveTo(Path $$0, double $$1) {
       if ($$0 == null) {
          this.path = null;
          return false;
@@ -216,7 +215,7 @@ public abstract class PathNavigation {
       }
    }
 
-   @Nullable
+   
    public Path getPath() {
       return this.path;
    }

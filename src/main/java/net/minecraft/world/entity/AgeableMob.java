@@ -13,7 +13,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 
 public abstract class AgeableMob extends net.minecraft.world.entity.PathfinderMob {
    private static final EntityDataAccessor<Boolean> DATA_BABY_ID = SynchedEntityData.defineId(
@@ -31,13 +30,13 @@ public abstract class AgeableMob extends net.minecraft.world.entity.PathfinderMo
       super($$0, $$1);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       if ($$3 == null) {
          $$3 = new net.minecraft.world.entity.AgeableMob.AgeableMobGroupData(true);
@@ -52,7 +51,7 @@ public abstract class AgeableMob extends net.minecraft.world.entity.PathfinderMo
       return super.finalizeSpawn($$0, $$1, $$2, $$3);
    }
 
-   @Nullable
+   
    public abstract net.minecraft.world.entity.AgeableMob getBreedOffspring(ServerLevel var1, net.minecraft.world.entity.AgeableMob var2);
 
    @Override

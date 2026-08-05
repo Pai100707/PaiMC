@@ -13,7 +13,6 @@ import net.minecraft.nbt.NbtIo;
 import net.minecraft.nbt.StreamTagVisitor;
 import net.minecraft.util.ExceptionCollector;
 import net.minecraft.util.FileUtil;
-import org.jspecify.annotations.Nullable;
 
 public final class RegionFileStorage implements AutoCloseable {
    public static final String ANVIL_EXTENSION = ".mca";
@@ -47,7 +46,7 @@ public final class RegionFileStorage implements AutoCloseable {
       }
    }
 
-   @Nullable
+   
    public CompoundTag read(net.minecraft.world.level.ChunkPos $$0) throws IOException {
       RegionFile $$1 = this.getRegionFile($$0);
 
@@ -73,7 +72,7 @@ public final class RegionFileStorage implements AutoCloseable {
       }
    }
 
-   protected void write(net.minecraft.world.level.ChunkPos $$0, @Nullable CompoundTag $$1) throws IOException {
+   protected void write(net.minecraft.world.level.ChunkPos $$0, CompoundTag $$1) throws IOException {
       if (!SharedConstants.DEBUG_DONT_SAVE_WORLD) {
          RegionFile $$2 = this.getRegionFile($$0);
          if ($$1 == null) {

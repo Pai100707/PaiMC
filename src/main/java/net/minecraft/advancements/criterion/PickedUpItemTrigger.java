@@ -7,7 +7,6 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
-import org.jspecify.annotations.Nullable;
 
 public class PickedUpItemTrigger extends SimpleCriterionTrigger<PickedUpItemTrigger.TriggerInstance> {
    @Override
@@ -15,7 +14,7 @@ public class PickedUpItemTrigger extends SimpleCriterionTrigger<PickedUpItemTrig
       return PickedUpItemTrigger.TriggerInstance.CODEC;
    }
 
-   public void trigger(ServerPlayer $$0, ItemStack $$1, @Nullable Entity $$2) {
+   public void trigger(ServerPlayer $$0, ItemStack $$1, Entity $$2) {
       LootContext $$3 = EntityPredicate.createContext($$0, $$2);
       this.trigger($$0, $$3x -> $$3x.matches($$0, $$1, $$3));
    }

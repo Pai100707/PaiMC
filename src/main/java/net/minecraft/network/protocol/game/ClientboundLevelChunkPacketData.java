@@ -22,7 +22,6 @@ import net.minecraft.world.level.chunk.LevelChunk;
 import net.minecraft.world.level.chunk.LevelChunkSection;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.Heightmap.Types;
-import org.jspecify.annotations.Nullable;
 
 public class ClientboundLevelChunkPacketData {
    private static final StreamCodec<ByteBuf, Map<Types, long[]>> HEIGHTMAPS_STREAM_CODEC = ByteBufCodecs.map(
@@ -127,10 +126,10 @@ public class ClientboundLevelChunkPacketData {
       final int packedXZ;
       final int y;
       final BlockEntityType<?> type;
-      @Nullable
+      
       final CompoundTag tag;
 
-      private BlockEntityInfo(int $$0, int $$1, BlockEntityType<?> $$2, @Nullable CompoundTag $$3) {
+      private BlockEntityInfo(int $$0, int $$1, BlockEntityType<?> $$2, CompoundTag $$3) {
          this.packedXZ = $$0;
          this.y = $$1;
          this.type = $$2;
@@ -161,6 +160,6 @@ public class ClientboundLevelChunkPacketData {
 
    @FunctionalInterface
    public interface BlockEntityTagOutput {
-      void accept(BlockPos var1, BlockEntityType<?> var2, @Nullable CompoundTag var3);
+      void accept(BlockPos var1, BlockEntityType<?> var2, CompoundTag var3);
    }
 }

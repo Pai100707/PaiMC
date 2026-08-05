@@ -20,7 +20,6 @@ import java.util.function.IntFunction;
 import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
 import net.minecraft.core.RegistryAccess;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public abstract class Settings<T extends Settings<T>> {
@@ -92,12 +91,12 @@ public abstract class Settings<T extends Settings<T>> {
       };
    }
 
-   @Nullable
+   
    private String getStringRaw(String $$0) {
       return (String)this.properties.get($$0);
    }
 
-   @Nullable
+   
    protected <V> V getLegacy(String $$0, Function<String, V> $$1) {
       String $$2 = this.getStringRaw($$0);
       if ($$2 == null) {
@@ -141,7 +140,7 @@ public abstract class Settings<T extends Settings<T>> {
       return this.get($$0, Function.identity(), Function.identity(), $$1);
    }
 
-   @Nullable
+   
    protected String getLegacyString(String $$0) {
       return this.getLegacy($$0, Function.identity());
    }
@@ -174,7 +173,7 @@ public abstract class Settings<T extends Settings<T>> {
       return this.getMutable($$0, Boolean::valueOf, $$1);
    }
 
-   @Nullable
+   
    protected Boolean getLegacyBoolean(String $$0) {
       return this.getLegacy($$0, Boolean::valueOf);
    }

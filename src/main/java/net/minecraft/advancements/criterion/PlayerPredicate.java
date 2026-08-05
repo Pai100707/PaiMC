@@ -38,7 +38,6 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.HitResult.Type;
-import org.jspecify.annotations.Nullable;
 
 public record PlayerPredicate(
    MinMaxBounds.Ints level,
@@ -66,7 +65,7 @@ public record PlayerPredicate(
    );
 
    @Override
-   public boolean matches(Entity $$0, ServerLevel $$1, @Nullable Vec3 $$2) {
+   public boolean matches(Entity $$0, ServerLevel $$1, Vec3 $$2) {
       if (!($$0 instanceof ServerPlayer $$3)) {
          return false;
       } else if (!this.level.matches($$3.experienceLevel)) {

@@ -24,7 +24,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.pathfinder.Path;
 import net.minecraft.world.level.pathfinder.WalkNodeEvaluator;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class LongJumpToRandomPos<E extends net.minecraft.world.entity.Mob> extends Behavior<E> {
    protected static final int FIND_JUMP_TRIES = 20;
@@ -38,7 +37,7 @@ public class LongJumpToRandomPos<E extends net.minecraft.world.entity.Mob> exten
    protected final float maxJumpVelocityMultiplier;
    protected List<LongJumpToRandomPos.PossibleJump> jumpCandidates = Lists.newArrayList();
    protected Optional<Vec3> initialPosition = Optional.empty();
-   @Nullable
+   
    protected Vec3 chosenJump;
    protected int findJumpTries;
    protected long prepareJumpStart;
@@ -173,7 +172,7 @@ public class LongJumpToRandomPos<E extends net.minecraft.world.entity.Mob> exten
       return $$4 == $$2.getX() && $$5 == $$2.getZ() ? false : this.acceptableLandingSpot.test($$1, $$2);
    }
 
-   @Nullable
+   
    protected Vec3 calculateOptimalJumpVector(net.minecraft.world.entity.Mob $$0, Vec3 $$1) {
       List<Integer> $$2 = Lists.newArrayList(ALLOWED_ANGLES);
       Collections.shuffle($$2);

@@ -9,7 +9,6 @@ import java.util.Locale;
 import java.util.Objects;
 import net.minecraft.util.ClassTreeIdRegistry;
 import org.apache.commons.lang3.ObjectUtils;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class SynchedEntityData {
@@ -70,7 +69,7 @@ public class SynchedEntityData {
       return this.isDirty;
    }
 
-   @Nullable
+   
    public List<SynchedEntityData.DataValue<?>> packDirty() {
       if (!this.isDirty) {
          return null;
@@ -89,7 +88,7 @@ public class SynchedEntityData {
       }
    }
 
-   @Nullable
+   
    public List<SynchedEntityData.DataValue<?>> getNonDefaultValues() {
       List<SynchedEntityData.DataValue<?>> $$0 = null;
 

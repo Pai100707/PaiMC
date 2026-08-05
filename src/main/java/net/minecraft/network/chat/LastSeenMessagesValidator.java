@@ -2,12 +2,11 @@ package net.minecraft.network.chat;
 
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import it.unimi.dsi.fastutil.objects.ObjectList;
-import org.jspecify.annotations.Nullable;
 
 public class LastSeenMessagesValidator {
    private final int lastSeenCount;
    private final ObjectList<LastSeenTrackedEntry> trackedMessages = new ObjectArrayList();
-   @Nullable
+   
    private MessageSignature lastPendingMessage;
 
    public LastSeenMessagesValidator(int $$0) {

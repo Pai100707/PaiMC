@@ -5,7 +5,6 @@ import it.unimi.dsi.fastutil.longs.Long2ObjectLinkedOpenHashMap;
 import java.util.List;
 import java.util.stream.IntStream;
 import net.minecraft.world.level.ChunkPos;
-import org.jspecify.annotations.Nullable;
 
 public class ChunkTaskPriorityQueue {
    public static final int PRIORITY_LEVEL_COUNT = ChunkLevel.MAX_LEVEL + 2;
@@ -60,7 +59,7 @@ public class ChunkTaskPriorityQueue {
       }
    }
 
-   @Nullable
+   
    public ChunkTaskPriorityQueue.TasksForChunk pop() {
       if (!this.hasWork()) {
          return null;

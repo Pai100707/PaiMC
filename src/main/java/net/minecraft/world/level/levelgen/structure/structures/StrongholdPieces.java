@@ -30,7 +30,6 @@ import net.minecraft.world.level.levelgen.structure.StructurePieceAccessor;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
-import org.jspecify.annotations.Nullable;
 
 public class StrongholdPieces {
    private static final int SMALL_DOOR_WIDTH = 3;
@@ -63,7 +62,7 @@ public class StrongholdPieces {
       }
    };
    private static List<StrongholdPieces.PieceWeight> currentPieces;
-   @Nullable
+   
    static Class<? extends StrongholdPieces.StrongholdPiece> imposedPiece;
    private static int totalWeight;
    static final StrongholdPieces.SmoothStoneSelector SMOOTH_STONE_SELECTOR = new StrongholdPieces.SmoothStoneSelector();
@@ -94,7 +93,7 @@ public class StrongholdPieces {
       return $$0;
    }
 
-   @Nullable
+   
    private static StrongholdPieces.StrongholdPiece findAndCreatePieceFactory(
       Class<? extends StrongholdPieces.StrongholdPiece> $$0, StructurePieceAccessor $$1, RandomSource $$2, int $$3, int $$4, int $$5, Direction $$6, int $$7
    ) {
@@ -126,7 +125,7 @@ public class StrongholdPieces {
       return $$8;
    }
 
-   @Nullable
+   
    private static StrongholdPieces.StrongholdPiece generatePieceFromSmallDoor(
       StrongholdPieces.StartPiece $$0, StructurePieceAccessor $$1, RandomSource $$2, int $$3, int $$4, int $$5, Direction $$6, int $$7
    ) {
@@ -173,7 +172,7 @@ public class StrongholdPieces {
       }
    }
 
-   @Nullable
+   
    static StructurePiece generateAndAddPiece(
       StrongholdPieces.StartPiece $$0, StructurePieceAccessor $$1, RandomSource $$2, int $$3, int $$4, int $$5, Direction $$6, int $$7
    ) {
@@ -220,7 +219,7 @@ public class StrongholdPieces {
          this.generateSmallDoorChildForward((StrongholdPieces.StartPiece)$$0, $$1, $$2, 1, 1);
       }
 
-      @Nullable
+      
       public static StrongholdPieces.ChestCorridor createPiece(StructurePieceAccessor $$0, RandomSource $$1, int $$2, int $$3, int $$4, Direction $$5, int $$6) {
          BoundingBox $$7 = BoundingBox.orientBox($$2, $$3, $$4, -1, -1, 0, 5, 5, 7, $$5);
          return isOkBox($$7) && $$0.findCollisionPiece($$7) == null ? new StrongholdPieces.ChestCorridor($$6, $$1, $$7, $$5) : null;
@@ -276,7 +275,7 @@ public class StrongholdPieces {
          $$1.putInt("Steps", this.steps);
       }
 
-      @Nullable
+      
       public static BoundingBox findPieceBox(StructurePieceAccessor $$0, RandomSource $$1, int $$2, int $$3, int $$4, Direction $$5) {
          int $$6 = 3;
          BoundingBox $$7 = BoundingBox.orientBox($$2, $$3, $$4, -1, -1, 0, 5, 5, 4, $$5);
@@ -395,7 +394,7 @@ public class StrongholdPieces {
          }
       }
 
-      @Nullable
+      
       public static StrongholdPieces.FiveCrossing createPiece(StructurePieceAccessor $$0, RandomSource $$1, int $$2, int $$3, int $$4, Direction $$5, int $$6) {
          BoundingBox $$7 = BoundingBox.orientBox($$2, $$3, $$4, -4, -3, 0, 10, 9, 11, $$5);
          return isOkBox($$7) && $$0.findCollisionPiece($$7) == null ? new StrongholdPieces.FiveCrossing($$6, $$1, $$7, $$5) : null;
@@ -480,7 +479,7 @@ public class StrongholdPieces {
          }
       }
 
-      @Nullable
+      
       public static StrongholdPieces.LeftTurn createPiece(StructurePieceAccessor $$0, RandomSource $$1, int $$2, int $$3, int $$4, Direction $$5, int $$6) {
          BoundingBox $$7 = BoundingBox.orientBox($$2, $$3, $$4, -1, -1, 0, 5, 5, 5, $$5);
          return isOkBox($$7) && $$0.findCollisionPiece($$7) == null ? new StrongholdPieces.LeftTurn($$6, $$1, $$7, $$5) : null;
@@ -532,7 +531,7 @@ public class StrongholdPieces {
          $$1.putBoolean("Tall", this.isTall);
       }
 
-      @Nullable
+      
       public static StrongholdPieces.Library createPiece(StructurePieceAccessor $$0, RandomSource $$1, int $$2, int $$3, int $$4, Direction $$5, int $$6) {
          BoundingBox $$7 = BoundingBox.orientBox($$2, $$3, $$4, -4, -1, 0, 14, 11, 15, $$5);
          if (!isOkBox($$7) || $$0.findCollisionPiece($$7) != null) {
@@ -713,7 +712,7 @@ public class StrongholdPieces {
          }
       }
 
-      @Nullable
+      
       public static StrongholdPieces.PortalRoom createPiece(StructurePieceAccessor $$0, int $$1, int $$2, int $$3, Direction $$4, int $$5) {
          BoundingBox $$6 = BoundingBox.orientBox($$1, $$2, $$3, -4, -1, 0, 11, 8, 16, $$4);
          return isOkBox($$6) && $$0.findCollisionPiece($$6) == null ? new StrongholdPieces.PortalRoom($$5, $$6, $$4) : null;
@@ -835,7 +834,7 @@ public class StrongholdPieces {
          this.generateSmallDoorChildForward((StrongholdPieces.StartPiece)$$0, $$1, $$2, 1, 1);
       }
 
-      @Nullable
+      
       public static StrongholdPieces.PrisonHall createPiece(StructurePieceAccessor $$0, RandomSource $$1, int $$2, int $$3, int $$4, Direction $$5, int $$6) {
          BoundingBox $$7 = BoundingBox.orientBox($$2, $$3, $$4, -1, -1, 0, 9, 5, 11, $$5);
          return isOkBox($$7) && $$0.findCollisionPiece($$7) == null ? new StrongholdPieces.PrisonHall($$6, $$1, $$7, $$5) : null;
@@ -907,7 +906,7 @@ public class StrongholdPieces {
          }
       }
 
-      @Nullable
+      
       public static StrongholdPieces.RightTurn createPiece(StructurePieceAccessor $$0, RandomSource $$1, int $$2, int $$3, int $$4, Direction $$5, int $$6) {
          BoundingBox $$7 = BoundingBox.orientBox($$2, $$3, $$4, -1, -1, 0, 5, 5, 5, $$5);
          return isOkBox($$7) && $$0.findCollisionPiece($$7) == null ? new StrongholdPieces.RightTurn($$6, $$1, $$7, $$5) : null;
@@ -965,7 +964,7 @@ public class StrongholdPieces {
          this.generateSmallDoorChildRight((StrongholdPieces.StartPiece)$$0, $$1, $$2, 1, 4);
       }
 
-      @Nullable
+      
       public static StrongholdPieces.RoomCrossing createPiece(StructurePieceAccessor $$0, RandomSource $$1, int $$2, int $$3, int $$4, Direction $$5, int $$6) {
          BoundingBox $$7 = BoundingBox.orientBox($$2, $$3, $$4, -4, -1, 0, 11, 7, 11, $$5);
          return isOkBox($$7) && $$0.findCollisionPiece($$7) == null ? new StrongholdPieces.RoomCrossing($$6, $$1, $$7, $$5) : null;
@@ -1132,7 +1131,7 @@ public class StrongholdPieces {
          this.generateSmallDoorChildForward((StrongholdPieces.StartPiece)$$0, $$1, $$2, 1, 1);
       }
 
-      @Nullable
+      
       public static StrongholdPieces.StairsDown createPiece(StructurePieceAccessor $$0, RandomSource $$1, int $$2, int $$3, int $$4, Direction $$5, int $$6) {
          BoundingBox $$7 = BoundingBox.orientBox($$2, $$3, $$4, -1, -7, 0, 5, 11, 5, $$5);
          return isOkBox($$7) && $$0.findCollisionPiece($$7) == null ? new StrongholdPieces.StairsDown($$6, $$1, $$7, $$5) : null;
@@ -1172,9 +1171,9 @@ public class StrongholdPieces {
    }
 
    public static class StartPiece extends StrongholdPieces.StairsDown {
-      @Nullable
+      
       public StrongholdPieces.PieceWeight previousPiece;
-      @Nullable
+      
       public StrongholdPieces.PortalRoom portalRoomPiece;
       public final List<StructurePiece> pendingChildren = Lists.newArrayList();
 
@@ -1232,7 +1231,7 @@ public class StrongholdPieces {
          }
       }
 
-      @Nullable
+      
       public static StrongholdPieces.Straight createPiece(StructurePieceAccessor $$0, RandomSource $$1, int $$2, int $$3, int $$4, Direction $$5, int $$6) {
          BoundingBox $$7 = BoundingBox.orientBox($$2, $$3, $$4, -1, -1, 0, 5, 5, 7, $$5);
          return isOkBox($$7) && $$0.findCollisionPiece($$7) == null ? new StrongholdPieces.Straight($$6, $$1, $$7, $$5) : null;
@@ -1287,7 +1286,7 @@ public class StrongholdPieces {
          this.generateSmallDoorChildForward((StrongholdPieces.StartPiece)$$0, $$1, $$2, 1, 1);
       }
 
-      @Nullable
+      
       public static StrongholdPieces.StraightStairsDown createPiece(
          StructurePieceAccessor $$0, RandomSource $$1, int $$2, int $$3, int $$4, Direction $$5, int $$6
       ) {
@@ -1413,7 +1412,7 @@ public class StrongholdPieces {
          }
       }
 
-      @Nullable
+      
       protected StructurePiece generateSmallDoorChildForward(StrongholdPieces.StartPiece $$0, StructurePieceAccessor $$1, RandomSource $$2, int $$3, int $$4) {
          Direction $$5 = this.getOrientation();
          if ($$5 != null) {
@@ -1440,7 +1439,7 @@ public class StrongholdPieces {
          return null;
       }
 
-      @Nullable
+      
       protected StructurePiece generateSmallDoorChildLeft(StrongholdPieces.StartPiece $$0, StructurePieceAccessor $$1, RandomSource $$2, int $$3, int $$4) {
          Direction $$5 = this.getOrientation();
          if ($$5 != null) {
@@ -1495,7 +1494,7 @@ public class StrongholdPieces {
          return null;
       }
 
-      @Nullable
+      
       protected StructurePiece generateSmallDoorChildRight(StrongholdPieces.StartPiece $$0, StructurePieceAccessor $$1, RandomSource $$2, int $$3, int $$4) {
          Direction $$5 = this.getOrientation();
          if ($$5 != null) {

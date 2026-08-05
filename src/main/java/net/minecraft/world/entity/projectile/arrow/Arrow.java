@@ -12,7 +12,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.level.Level;
-import org.jspecify.annotations.Nullable;
 
 public class Arrow extends AbstractArrow {
    private static final int EXPOSED_POTION_DECAY_TIME = 600;
@@ -24,12 +23,12 @@ public class Arrow extends AbstractArrow {
       super($$0, $$1);
    }
 
-   public Arrow(Level $$0, double $$1, double $$2, double $$3, ItemStack $$4, @Nullable ItemStack $$5) {
+   public Arrow(Level $$0, double $$1, double $$2, double $$3, ItemStack $$4, ItemStack $$5) {
       super(net.minecraft.world.entity.EntityType.ARROW, $$1, $$2, $$3, $$0, $$4, $$5);
       this.updateColor();
    }
 
-   public Arrow(Level $$0, net.minecraft.world.entity.LivingEntity $$1, ItemStack $$2, @Nullable ItemStack $$3) {
+   public Arrow(Level $$0, net.minecraft.world.entity.LivingEntity $$1, ItemStack $$2, ItemStack $$3) {
       super(net.minecraft.world.entity.EntityType.ARROW, $$1, $$0, $$2, $$3);
       this.updateColor();
    }

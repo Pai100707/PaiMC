@@ -6,10 +6,9 @@ import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.ai.goal.FollowFlockLeaderGoal;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
-import org.jspecify.annotations.Nullable;
 
 public abstract class AbstractSchoolingFish extends AbstractFish {
-   @Nullable
+   
    private AbstractSchoolingFish leader;
    private int schoolSize = 1;
 
@@ -93,13 +92,13 @@ public abstract class AbstractSchoolingFish extends AbstractFish {
       $$0.limit(this.getMaxSchoolSize() - this.schoolSize).filter($$0x -> $$0x != this).forEach($$0x -> $$0x.startFollowing(this));
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       super.finalizeSpawn($$0, $$1, $$2, $$3);
       if ($$3 == null) {

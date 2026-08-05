@@ -40,7 +40,6 @@ import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class PointedDripstoneBlock extends Block implements Fallable, SimpleWaterloggedBlock {
    public static final MapCodec<PointedDripstoneBlock> CODEC = simpleCodec(PointedDripstoneBlock::new);
@@ -229,7 +228,7 @@ public class PointedDripstoneBlock extends Block implements Fallable, SimpleWate
       }
    }
 
-   @Nullable
+   
    @Override
    public BlockState getStateForPlacement(BlockPlaceContext $$0) {
       net.minecraft.world.level.LevelAccessor $$1 = $$0.getLevel();
@@ -398,7 +397,7 @@ public class PointedDripstoneBlock extends Block implements Fallable, SimpleWate
       $$0.addParticle($$10, $$7, $$8, $$9, 0.0, 0.0, 0.0);
    }
 
-   @Nullable
+   
    private static BlockPos findTip(BlockState $$0, net.minecraft.world.level.LevelAccessor $$1, BlockPos $$2, int $$3, boolean $$4) {
       if (isTip($$0, $$4)) {
          return $$2;
@@ -409,7 +408,7 @@ public class PointedDripstoneBlock extends Block implements Fallable, SimpleWate
       }
    }
 
-   @Nullable
+   
    private static Direction calculateTipDirection(net.minecraft.world.level.LevelReader $$0, BlockPos $$1, Direction $$2) {
       Direction $$3;
       if (isValidPointedDripstonePlacement($$0, $$1, $$2)) {
@@ -504,7 +503,7 @@ public class PointedDripstoneBlock extends Block implements Fallable, SimpleWate
       return $$0.is(Blocks.POINTED_DRIPSTONE) && $$0.getValue(TIP_DIRECTION) == $$1;
    }
 
-   @Nullable
+   
    private static BlockPos findFillableCauldronBelowStalactiteTip(net.minecraft.world.level.Level $$0, BlockPos $$1, Fluid $$2) {
       Predicate<BlockState> $$3 = $$1x -> $$1x.getBlock() instanceof AbstractCauldronBlock
          && ((AbstractCauldronBlock)$$1x.getBlock()).canReceiveStalactiteDrip($$2);
@@ -512,7 +511,7 @@ public class PointedDripstoneBlock extends Block implements Fallable, SimpleWate
       return findBlockVertical($$0, $$1, Direction.DOWN.getAxisDirection(), $$4, $$3, 11).orElse(null);
    }
 
-   @Nullable
+   
    public static BlockPos findStalactiteTipAboveCauldron(net.minecraft.world.level.Level $$0, BlockPos $$1) {
       BiPredicate<BlockPos, BlockState> $$2 = ($$1x, $$2x) -> canDripThrough($$0, $$1x, $$2x);
       return findBlockVertical($$0, $$1, Direction.UP.getAxisDirection(), $$2, PointedDripstoneBlock::canDrip, 11).orElse(null);

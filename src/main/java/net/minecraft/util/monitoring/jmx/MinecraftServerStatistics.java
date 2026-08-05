@@ -22,7 +22,6 @@ import javax.management.MalformedObjectNameException;
 import javax.management.NotCompliantMBeanException;
 import javax.management.ObjectName;
 import net.minecraft.server.MinecraftServer;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public final class MinecraftServerStatistics implements DynamicMBean {
@@ -63,7 +62,7 @@ public final class MinecraftServerStatistics implements DynamicMBean {
       return this.server.getTickTimesNanos();
    }
 
-   @Nullable
+   
    @Override
    public Object getAttribute(String $$0) {
       MinecraftServerStatistics.AttributeDescription $$1 = this.attributeDescriptionByName.get($$0);
@@ -89,7 +88,7 @@ public final class MinecraftServerStatistics implements DynamicMBean {
       return new AttributeList();
    }
 
-   @Nullable
+   
    @Override
    public Object invoke(String $$0, Object[] $$1, String[] $$2) {
       return null;

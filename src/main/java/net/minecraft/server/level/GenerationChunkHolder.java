@@ -18,7 +18,6 @@ import net.minecraft.world.level.chunk.ImposterProtoChunk;
 import net.minecraft.world.level.chunk.ProtoChunk;
 import net.minecraft.world.level.chunk.status.ChunkStatus;
 import net.minecraft.world.level.chunk.status.ChunkStep;
-import org.jspecify.annotations.Nullable;
 
 public abstract class GenerationChunkHolder {
    private static final List<ChunkStatus> CHUNK_STATUSES = ChunkStatus.getStatusList();
@@ -26,7 +25,7 @@ public abstract class GenerationChunkHolder {
    public static final ChunkResult<ChunkAccess> UNLOADED_CHUNK = ChunkResult.error("Unloaded chunk");
    public static final CompletableFuture<ChunkResult<ChunkAccess>> UNLOADED_CHUNK_FUTURE = CompletableFuture.completedFuture(UNLOADED_CHUNK);
    protected final ChunkPos pos;
-   @Nullable
+   
    private volatile ChunkStatus highestAllowedStatus;
    private final AtomicReference<ChunkStatus> startedWork = new AtomicReference<>();
    private final AtomicReferenceArray<CompletableFuture<ChunkResult<ChunkAccess>>> futures = new AtomicReferenceArray<>(CHUNK_STATUSES.size());
@@ -110,7 +109,7 @@ public abstract class GenerationChunkHolder {
       this.task.compareAndSet($$0, null);
    }
 
-   private void rescheduleChunkTask(ChunkMap $$0, @Nullable ChunkStatus $$1) {
+   private void rescheduleChunkTask(ChunkMap $$0, ChunkStatus $$1) {
       ChunkGenerationTask $$2;
       if ($$1 != null) {
          $$2 = $$0.scheduleGenerationTask($$1, this.getPos());
@@ -148,7 +147,7 @@ public abstract class GenerationChunkHolder {
       }
    }
 
-   private void failAndClearPendingFuturesBetween(@Nullable ChunkStatus $$0, ChunkStatus $$1) {
+   private void failAndClearPendingFuturesBetween(ChunkStatus $$0, ChunkStatus $$1) {
       int $$2 = $$0 == null ? 0 : $$0.getIndex() + 1;
       int $$3 = $$1.getIndex();
 
@@ -190,8 +189,8 @@ public abstract class GenerationChunkHolder {
       }
    }
 
-   @Nullable
-   private ChunkStatus findHighestStatusWithPendingFuture(@Nullable ChunkStatus $$0) {
+   
+   private ChunkStatus findHighestStatusWithPendingFuture(ChunkStatus $$0) {
       if ($$0 == null) {
          return null;
       } else {
@@ -249,18 +248,18 @@ public abstract class GenerationChunkHolder {
       }
    }
 
-   @Nullable
+   
    public ChunkAccess getChunkIfPresentUnchecked(ChunkStatus $$0) {
       CompletableFuture<ChunkResult<ChunkAccess>> $$1 = this.futures.get($$0.getIndex());
       return $$1 == null ? null : $$1.getNow(NOT_DONE_YET).orElse(null);
    }
 
-   @Nullable
+   
    public ChunkAccess getChunkIfPresent(ChunkStatus $$0) {
       return this.isStatusDisallowed($$0) ? null : this.getChunkIfPresentUnchecked($$0);
    }
 
-   @Nullable
+   
    public ChunkAccess getLatestChunk() {
       ChunkStatus $$0 = this.startedWork.get();
       if ($$0 == null) {
@@ -271,7 +270,7 @@ public abstract class GenerationChunkHolder {
       }
    }
 
-   @Nullable
+   
    public ChunkStatus getPersistedStatus() {
       CompletableFuture<ChunkResult<ChunkAccess>> $$0 = this.futures.get(ChunkStatus.EMPTY.getIndex());
       ChunkAccess $$1 = $$0 == null ? null : $$0.getNow(NOT_DONE_YET).orElse(null);
@@ -302,7 +301,7 @@ public abstract class GenerationChunkHolder {
    }
 
    @VisibleForDebug
-   @Nullable
+   
    public ChunkStatus getLatestStatus() {
       ChunkStatus $$0 = this.startedWork.get();
       if ($$0 == null) {

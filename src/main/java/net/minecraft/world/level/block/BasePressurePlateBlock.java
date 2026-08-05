@@ -16,7 +16,6 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public abstract class BasePressurePlateBlock extends Block {
    private static final VoxelShape SHAPE_PRESSED = Block.column(14.0, 0.0, 0.5);
@@ -84,7 +83,7 @@ public abstract class BasePressurePlateBlock extends Block {
       }
    }
 
-   private void checkPressed(@Nullable Entity $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, BlockState $$3, int $$4) {
+   private void checkPressed(Entity $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, BlockState $$3, int $$4) {
       int $$5 = this.getSignalStrength($$1, $$2);
       boolean $$6 = $$4 > 0;
       boolean $$7 = $$5 > 0;

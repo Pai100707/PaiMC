@@ -41,7 +41,6 @@ import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class HappyGhast extends Animal {
    public static final float BABY_SCALE = 0.2375F;
@@ -223,7 +222,7 @@ public class HappyGhast extends Animal {
       return 1;
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.AgeableMob getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       return net.minecraft.world.entity.EntityType.HAPPY_GHAST.create($$0, net.minecraft.world.entity.EntitySpawnReason.BREEDING);
@@ -316,7 +315,7 @@ public class HappyGhast extends Animal {
       return this.getPassengers().size() < 4;
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.LivingEntity getControllingPassenger() {
       return (net.minecraft.world.entity.LivingEntity)(this.isWearingBodyArmor() && !this.isOnStillTimeout() && this.getFirstPassenger() instanceof Player $$1
@@ -544,7 +543,7 @@ public class HappyGhast extends Animal {
    }
 
    @Override
-   public boolean canBeCollidedWith(@Nullable net.minecraft.world.entity.Entity $$0) {
+   public boolean canBeCollidedWith(net.minecraft.world.entity.Entity $$0) {
       if (!this.isBaby() && this.isAlive()) {
          if (this.level().isClientSide() && $$0 instanceof Player && $$0.position().y >= this.getBoundingBox().maxY) {
             return true;

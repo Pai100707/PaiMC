@@ -61,7 +61,6 @@ import net.minecraft.world.level.storage.PrimaryLevelData;
 import net.minecraft.world.level.storage.WorldData;
 import net.minecraft.world.level.storage.LevelStorageSource.LevelDirectory;
 import net.minecraft.world.level.storage.LevelStorageSource.LevelStorageAccess;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class Main {
@@ -271,7 +270,7 @@ public class Main {
    }
 
    private static net.minecraft.server.WorldLoader.InitConfig loadOrCreateConfig(
-      DedicatedServerProperties $$0, @Nullable Dynamic<?> $$1, boolean $$2, PackRepository $$3
+      DedicatedServerProperties $$0, Dynamic<?> $$1, boolean $$2, PackRepository $$3
    ) {
       boolean $$5;
       WorldDataConfiguration $$6;

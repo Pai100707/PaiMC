@@ -36,7 +36,6 @@ import net.minecraft.world.level.block.state.StateHolder;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public final class NbtUtils {
@@ -66,7 +65,7 @@ public final class NbtUtils {
    }
 
    @VisibleForTesting
-   public static boolean compareNbt(@Nullable net.minecraft.nbt.Tag $$0, @Nullable net.minecraft.nbt.Tag $$1, boolean $$2) {
+   public static boolean compareNbt(net.minecraft.nbt.Tag $$0, net.minecraft.nbt.Tag $$1, boolean $$2) {
       if ($$0 == $$1) {
          return true;
       } else if ($$0 == null) {

@@ -18,7 +18,6 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 
 public abstract class BaseCommandBlock {
    private static final Component DEFAULT_NAME = Component.literal("@");
@@ -27,10 +26,10 @@ public abstract class BaseCommandBlock {
    private boolean updateLastExecution = true;
    private int successCount;
    private boolean trackOutput = true;
-   @Nullable
+   
    Component lastOutput;
    private String command = "";
-   @Nullable
+   
    private Component customName;
 
    public int getSuccessCount() {
@@ -137,18 +136,18 @@ public abstract class BaseCommandBlock {
       return this.customName != null ? this.customName : DEFAULT_NAME;
    }
 
-   @Nullable
+   
    public Component getCustomName() {
       return this.customName;
    }
 
-   public void setCustomName(@Nullable Component $$0) {
+   public void setCustomName(Component $$0) {
       this.customName = $$0;
    }
 
    public abstract void onUpdated(ServerLevel var1);
 
-   public void setLastOutput(@Nullable Component $$0) {
+   public void setLastOutput(Component $$0) {
       this.lastOutput = $$0;
    }
 

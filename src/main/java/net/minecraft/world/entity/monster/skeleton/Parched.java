@@ -11,7 +11,6 @@ import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
 import net.minecraft.world.entity.projectile.arrow.Arrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import org.jspecify.annotations.Nullable;
 
 public class Parched extends AbstractSkeleton {
    public Parched(net.minecraft.world.entity.EntityType<? extends AbstractSkeleton> $$0, Level $$1) {
@@ -19,7 +18,7 @@ public class Parched extends AbstractSkeleton {
    }
 
    @Override
-   protected AbstractArrow getArrow(ItemStack $$0, float $$1, @Nullable ItemStack $$2) {
+   protected AbstractArrow getArrow(ItemStack $$0, float $$1, ItemStack $$2) {
       AbstractArrow $$3 = super.getArrow($$0, $$1, $$2);
       if ($$3 instanceof Arrow) {
          ((Arrow)$$3).addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 600));

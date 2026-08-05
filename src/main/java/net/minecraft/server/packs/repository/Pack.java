@@ -14,7 +14,6 @@ import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.metadata.pack.PackFormat;
 import net.minecraft.server.packs.metadata.pack.PackMetadataSection;
 import net.minecraft.world.flag.FeatureFlagSet;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class Pack {
@@ -24,7 +23,7 @@ public class Pack {
    private final Pack.Metadata metadata;
    private final PackSelectionConfig selectionConfig;
 
-   @Nullable
+   
    public static Pack readMetaAndCreate(PackLocationInfo $$0, Pack.ResourcesSupplier $$1, PackType $$2, PackSelectionConfig $$3) {
       PackFormat $$4 = SharedConstants.getCurrentVersion().packVersion($$2);
       Pack.Metadata $$5 = readPackMetadata($$0, $$1, $$4, $$2);
@@ -38,7 +37,7 @@ public class Pack {
       this.selectionConfig = $$3;
    }
 
-   @Nullable
+   
    public static Pack.Metadata readPackMetadata(PackLocationInfo $$0, Pack.ResourcesSupplier $$1, PackFormat $$2, PackType $$3) {
       try {
          Pack.Metadata var11;

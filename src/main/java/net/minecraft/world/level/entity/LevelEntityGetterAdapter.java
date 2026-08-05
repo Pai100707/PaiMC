@@ -4,7 +4,6 @@ import java.util.UUID;
 import java.util.function.Consumer;
 import net.minecraft.util.AbortableIterationConsumer;
 import net.minecraft.world.phys.AABB;
-import org.jspecify.annotations.Nullable;
 
 public class LevelEntityGetterAdapter<T extends EntityAccess> implements LevelEntityGetter<T> {
    private final EntityLookup<T> visibleEntities;
@@ -15,13 +14,13 @@ public class LevelEntityGetterAdapter<T extends EntityAccess> implements LevelEn
       this.sectionStorage = $$1;
    }
 
-   @Nullable
+   
    @Override
    public T get(int $$0) {
       return this.visibleEntities.getEntity($$0);
    }
 
-   @Nullable
+   
    @Override
    public T get(UUID $$0) {
       return this.visibleEntities.getEntity($$0);

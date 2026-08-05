@@ -3,14 +3,13 @@ package net.minecraft.world.entity.ai.goal;
 import net.minecraft.world.entity.ai.util.AirAndWaterRandomPos;
 import net.minecraft.world.entity.ai.util.HoverRandomPos;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class WaterAvoidingRandomFlyingGoal extends WaterAvoidingRandomStrollGoal {
    public WaterAvoidingRandomFlyingGoal(net.minecraft.world.entity.PathfinderMob $$0, double $$1) {
       super($$0, $$1);
    }
 
-   @Nullable
+   
    @Override
    protected Vec3 getPosition() {
       Vec3 $$0 = this.mob.getViewVector(0.0F);

@@ -11,7 +11,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public abstract class Fireball extends AbstractHurtingProjectile implements ItemSupplier {
    private static final float MIN_CAMERA_DISTANCE_SQUARED = 12.25F;
@@ -67,7 +66,7 @@ public abstract class Fireball extends AbstractHurtingProjectile implements Item
       return new ItemStack(Items.FIRE_CHARGE);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SlotAccess getSlot(int $$0) {
       return $$0 == 0 ? net.minecraft.world.entity.SlotAccess.of(this::getItem, this::setItem) : super.getSlot($$0);

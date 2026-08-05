@@ -4,7 +4,6 @@ import com.mojang.brigadier.Command;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.context.ContextChain;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
-import org.jspecify.annotations.Nullable;
 
 public interface CustomCommandExecutor<T> {
    void run(T var1, ContextChain<T> var2, ChainModifiers var3, ExecutionControl<T> var4);
@@ -25,7 +24,7 @@ public interface CustomCommandExecutor<T> {
          }
       }
 
-      protected void onError(CommandSyntaxException $$0, T $$1, ChainModifiers $$2, @Nullable TraceCallbacks $$3) {
+      protected void onError(CommandSyntaxException $$0, T $$1, ChainModifiers $$2, TraceCallbacks $$3) {
          $$1.handleError($$0, $$2.isForked(), $$3);
       }
 

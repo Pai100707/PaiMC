@@ -8,11 +8,10 @@ import net.minecraft.world.entity.animal.wolf.Wolf;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import org.jspecify.annotations.Nullable;
 
 public class BegGoal extends Goal {
    private final Wolf wolf;
-   @Nullable
+   
    private Player player;
    private final ServerLevel level;
    private final float lookDistance;

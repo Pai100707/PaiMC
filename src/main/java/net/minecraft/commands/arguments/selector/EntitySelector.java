@@ -21,7 +21,6 @@ import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.level.entity.EntityTypeTest;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class EntitySelector {
    public static final int INFINITE = Integer.MAX_VALUE;
@@ -39,16 +38,16 @@ public class EntitySelector {
    private final boolean includesEntities;
    private final boolean worldLimited;
    private final List<Predicate<Entity>> contextFreePredicates;
-   @Nullable
+   
    private final Doubles range;
    private final Function<Vec3, Vec3> position;
-   @Nullable
+   
    private final AABB aabb;
    private final BiConsumer<Vec3, List<? extends Entity>> order;
    private final boolean currentEntity;
-   @Nullable
+   
    private final String playerName;
-   @Nullable
+   
    private final UUID entityUUID;
    private final EntityTypeTest<Entity, ?> type;
    private final boolean usesSelector;
@@ -58,14 +57,14 @@ public class EntitySelector {
       boolean $$1,
       boolean $$2,
       List<Predicate<Entity>> $$3,
-      @Nullable Doubles $$4,
+      Doubles $$4,
       Function<Vec3, Vec3> $$5,
-      @Nullable AABB $$6,
+      AABB $$6,
       BiConsumer<Vec3, List<? extends Entity>> $$7,
       boolean $$8,
-      @Nullable String $$9,
-      @Nullable UUID $$10,
-      @Nullable EntityType<?> $$11,
+      String $$9,
+      UUID $$10,
+      EntityType<?> $$11,
       boolean $$12
    ) {
       this.maxResults = $$0;
@@ -162,7 +161,7 @@ public class EntitySelector {
       }
    }
 
-   private void addEntities(List<Entity> $$0, ServerLevel $$1, @Nullable AABB $$2, Predicate<Entity> $$3) {
+   private void addEntities(List<Entity> $$0, ServerLevel $$1, AABB $$2, Predicate<Entity> $$3) {
       int $$4 = this.getResultLimit();
       if ($$0.size() < $$4) {
          if ($$2 != null) {
@@ -224,12 +223,12 @@ public class EntitySelector {
       }
    }
 
-   @Nullable
+   
    private AABB getAbsoluteAabb(Vec3 $$0) {
       return this.aabb != null ? this.aabb.move($$0) : null;
    }
 
-   private Predicate<Entity> getPredicate(Vec3 $$0, @Nullable AABB $$1, @Nullable FeatureFlagSet $$2) {
+   private Predicate<Entity> getPredicate(Vec3 $$0, AABB $$1, FeatureFlagSet $$2) {
       boolean $$3 = $$2 != null;
       boolean $$4 = $$1 != null;
       boolean $$5 = this.range != null;

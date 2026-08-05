@@ -24,7 +24,6 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.scores.Team;
-import org.jspecify.annotations.Nullable;
 
 public record EntityPredicate(
    Optional<EntityTypePredicate> entityType,
@@ -87,11 +86,11 @@ public record EntityPredicate(
       return new ContextAwarePredicate(List.of($$1));
    }
 
-   public boolean matches(ServerPlayer $$0, @Nullable Entity $$1) {
+   public boolean matches(ServerPlayer $$0, Entity $$1) {
       return this.matches($$0.level(), $$0.position(), $$1);
    }
 
-   public boolean matches(ServerLevel $$0, @Nullable Vec3 $$1, @Nullable Entity $$2) {
+   public boolean matches(ServerLevel $$0, Vec3 $$1, Entity $$2) {
       if ($$2 == null) {
          return false;
       } else if (this.entityType.isPresent() && !this.entityType.get().matches($$2.getType())) {

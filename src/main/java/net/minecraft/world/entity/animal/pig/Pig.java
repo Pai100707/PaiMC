@@ -43,7 +43,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class Pig extends Animal implements net.minecraft.world.entity.ItemSteerable {
    private static final EntityDataAccessor<Integer> DATA_BOOST_TIME = SynchedEntityData.defineId(Pig.class, EntityDataSerializers.INT);
@@ -71,7 +70,7 @@ public class Pig extends Animal implements net.minecraft.world.entity.ItemSteera
       return Animal.createAnimalAttributes().add(Attributes.MAX_HEALTH, 10.0).add(Attributes.MOVEMENT_SPEED, 0.25);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.LivingEntity getControllingPassenger() {
       return (net.minecraft.world.entity.LivingEntity)(this.isSaddled()
@@ -206,7 +205,7 @@ public class Pig extends Animal implements net.minecraft.world.entity.ItemSteera
       return this.steering.boost(this.getRandom());
    }
 
-   @Nullable
+   
    public Pig getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       Pig $$2 = net.minecraft.world.entity.EntityType.PIG.create($$0, net.minecraft.world.entity.EntitySpawnReason.BREEDING);
       if ($$2 != null && $$1 instanceof Pig $$3) {
@@ -234,7 +233,7 @@ public class Pig extends Animal implements net.minecraft.world.entity.ItemSteera
       return (Holder<PigVariant>)this.entityData.get(DATA_VARIANT_ID);
    }
 
-   @Nullable
+   
    @Override
    public <T> T get(DataComponentType<? extends T> $$0) {
       return $$0 == DataComponents.PIG_VARIANT ? castComponentValue((DataComponentType<T>)$$0, this.getVariant()) : super.get($$0);
@@ -261,7 +260,7 @@ public class Pig extends Animal implements net.minecraft.world.entity.ItemSteera
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       VariantUtils.<PigVariant>selectVariantToSpawn(SpawnContext.create($$0, this.blockPosition()), Registries.PIG_VARIANT).ifPresent(this::setVariant);
       return super.finalizeSpawn($$0, $$1, $$2, $$3);

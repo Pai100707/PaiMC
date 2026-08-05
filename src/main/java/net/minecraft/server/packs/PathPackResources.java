@@ -24,7 +24,6 @@ import net.minecraft.server.packs.resources.IoSupplier;
 import net.minecraft.util.FileUtil;
 import net.minecraft.util.Util;
 import org.apache.commons.lang3.StringUtils;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class PathPackResources extends AbstractPackResources {
@@ -37,7 +36,7 @@ public class PathPackResources extends AbstractPackResources {
       this.root = $$1;
    }
 
-   @Nullable
+   
    @Override
    public IoSupplier<InputStream> getRootResource(String... $$0) {
       FileUtil.validatePath($$0);
@@ -60,14 +59,14 @@ public class PathPackResources extends AbstractPackResources {
       }
    }
 
-   @Nullable
+   
    @Override
    public IoSupplier<InputStream> getResource(PackType $$0, Identifier $$1) {
       Path $$2 = this.root.resolve($$0.getDirectory()).resolve($$1.getNamespace());
       return getResource($$1, $$2);
    }
 
-   @Nullable
+   
    public static IoSupplier<InputStream> getResource(Identifier $$0, Path $$1) {
       return (IoSupplier<InputStream>)FileUtil.decomposePath($$0.getPath()).mapOrElse($$1x -> {
          Path $$2 = FileUtil.resolvePath($$1, $$1x);
@@ -78,7 +77,7 @@ public class PathPackResources extends AbstractPackResources {
       });
    }
 
-   @Nullable
+   
    private static IoSupplier<InputStream> returnFileIfExists(Path $$0) {
       return Files.exists($$0) && validatePath($$0) ? IoSupplier.create($$0) : null;
    }

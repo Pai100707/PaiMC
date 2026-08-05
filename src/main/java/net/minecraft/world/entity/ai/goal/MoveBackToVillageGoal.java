@@ -6,7 +6,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.ai.behavior.BehaviorUtils;
 import net.minecraft.world.entity.ai.util.DefaultRandomPos;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class MoveBackToVillageGoal extends RandomStrollGoal {
    private static final int MAX_XZ_DIST = 10;
@@ -23,7 +22,7 @@ public class MoveBackToVillageGoal extends RandomStrollGoal {
       return $$0.isVillage($$1) ? false : super.canUse();
    }
 
-   @Nullable
+   
    @Override
    protected Vec3 getPosition() {
       ServerLevel $$0 = (ServerLevel)this.mob.level();

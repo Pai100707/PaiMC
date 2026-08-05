@@ -7,7 +7,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.raid.Raider;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public record RaiderPredicate(boolean hasRaid, boolean isCaptain) implements EntitySubPredicate {
    public static final MapCodec<RaiderPredicate> CODEC = RecordCodecBuilder.mapCodec(
@@ -25,7 +24,7 @@ public record RaiderPredicate(boolean hasRaid, boolean isCaptain) implements Ent
    }
 
    @Override
-   public boolean matches(Entity $$0, ServerLevel $$1, @Nullable Vec3 $$2) {
+   public boolean matches(Entity $$0, ServerLevel $$1, Vec3 $$2) {
       return !($$0 instanceof Raider $$3) ? false : $$3.hasRaid() == this.hasRaid && $$3.isCaptain() == this.isCaptain;
    }
 }

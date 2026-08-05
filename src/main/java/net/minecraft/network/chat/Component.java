@@ -23,7 +23,6 @@ import net.minecraft.network.chat.contents.objects.ObjectInfo;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.world.level.ChunkPos;
-import org.jspecify.annotations.Nullable;
 
 public interface Component extends Message, FormattedText {
    Style getStyle();
@@ -51,7 +50,7 @@ public interface Component extends Message, FormattedText {
 
    List<Component> getSiblings();
 
-   @Nullable
+   
    default String tryCollapseToString() {
       return this.getContents() instanceof PlainTextContents $$0 && this.getSiblings().isEmpty() && this.getStyle().isEmpty() ? $$0.text() : null;
    }
@@ -127,7 +126,7 @@ public interface Component extends Message, FormattedText {
       }
    }
 
-   static Component nullToEmpty(@Nullable String $$0) {
+   static Component nullToEmpty(String $$0) {
       return (Component)($$0 != null ? literal($$0) : CommonComponents.EMPTY);
    }
 
@@ -154,11 +153,11 @@ public interface Component extends Message, FormattedText {
       return translatable($$0, $$1);
    }
 
-   static MutableComponent translatableWithFallback(String $$0, @Nullable String $$1) {
+   static MutableComponent translatableWithFallback(String $$0, String $$1) {
       return MutableComponent.create(new TranslatableContents($$0, $$1, TranslatableContents.NO_ARGS));
    }
 
-   static MutableComponent translatableWithFallback(String $$0, @Nullable String $$1, Object... $$2) {
+   static MutableComponent translatableWithFallback(String $$0, String $$1, Object... $$2) {
       return MutableComponent.create(new TranslatableContents($$0, $$1, $$2));
    }
 

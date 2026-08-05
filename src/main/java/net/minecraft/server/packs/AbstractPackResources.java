@@ -11,7 +11,6 @@ import java.nio.charset.StandardCharsets;
 import net.minecraft.server.packs.metadata.MetadataSectionType;
 import net.minecraft.server.packs.resources.IoSupplier;
 import net.minecraft.util.GsonHelper;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public abstract class AbstractPackResources implements PackResources {
@@ -22,7 +21,7 @@ public abstract class AbstractPackResources implements PackResources {
       this.location = $$0;
    }
 
-   @Nullable
+   
    @Override
    public <T> T getMetadataSection(MetadataSectionType<T> $$0) throws IOException {
       IoSupplier<InputStream> $$1 = this.getRootResource(new String[]{"pack.mcmeta"});
@@ -38,7 +37,7 @@ public abstract class AbstractPackResources implements PackResources {
       }
    }
 
-   @Nullable
+   
    public static <T> T getMetadataFromStream(MetadataSectionType<T> $$0, InputStream $$1, PackLocationInfo $$2) {
       JsonObject $$4;
       try (BufferedReader $$3 = new BufferedReader(new InputStreamReader($$1, StandardCharsets.UTF_8))) {

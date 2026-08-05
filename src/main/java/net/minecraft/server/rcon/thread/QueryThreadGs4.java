@@ -18,7 +18,6 @@ import net.minecraft.server.rcon.NetworkDataOutputStream;
 import net.minecraft.server.rcon.PktUtils;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.Util;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class QueryThreadGs4 extends GenericThread {
@@ -70,7 +69,7 @@ public class QueryThreadGs4 extends GenericThread {
       this.validChallenges = Maps.newHashMap();
    }
 
-   @Nullable
+   
    public static QueryThreadGs4 create(net.minecraft.server.ServerInterface $$0) {
       int $$1 = $$0.getProperties().queryPort;
       if (0 < $$1 && 65535 >= $$1) {

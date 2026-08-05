@@ -32,7 +32,6 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.Contract;
-import org.jspecify.annotations.Nullable;
 
 public class GsonHelper {
    private static final Gson GSON = new GsonBuilder().create();
@@ -73,7 +72,7 @@ public class GsonHelper {
       return !isValidNode($$0, $$1) ? false : $$0.get($$1).isJsonPrimitive();
    }
 
-   public static boolean isValidNode(@Nullable JsonObject $$0, String $$1) {
+   public static boolean isValidNode(JsonObject $$0, String $$1) {
       return $$0 == null ? false : $$0.get($$1) != null;
    }
 
@@ -103,8 +102,8 @@ public class GsonHelper {
    }
 
    @Contract("_,_,!null->!null;_,_,null->_")
-   @Nullable
-   public static String getAsString(JsonObject $$0, String $$1, @Nullable String $$2) {
+   
+   public static String getAsString(JsonObject $$0, String $$1, String $$2) {
       return $$0.has($$1) ? convertToString($$0.get($$1), $$1) : $$2;
    }
 
@@ -128,8 +127,8 @@ public class GsonHelper {
    }
 
    @Contract("_,_,!null->!null;_,_,null->_")
-   @Nullable
-   public static Holder<Item> getAsItem(JsonObject $$0, String $$1, @Nullable Holder<Item> $$2) {
+   
+   public static Holder<Item> getAsItem(JsonObject $$0, String $$1, Holder<Item> $$2) {
       return $$0.has($$1) ? convertToItem($$0.get($$1), $$1) : $$2;
    }
 
@@ -350,8 +349,8 @@ public class GsonHelper {
    }
 
    @Contract("_,_,!null->!null;_,_,null->_")
-   @Nullable
-   public static JsonObject getAsJsonObject(JsonObject $$0, String $$1, @Nullable JsonObject $$2) {
+   
+   public static JsonObject getAsJsonObject(JsonObject $$0, String $$1, JsonObject $$2) {
       return $$0.has($$1) ? convertToJsonObject($$0.get($$1), $$1) : $$2;
    }
 
@@ -372,12 +371,12 @@ public class GsonHelper {
    }
 
    @Contract("_,_,!null->!null;_,_,null->_")
-   @Nullable
-   public static JsonArray getAsJsonArray(JsonObject $$0, String $$1, @Nullable JsonArray $$2) {
+   
+   public static JsonArray getAsJsonArray(JsonObject $$0, String $$1, JsonArray $$2) {
       return $$0.has($$1) ? convertToJsonArray($$0.get($$1), $$1) : $$2;
    }
 
-   public static <T> T convertToObject(@Nullable JsonElement $$0, String $$1, JsonDeserializationContext $$2, Class<? extends T> $$3) {
+   public static <T> T convertToObject(JsonElement $$0, String $$1, JsonDeserializationContext $$2, Class<? extends T> $$3) {
       if ($$0 != null) {
          return (T)$$2.deserialize($$0, $$3);
       } else {
@@ -394,12 +393,12 @@ public class GsonHelper {
    }
 
    @Contract("_,_,!null,_,_->!null;_,_,null,_,_->_")
-   @Nullable
-   public static <T> T getAsObject(JsonObject $$0, String $$1, @Nullable T $$2, JsonDeserializationContext $$3, Class<? extends T> $$4) {
+   
+   public static <T> T getAsObject(JsonObject $$0, String $$1, T $$2, JsonDeserializationContext $$3, Class<? extends T> $$4) {
       return $$0.has($$1) ? convertToObject($$0.get($$1), $$1, $$3, $$4) : $$2;
    }
 
-   public static String getType(@Nullable JsonElement $$0) {
+   public static String getType(JsonElement $$0) {
       String $$1 = StringUtils.abbreviateMiddle(String.valueOf($$0), "...", 10);
       if ($$0 == null) {
          return "null (missing)";
@@ -440,7 +439,7 @@ public class GsonHelper {
       }
    }
 
-   @Nullable
+   
    public static <T> T fromNullableJson(Gson $$0, Reader $$1, TypeToken<T> $$2) {
       try {
          JsonReader $$3 = new JsonReader($$1);
@@ -460,7 +459,7 @@ public class GsonHelper {
       }
    }
 
-   @Nullable
+   
    public static <T> T fromNullableJson(Gson $$0, String $$1, TypeToken<T> $$2) {
       return fromNullableJson($$0, new StringReader($$1), $$2);
    }
@@ -498,7 +497,7 @@ public class GsonHelper {
       return $$1.toString();
    }
 
-   public static void writeValue(JsonWriter $$0, @Nullable JsonElement $$1, @Nullable Comparator<String> $$2) throws IOException {
+   public static void writeValue(JsonWriter $$0, JsonElement $$1, Comparator<String> $$2) throws IOException {
       if ($$1 == null || $$1.isJsonNull()) {
          $$0.nullValue();
       } else if ($$1.isJsonPrimitive()) {
@@ -534,7 +533,7 @@ public class GsonHelper {
       }
    }
 
-   private static Collection<Entry<String, JsonElement>> sortByKeyIfNeeded(Collection<Entry<String, JsonElement>> $$0, @Nullable Comparator<String> $$1) {
+   private static Collection<Entry<String, JsonElement>> sortByKeyIfNeeded(Collection<Entry<String, JsonElement>> $$0, Comparator<String> $$1) {
       if ($$1 == null) {
          return $$0;
       } else {

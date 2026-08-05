@@ -46,7 +46,6 @@ import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class Goat extends Animal {
    public static final net.minecraft.world.entity.EntityDimensions LONG_JUMPING_DIMENSIONS = net.minecraft.world.entity.EntityDimensions.scalable(0.9F, 1.3F)
@@ -160,7 +159,7 @@ public class Goat extends Animal {
       return this.isScreamingGoat() ? SoundEvents.GOAT_SCREAMING_MILK : SoundEvents.GOAT_MILK;
    }
 
-   @Nullable
+   
    public Goat getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       Goat $$2 = net.minecraft.world.entity.EntityType.GOAT.create($$0, net.minecraft.world.entity.EntitySpawnReason.BREEDING);
       if ($$2 != null) {
@@ -244,7 +243,7 @@ public class Goat extends Animal {
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       RandomSource $$4 = $$0.getRandom();
       GoatAi.initMemories(this, $$4);

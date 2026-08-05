@@ -12,10 +12,9 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.util.ByIdMap;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.util.ByIdMap.OutOfBoundsStrategy;
-import org.jspecify.annotations.Nullable;
 
 public abstract class Team {
-   public boolean isAlliedTo(@Nullable net.minecraft.world.scores.Team $$0) {
+   public boolean isAlliedTo(net.minecraft.world.scores.Team $$0) {
       return $$0 == null ? false : this == $$0;
    }
 

@@ -7,13 +7,12 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.util.Unit;
-import org.jspecify.annotations.Nullable;
 
 public class ProtocolInfoBuilder<T extends net.minecraft.network.PacketListener, B extends ByteBuf, C> {
    final net.minecraft.network.ConnectionProtocol protocol;
    final PacketFlow flow;
    private final List<ProtocolInfoBuilder.CodecEntry<T, ?, B, C>> codecs = new ArrayList<>();
-   @Nullable
+   
    private BundlerInfo bundlerInfo;
 
    public ProtocolInfoBuilder(net.minecraft.network.ConnectionProtocol $$0, PacketFlow $$1) {
@@ -154,7 +153,7 @@ public class ProtocolInfoBuilder<T extends net.minecraft.network.PacketListener,
    }
 
    record CodecEntry<T extends net.minecraft.network.PacketListener, P extends Packet<? super T>, B extends ByteBuf, C>(
-      PacketType<P> type, StreamCodec<? super B, P> serializer, @Nullable CodecModifier<B, P, C> modifier
+      PacketType<P> type, StreamCodec<? super B, P> serializer, CodecModifier<B, P, C> modifier
    ) {
 
       public void addToBuilder(ProtocolCodecBuilder<ByteBuf, T> $$0, Function<ByteBuf, B> $$1, C $$2) {
@@ -171,7 +170,7 @@ public class ProtocolInfoBuilder<T extends net.minecraft.network.PacketListener,
    }
 
    record Implementation<L extends net.minecraft.network.PacketListener>(
-      net.minecraft.network.ConnectionProtocol id, PacketFlow flow, StreamCodec<ByteBuf, Packet<? super L>> codec, @Nullable BundlerInfo bundlerInfo
+      net.minecraft.network.ConnectionProtocol id, PacketFlow flow, StreamCodec<ByteBuf, Packet<? super L>> codec, BundlerInfo bundlerInfo
    ) implements net.minecraft.network.ProtocolInfo<L> {
    }
 }

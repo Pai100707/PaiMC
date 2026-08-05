@@ -26,7 +26,6 @@ import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.Style;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.world.entity.Entity;
-import org.jspecify.annotations.Nullable;
 
 public class TranslatableContents implements ComponentContents {
    public static final Object[] NO_ARGS = new Object[0];
@@ -47,19 +46,19 @@ public class TranslatableContents implements ComponentContents {
    private static final FormattedText TEXT_PERCENT = FormattedText.of("%");
    private static final FormattedText TEXT_NULL = FormattedText.of("null");
    private final String key;
-   @Nullable
+   
    private final String fallback;
    private final Object[] args;
-   @Nullable
+   
    private Language decomposedWith;
    private List<FormattedText> decomposedParts = ImmutableList.of();
    private static final Pattern FORMAT_PATTERN = Pattern.compile("%(?:(\\d+)\\$)?([A-Za-z%]|$)");
 
-   private static DataResult<Object> filterAllowedArguments(@Nullable Object $$0) {
+   private static DataResult<Object> filterAllowedArguments(Object $$0) {
       return !isAllowedPrimitiveArgument($$0) ? DataResult.error(() -> "This value needs to be parsed as component") : DataResult.success($$0);
    }
 
-   public static boolean isAllowedPrimitiveArgument(@Nullable Object $$0) {
+   public static boolean isAllowedPrimitiveArgument(Object $$0) {
       return $$0 instanceof Number || $$0 instanceof Boolean || $$0 instanceof String;
    }
 
@@ -75,7 +74,7 @@ public class TranslatableContents implements ComponentContents {
       return new TranslatableContents($$0, $$1.orElse(null), adjustArgs($$2));
    }
 
-   public TranslatableContents(String $$0, @Nullable String $$1, Object[] $$2) {
+   public TranslatableContents(String $$0, String $$1, Object[] $$2) {
       this.key = $$0;
       this.fallback = $$1;
       this.args = $$2;
@@ -193,7 +192,7 @@ public class TranslatableContents implements ComponentContents {
    }
 
    @Override
-   public MutableComponent resolve(@Nullable CommandSourceStack $$0, @Nullable Entity $$1, int $$2) throws CommandSyntaxException {
+   public MutableComponent resolve(CommandSourceStack $$0, Entity $$1, int $$2) throws CommandSyntaxException {
       Object[] $$3 = new Object[this.args.length];
 
       for (int $$4 = 0; $$4 < $$3.length; $$4++) {
@@ -240,7 +239,7 @@ public class TranslatableContents implements ComponentContents {
       return this.key;
    }
 
-   @Nullable
+   
    public String getFallback() {
       return this.fallback;
    }

@@ -3,7 +3,6 @@ package net.minecraft.world.effect;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import org.jspecify.annotations.Nullable;
 
 class HealOrHarmMobEffect extends net.minecraft.world.effect.InstantenousMobEffect {
    private final boolean isHarm;
@@ -25,7 +24,7 @@ class HealOrHarmMobEffect extends net.minecraft.world.effect.InstantenousMobEffe
    }
 
    @Override
-   public void applyInstantenousEffect(ServerLevel $$0, @Nullable Entity $$1, @Nullable Entity $$2, LivingEntity $$3, int $$4, double $$5) {
+   public void applyInstantenousEffect(ServerLevel $$0, Entity $$1, Entity $$2, LivingEntity $$3, int $$4, double $$5) {
       if (this.isHarm == $$3.isInvertedHealAndHarm()) {
          int $$6 = (int)($$5 * (4 << $$4) + 0.5);
          $$3.heal($$6);

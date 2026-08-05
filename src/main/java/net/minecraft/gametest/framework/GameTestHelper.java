@@ -69,7 +69,6 @@ import net.minecraft.world.level.pathfinder.Path;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class GameTestHelper {
    private final GameTestInfo testInfo;
@@ -163,7 +162,7 @@ public class GameTestHelper {
       return this.spawn($$0, $$1, null);
    }
 
-   public <E extends Entity> E spawn(EntityType<E> $$0, Vec3 $$1, @Nullable EntitySpawnReason $$2) {
+   public <E extends Entity> E spawn(EntityType<E> $$0, Vec3 $$1, EntitySpawnReason $$2) {
       ServerLevel $$3 = this.getLevel();
       E $$4 = (E)$$0.create($$3, EntitySpawnReason.STRUCTURE);
       if ($$4 == null) {
@@ -669,11 +668,11 @@ public class GameTestHelper {
       }
    }
 
-   public <E extends Entity, T> void assertEntityData(BlockPos $$0, EntityType<E> $$1, Function<? super E, T> $$2, @Nullable T $$3) {
+   public <E extends Entity, T> void assertEntityData(BlockPos $$0, EntityType<E> $$1, Function<? super E, T> $$2, T $$3) {
       this.assertEntityData(new AABB($$0), $$1, $$2, $$3);
    }
 
-   public <E extends Entity, T> void assertEntityData(AABB $$0, EntityType<E> $$1, Function<? super E, T> $$2, @Nullable T $$3) {
+   public <E extends Entity, T> void assertEntityData(AABB $$0, EntityType<E> $$1, Function<? super E, T> $$2, T $$3) {
       List<E> $$4 = this.getLevel().getEntities($$1, this.absoluteAABB($$0), Entity::isAlive);
       if ($$4.isEmpty()) {
          throw this.assertionException(BlockPos.containing($$0.getBottomCenter()), "test.error.expected_entity", $$1.getDescription());

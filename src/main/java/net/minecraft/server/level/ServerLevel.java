@@ -183,7 +183,6 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.ticks.LevelTicks;
 import net.minecraft.world.waypoints.WaypointTransmitter;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class ServerLevel extends Level implements ServerEntityGetter, WorldGenLevel {
@@ -218,7 +217,7 @@ public class ServerLevel extends Level implements ServerEntityGetter, WorldGenLe
    private final List<BlockEventData> blockEventsToReschedule = new ArrayList<>(64);
    private boolean handlingTick;
    private final List<CustomSpawner> customSpawners;
-   @Nullable
+   
    private EndDragonFight dragonFight;
    final Int2ObjectMap<EnderDragonPart> dragonParts = new Int2ObjectOpenHashMap();
    private final StructureManager structureManager;
@@ -238,7 +237,7 @@ public class ServerLevel extends Level implements ServerEntityGetter, WorldGenLe
       long $$7,
       List<CustomSpawner> $$8,
       boolean $$9,
-      @Nullable RandomSequences $$10
+      RandomSequences $$10
    ) {
       super($$3, $$4, $$0.registryAccess(), $$5.type(), false, $$6, $$7, $$0.getMaxChainedNeighborUpdates());
       this.tickTime = $$9;
@@ -310,7 +309,7 @@ public class ServerLevel extends Level implements ServerEntityGetter, WorldGenLe
 
    @Deprecated
    @VisibleForTesting
-   public void setDragonFight(@Nullable EndDragonFight $$0) {
+   public void setDragonFight(EndDragonFight $$0) {
       this.dragonFight = $$0;
    }
 
@@ -851,7 +850,7 @@ public class ServerLevel extends Level implements ServerEntityGetter, WorldGenLe
       return !($$0 instanceof Player $$2 && (this.server.isUnderSpawnProtection(this, $$1, $$2) || !this.getWorldBorder().isWithinBounds($$1)));
    }
 
-   public void save(@Nullable ProgressListener $$0, boolean $$1, boolean $$2) {
+   public void save(ProgressListener $$0, boolean $$1, boolean $$2) {
       ServerChunkCache $$3 = this.getChunkSource();
       if (!$$2) {
          if ($$0 != null) {
@@ -931,7 +930,7 @@ public class ServerLevel extends Level implements ServerEntityGetter, WorldGenLe
       return $$2;
    }
 
-   @Nullable
+   
    public ServerPlayer getRandomPlayer() {
       List<ServerPlayer> $$0 = this.getPlayers(LivingEntity::isAlive);
       return $$0.isEmpty() ? null : $$0.get(this.random.nextInt($$0.size()));
@@ -1014,7 +1013,7 @@ public class ServerLevel extends Level implements ServerEntityGetter, WorldGenLe
    }
 
    public void playSeededSound(
-      @Nullable Entity $$0, double $$1, double $$2, double $$3, Holder<SoundEvent> $$4, SoundSource $$5, float $$6, float $$7, long $$8
+      Entity $$0, double $$1, double $$2, double $$3, Holder<SoundEvent> $$4, SoundSource $$5, float $$6, float $$7, long $$8
    ) {
       this.server
          .getPlayerList()
@@ -1029,7 +1028,7 @@ public class ServerLevel extends Level implements ServerEntityGetter, WorldGenLe
          );
    }
 
-   public void playSeededSound(@Nullable Entity $$0, Entity $$1, Holder<SoundEvent> $$2, SoundSource $$3, float $$4, float $$5, long $$6) {
+   public void playSeededSound(Entity $$0, Entity $$1, Holder<SoundEvent> $$2, SoundSource $$3, float $$4, float $$5, long $$6) {
       this.server
          .getPlayerList()
          .broadcast(
@@ -1066,7 +1065,7 @@ public class ServerLevel extends Level implements ServerEntityGetter, WorldGenLe
       }
    }
 
-   public void levelEvent(@Nullable Entity $$0, int $$1, BlockPos $$2, int $$3) {
+   public void levelEvent(Entity $$0, int $$1, BlockPos $$2, int $$3) {
       this.server
          .getPlayerList()
          .broadcast(
@@ -1124,19 +1123,19 @@ public class ServerLevel extends Level implements ServerEntityGetter, WorldGenLe
       this.updateNeighborsAt($$0, $$1, ExperimentalRedstoneUtils.initialOrientation(this, null, null));
    }
 
-   public void updateNeighborsAt(BlockPos $$0, Block $$1, @Nullable Orientation $$2) {
+   public void updateNeighborsAt(BlockPos $$0, Block $$1, Orientation $$2) {
       this.neighborUpdater.updateNeighborsAtExceptFromFacing($$0, $$1, null, $$2);
    }
 
-   public void updateNeighborsAtExceptFromFacing(BlockPos $$0, Block $$1, Direction $$2, @Nullable Orientation $$3) {
+   public void updateNeighborsAtExceptFromFacing(BlockPos $$0, Block $$1, Direction $$2, Orientation $$3) {
       this.neighborUpdater.updateNeighborsAtExceptFromFacing($$0, $$1, $$2, $$3);
    }
 
-   public void neighborChanged(BlockPos $$0, Block $$1, @Nullable Orientation $$2) {
+   public void neighborChanged(BlockPos $$0, Block $$1, Orientation $$2) {
       this.neighborUpdater.neighborChanged($$0, $$1, $$2);
    }
 
-   public void neighborChanged(BlockState $$0, BlockPos $$1, Block $$2, @Nullable Orientation $$3, boolean $$4) {
+   public void neighborChanged(BlockState $$0, BlockPos $$1, Block $$2, Orientation $$3, boolean $$4) {
       this.neighborUpdater.neighborChanged($$0, $$1, $$2, $$3, $$4);
    }
 
@@ -1153,9 +1152,9 @@ public class ServerLevel extends Level implements ServerEntityGetter, WorldGenLe
    }
 
    public void explode(
-      @Nullable Entity $$0,
-      @Nullable DamageSource $$1,
-      @Nullable ExplosionDamageCalculator $$2,
+      Entity $$0,
+      DamageSource $$1,
+      ExplosionDamageCalculator $$2,
       double $$3,
       double $$4,
       double $$5,
@@ -1291,12 +1290,12 @@ public class ServerLevel extends Level implements ServerEntityGetter, WorldGenLe
       }
    }
 
-   @Nullable
+   
    public Entity getEntity(int $$0) {
       return (Entity)this.getEntities().get($$0);
    }
 
-   @Nullable
+   
    public Entity getEntityInAnyDimension(UUID $$0) {
       Entity $$1 = this.getEntity($$0);
       if ($$1 != null) {
@@ -1315,13 +1314,13 @@ public class ServerLevel extends Level implements ServerEntityGetter, WorldGenLe
       }
    }
 
-   @Nullable
+   
    public Player getPlayerInAnyDimension(UUID $$0) {
       return this.getServer().getPlayerList().getPlayer($$0);
    }
 
    @Deprecated
-   @Nullable
+   
    public Entity getEntityOrPart(int $$0) {
       Entity $$1 = (Entity)this.getEntities().get($$0);
       return $$1 != null ? $$1 : (Entity)this.dragonParts.get($$0);
@@ -1331,7 +1330,7 @@ public class ServerLevel extends Level implements ServerEntityGetter, WorldGenLe
       return this.dragonParts.values();
    }
 
-   @Nullable
+   
    public BlockPos findNearestMapStructure(TagKey<Structure> $$0, BlockPos $$1, int $$2, boolean $$3) {
       if (!this.server.getWorldData().worldGenOptions().generateStructures()) {
          return null;
@@ -1346,7 +1345,7 @@ public class ServerLevel extends Level implements ServerEntityGetter, WorldGenLe
       }
    }
 
-   @Nullable
+   
    public Pair<BlockPos, Holder<Biome>> findClosestBiome3d(Predicate<Holder<Biome>> $$0, BlockPos $$1, int $$2, int $$3, int $$4) {
       return this.getChunkSource()
          .getGenerator()
@@ -1376,7 +1375,7 @@ public class ServerLevel extends Level implements ServerEntityGetter, WorldGenLe
       return this.getChunkSource().getDataStorage();
    }
 
-   @Nullable
+   
    public MapItemSavedData getMapData(MapId $$0) {
       return (MapItemSavedData)this.getServer().overworld().getDataStorage().get(MapItemSavedData.type($$0));
    }
@@ -1456,7 +1455,7 @@ public class ServerLevel extends Level implements ServerEntityGetter, WorldGenLe
       return this.raids;
    }
 
-   @Nullable
+   
    public Raid getRaidAt(BlockPos $$0) {
       return this.raids.getNearbyRaid($$0, 9216);
    }
@@ -1589,7 +1588,7 @@ public class ServerLevel extends Level implements ServerEntityGetter, WorldGenLe
       return this.server.getWorldData().worldGenOptions().seed();
    }
 
-   @Nullable
+   
    public EndDragonFight getDragonFight() {
       return this.dragonFight;
    }

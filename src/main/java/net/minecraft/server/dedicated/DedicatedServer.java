@@ -67,7 +67,6 @@ import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.storage.LevelData.RespawnData;
 import net.minecraft.world.level.storage.LevelStorageSource.LevelStorageAccess;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class DedicatedServer extends net.minecraft.server.MinecraftServer implements net.minecraft.server.ServerInterface {
@@ -75,22 +74,22 @@ public class DedicatedServer extends net.minecraft.server.MinecraftServer implem
    private static final int CONVERSION_RETRY_DELAY_MS = 5000;
    private static final int CONVERSION_RETRIES = 2;
    private final List<net.minecraft.server.ConsoleInput> consoleInput = Collections.synchronizedList(Lists.newArrayList());
-   @Nullable
+   
    private QueryThreadGs4 queryThreadGs4;
    private final RconConsoleSource rconConsoleSource;
-   @Nullable
+   
    private RconThread rconThread;
    private final DedicatedServerSettings settings;
-   @Nullable
+   
    private MinecraftServerGui gui;
-   @Nullable
+   
    private final ServerTextFilter serverTextFilter;
-   @Nullable
+   
    private RemoteSampleLogger tickTimeLogger;
    private boolean isTickTimeLoggingEnabled;
    private final net.minecraft.server.ServerLinks serverLinks;
    private final Map<String, String> codeOfConductTexts;
-   @Nullable
+   
    private ManagementServer jsonRpcServer;
    private long lastHeartbeat;
 
@@ -755,7 +754,7 @@ public class DedicatedServer extends net.minecraft.server.MinecraftServer implem
       return this.serverTextFilter != null ? this.serverTextFilter.createContext($$0.getGameProfile()) : TextFilter.DUMMY;
    }
 
-   @Nullable
+   
    @Override
    public GameType getForcedGameType() {
       return this.forceGameMode() ? this.worldData.getGameType() : null;

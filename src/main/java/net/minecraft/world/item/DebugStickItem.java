@@ -18,7 +18,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.Property;
-import org.jspecify.annotations.Nullable;
 
 public class DebugStickItem extends net.minecraft.world.item.Item {
    public DebugStickItem(net.minecraft.world.item.Item.Properties $$0) {
@@ -88,7 +87,7 @@ public class DebugStickItem extends net.minecraft.world.item.Item {
       return (BlockState)$$0.setValue($$1, getRelative($$1.getPossibleValues(), $$0.getValue($$1), $$2));
    }
 
-   private static <T> T getRelative(Iterable<T> $$0, @Nullable T $$1, boolean $$2) {
+   private static <T> T getRelative(Iterable<T> $$0, T $$1, boolean $$2) {
       return (T)($$2 ? Util.findPreviousInIterable($$0, $$1) : Util.findNextInIterable($$0, $$1));
    }
 

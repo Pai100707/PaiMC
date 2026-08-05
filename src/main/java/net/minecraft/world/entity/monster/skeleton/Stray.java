@@ -14,7 +14,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
-import org.jspecify.annotations.Nullable;
 
 public class Stray extends AbstractSkeleton {
    public Stray(net.minecraft.world.entity.EntityType<? extends Stray> $$0, Level $$1) {
@@ -59,7 +58,7 @@ public class Stray extends AbstractSkeleton {
    }
 
    @Override
-   protected AbstractArrow getArrow(ItemStack $$0, float $$1, @Nullable ItemStack $$2) {
+   protected AbstractArrow getArrow(ItemStack $$0, float $$1, ItemStack $$2) {
       AbstractArrow $$3 = super.getArrow($$0, $$1, $$2);
       if ($$3 instanceof Arrow) {
          ((Arrow)$$3).addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 600));

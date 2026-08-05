@@ -23,7 +23,6 @@ import net.minecraft.world.entity.ai.village.poi.PoiManager;
 import net.minecraft.world.entity.ai.village.poi.PoiRecord;
 import net.minecraft.world.entity.ai.village.poi.PoiManager.Occupancy;
 import net.minecraft.world.level.ChunkPos;
-import org.jspecify.annotations.Nullable;
 
 public abstract class TrackingDebugSynchronizer<T> {
    protected final DebugSubscription<T> subscription;
@@ -233,14 +232,14 @@ public abstract class TrackingDebugSynchronizer<T> {
 
    static class ValueSource<T> {
       private final DebugValueSource.ValueGetter<T> getter;
-      @Nullable
+      
       T lastSyncedValue;
 
       ValueSource(DebugValueSource.ValueGetter<T> $$0) {
          this.getter = $$0;
       }
 
-      @Nullable
+      
       public DebugSubscription.Update<T> pollUpdate(DebugSubscription<T> $$0) {
          T $$1 = this.getter.get();
          if (!Objects.equals($$1, this.lastSyncedValue)) {

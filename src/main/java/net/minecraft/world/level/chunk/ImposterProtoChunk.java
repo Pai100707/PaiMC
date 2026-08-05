@@ -26,7 +26,6 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.ticks.BlackholeTickAccess;
 import net.minecraft.world.ticks.TickContainerAccess;
-import org.jspecify.annotations.Nullable;
 
 public class ImposterProtoChunk extends ProtoChunk {
    private final LevelChunk wrapped;
@@ -38,7 +37,7 @@ public class ImposterProtoChunk extends ProtoChunk {
       this.allowWrites = $$1;
    }
 
-   @Nullable
+   
    @Override
    public BlockEntity getBlockEntity(BlockPos $$0) {
       return this.wrapped.getBlockEntity($$0);
@@ -59,7 +58,7 @@ public class ImposterProtoChunk extends ProtoChunk {
       return this.allowWrites ? this.wrapped.getSection($$0) : super.getSection($$0);
    }
 
-   @Nullable
+   
    @Override
    public BlockState setBlockState(BlockPos $$0, BlockState $$1, @Block.UpdateFlags int $$2) {
       return this.allowWrites ? this.wrapped.setBlockState($$0, $$1, $$2) : null;
@@ -123,7 +122,7 @@ public class ImposterProtoChunk extends ProtoChunk {
       return this.wrapped.getPos();
    }
 
-   @Nullable
+   
    @Override
    public StructureStart getStartForStructure(Structure $$0) {
       return this.wrapped.getStartForStructure($$0);
@@ -197,13 +196,13 @@ public class ImposterProtoChunk extends ProtoChunk {
    public void setBlockEntityNbt(CompoundTag $$0) {
    }
 
-   @Nullable
+   
    @Override
    public CompoundTag getBlockEntityNbt(BlockPos $$0) {
       return this.wrapped.getBlockEntityNbt($$0);
    }
 
-   @Nullable
+   
    @Override
    public CompoundTag getBlockEntityNbtForSaving(BlockPos $$0, Provider $$1) {
       return this.wrapped.getBlockEntityNbtForSaving($$0, $$1);
@@ -229,7 +228,7 @@ public class ImposterProtoChunk extends ProtoChunk {
       return this.wrapped.getTicksForSerialization($$0);
    }
 
-   @Nullable
+   
    @Override
    public BlendingData getBlendingData() {
       return this.wrapped.getBlendingData();

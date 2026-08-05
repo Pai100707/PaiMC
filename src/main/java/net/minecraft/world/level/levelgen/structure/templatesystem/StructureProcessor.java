@@ -2,10 +2,9 @@ package net.minecraft.world.level.levelgen.structure.templatesystem;
 
 import java.util.List;
 import net.minecraft.core.BlockPos;
-import org.jspecify.annotations.Nullable;
 
 public abstract class StructureProcessor {
-   @Nullable
+   
    public StructureTemplate.StructureBlockInfo processBlock(
       net.minecraft.world.level.LevelReader $$0,
       BlockPos $$1,

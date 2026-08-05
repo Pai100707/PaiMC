@@ -22,7 +22,6 @@ import net.minecraft.resources.RegistryOps.RegistryInfo;
 import net.minecraft.resources.RegistryOps.RegistryInfoLookup;
 import net.minecraft.tags.TagKey;
 import org.apache.commons.lang3.mutable.MutableObject;
-import org.jspecify.annotations.Nullable;
 
 public class RegistrySetBuilder {
    private final List<net.minecraft.core.RegistrySetBuilder.RegistryStub<?>> entries = new ArrayList<>();
@@ -320,10 +319,10 @@ public class RegistrySetBuilder {
    }
 
    static class LazyHolder<T> extends net.minecraft.core.Holder.Reference<T> {
-      @Nullable
+      
       Supplier<T> supplier;
 
-      protected LazyHolder(net.minecraft.core.HolderOwner<T> $$0, @Nullable ResourceKey<T> $$1) {
+      protected LazyHolder(net.minecraft.core.HolderOwner<T> $$0, ResourceKey<T> $$1) {
          super(net.minecraft.core.Holder.Reference.Type.STAND_ALONE, $$0, $$1, null);
       }
 

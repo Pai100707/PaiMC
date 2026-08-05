@@ -3,7 +3,6 @@ package net.minecraft.world.ticks;
 import it.unimi.dsi.fastutil.Hash.Strategy;
 import java.util.Comparator;
 import net.minecraft.core.BlockPos;
-import org.jspecify.annotations.Nullable;
 
 public record ScheduledTick<T>(T type, BlockPos pos, long triggerTick, net.minecraft.world.ticks.TickPriority priority, long subTickOrder) {
    public static final Comparator<net.minecraft.world.ticks.ScheduledTick<?>> DRAIN_ORDER = ($$0, $$1) -> {
@@ -24,7 +23,7 @@ public record ScheduledTick<T>(T type, BlockPos pos, long triggerTick, net.minec
          return 31 * $$0.pos().hashCode() + $$0.type().hashCode();
       }
 
-      public boolean equals(@Nullable net.minecraft.world.ticks.ScheduledTick<?> $$0, @Nullable net.minecraft.world.ticks.ScheduledTick<?> $$1) {
+      public boolean equals(net.minecraft.world.ticks.ScheduledTick<?> $$0, net.minecraft.world.ticks.ScheduledTick<?> $$1) {
          if ($$0 == $$1) {
             return true;
          } else {

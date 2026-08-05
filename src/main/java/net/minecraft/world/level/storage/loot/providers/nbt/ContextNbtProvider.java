@@ -11,7 +11,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootContextArg;
-import org.jspecify.annotations.Nullable;
 
 public class ContextNbtProvider implements NbtProvider {
    private static final Codec<LootContextArg<Tag>> GETTER_CODEC = LootContextArg.createArgCodec(
@@ -32,7 +31,7 @@ public class ContextNbtProvider implements NbtProvider {
       return NbtProviders.CONTEXT;
    }
 
-   @Nullable
+   
    @Override
    public Tag get(LootContext $$0) {
       return this.source.get($$0);

@@ -36,7 +36,6 @@ import net.minecraft.server.packs.repository.KnownPack;
 import net.minecraft.server.players.NameAndId;
 import net.minecraft.server.players.PlayerList;
 import net.minecraft.world.flag.FeatureFlags;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class ServerConfigurationPacketListenerImpl extends ServerCommonPacketListenerImpl implements ServerConfigurationPacketListener, TickablePacketListener {
@@ -45,12 +44,12 @@ public class ServerConfigurationPacketListenerImpl extends ServerCommonPacketLis
    private static final Component DISCONNECT_REASON_CONFIGURATION_ERROR = Component.translatable("multiplayer.disconnect.configuration_error");
    private final GameProfile gameProfile;
    private final Queue<ConfigurationTask> configurationTasks = new ConcurrentLinkedQueue<>();
-   @Nullable
+   
    private ConfigurationTask currentTask;
    private ClientInformation clientInformation;
-   @Nullable
+   
    private SynchronizeRegistriesTask synchronizeRegistriesTask;
-   @Nullable
+   
    private PrepareSpawnTask prepareSpawnTask;
 
    public ServerConfigurationPacketListenerImpl(net.minecraft.server.MinecraftServer $$0, Connection $$1, CommonListenerCookie $$2) {

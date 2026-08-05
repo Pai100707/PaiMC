@@ -7,7 +7,6 @@ import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.phys.AABB;
-import org.jspecify.annotations.Nullable;
 
 public class HurtByTargetGoal extends TargetGoal {
    private static final TargetingConditions HURT_BY_TARGETING = TargetingConditions.forCombat().ignoreLineOfSight().ignoreInvisibilityTesting();
@@ -15,7 +14,7 @@ public class HurtByTargetGoal extends TargetGoal {
    private boolean alertSameType;
    private int timestamp;
    private final Class<?>[] toIgnoreDamage;
-   @Nullable
+   
    private Class<?>[] toIgnoreAlert;
 
    public HurtByTargetGoal(net.minecraft.world.entity.PathfinderMob $$0, Class<?>... $$1) {

@@ -128,7 +128,6 @@ import net.minecraft.world.scores.ReadOnlyScoreInfo;
 import net.minecraft.world.scores.ScoreAccess;
 import net.minecraft.world.scores.ScoreHolder;
 import net.minecraft.world.scores.Scoreboard;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class ExecuteCommand {
@@ -1164,7 +1163,7 @@ public class ExecuteCommand {
       Function<T, T> $$2,
       IntPredicate $$3,
       ContextChain<T> $$4,
-      @Nullable CompoundTag $$5,
+      CompoundTag $$5,
       ExecutionControl<T> $$6,
       InCommandFunction<CommandContext<T>, Collection<CommandFunction<T>>> $$7,
       ChainModifiers $$8

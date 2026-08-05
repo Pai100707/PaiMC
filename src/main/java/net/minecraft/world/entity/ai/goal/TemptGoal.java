@@ -7,7 +7,6 @@ import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class TemptGoal extends Goal {
    private static final TargetingConditions TEMPT_TARGETING = TargetingConditions.forNonCombat().ignoreLineOfSight();
@@ -20,7 +19,7 @@ public class TemptGoal extends Goal {
    private double pz;
    private double pRotX;
    private double pRotY;
-   @Nullable
+   
    protected Player player;
    private int calmDown;
    private boolean isRunning;

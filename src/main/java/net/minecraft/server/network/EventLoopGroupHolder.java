@@ -21,7 +21,6 @@ import io.netty.channel.nio.NioIoHandler;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import java.util.concurrent.ThreadFactory;
-import org.jspecify.annotations.Nullable;
 
 public abstract class EventLoopGroupHolder {
    private static final EventLoopGroupHolder NIO = new EventLoopGroupHolder("NIO", NioSocketChannel.class, NioServerSocketChannel.class) {
@@ -51,7 +50,7 @@ public abstract class EventLoopGroupHolder {
    private final String type;
    private final Class<? extends Channel> channelCls;
    private final Class<? extends ServerChannel> serverChannelCls;
-   @Nullable
+   
    private volatile EventLoopGroup group;
 
    public static EventLoopGroupHolder remote(boolean $$0) {

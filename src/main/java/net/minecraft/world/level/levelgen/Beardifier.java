@@ -14,7 +14,6 @@ import net.minecraft.world.level.levelgen.structure.StructureStart;
 import net.minecraft.world.level.levelgen.structure.TerrainAdjustment;
 import net.minecraft.world.level.levelgen.structure.pools.JigsawJunction;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
-import org.jspecify.annotations.Nullable;
 
 public class Beardifier implements DensityFunctions.BeardifierOrMarker {
    public static final int BEARD_KERNEL_RADIUS = 12;
@@ -31,7 +30,7 @@ public class Beardifier implements DensityFunctions.BeardifierOrMarker {
    public static final Beardifier EMPTY = new Beardifier(List.of(), List.of(), null);
    private final List<Beardifier.Rigid> pieces;
    private final List<JigsawJunction> junctions;
-   @Nullable
+   
    private final BoundingBox affectedBox;
 
    public static Beardifier forStructuresInChunk(net.minecraft.world.level.StructureManager $$0, net.minecraft.world.level.ChunkPos $$1) {
@@ -83,12 +82,12 @@ public class Beardifier implements DensityFunctions.BeardifierOrMarker {
       }
    }
 
-   private static BoundingBox includeBoundingBox(@Nullable BoundingBox $$0, BoundingBox $$1) {
+   private static BoundingBox includeBoundingBox(BoundingBox $$0, BoundingBox $$1) {
       return $$0 == null ? $$1 : BoundingBox.encapsulating($$0, $$1);
    }
 
    @VisibleForTesting
-   public Beardifier(List<Beardifier.Rigid> $$0, List<JigsawJunction> $$1, @Nullable BoundingBox $$2) {
+   public Beardifier(List<Beardifier.Rigid> $$0, List<JigsawJunction> $$1, BoundingBox $$2) {
       this.pieces = $$0;
       this.junctions = $$1;
       this.affectedBox = $$2;

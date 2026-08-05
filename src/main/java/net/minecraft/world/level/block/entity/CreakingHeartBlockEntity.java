@@ -38,7 +38,6 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import org.apache.commons.lang3.mutable.Mutable;
 import org.apache.commons.lang3.mutable.MutableObject;
-import org.jspecify.annotations.Nullable;
 
 public class CreakingHeartBlockEntity extends BlockEntity {
    private static final int PLAYER_DETECTION_RANGE = 32;
@@ -57,12 +56,12 @@ public class CreakingHeartBlockEntity extends BlockEntity {
    private static final int MAX_COUNT = 64;
    private static final int TICKS_GRACE_PERIOD = 30;
    private static final Optional<Creaking> NO_CREAKING = Optional.empty();
-   @Nullable
+   
    private Either<Creaking, UUID> creakingInfo;
    private long ticksExisted;
    private int ticker;
    private int emitter;
-   @Nullable
+   
    private Vec3 emitterTarget;
    private int outputSignal;
 
@@ -199,7 +198,7 @@ public class CreakingHeartBlockEntity extends BlockEntity {
       }
    }
 
-   @Nullable
+   
    private static Creaking spawnProtector(ServerLevel $$0, CreakingHeartBlockEntity $$1) {
       BlockPos $$2 = $$1.getBlockPos();
       Optional<Creaking> $$3 = SpawnUtil.trySpawnMob(
@@ -310,7 +309,7 @@ public class CreakingHeartBlockEntity extends BlockEntity {
       this.removeProtector(null);
    }
 
-   public void removeProtector(@Nullable DamageSource $$0) {
+   public void removeProtector(DamageSource $$0) {
       if (this.getCreakingProtector().orElse(null) instanceof Creaking $$1) {
          if ($$0 == null) {
             $$1.tearDown();

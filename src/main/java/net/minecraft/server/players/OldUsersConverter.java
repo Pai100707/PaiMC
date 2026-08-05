@@ -23,7 +23,6 @@ import net.minecraft.server.dedicated.DedicatedServer;
 import net.minecraft.server.notifications.EmptyNotificationService;
 import net.minecraft.util.StringUtil;
 import net.minecraft.world.level.storage.LevelResource;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class OldUsersConverter {
@@ -234,7 +233,7 @@ public class OldUsersConverter {
       }
    }
 
-   @Nullable
+   
    public static UUID convertMobOwnerIfNecessary(final net.minecraft.server.MinecraftServer $$0, String $$1) {
       if (!StringUtil.isNullOrEmpty($$1) && $$1.length() <= 16) {
          Optional<UUID> $$3 = $$0.services().nameToIdCache().get($$1).map(NameAndId::id);

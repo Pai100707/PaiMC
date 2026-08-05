@@ -16,7 +16,6 @@ import net.minecraft.util.profiling.Profiler;
 import net.minecraft.util.profiling.ProfilerFiller;
 import net.minecraft.util.profiling.metrics.MetricCategory;
 import net.minecraft.world.entity.Mob;
-import org.jspecify.annotations.Nullable;
 
 public class PathFinder {
    private static final float FUDGING = 1.5F;
@@ -39,7 +38,7 @@ public class PathFinder {
       this.maxVisitedNodes = $$0;
    }
 
-   @Nullable
+   
    public Path findPath(net.minecraft.world.level.PathNavigationRegion $$0, Mob $$1, Set<BlockPos> $$2, float $$3, int $$4, float $$5) {
       this.openSet.clear();
       this.nodeEvaluator.prepare($$0, $$1);
@@ -55,7 +54,7 @@ public class PathFinder {
       }
    }
 
-   @Nullable
+   
    private Path findPath(Node $$0, Map<Target, BlockPos> $$1, float $$2, int $$3, float $$4) {
       ProfilerFiller $$5 = Profiler.get();
       $$5.push("find_path");

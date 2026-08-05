@@ -21,7 +21,6 @@ import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public final class FluidState extends StateHolder<Fluid, FluidState> {
    public static final Codec<FluidState> CODEC = codec(BuiltInRegistries.FLUID.byNameCodec(), Fluid::defaultFluidState).stable();
@@ -98,7 +97,7 @@ public final class FluidState extends StateHolder<Fluid, FluidState> {
       return this.getType().createLegacyBlock(this);
    }
 
-   @Nullable
+   
    public ParticleOptions getDripParticle() {
       return this.getType().getDripParticle();
    }
@@ -127,7 +126,7 @@ public final class FluidState extends StateHolder<Fluid, FluidState> {
       return this.getType().getShape(this, $$0, $$1);
    }
 
-   @Nullable
+   
    public AABB getAABB(net.minecraft.world.level.BlockGetter $$0, BlockPos $$1) {
       return this.getType().getAABB(this, $$0, $$1);
    }

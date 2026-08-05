@@ -27,7 +27,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.pattern.BlockInWorld;
 import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
-import org.jspecify.annotations.Nullable;
 
 public class FillCommand {
    private static final Dynamic2CommandExceptionType ERROR_AREA_TOO_LARGE = new Dynamic2CommandExceptionType(
@@ -171,7 +170,7 @@ public class FillCommand {
    }
 
    private static int fillBlocks(
-      CommandSourceStack $$0, BoundingBox $$1, BlockInput $$2, FillCommand.Mode $$3, @Nullable Predicate<BlockInWorld> $$4, boolean $$5
+      CommandSourceStack $$0, BoundingBox $$1, BlockInput $$2, FillCommand.Mode $$3, Predicate<BlockInWorld> $$4, boolean $$5
    ) throws CommandSyntaxException {
       int $$6 = $$1.getXSpan() * $$1.getYSpan() * $$1.getZSpan();
       int $$7 = (Integer)$$0.getLevel().getGameRules().get(GameRules.MAX_BLOCK_MODIFICATIONS);
@@ -241,7 +240,7 @@ public class FillCommand {
    public interface Filter {
       FillCommand.Filter NOOP = ($$0, $$1, $$2, $$3) -> $$2;
 
-      @Nullable
+      
       BlockInput filter(BoundingBox var1, BlockPos var2, BlockInput var3, ServerLevel var4);
    }
 
@@ -282,7 +281,7 @@ public class FillCommand {
 
    @FunctionalInterface
    interface NullableCommandFunction<T, R> {
-      @Nullable
+      
       R apply(T var1) throws CommandSyntaxException;
    }
 }

@@ -58,7 +58,6 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.BitSetDiscreteVoxelShape;
 import net.minecraft.world.phys.shapes.DiscreteVoxelShape;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class StructureTemplate {
@@ -461,7 +460,7 @@ public class StructureTemplate {
       Mirror $$2,
       Rotation $$3,
       BlockPos $$4,
-      @Nullable BoundingBox $$5,
+      BoundingBox $$5,
       boolean $$6,
       ProblemReporter $$7
    ) {
@@ -813,7 +812,7 @@ public class StructureTemplate {
    public static final class Palette {
       private final List<StructureTemplate.StructureBlockInfo> blocks;
       private final Map<Block, List<StructureTemplate.StructureBlockInfo>> cache = Maps.newHashMap();
-      @Nullable
+      
       private List<StructureTemplate.JigsawBlockInfo> cachedJigsaws;
 
       Palette(List<StructureTemplate.StructureBlockInfo> $$0) {
@@ -852,7 +851,7 @@ public class StructureTemplate {
          return $$1;
       }
 
-      @Nullable
+      
       public BlockState stateFor(int $$0) {
          BlockState $$1 = (BlockState)this.ids.byId($$0);
          return $$1 == null ? DEFAULT_BLOCK_STATE : $$1;
@@ -868,7 +867,7 @@ public class StructureTemplate {
       }
    }
 
-   public record StructureBlockInfo(BlockPos pos, BlockState state, @Nullable CompoundTag nbt) {
+   public record StructureBlockInfo(BlockPos pos, BlockState state, CompoundTag nbt) {
 
       @Override
       public String toString() {

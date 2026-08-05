@@ -12,14 +12,13 @@ import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.ai.util.DefaultRandomPos;
 import net.minecraft.world.level.pathfinder.Path;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class MoveToTargetSink extends Behavior<net.minecraft.world.entity.Mob> {
    private static final int MAX_COOLDOWN_BEFORE_RETRYING = 40;
    private int remainingCooldown;
-   @Nullable
+   
    private Path path;
-   @Nullable
+   
    private BlockPos lastTargetPos;
    private float speedModifier;
 

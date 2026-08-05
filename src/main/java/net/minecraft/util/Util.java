@@ -87,7 +87,6 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.server.Bootstrap;
 import net.minecraft.util.datafix.DataFixers;
 import net.minecraft.world.level.block.state.properties.Property;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class Util {
@@ -128,7 +127,7 @@ public class Util {
       return $$0.getName((Comparable)$$1);
    }
 
-   public static String makeDescriptionId(String $$0, @Nullable Identifier $$1) {
+   public static String makeDescriptionId(String $$0, Identifier $$1) {
       return $$1 == null ? $$0 + ".unregistered_sadface" : $$0 + "." + $$1.getNamespace() + "." + $$1.getPath().replace('/', '.');
    }
 
@@ -165,7 +164,7 @@ public class Util {
                }
 
                @Override
-               protected void onTermination(@Nullable Throwable $$0x) {
+               protected void onTermination(Throwable $$0x) {
                   if ($$0 != null) {
                      net.minecraft.util.Util.LOGGER.warn("{} died", this.getName(), $$0);
                   } else {
@@ -253,12 +252,12 @@ public class Util {
       LOGGER.error("Caught exception in thread {}", $$0, $$1);
    }
 
-   @Nullable
+   
    public static Type<?> fetchChoiceType(TypeReference $$0, String $$1) {
       return !SharedConstants.CHECK_DATA_FIXER_SCHEMA ? null : doFetchChoiceType($$0, $$1);
    }
 
-   @Nullable
+   
    private static Type<?> doFetchChoiceType(TypeReference $$0, String $$1) {
       Type<?> $$2 = null;
 
@@ -520,7 +519,7 @@ public class Util {
       }
    }
 
-   public static <T> T findNextInIterable(Iterable<T> $$0, @Nullable T $$1) {
+   public static <T> T findNextInIterable(Iterable<T> $$0, T $$1) {
       Iterator<T> $$2 = $$0.iterator();
       T $$3 = $$2.next();
       if ($$1 != null) {
@@ -540,7 +539,7 @@ public class Util {
       return $$3;
    }
 
-   public static <T> T findPreviousInIterable(Iterable<T> $$0, @Nullable T $$1) {
+   public static <T> T findPreviousInIterable(Iterable<T> $$0, T $$1) {
       Iterator<T> $$2 = $$0.iterator();
       T $$3 = null;
 

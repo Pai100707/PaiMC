@@ -6,7 +6,6 @@ import net.minecraft.CrashReportCategory;
 import net.minecraft.ReportedException;
 import net.minecraft.server.RunningOnDifferentThreadException;
 import net.minecraft.server.level.ServerLevel;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class PacketUtils {
@@ -36,7 +35,7 @@ public class PacketUtils {
       }
    }
 
-   public static <T extends net.minecraft.network.PacketListener> void fillCrashReport(CrashReport $$0, T $$1, @Nullable Packet<T> $$2) {
+   public static <T extends net.minecraft.network.PacketListener> void fillCrashReport(CrashReport $$0, T $$1, Packet<T> $$2) {
       if ($$2 != null) {
          CrashReportCategory $$3 = $$0.addCategory("Incoming Packet");
          $$3.setDetail("Type", () -> $$2.type().toString());

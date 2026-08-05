@@ -2,13 +2,12 @@ package net.minecraft.util;
 
 import java.util.Objects;
 import java.util.function.Function;
-import org.jspecify.annotations.Nullable;
 
 public class SingleKeyCache<K, V> {
    private final Function<K, V> computeValue;
-   @Nullable
+   
    private K cacheKey = (K)null;
-   @Nullable
+   
    private V cachedValue;
 
    public SingleKeyCache(Function<K, V> $$0) {

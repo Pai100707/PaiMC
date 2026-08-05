@@ -6,7 +6,6 @@ import com.mojang.serialization.JavaOps;
 import java.util.HashMap;
 import java.util.Map;
 import net.minecraft.resources.ResourceKey;
-import org.jspecify.annotations.Nullable;
 
 public class Cloner<T> {
    private final Codec<T> directCodec;
@@ -30,7 +29,7 @@ public class Cloner<T> {
          return this;
       }
 
-      @Nullable
+      
       public <T> net.minecraft.core.Cloner<T> cloner(ResourceKey<? extends net.minecraft.core.Registry<? extends T>> $$0) {
          return (net.minecraft.core.Cloner<T>)this.codecs.get($$0);
       }

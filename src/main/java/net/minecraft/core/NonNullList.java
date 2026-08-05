@@ -5,11 +5,10 @@ import java.util.AbstractList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
-import org.jspecify.annotations.Nullable;
 
 public class NonNullList<E> extends AbstractList<E> {
    private final List<E> list;
-   @Nullable
+   
    private final E defaultValue;
 
    public static <E> net.minecraft.core.NonNullList<E> create() {
@@ -32,7 +31,7 @@ public class NonNullList<E> extends AbstractList<E> {
       return new net.minecraft.core.NonNullList<>(Arrays.asList($$1), $$0);
    }
 
-   protected NonNullList(List<E> $$0, @Nullable E $$1) {
+   protected NonNullList(List<E> $$0, E $$1) {
       this.list = $$0;
       this.defaultValue = $$1;
    }

@@ -7,7 +7,6 @@ import java.util.List;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.util.ExtraCodecs;
-import org.jspecify.annotations.Nullable;
 
 public record CustomModelData(List<Float> floats, List<Boolean> flags, List<String> strings, List<Integer> colors) {
    public static final CustomModelData EMPTY = new CustomModelData(List.of(), List.of(), List.of(), List.of());
@@ -32,27 +31,27 @@ public record CustomModelData(List<Float> floats, List<Boolean> flags, List<Stri
       CustomModelData::new
    );
 
-   @Nullable
+   
    private static <T> T getSafe(List<T> $$0, int $$1) {
       return $$1 >= 0 && $$1 < $$0.size() ? $$0.get($$1) : null;
    }
 
-   @Nullable
+   
    public Float getFloat(int $$0) {
       return getSafe(this.floats, $$0);
    }
 
-   @Nullable
+   
    public Boolean getBoolean(int $$0) {
       return getSafe(this.flags, $$0);
    }
 
-   @Nullable
+   
    public String getString(int $$0) {
       return getSafe(this.strings, $$0);
    }
 
-   @Nullable
+   
    public Integer getColor(int $$0) {
       return getSafe(this.colors, $$0);
    }

@@ -29,11 +29,10 @@ import net.minecraft.world.level.block.entity.TestInstanceBlockEntity.Data;
 import net.minecraft.world.level.block.entity.TestInstanceBlockEntity.Status;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.phys.AABB;
-import org.jspecify.annotations.Nullable;
 
 public class GameTestInfo {
    private final Reference<GameTestInstance> test;
-   @Nullable
+   
    private BlockPos testBlockPos;
    private final ServerLevel level;
    private final Collection<GameTestListener> listeners = Lists.newArrayList();
@@ -48,9 +47,9 @@ public class GameTestInfo {
    private final Stopwatch timer = Stopwatch.createUnstarted();
    private boolean done;
    private final Rotation extraRotation;
-   @Nullable
+   
    private GameTestException error;
-   @Nullable
+   
    private TestInstanceBlockEntity testInstanceBlockEntity;
 
    public GameTestInfo(Reference<GameTestInstance> $$0, Rotation $$1, ServerLevel $$2, RetryOptions $$3) {
@@ -61,7 +60,7 @@ public class GameTestInfo {
       this.extraRotation = $$1;
    }
 
-   public void setTestBlockPos(@Nullable BlockPos $$0) {
+   public void setTestBlockPos(BlockPos $$0) {
       this.testBlockPos = $$0;
    }
 
@@ -186,7 +185,7 @@ public class GameTestInfo {
       return this.test.key().identifier();
    }
 
-   @Nullable
+   
    public BlockPos getTestBlockPos() {
       return this.testBlockPos;
    }
@@ -268,7 +267,7 @@ public class GameTestInfo {
       this.error = $$0;
    }
 
-   @Nullable
+   
    public GameTestException getError() {
       return this.error;
    }
@@ -282,7 +281,7 @@ public class GameTestInfo {
       this.listeners.add($$0);
    }
 
-   @Nullable
+   
    public GameTestInfo prepareTestStructure() {
       TestInstanceBlockEntity $$0 = this.createTestInstanceBlock(Objects.requireNonNull(this.testBlockPos), this.extraRotation, this.level);
       if ($$0 != null) {
@@ -294,7 +293,7 @@ public class GameTestInfo {
       }
    }
 
-   @Nullable
+   
    private TestInstanceBlockEntity createTestInstanceBlock(BlockPos $$0, Rotation $$1, ServerLevel $$2) {
       $$2.setBlockAndUpdate($$0, Blocks.TEST_INSTANCE_BLOCK.defaultBlockState());
       if ($$2.getBlockEntity($$0) instanceof TestInstanceBlockEntity $$3) {

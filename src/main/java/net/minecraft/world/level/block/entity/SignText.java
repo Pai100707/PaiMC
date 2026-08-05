@@ -16,7 +16,6 @@ import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.util.Util;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
-import org.jspecify.annotations.Nullable;
 
 public class SignText {
    private static final Codec<Component[]> LINES_CODEC = ComponentSerialization.CODEC
@@ -40,7 +39,7 @@ public class SignText {
    private final Component[] filteredMessages;
    private final DyeColor color;
    private final boolean hasGlowingText;
-   @Nullable
+   
    private FormattedCharSequence[] renderMessages;
    private boolean renderMessagedFiltered;
 

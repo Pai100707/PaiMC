@@ -21,10 +21,9 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public interface BlockGetter extends net.minecraft.world.level.LevelHeightAccessor {
-   @Nullable
+   
    BlockEntity getBlockEntity(BlockPos var1);
 
    default <T extends BlockEntity> Optional<T> getBlockEntity(BlockPos $$0, BlockEntityType<T> $$1) {
@@ -82,7 +81,7 @@ public interface BlockGetter extends net.minecraft.world.level.LevelHeightAccess
       });
    }
 
-   @Nullable
+   
    default BlockHitResult clipWithInteractionOverride(Vec3 $$0, Vec3 $$1, BlockPos $$2, VoxelShape $$3, BlockState $$4) {
       BlockHitResult $$5 = $$3.clip($$0, $$1, $$2);
       if ($$5 != null) {

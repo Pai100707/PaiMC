@@ -9,7 +9,6 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 
 public class EnderDragonPart extends net.minecraft.world.entity.Entity {
    public final EnderDragon parentMob;
@@ -41,7 +40,7 @@ public class EnderDragonPart extends net.minecraft.world.entity.Entity {
       return true;
    }
 
-   @Nullable
+   
    @Override
    public ItemStack getPickResult() {
       return this.parentMob.getPickResult();

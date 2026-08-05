@@ -29,7 +29,6 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import net.minecraft.world.level.levelgen.placement.RarityFilter;
 import net.minecraft.world.level.levelgen.placement.SurfaceWaterDepthFilter;
-import org.jspecify.annotations.Nullable;
 
 public class VegetationPlacements {
    public static final ResourceKey<PlacedFeature> BAMBOO_LIGHT = PlacementUtils.createKey("bamboo_light");
@@ -127,7 +126,7 @@ public class VegetationPlacements {
       return List.of(CountPlacement.of($$0), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
    }
 
-   private static List<PlacementModifier> getMushroomPlacement(int $$0, @Nullable PlacementModifier $$1) {
+   private static List<PlacementModifier> getMushroomPlacement(int $$0, PlacementModifier $$1) {
       Builder<PlacementModifier> $$2 = ImmutableList.builder();
       if ($$1 != null) {
          $$2.add($$1);

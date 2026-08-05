@@ -7,7 +7,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 
 public interface NeutralMob {
    String TAG_ANGER_END_TIME = "anger_end_time";
@@ -22,10 +21,10 @@ public interface NeutralMob {
 
    void setPersistentAngerEndTime(long var1);
 
-   @Nullable
+   
    net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> getPersistentAngerTarget();
 
-   void setPersistentAngerTarget(@Nullable net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> var1);
+   void setPersistentAngerTarget(net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> var1);
 
    void startPersistentAngerTimer();
 
@@ -125,15 +124,15 @@ public interface NeutralMob {
       this.setPersistentAngerEndTime(-1L);
    }
 
-   @Nullable
+   
    net.minecraft.world.entity.LivingEntity getLastHurtByMob();
 
-   void setLastHurtByMob(@Nullable net.minecraft.world.entity.LivingEntity var1);
+   void setLastHurtByMob(net.minecraft.world.entity.LivingEntity var1);
 
-   void setTarget(@Nullable net.minecraft.world.entity.LivingEntity var1);
+   void setTarget(net.minecraft.world.entity.LivingEntity var1);
 
    boolean canAttack(net.minecraft.world.entity.LivingEntity var1);
 
-   @Nullable
+   
    net.minecraft.world.entity.LivingEntity getTarget();
 }

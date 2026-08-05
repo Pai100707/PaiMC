@@ -19,7 +19,6 @@ import net.minecraft.network.protocol.PacketType;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.PlayerModelPart;
 import net.minecraft.world.level.GameType;
-import org.jspecify.annotations.Nullable;
 
 public class ClientboundPlayerInfoUpdatePacket implements Packet<ClientGamePacketListener> {
    public static final StreamCodec<net.minecraft.network.RegistryFriendlyByteBuf, ClientboundPlayerInfoUpdatePacket> STREAM_CODEC = Packet.codec(
@@ -145,14 +144,14 @@ public class ClientboundPlayerInfoUpdatePacket implements Packet<ClientGamePacke
 
    public record Entry(
       UUID profileId,
-      @Nullable GameProfile profile,
+      GameProfile profile,
       boolean listed,
       int latency,
       GameType gameMode,
-      @Nullable Component displayName,
+      Component displayName,
       boolean showHat,
       int listOrder,
-      @Nullable RemoteChatSession.Data chatSession
+      RemoteChatSession.Data chatSession
    ) {
 
       Entry(ServerPlayer $$0) {
@@ -172,16 +171,16 @@ public class ClientboundPlayerInfoUpdatePacket implements Packet<ClientGamePacke
 
    static class EntryBuilder {
       final UUID profileId;
-      @Nullable
+      
       GameProfile profile;
       boolean listed;
       int latency;
       GameType gameMode = GameType.DEFAULT_MODE;
-      @Nullable
+      
       Component displayName;
       boolean showHat;
       int listOrder;
-      @Nullable
+      
       RemoteChatSession.Data chatSession;
 
       EntryBuilder(UUID $$0) {

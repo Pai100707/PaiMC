@@ -14,7 +14,6 @@ import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class BlockCollisions<T> extends AbstractIterator<T> {
    private final AABB box;
@@ -24,13 +23,13 @@ public class BlockCollisions<T> extends AbstractIterator<T> {
    private final VoxelShape entityShape;
    private final net.minecraft.world.level.CollisionGetter collisionGetter;
    private final boolean onlySuffocatingBlocks;
-   @Nullable
+   
    private net.minecraft.world.level.BlockGetter cachedBlockGetter;
    private long cachedBlockGetterPos;
    private final BiFunction<MutableBlockPos, VoxelShape, T> resultProvider;
 
    public BlockCollisions(
-      net.minecraft.world.level.CollisionGetter $$0, @Nullable Entity $$1, AABB $$2, boolean $$3, BiFunction<MutableBlockPos, VoxelShape, T> $$4
+      net.minecraft.world.level.CollisionGetter $$0, Entity $$1, AABB $$2, boolean $$3, BiFunction<MutableBlockPos, VoxelShape, T> $$4
    ) {
       this($$0, $$1 == null ? CollisionContext.empty() : CollisionContext.of($$1), $$2, $$3, $$4);
    }
@@ -54,7 +53,7 @@ public class BlockCollisions<T> extends AbstractIterator<T> {
       this.cursor = new Cursor3D($$5, $$7, $$9, $$6, $$8, $$10);
    }
 
-   @Nullable
+   
    private net.minecraft.world.level.BlockGetter getChunk(int $$0, int $$1) {
       int $$2 = SectionPos.blockToSectionCoord($$0);
       int $$3 = SectionPos.blockToSectionCoord($$1);

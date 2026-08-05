@@ -7,7 +7,6 @@ import com.mojang.brigadier.exceptions.CommandExceptionType;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import net.minecraft.commands.execution.TraceCallbacks;
 import net.minecraft.server.permissions.PermissionSetSupplier;
-import org.jspecify.annotations.Nullable;
 
 public interface ExecutionCommandSource<T extends net.minecraft.commands.ExecutionCommandSource<T>> extends PermissionSetSupplier {
    T withCallback(net.minecraft.commands.CommandResultCallback var1);
@@ -20,11 +19,11 @@ public interface ExecutionCommandSource<T extends net.minecraft.commands.Executi
 
    CommandDispatcher<T> dispatcher();
 
-   void handleError(CommandExceptionType var1, Message var2, boolean var3, @Nullable TraceCallbacks var4);
+   void handleError(CommandExceptionType var1, Message var2, boolean var3, TraceCallbacks var4);
 
    boolean isSilent();
 
-   default void handleError(CommandSyntaxException $$0, boolean $$1, @Nullable TraceCallbacks $$2) {
+   default void handleError(CommandSyntaxException $$0, boolean $$1, TraceCallbacks $$2) {
       this.handleError($$0.getType(), $$0.getRawMessage(), $$1, $$2);
    }
 

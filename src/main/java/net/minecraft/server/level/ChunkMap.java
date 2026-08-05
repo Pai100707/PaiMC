@@ -107,7 +107,6 @@ import net.minecraft.world.level.storage.DimensionDataStorage;
 import net.minecraft.world.level.storage.LevelStorageSource.LevelStorageAccess;
 import net.minecraft.world.phys.Vec3;
 import org.apache.commons.lang3.mutable.MutableBoolean;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class ChunkMap extends SimpleRegionStorage implements ChunkHolder.PlayerProvider, GeneratingChunkMap {
@@ -245,17 +244,17 @@ public class ChunkMap extends SimpleRegionStorage implements ChunkHolder.PlayerP
       return this.lightEngine;
    }
 
-   @Nullable
+   
    public ChunkHolder getUpdatingChunkIfPresent(long $$0) {
       return (ChunkHolder)this.updatingChunkMap.get($$0);
    }
 
-   @Nullable
+   
    protected ChunkHolder getVisibleChunkIfPresent(long $$0) {
       return (ChunkHolder)this.visibleChunkMap.get($$0);
    }
 
-   @Nullable
+   
    public ChunkStatus getLatestStatus(long $$0) {
       ChunkHolder $$1 = this.getVisibleChunkIfPresent($$0);
       return $$1 != null ? $$1.getLatestStatus() : null;
@@ -358,8 +357,8 @@ public class ChunkMap extends SimpleRegionStorage implements ChunkHolder.PlayerP
       return this.getChunkRangeFuture($$0, 2, $$0x -> ChunkStatus.FULL).thenApply($$0x -> $$0x.map($$0xx -> (LevelChunk)$$0xx.get($$0xx.size() / 2)));
    }
 
-   @Nullable
-   ChunkHolder updateChunkScheduling(long $$0, int $$1, @Nullable ChunkHolder $$2, int $$3) {
+   
+   ChunkHolder updateChunkScheduling(long $$0, int $$1, ChunkHolder $$2, int $$3) {
       if (!ChunkLevel.isLoaded($$3) && !ChunkLevel.isLoaded($$1)) {
          return $$2;
       } else {
@@ -825,7 +824,7 @@ public class ChunkMap extends SimpleRegionStorage implements ChunkHolder.PlayerP
       $$0.connection.chunkSender.dropChunk($$0, $$1);
    }
 
-   @Nullable
+   
    public LevelChunk getChunkToSend(long $$0) {
       ChunkHolder $$1 = this.getVisibleChunkIfPresent($$0);
       return $$1 == null ? null : $$1.getChunkToSend();
@@ -1306,15 +1305,15 @@ public class ChunkMap extends SimpleRegionStorage implements ChunkHolder.PlayerP
          return ChunkMap.this.toDrop.contains($$0);
       }
 
-      @Nullable
+      
       @Override
       protected ChunkHolder getChunk(long $$0) {
          return ChunkMap.this.getUpdatingChunkIfPresent($$0);
       }
 
-      @Nullable
+      
       @Override
-      protected ChunkHolder updateChunkScheduling(long $$0, int $$1, @Nullable ChunkHolder $$2, int $$3) {
+      protected ChunkHolder updateChunkScheduling(long $$0, int $$1, ChunkHolder $$2, int $$3) {
          return ChunkMap.this.updateChunkScheduling($$0, $$1, $$2, $$3);
       }
    }

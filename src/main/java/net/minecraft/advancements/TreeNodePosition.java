@@ -2,18 +2,17 @@ package net.minecraft.advancements;
 
 import com.google.common.collect.Lists;
 import java.util.List;
-import org.jspecify.annotations.Nullable;
 
 public class TreeNodePosition {
    private final net.minecraft.advancements.AdvancementNode node;
-   @Nullable
+   
    private final net.minecraft.advancements.TreeNodePosition parent;
-   @Nullable
+   
    private final net.minecraft.advancements.TreeNodePosition previousSibling;
    private final int childIndex;
    private final List<net.minecraft.advancements.TreeNodePosition> children = Lists.newArrayList();
    private net.minecraft.advancements.TreeNodePosition ancestor;
-   @Nullable
+   
    private net.minecraft.advancements.TreeNodePosition thread;
    private int x;
    private float y;
@@ -23,8 +22,8 @@ public class TreeNodePosition {
 
    public TreeNodePosition(
       net.minecraft.advancements.AdvancementNode $$0,
-      @Nullable net.minecraft.advancements.TreeNodePosition $$1,
-      @Nullable net.minecraft.advancements.TreeNodePosition $$2,
+      net.minecraft.advancements.TreeNodePosition $$1,
+      net.minecraft.advancements.TreeNodePosition $$2,
       int $$3,
       int $$4
    ) {
@@ -46,9 +45,9 @@ public class TreeNodePosition {
       }
    }
 
-   @Nullable
+   
    private net.minecraft.advancements.TreeNodePosition addChild(
-      net.minecraft.advancements.AdvancementNode $$0, @Nullable net.minecraft.advancements.TreeNodePosition $$1
+      net.minecraft.advancements.AdvancementNode $$0, net.minecraft.advancements.TreeNodePosition $$1
    ) {
       if ($$0.advancement().display().isPresent()) {
          $$1 = new net.minecraft.advancements.TreeNodePosition($$0, this, $$1, this.children.size() + 1, this.x + 1);
@@ -123,7 +122,7 @@ public class TreeNodePosition {
       }
    }
 
-   @Nullable
+   
    private net.minecraft.advancements.TreeNodePosition previousOrThread() {
       if (this.thread != null) {
          return this.thread;
@@ -132,7 +131,7 @@ public class TreeNodePosition {
       }
    }
 
-   @Nullable
+   
    private net.minecraft.advancements.TreeNodePosition nextOrThread() {
       if (this.thread != null) {
          return this.thread;

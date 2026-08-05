@@ -8,14 +8,13 @@ import net.minecraft.world.entity.animal.golem.IronGolem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.phys.AABB;
-import org.jspecify.annotations.Nullable;
 
 public class OfferFlowerGoal extends Goal {
    private static final TargetingConditions OFFER_TARGET_CONTEXT = TargetingConditions.forNonCombat().range(6.0);
    private static final Item OFFER_ITEM = Items.POPPY;
    public static final int OFFER_TICKS = 400;
    private final IronGolem golem;
-   @Nullable
+   
    private net.minecraft.world.entity.LivingEntity entity;
    private int tick;
 

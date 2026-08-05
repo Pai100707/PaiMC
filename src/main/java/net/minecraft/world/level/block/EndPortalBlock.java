@@ -24,7 +24,6 @@ import net.minecraft.world.level.storage.LevelData;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class EndPortalBlock extends BaseEntityBlock implements Portal {
    public static final MapCodec<EndPortalBlock> CODEC = simpleCodec(EndPortalBlock::new);
@@ -65,7 +64,7 @@ public class EndPortalBlock extends BaseEntityBlock implements Portal {
       }
    }
 
-   @Nullable
+   
    @Override
    public TeleportTransition getPortalDestination(ServerLevel $$0, Entity $$1, BlockPos $$2) {
       LevelData.RespawnData $$3 = $$0.getRespawnData();

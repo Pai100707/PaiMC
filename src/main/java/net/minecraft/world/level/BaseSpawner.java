@@ -25,7 +25,6 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public abstract class BaseSpawner {
@@ -41,20 +40,20 @@ public abstract class BaseSpawner {
    private static final int DEFAULT_SPAWN_RANGE = 4;
    private int spawnDelay = 20;
    private WeightedList<net.minecraft.world.level.SpawnData> spawnPotentials = WeightedList.of();
-   @Nullable
+   
    private net.minecraft.world.level.SpawnData nextSpawnData;
    private double spin;
    private double oSpin;
    private int minSpawnDelay = 200;
    private int maxSpawnDelay = 800;
    private int spawnCount = 4;
-   @Nullable
+   
    private Entity displayEntity;
    private int maxNearbyEntities = 6;
    private int requiredPlayerRange = 16;
    private int spawnRange = 4;
 
-   public void setEntityId(EntityType<?> $$0, @Nullable net.minecraft.world.level.Level $$1, RandomSource $$2, BlockPos $$3) {
+   public void setEntityId(EntityType<?> $$0, net.minecraft.world.level.Level $$1, RandomSource $$2, BlockPos $$3) {
       this.getOrCreateNextSpawnData($$1, $$2, $$3).getEntityToSpawn().putString("id", BuiltInRegistries.ENTITY_TYPE.getKey($$0).toString());
    }
 
@@ -277,7 +276,7 @@ public abstract class BaseSpawner {
       this.broadcastEvent($$0, $$1, 1);
    }
 
-   public void load(@Nullable net.minecraft.world.level.Level $$0, BlockPos $$1, ValueInput $$2) {
+   public void load(net.minecraft.world.level.Level $$0, BlockPos $$1, ValueInput $$2) {
       this.spawnDelay = $$2.getShortOr("Delay", (short)20);
       $$2.<net.minecraft.world.level.SpawnData>read("SpawnData", net.minecraft.world.level.SpawnData.CODEC)
          .ifPresent($$2x -> this.setNextSpawnData($$0, $$1, $$2x));
@@ -304,7 +303,7 @@ public abstract class BaseSpawner {
       $$0.store("SpawnPotentials", net.minecraft.world.level.SpawnData.LIST_CODEC, this.spawnPotentials);
    }
 
-   @Nullable
+   
    public Entity getOrCreateDisplayEntity(net.minecraft.world.level.Level $$0, BlockPos $$1) {
       if (this.displayEntity == null) {
          CompoundTag $$2 = this.getOrCreateNextSpawnData($$0, $$0.getRandom(), $$1).getEntityToSpawn();
@@ -332,11 +331,11 @@ public abstract class BaseSpawner {
       }
    }
 
-   protected void setNextSpawnData(@Nullable net.minecraft.world.level.Level $$0, BlockPos $$1, net.minecraft.world.level.SpawnData $$2) {
+   protected void setNextSpawnData(net.minecraft.world.level.Level $$0, BlockPos $$1, net.minecraft.world.level.SpawnData $$2) {
       this.nextSpawnData = $$2;
    }
 
-   private net.minecraft.world.level.SpawnData getOrCreateNextSpawnData(@Nullable net.minecraft.world.level.Level $$0, RandomSource $$1, BlockPos $$2) {
+   private net.minecraft.world.level.SpawnData getOrCreateNextSpawnData(net.minecraft.world.level.Level $$0, RandomSource $$1, BlockPos $$2) {
       if (this.nextSpawnData != null) {
          return this.nextSpawnData;
       } else {

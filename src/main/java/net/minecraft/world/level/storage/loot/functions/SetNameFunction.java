@@ -22,7 +22,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class SetNameFunction extends LootItemConditionalFunction {
@@ -59,7 +58,7 @@ public class SetNameFunction extends LootItemConditionalFunction {
       return this.resolutionContext.<Set<ContextKey<?>>>map($$0 -> Set.of($$0.contextParam())).orElse(Set.of());
    }
 
-   public static UnaryOperator<Component> createResolver(LootContext $$0, @Nullable LootContext.EntityTarget $$1) {
+   public static UnaryOperator<Component> createResolver(LootContext $$0, LootContext.EntityTarget $$1) {
       if ($$1 != null) {
          Entity $$2 = $$0.getOptionalParameter($$1.contextParam());
          if ($$2 != null) {

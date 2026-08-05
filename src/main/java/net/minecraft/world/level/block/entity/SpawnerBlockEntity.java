@@ -11,7 +11,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 
 public class SpawnerBlockEntity extends BlockEntity implements net.minecraft.world.level.Spawner {
    private final net.minecraft.world.level.BaseSpawner spawner = new net.minecraft.world.level.BaseSpawner() {
@@ -21,7 +20,7 @@ public class SpawnerBlockEntity extends BlockEntity implements net.minecraft.wor
       }
 
       @Override
-      public void setNextSpawnData(@Nullable net.minecraft.world.level.Level $$0, BlockPos $$1, net.minecraft.world.level.SpawnData $$2) {
+      public void setNextSpawnData(net.minecraft.world.level.Level $$0, BlockPos $$1, net.minecraft.world.level.SpawnData $$2) {
          super.setNextSpawnData($$0, $$1, $$2);
          if ($$0 != null) {
             BlockState $$3 = $$0.getBlockState($$1);

@@ -13,7 +13,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import org.jspecify.annotations.Nullable;
 
 public class MangroveRootsBlock extends Block implements SimpleWaterloggedBlock {
    public static final MapCodec<MangroveRootsBlock> CODEC = simpleCodec(MangroveRootsBlock::new);
@@ -34,7 +33,7 @@ public class MangroveRootsBlock extends Block implements SimpleWaterloggedBlock 
       return $$1.is(Blocks.MANGROVE_ROOTS) && $$2.getAxis() == Axis.Y;
    }
 
-   @Nullable
+   
    @Override
    public BlockState getStateForPlacement(BlockPlaceContext $$0) {
       FluidState $$1 = $$0.getLevel().getFluidState($$0.getClickedPos());

@@ -36,7 +36,6 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.HitResult.Type;
 import org.apache.commons.lang3.function.TriConsumer;
-import org.jspecify.annotations.Nullable;
 
 public class TransportItemsBetweenContainers extends Behavior<net.minecraft.world.entity.PathfinderMob> {
    public static final int TARGET_INTERACTION_TIME = 60;
@@ -58,10 +57,10 @@ public class TransportItemsBetweenContainers extends Behavior<net.minecraft.worl
    private final Predicate<TransportItemsBetweenContainers.TransportItemTarget> shouldQueueForTarget;
    private final Consumer<net.minecraft.world.entity.PathfinderMob> onStartTravelling;
    private final Map<TransportItemsBetweenContainers.ContainerInteractionState, TransportItemsBetweenContainers.OnTargetReachedInteraction> onTargetInteractionActions;
-   @Nullable
+   
    private TransportItemsBetweenContainers.TransportItemTarget target = null;
    private TransportItemsBetweenContainers.TransportItemState state;
-   @Nullable
+   
    private TransportItemsBetweenContainers.ContainerInteractionState interactionState;
    private int ticksSinceReachingTarget;
 
@@ -299,7 +298,7 @@ public class TransportItemsBetweenContainers extends Behavior<net.minecraft.worl
       return $$6 == null ? Optional.empty() : Optional.of($$6);
    }
 
-   @Nullable
+   
    private TransportItemsBetweenContainers.TransportItemTarget isTargetValidToPick(
       net.minecraft.world.entity.PathfinderMob $$0, Level $$1, BlockEntity $$2, Set<GlobalPos> $$3, Set<GlobalPos> $$4, AABB $$5
    ) {
@@ -347,7 +346,7 @@ public class TransportItemsBetweenContainers extends Behavior<net.minecraft.worl
       return $$6 || this.targetIsReachableFromPosition($$0, $$5, $$4, $$1, $$2);
    }
 
-   private Vec3 getPositionToReachTargetFrom(@Nullable Path $$0, net.minecraft.world.entity.PathfinderMob $$1) {
+   private Vec3 getPositionToReachTargetFrom(Path $$0, net.minecraft.world.entity.PathfinderMob $$1) {
       boolean $$2 = $$0 == null || $$0.getEndNode() == null;
       Vec3 $$3 = $$2 ? $$1.position() : $$0.getEndNode().asBlockPos().getBottomCenter();
       return this.setMiddleYPosition($$1, $$3);
@@ -605,7 +604,7 @@ public class TransportItemsBetweenContainers extends Behavior<net.minecraft.worl
 
    public record TransportItemTarget(BlockPos pos, Container container, BlockEntity blockEntity, BlockState state) {
 
-      @Nullable
+      
       public static TransportItemsBetweenContainers.TransportItemTarget tryCreatePossibleTarget(BlockEntity $$0, Level $$1) {
          BlockPos $$2 = $$0.getBlockPos();
          BlockState $$3 = $$0.getBlockState();
@@ -613,13 +612,13 @@ public class TransportItemsBetweenContainers extends Behavior<net.minecraft.worl
          return $$4 != null ? new TransportItemsBetweenContainers.TransportItemTarget($$2, $$4, $$0, $$3) : null;
       }
 
-      @Nullable
+      
       public static TransportItemsBetweenContainers.TransportItemTarget tryCreatePossibleTarget(BlockPos $$0, Level $$1) {
          BlockEntity $$2 = $$1.getBlockEntity($$0);
          return $$2 == null ? null : tryCreatePossibleTarget($$2, $$1);
       }
 
-      @Nullable
+      
       private static Container getBlockEntityContainer(BlockEntity $$0, BlockState $$1, Level $$2, BlockPos $$3) {
          if ($$1.getBlock() instanceof ChestBlock $$4) {
             return ChestBlock.getContainer($$4, $$1, $$2, $$3, false);

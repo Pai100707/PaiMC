@@ -30,7 +30,6 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlac
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
-import org.jspecify.annotations.Nullable;
 
 public class WoodlandMansionPieces {
    public static void generateMansion(
@@ -163,7 +162,7 @@ public class WoodlandMansionPieces {
          return (this.floorRooms[$$3].get($$1, $$2) & 65535) == $$4;
       }
 
-      @Nullable
+      
       public Direction get1x2RoomDirection(WoodlandMansionPieces.SimpleGrid $$0, int $$1, int $$2, int $$3, int $$4) {
          for (Direction $$5 : Plane.HORIZONTAL) {
             if (this.isRoomId($$0, $$1 + $$5.getStepX(), $$2 + $$5.getStepZ(), $$3, $$4)) {
@@ -632,7 +631,7 @@ public class WoodlandMansionPieces {
          BlockPos $$1,
          Rotation $$2,
          WoodlandMansionPieces.SimpleGrid $$3,
-         @Nullable WoodlandMansionPieces.SimpleGrid $$4
+         WoodlandMansionPieces.SimpleGrid $$4
       ) {
          for (int $$5 = 0; $$5 < $$3.height; $$5++) {
             for (int $$6 = 0; $$6 < $$3.width; $$6++) {

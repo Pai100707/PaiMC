@@ -38,7 +38,6 @@ import org.joml.Quaternionf;
 import org.joml.Quaternionfc;
 import org.joml.Vector3f;
 import org.joml.Vector3fc;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public abstract class Display extends net.minecraft.world.entity.Entity {
@@ -130,7 +129,7 @@ public abstract class Display extends net.minecraft.world.entity.Entity {
    protected boolean updateRenderState;
    private boolean updateStartTick;
    private boolean updateInterpolationDuration;
-   @Nullable
+   
    private net.minecraft.world.entity.Display.RenderState renderState;
    private final net.minecraft.world.entity.InterpolationHandler interpolation = new net.minecraft.world.entity.InterpolationHandler(this, 0);
 
@@ -298,7 +297,7 @@ public abstract class Display extends net.minecraft.world.entity.Entity {
       return true;
    }
 
-   @Nullable
+   
    public net.minecraft.world.entity.Display.RenderState renderState() {
       return this.renderState;
    }
@@ -335,11 +334,11 @@ public abstract class Display extends net.minecraft.world.entity.Entity {
       return net.minecraft.world.entity.Display.BillboardConstraints.BY_ID.apply((Byte)this.entityData.get(DATA_BILLBOARD_RENDER_CONSTRAINTS_ID));
    }
 
-   private void setBrightnessOverride(@Nullable Brightness $$0) {
+   private void setBrightnessOverride(Brightness $$0) {
       this.entityData.set(DATA_BRIGHTNESS_OVERRIDE_ID, $$0 != null ? $$0.pack() : -1);
    }
 
-   @Nullable
+   
    private Brightness getBrightnessOverride() {
       int $$0 = (Integer)this.entityData.get(DATA_BRIGHTNESS_OVERRIDE_ID);
       return $$0 != -1 ? Brightness.unpack($$0) : null;
@@ -497,7 +496,7 @@ public abstract class Display extends net.minecraft.world.entity.Entity {
       private static final EntityDataAccessor<BlockState> DATA_BLOCK_STATE_ID = SynchedEntityData.defineId(
          net.minecraft.world.entity.Display.BlockDisplay.class, EntityDataSerializers.BLOCK_STATE
       );
-      @Nullable
+      
       private net.minecraft.world.entity.Display.BlockDisplay.BlockRenderState blockRenderState;
 
       public BlockDisplay(net.minecraft.world.entity.EntityType<?> $$0, Level $$1) {
@@ -538,7 +537,7 @@ public abstract class Display extends net.minecraft.world.entity.Entity {
          $$0.store("block_state", BlockState.CODEC, this.getBlockState());
       }
 
-      @Nullable
+      
       public net.minecraft.world.entity.Display.BlockDisplay.BlockRenderState blockRenderState() {
          return this.blockRenderState;
       }
@@ -596,7 +595,7 @@ public abstract class Display extends net.minecraft.world.entity.Entity {
          net.minecraft.world.entity.Display.ItemDisplay.class, EntityDataSerializers.BYTE
       );
       private final net.minecraft.world.entity.SlotAccess slot = net.minecraft.world.entity.SlotAccess.of(this::getItemStack, this::setItemStack);
-      @Nullable
+      
       private net.minecraft.world.entity.Display.ItemDisplay.ItemRenderState itemRenderState;
 
       public ItemDisplay(net.minecraft.world.entity.EntityType<?> $$0, Level $$1) {
@@ -652,13 +651,13 @@ public abstract class Display extends net.minecraft.world.entity.Entity {
          $$0.store("item_display", ItemDisplayContext.CODEC, this.getItemTransform());
       }
 
-      @Nullable
+      
       @Override
       public net.minecraft.world.entity.SlotAccess getSlot(int $$0) {
          return $$0 == 0 ? this.slot : null;
       }
 
-      @Nullable
+      
       public net.minecraft.world.entity.Display.ItemDisplay.ItemRenderState itemRenderState() {
          return this.itemRenderState;
       }
@@ -733,9 +732,9 @@ public abstract class Display extends net.minecraft.world.entity.Entity {
       private static final IntSet TEXT_RENDER_STATE_IDS = IntSet.of(
          new int[]{DATA_TEXT_ID.id(), DATA_LINE_WIDTH_ID.id(), DATA_BACKGROUND_COLOR_ID.id(), DATA_TEXT_OPACITY_ID.id(), DATA_STYLE_FLAGS_ID.id()}
       );
-      @Nullable
+      
       private net.minecraft.world.entity.Display.TextDisplay.CachedInfo clientDisplayCache;
-      @Nullable
+      
       private net.minecraft.world.entity.Display.TextDisplay.TextRenderState textRenderState;
 
       public TextDisplay(net.minecraft.world.entity.EntityType<?> $$0, Level $$1) {
@@ -868,7 +867,7 @@ public abstract class Display extends net.minecraft.world.entity.Entity {
          this.clientDisplayCache = null;
       }
 
-      @Nullable
+      
       public net.minecraft.world.entity.Display.TextDisplay.TextRenderState textRenderState() {
          return this.textRenderState;
       }

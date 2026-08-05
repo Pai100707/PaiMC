@@ -8,7 +8,6 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.StringRepresentable;
 import org.apache.commons.lang3.StringUtils;
-import org.jspecify.annotations.Nullable;
 
 public class FilterMask {
    public static final Codec<FilterMask> CODEC = StringRepresentable.fromEnum(FilterMask.Type::values).dispatch(FilterMask::type, FilterMask.Type::codec);
@@ -67,7 +66,7 @@ public class FilterMask {
       this.mask.set($$0);
    }
 
-   @Nullable
+   
    public String apply(String $$0) {
       return switch (this.type) {
          case PASS_THROUGH -> $$0;
@@ -86,7 +85,7 @@ public class FilterMask {
       };
    }
 
-   @Nullable
+   
    public Component applyWithFormatting(String $$0) {
       return switch (this.type) {
          case PASS_THROUGH -> Component.literal($$0);

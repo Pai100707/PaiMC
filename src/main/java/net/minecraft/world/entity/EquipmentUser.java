@@ -9,7 +9,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.equipment.Equippable;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.LootTable;
-import org.jspecify.annotations.Nullable;
 
 public interface EquipmentUser {
    void setItemSlot(net.minecraft.world.entity.EquipmentSlot var1, ItemStack var2);
@@ -48,7 +47,7 @@ public interface EquipmentUser {
       }
    }
 
-   @Nullable
+   
    default net.minecraft.world.entity.EquipmentSlot resolveSlot(ItemStack $$0, List<net.minecraft.world.entity.EquipmentSlot> $$1) {
       if ($$0.isEmpty()) {
          return null;

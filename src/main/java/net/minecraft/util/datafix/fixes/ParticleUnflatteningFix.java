@@ -16,7 +16,6 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 import net.minecraft.nbt.TagParser;
 import net.minecraft.util.datafix.schemas.NamespacedSchema;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class ParticleUnflatteningFix extends DataFix {
@@ -73,7 +72,7 @@ public class ParticleUnflatteningFix extends DataFix {
       return $$0.set("item", $$3);
    }
 
-   @Nullable
+   
    private static <T> Dynamic<T> parseTag(DynamicOps<T> $$0, String $$1) {
       try {
          return new Dynamic($$0, TagParser.create($$0).parseFully($$1));

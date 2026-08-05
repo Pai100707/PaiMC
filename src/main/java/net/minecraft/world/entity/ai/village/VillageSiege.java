@@ -11,7 +11,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.CustomSpawner;
 import net.minecraft.world.level.levelgen.Heightmap.Types;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class VillageSiege implements CustomSpawner {
@@ -100,7 +99,7 @@ public class VillageSiege implements CustomSpawner {
       }
    }
 
-   @Nullable
+   
    private Vec3 findRandomSpawnPos(ServerLevel $$0, BlockPos $$1) {
       for (int $$2 = 0; $$2 < 10; $$2++) {
          int $$3 = $$1.getX() + $$0.random.nextInt(16) - 8;

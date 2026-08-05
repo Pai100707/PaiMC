@@ -9,7 +9,6 @@ import net.minecraft.util.context.ContextKey;
 import net.minecraft.util.context.ContextKeySet;
 import net.minecraft.util.context.ContextMap;
 import net.minecraft.world.item.ItemStack;
-import org.jspecify.annotations.Nullable;
 
 public class LootParams {
    private final ServerLevel level;
@@ -62,7 +61,7 @@ public class LootParams {
          return this;
       }
 
-      public <T> LootParams.Builder withOptionalParameter(ContextKey<T> $$0, @Nullable T $$1) {
+      public <T> LootParams.Builder withOptionalParameter(ContextKey<T> $$0, T $$1) {
          this.params.withOptionalParameter($$0, $$1);
          return this;
       }
@@ -71,7 +70,7 @@ public class LootParams {
          return (T)this.params.getParameter($$0);
       }
 
-      @Nullable
+      
       public <T> T getOptionalParameter(ContextKey<T> $$0) {
          return (T)this.params.getOptionalParameter($$0);
       }

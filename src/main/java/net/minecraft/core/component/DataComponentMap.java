@@ -17,11 +17,10 @@ import java.util.Spliterators;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
-import org.jspecify.annotations.Nullable;
 
 public interface DataComponentMap extends Iterable<TypedDataComponent<?>>, DataComponentGetter {
    DataComponentMap EMPTY = new DataComponentMap() {
-      @Nullable
+      
       @Override
       public <T> T get(DataComponentType<? extends T> $$0) {
          return null;
@@ -64,7 +63,7 @@ public interface DataComponentMap extends Iterable<TypedDataComponent<?>>, DataC
 
    static DataComponentMap composite(final DataComponentMap $$0, final DataComponentMap $$1) {
       return new DataComponentMap() {
-         @Nullable
+         
          @Override
          public <T> T get(DataComponentType<? extends T> $$0x) {
             T $$1x = $$1.get($$0);
@@ -107,7 +106,7 @@ public interface DataComponentMap extends Iterable<TypedDataComponent<?>>, DataC
 
    default DataComponentMap filter(final Predicate<DataComponentType<?>> $$0) {
       return new DataComponentMap() {
-         @Nullable
+         
          @Override
          public <T> T get(DataComponentType<? extends T> $$0x) {
             return $$0.test($$0) ? DataComponentMap.this.get($$0) : null;
@@ -126,12 +125,12 @@ public interface DataComponentMap extends Iterable<TypedDataComponent<?>>, DataC
       Builder() {
       }
 
-      public <T> DataComponentMap.Builder set(DataComponentType<T> $$0, @Nullable T $$1) {
+      public <T> DataComponentMap.Builder set(DataComponentType<T> $$0, T $$1) {
          this.setUnchecked($$0, $$1);
          return this;
       }
 
-      <T> void setUnchecked(DataComponentType<T> $$0, @Nullable Object $$1) {
+      <T> void setUnchecked(DataComponentType<T> $$0, Object $$1) {
          if ($$1 != null) {
             this.map.put($$0, $$1);
          } else {
@@ -162,7 +161,7 @@ public interface DataComponentMap extends Iterable<TypedDataComponent<?>>, DataC
       }
 
       record SimpleMap(Reference2ObjectMap<DataComponentType<?>, Object> map) implements DataComponentMap {
-         @Nullable
+         
          @Override
          public <T> T get(DataComponentType<? extends T> $$0) {
             return (T)this.map.get($$0);

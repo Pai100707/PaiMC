@@ -24,7 +24,6 @@ import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 
 public class MinecartTNT extends AbstractMinecart {
    private static final byte EVENT_PRIME = 10;
@@ -34,7 +33,7 @@ public class MinecartTNT extends AbstractMinecart {
    private static final float DEFAULT_EXPLOSION_POWER_BASE = 4.0F;
    private static final float DEFAULT_EXPLOSION_SPEED_FACTOR = 1.0F;
    private static final int NO_FUSE = -1;
-   @Nullable
+   
    private DamageSource ignitionSource;
    private int fuse = -1;
    private float explosionPowerBase = 4.0F;
@@ -100,7 +99,7 @@ public class MinecartTNT extends AbstractMinecart {
       return new ItemStack(Items.TNT_MINECART);
    }
 
-   protected void explode(@Nullable DamageSource $$0, double $$1) {
+   protected void explode(DamageSource $$0, double $$1) {
       if (this.level() instanceof ServerLevel $$2) {
          if ((Boolean)$$2.getGameRules().get(GameRules.TNT_EXPLODES)) {
             double $$3 = Math.min(Math.sqrt($$1), 5.0);
@@ -148,7 +147,7 @@ public class MinecartTNT extends AbstractMinecart {
       }
    }
 
-   public void primeFuse(@Nullable DamageSource $$0) {
+   public void primeFuse(DamageSource $$0) {
       if (!(this.level() instanceof ServerLevel $$1 && !(Boolean)$$1.getGameRules().get(GameRules.TNT_EXPLODES))) {
          this.fuse = 80;
          if (!this.level().isClientSide()) {

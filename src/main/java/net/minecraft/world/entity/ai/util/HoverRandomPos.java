@@ -2,10 +2,9 @@ package net.minecraft.world.entity.ai.util;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class HoverRandomPos {
-   @Nullable
+   
    public static Vec3 getPos(net.minecraft.world.entity.PathfinderMob $$0, int $$1, int $$2, double $$3, double $$4, float $$5, int $$6, int $$7) {
       boolean $$8 = GoalUtils.mobRestricted($$0, $$1);
       return RandomPos.generateRandomPos(

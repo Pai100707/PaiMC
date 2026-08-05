@@ -20,7 +20,6 @@ import net.minecraft.world.entity.ai.village.poi.PoiManager;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.level.pathfinder.Path;
 import org.apache.commons.lang3.mutable.MutableLong;
-import org.jspecify.annotations.Nullable;
 
 public class AcquirePoi {
    public static final int SCAN_RANGE = 48;
@@ -106,7 +105,7 @@ public class AcquirePoi {
       return $$2 == $$1 ? $$10 : BehaviorBuilder.create($$2x -> $$2x.group($$2x.absent($$1)).apply($$2x, $$1xx -> $$10));
    }
 
-   @Nullable
+   
    public static Path findPathToPois(net.minecraft.world.entity.Mob $$0, Set<Pair<Holder<PoiType>, BlockPos>> $$1) {
       if ($$1.isEmpty()) {
          return null;

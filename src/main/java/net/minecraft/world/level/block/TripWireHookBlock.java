@@ -25,7 +25,6 @@ import net.minecraft.world.level.redstone.Orientation;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class TripWireHookBlock extends Block {
    public static final MapCodec<TripWireHookBlock> CODEC = simpleCodec(TripWireHookBlock::new);
@@ -76,7 +75,7 @@ public class TripWireHookBlock extends Block {
          : super.updateShape($$0, $$1, $$2, $$3, $$4, $$5, $$6, $$7);
    }
 
-   @Nullable
+   
    @Override
    public BlockState getStateForPlacement(BlockPlaceContext $$0) {
       BlockState $$1 = this.defaultBlockState().setValue(POWERED, false).setValue(ATTACHED, false);
@@ -98,12 +97,12 @@ public class TripWireHookBlock extends Block {
    }
 
    @Override
-   public void setPlacedBy(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, @Nullable LivingEntity $$3, ItemStack $$4) {
+   public void setPlacedBy(net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, LivingEntity $$3, ItemStack $$4) {
       calculateState($$0, $$1, $$2, false, false, -1, null);
    }
 
    public static void calculateState(
-      net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, boolean $$3, boolean $$4, int $$5, @Nullable BlockState $$6
+      net.minecraft.world.level.Level $$0, BlockPos $$1, BlockState $$2, boolean $$3, boolean $$4, int $$5, BlockState $$6
    ) {
       Optional<Direction> $$7 = $$2.getOptionalValue(FACING);
       if ($$7.isPresent()) {

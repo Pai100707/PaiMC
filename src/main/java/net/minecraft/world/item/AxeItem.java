@@ -25,7 +25,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.ChestType;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.gameevent.GameEvent.Context;
-import org.jspecify.annotations.Nullable;
 
 public class AxeItem extends net.minecraft.world.item.Item {
    protected static final Map<Block, Block> STRIPPABLES = new Builder()
@@ -91,7 +90,7 @@ public class AxeItem extends net.minecraft.world.item.Item {
       return $$0.getHand().equals(InteractionHand.MAIN_HAND) && $$1.getOffhandItem().has(DataComponents.BLOCKS_ATTACKS) && !$$1.isSecondaryUseActive();
    }
 
-   private Optional<BlockState> evaluateNewBlockState(Level $$0, BlockPos $$1, @Nullable Player $$2, BlockState $$3) {
+   private Optional<BlockState> evaluateNewBlockState(Level $$0, BlockPos $$1, Player $$2, BlockState $$3) {
       Optional<BlockState> $$4 = this.getStripped($$3);
       if ($$4.isPresent()) {
          $$0.playSound($$2, $$1, SoundEvents.AXE_STRIP, SoundSource.BLOCKS, 1.0F, 1.0F);
@@ -114,7 +113,7 @@ public class AxeItem extends net.minecraft.world.item.Item {
       }
    }
 
-   private static void spawnSoundAndParticle(Level $$0, BlockPos $$1, @Nullable Player $$2, BlockState $$3, SoundEvent $$4, int $$5) {
+   private static void spawnSoundAndParticle(Level $$0, BlockPos $$1, Player $$2, BlockState $$3, SoundEvent $$4, int $$5) {
       $$0.playSound($$2, $$1, $$4, SoundSource.BLOCKS, 1.0F, 1.0F);
       $$0.levelEvent($$2, $$5, $$1, 0);
       if ($$3.getBlock() instanceof ChestBlock && $$3.getValue(ChestBlock.TYPE) != ChestType.SINGLE) {

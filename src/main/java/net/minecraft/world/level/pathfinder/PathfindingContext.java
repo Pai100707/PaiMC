@@ -5,11 +5,10 @@ import net.minecraft.core.BlockPos.MutableBlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jspecify.annotations.Nullable;
 
 public class PathfindingContext {
    private final net.minecraft.world.level.CollisionGetter level;
-   @Nullable
+   
    private final PathTypeCache cache;
    private final BlockPos mobPosition;
    private final MutableBlockPos mutablePos = new MutableBlockPos();

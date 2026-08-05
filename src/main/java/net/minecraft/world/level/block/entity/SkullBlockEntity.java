@@ -15,19 +15,18 @@ import net.minecraft.world.level.block.SkullBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 
 public class SkullBlockEntity extends BlockEntity {
    private static final String TAG_PROFILE = "profile";
    private static final String TAG_NOTE_BLOCK_SOUND = "note_block_sound";
    private static final String TAG_CUSTOM_NAME = "custom_name";
-   @Nullable
+   
    private ResolvableProfile owner;
-   @Nullable
+   
    private Identifier noteBlockSound;
    private int animationTickCount;
    private boolean isAnimating;
-   @Nullable
+   
    private Component customName;
 
    public SkullBlockEntity(BlockPos $$0, BlockState $$1) {
@@ -63,12 +62,12 @@ public class SkullBlockEntity extends BlockEntity {
       return this.isAnimating ? this.animationTickCount + $$0 : this.animationTickCount;
    }
 
-   @Nullable
+   
    public ResolvableProfile getOwnerProfile() {
       return this.owner;
    }
 
-   @Nullable
+   
    public Identifier getNoteBlockSound() {
       return this.noteBlockSound;
    }

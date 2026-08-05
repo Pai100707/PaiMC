@@ -7,10 +7,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class UseOnContext {
-   @Nullable
+   
    private final Player player;
    private final InteractionHand hand;
    private final BlockHitResult hitResult;
@@ -21,7 +20,7 @@ public class UseOnContext {
       this($$0.level(), $$0, $$1, $$0.getItemInHand($$1), $$2);
    }
 
-   protected UseOnContext(Level $$0, @Nullable Player $$1, InteractionHand $$2, net.minecraft.world.item.ItemStack $$3, BlockHitResult $$4) {
+   protected UseOnContext(Level $$0, Player $$1, InteractionHand $$2, net.minecraft.world.item.ItemStack $$3, BlockHitResult $$4) {
       this.player = $$1;
       this.hand = $$2;
       this.hitResult = $$4;
@@ -53,7 +52,7 @@ public class UseOnContext {
       return this.itemStack;
    }
 
-   @Nullable
+   
    public Player getPlayer() {
       return this.player;
    }

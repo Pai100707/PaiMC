@@ -11,7 +11,6 @@ import net.minecraft.world.level.saveddata.maps.MapDecoration;
 import net.minecraft.world.level.saveddata.maps.MapId;
 import net.minecraft.world.level.saveddata.maps.MapItemSavedData;
 import net.minecraft.world.level.saveddata.maps.MapItemSavedData.MapPatch;
-import org.jspecify.annotations.Nullable;
 
 public record ClientboundMapItemDataPacket(MapId mapId, byte scale, boolean locked, Optional<List<MapDecoration>> decorations, Optional<MapPatch> colorPatch)
    implements Packet<ClientGamePacketListener> {
@@ -29,7 +28,7 @@ public record ClientboundMapItemDataPacket(MapId mapId, byte scale, boolean lock
       ClientboundMapItemDataPacket::new
    );
 
-   public ClientboundMapItemDataPacket(MapId $$0, byte $$1, boolean $$2, @Nullable Collection<MapDecoration> $$3, @Nullable MapPatch $$4) {
+   public ClientboundMapItemDataPacket(MapId $$0, byte $$1, boolean $$2, Collection<MapDecoration> $$3, MapPatch $$4) {
       this($$0, $$1, $$2, $$3 != null ? Optional.of(List.copyOf($$3)) : Optional.empty(), Optional.ofNullable($$4));
    }
 

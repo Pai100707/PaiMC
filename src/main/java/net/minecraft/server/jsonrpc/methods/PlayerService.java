@@ -9,7 +9,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.jsonrpc.api.PlayerDto;
 import net.minecraft.server.jsonrpc.internalapi.MinecraftApi;
 import net.minecraft.server.level.ServerPlayer;
-import org.jspecify.annotations.Nullable;
 
 public class PlayerService {
    private static final Component DEFAULT_KICK_MESSAGE = Component.translatable("multiplayer.disconnect.kicked");
@@ -33,7 +32,7 @@ public class PlayerService {
       return $$3;
    }
 
-   @Nullable
+   
    private static ServerPlayer getServerPlayer(MinecraftApi $$0, PlayerDto $$1) {
       if ($$1.id().isPresent()) {
          return $$0.playerListService().getPlayer($$1.id().get());

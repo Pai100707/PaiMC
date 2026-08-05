@@ -9,7 +9,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.CollisionGetter;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FluidState;
-import org.jspecify.annotations.Nullable;
 
 public class EntityCollisionContext implements CollisionContext {
    private final boolean descending;
@@ -17,10 +16,10 @@ public class EntityCollisionContext implements CollisionContext {
    private final boolean placement;
    private final ItemStack heldItem;
    private final boolean alwaysCollideWithFluid;
-   @Nullable
+   
    private final Entity entity;
 
-   protected EntityCollisionContext(boolean $$0, boolean $$1, double $$2, ItemStack $$3, boolean $$4, @Nullable Entity $$5) {
+   protected EntityCollisionContext(boolean $$0, boolean $$1, double $$2, ItemStack $$3, boolean $$4, Entity $$5) {
       this.descending = $$0;
       this.placement = $$1;
       this.entityBottom = $$2;
@@ -64,7 +63,7 @@ public class EntityCollisionContext implements CollisionContext {
       return this.entityBottom > $$1.getY() + $$0.max(Axis.Y) - 1.0E-5F;
    }
 
-   @Nullable
+   
    public Entity getEntity() {
       return this.entity;
    }

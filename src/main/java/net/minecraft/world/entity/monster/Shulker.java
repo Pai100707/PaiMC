@@ -51,7 +51,6 @@ import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import org.joml.Vector3f;
-import org.jspecify.annotations.Nullable;
 
 public class Shulker extends AbstractGolem implements Enemy {
    private static final Identifier COVERED_ARMOR_MODIFIER_ID = Identifier.withDefaultNamespace("covered");
@@ -75,7 +74,7 @@ public class Shulker extends AbstractGolem implements Enemy {
    private static final float MAX_SCALE = 3.0F;
    private float currentPeekAmountO;
    private float currentPeekAmount;
-   @Nullable
+   
    private BlockPos clientOldAttachPosition;
    private int clientSideTeleportInterpolation;
    private static final float MAX_LID_OPEN = 1.0F;
@@ -273,13 +272,13 @@ public class Shulker extends AbstractGolem implements Enemy {
       this.yBodyRot = 0.0F;
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       this.setYRot(0.0F);
       this.yHeadRot = this.getYRot();
@@ -330,7 +329,7 @@ public class Shulker extends AbstractGolem implements Enemy {
       }
    }
 
-   @Nullable
+   
    protected Direction findAttachableSurface(BlockPos $$0) {
       for (Direction $$1 : Direction.values()) {
          if (this.canStayAt($$0, $$1)) {
@@ -449,7 +448,7 @@ public class Shulker extends AbstractGolem implements Enemy {
    }
 
    @Override
-   public boolean canBeCollidedWith(@Nullable net.minecraft.world.entity.Entity $$0) {
+   public boolean canBeCollidedWith(net.minecraft.world.entity.Entity $$0) {
       return this.isAlive();
    }
 
@@ -515,7 +514,7 @@ public class Shulker extends AbstractGolem implements Enemy {
    public void push(net.minecraft.world.entity.Entity $$0) {
    }
 
-   @Nullable
+   
    public Vec3 getRenderPosition(float $$0) {
       if (this.clientOldAttachPosition != null && this.clientSideTeleportInterpolation > 0) {
          double $$1 = (this.clientSideTeleportInterpolation - $$0) / 6.0;
@@ -544,13 +543,13 @@ public class Shulker extends AbstractGolem implements Enemy {
       return Optional.ofNullable(this.getColor());
    }
 
-   @Nullable
+   
    public DyeColor getColor() {
       byte $$0 = (Byte)this.entityData.get(DATA_COLOR_ID);
       return $$0 != 16 && $$0 <= 15 ? DyeColor.byId($$0) : null;
    }
 
-   @Nullable
+   
    @Override
    public <T> T get(DataComponentType<? extends T> $$0) {
       return $$0 == DataComponents.SHULKER_COLOR ? castComponentValue((DataComponentType<T>)$$0, this.getColor()) : super.get($$0);

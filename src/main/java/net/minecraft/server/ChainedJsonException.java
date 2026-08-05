@@ -5,7 +5,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
-import org.jspecify.annotations.Nullable;
 
 public class ChainedJsonException extends IOException {
    private final List<net.minecraft.server.ChainedJsonException.Entry> entries = Lists.newArrayList();
@@ -50,7 +49,7 @@ public class ChainedJsonException extends IOException {
    }
 
    public static class Entry {
-      @Nullable
+      
       String filename;
       private final List<String> jsonKeys = Lists.newArrayList();
 
@@ -61,7 +60,7 @@ public class ChainedJsonException extends IOException {
          this.jsonKeys.add(0, $$0);
       }
 
-      @Nullable
+      
       public String getFilename() {
          return this.filename;
       }

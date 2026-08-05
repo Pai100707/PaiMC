@@ -6,10 +6,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import net.minecraft.util.profiling.jfr.Percentiles;
-import org.jspecify.annotations.Nullable;
 
 public record TimedStatSummary<T extends TimedStat>(
-   T fastest, T slowest, @Nullable T secondSlowest, int count, Map<Integer, Double> percentilesNanos, Duration totalDuration
+   T fastest, T slowest, T secondSlowest, int count, Map<Integer, Double> percentilesNanos, Duration totalDuration
 ) {
    public static <T extends TimedStat> Optional<TimedStatSummary<T>> summary(List<T> $$0) {
       if ($$0.isEmpty()) {

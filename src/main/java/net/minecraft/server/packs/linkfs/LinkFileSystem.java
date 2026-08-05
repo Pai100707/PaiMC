@@ -15,7 +15,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import org.jspecify.annotations.Nullable;
 
 public class LinkFileSystem extends FileSystem {
    private static final Set<String> VIEWS = Set.of("basic");
@@ -30,7 +29,7 @@ public class LinkFileSystem extends FileSystem {
       this.root = buildPath($$1, this, "", null);
    }
 
-   private static LinkFSPath buildPath(LinkFileSystem.DirectoryEntry $$0, LinkFileSystem $$1, String $$2, @Nullable LinkFSPath $$3) {
+   private static LinkFSPath buildPath(LinkFileSystem.DirectoryEntry $$0, LinkFileSystem $$1, String $$2, LinkFSPath $$3) {
       Object2ObjectOpenHashMap<String, LinkFSPath> $$4 = new Object2ObjectOpenHashMap();
       LinkFSPath $$5 = new LinkFSPath($$1, $$2, $$3, new PathContents.DirectoryContents($$4));
       $$0.files.forEach(($$3x, $$4x) -> $$4.put($$3x, new LinkFSPath($$1, $$3x, $$5, new PathContents.FileContents($$4x))));

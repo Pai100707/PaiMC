@@ -45,7 +45,6 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class Camel extends AbstractHorse {
    public static final float BABY_SCALE = 0.45F;
@@ -120,7 +119,7 @@ public class Camel extends AbstractHorse {
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       CamelAi.initMemories(this, $$0.getRandom());
       this.resetLastPoseChangeTickToFullStand($$0.getLevel().getGameTime());
@@ -459,7 +458,7 @@ public class Camel extends AbstractHorse {
       return $$0 != this && $$0 instanceof Camel $$1 && this.canParent() && $$1.canParent();
    }
 
-   @Nullable
+   
    public Camel getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       return net.minecraft.world.entity.EntityType.CAMEL.create($$0, net.minecraft.world.entity.EntitySpawnReason.BREEDING);
    }

@@ -5,7 +5,6 @@ import com.mojang.serialization.MapCodec;
 import java.util.Optional;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.world.entity.Entity;
-import org.jspecify.annotations.Nullable;
 
 public interface ComponentContents {
    default <T> Optional<T> visit(FormattedText.StyledContentConsumer<T> $$0, Style $$1) {
@@ -16,7 +15,7 @@ public interface ComponentContents {
       return Optional.empty();
    }
 
-   default MutableComponent resolve(@Nullable CommandSourceStack $$0, @Nullable Entity $$1, int $$2) throws CommandSyntaxException {
+   default MutableComponent resolve(CommandSourceStack $$0, Entity $$1, int $$2) throws CommandSyntaxException {
       return MutableComponent.create(this);
    }
 

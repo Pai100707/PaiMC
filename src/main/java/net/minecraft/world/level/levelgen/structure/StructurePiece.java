@@ -29,12 +29,11 @@ import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSeriali
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.storage.loot.LootTable;
-import org.jspecify.annotations.Nullable;
 
 public abstract class StructurePiece {
    protected static final BlockState CAVE_AIR = Blocks.CAVE_AIR.defaultBlockState();
    protected BoundingBox boundingBox;
-   @Nullable
+   
    private Direction orientation;
    private Mirror mirror;
    private Rotation rotation;
@@ -417,7 +416,7 @@ public abstract class StructurePiece {
    }
 
    protected boolean createChest(
-      net.minecraft.world.level.ServerLevelAccessor $$0, BoundingBox $$1, RandomSource $$2, BlockPos $$3, ResourceKey<LootTable> $$4, @Nullable BlockState $$5
+      net.minecraft.world.level.ServerLevelAccessor $$0, BoundingBox $$1, RandomSource $$2, BlockPos $$3, ResourceKey<LootTable> $$4, BlockState $$5
    ) {
       if ($$1.isInside($$3) && !$$0.getBlockState($$3).is(Blocks.CHEST)) {
          if ($$5 == null) {
@@ -462,7 +461,7 @@ public abstract class StructurePiece {
          .orElseThrow(() -> new IllegalStateException("Unable to calculate boundingbox without pieces"));
    }
 
-   @Nullable
+   
    public static StructurePiece findCollisionPiece(List<StructurePiece> $$0, BoundingBox $$1) {
       for (StructurePiece $$2 : $$0) {
          if ($$2.getBoundingBox().intersects($$1)) {
@@ -473,12 +472,12 @@ public abstract class StructurePiece {
       return null;
    }
 
-   @Nullable
+   
    public Direction getOrientation() {
       return this.orientation;
    }
 
-   public void setOrientation(@Nullable Direction $$0) {
+   public void setOrientation(Direction $$0) {
       this.orientation = $$0;
       if ($$0 == null) {
          this.rotation = Rotation.NONE;

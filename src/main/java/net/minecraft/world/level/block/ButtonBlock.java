@@ -33,7 +33,6 @@ import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class ButtonBlock extends FaceAttachedHorizontalDirectionalBlock {
    public static final MapCodec<ButtonBlock> CODEC = RecordCodecBuilder.mapCodec(
@@ -95,7 +94,7 @@ public class ButtonBlock extends FaceAttachedHorizontalDirectionalBlock {
       super.onExplosionHit($$0, $$1, $$2, $$3, $$4);
    }
 
-   public void press(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, @Nullable Player $$3) {
+   public void press(BlockState $$0, net.minecraft.world.level.Level $$1, BlockPos $$2, Player $$3) {
       $$1.setBlock($$2, $$0.setValue(POWERED, true), 3);
       this.updateNeighbours($$0, $$1, $$2);
       $$1.scheduleTick($$2, this, this.ticksToStayPressed);
@@ -103,7 +102,7 @@ public class ButtonBlock extends FaceAttachedHorizontalDirectionalBlock {
       $$1.gameEvent($$3, GameEvent.BLOCK_ACTIVATE, $$2);
    }
 
-   protected void playSound(@Nullable Player $$0, net.minecraft.world.level.LevelAccessor $$1, BlockPos $$2, boolean $$3) {
+   protected void playSound(Player $$0, net.minecraft.world.level.LevelAccessor $$1, BlockPos $$2, boolean $$3) {
       $$1.playSound($$3 ? $$0 : null, $$2, this.getSound($$3), SoundSource.BLOCKS);
    }
 

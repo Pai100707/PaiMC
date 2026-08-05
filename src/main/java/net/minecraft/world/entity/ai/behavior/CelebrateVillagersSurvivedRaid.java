@@ -18,10 +18,9 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.component.FireworkExplosion;
 import net.minecraft.world.item.component.Fireworks;
 import net.minecraft.world.item.component.FireworkExplosion.Shape;
-import org.jspecify.annotations.Nullable;
 
 public class CelebrateVillagersSurvivedRaid extends Behavior<Villager> {
-   @Nullable
+   
    private Raid currentRaid;
 
    public CelebrateVillagersSurvivedRaid(int $$0, int $$1) {

@@ -43,7 +43,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class Ocelot extends Animal {
    public static final double CROUCH_SPEED_MOD = 0.6;
@@ -51,9 +50,9 @@ public class Ocelot extends Animal {
    public static final double SPRINT_SPEED_MOD = 1.33;
    private static final EntityDataAccessor<Boolean> DATA_TRUSTING = SynchedEntityData.defineId(Ocelot.class, EntityDataSerializers.BOOLEAN);
    private static final boolean DEFAULT_TRUSTING = false;
-   @Nullable
+   
    private Ocelot.OcelotAvoidEntityGoal<Player> ocelotAvoidPlayersGoal;
-   @Nullable
+   
    private Ocelot.OcelotTemptGoal temptGoal;
 
    public Ocelot(net.minecraft.world.entity.EntityType<? extends Ocelot> $$0, Level $$1) {
@@ -131,7 +130,7 @@ public class Ocelot extends Animal {
       return Animal.createAnimalAttributes().add(Attributes.MAX_HEALTH, 10.0).add(Attributes.MOVEMENT_SPEED, 0.3F).add(Attributes.ATTACK_DAMAGE, 3.0);
    }
 
-   @Nullable
+   
    @Override
    protected SoundEvent getAmbientSound() {
       return SoundEvents.OCELOT_AMBIENT;
@@ -210,7 +209,7 @@ public class Ocelot extends Animal {
       }
    }
 
-   @Nullable
+   
    public Ocelot getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       return net.minecraft.world.entity.EntityType.OCELOT.create($$0, net.minecraft.world.entity.EntitySpawnReason.BREEDING);
    }
@@ -243,13 +242,13 @@ public class Ocelot extends Animal {
       return false;
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       if ($$3 == null) {
          $$3 = new net.minecraft.world.entity.AgeableMob.AgeableMobGroupData(1.0F);

@@ -6,7 +6,6 @@ import com.google.gson.JsonObject;
 import java.util.List;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.GsonHelper;
-import org.jspecify.annotations.Nullable;
 
 public class JsonRPCUtils {
    public static final String JSON_RPC_VERSION = "2.0";
@@ -20,7 +19,7 @@ public class JsonRPCUtils {
       return $$2;
    }
 
-   public static JsonObject createRequest(@Nullable Integer $$0, Identifier $$1, List<JsonElement> $$2) {
+   public static JsonObject createRequest(Integer $$0, Identifier $$1, List<JsonElement> $$2) {
       JsonObject $$3 = new JsonObject();
       $$3.addProperty("jsonrpc", "2.0");
       if ($$0 != null) {
@@ -41,7 +40,7 @@ public class JsonRPCUtils {
       return $$3;
    }
 
-   public static JsonObject createError(JsonElement $$0, String $$1, int $$2, @Nullable String $$3) {
+   public static JsonObject createError(JsonElement $$0, String $$1, int $$2, String $$3) {
       JsonObject $$4 = new JsonObject();
       $$4.addProperty("jsonrpc", "2.0");
       $$4.add("id", $$0);
@@ -56,27 +55,27 @@ public class JsonRPCUtils {
       return $$4;
    }
 
-   @Nullable
+   
    public static JsonElement getRequestId(JsonObject $$0) {
       return $$0.get("id");
    }
 
-   @Nullable
+   
    public static String getMethodName(JsonObject $$0) {
       return GsonHelper.getAsString($$0, "method", null);
    }
 
-   @Nullable
+   
    public static JsonElement getParams(JsonObject $$0) {
       return $$0.get("params");
    }
 
-   @Nullable
+   
    public static JsonElement getResult(JsonObject $$0) {
       return $$0.get("result");
    }
 
-   @Nullable
+   
    public static JsonObject getError(JsonObject $$0) {
       return GsonHelper.getAsJsonObject($$0, "error", null);
    }

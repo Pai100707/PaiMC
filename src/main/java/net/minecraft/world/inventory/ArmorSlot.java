@@ -8,15 +8,14 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentEffectComponents;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import org.jspecify.annotations.Nullable;
 
 class ArmorSlot extends net.minecraft.world.inventory.Slot {
    private final LivingEntity owner;
    private final EquipmentSlot slot;
-   @Nullable
+   
    private final Identifier emptyIcon;
 
-   public ArmorSlot(Container $$0, LivingEntity $$1, EquipmentSlot $$2, int $$3, int $$4, int $$5, @Nullable Identifier $$6) {
+   public ArmorSlot(Container $$0, LivingEntity $$1, EquipmentSlot $$2, int $$3, int $$4, int $$5, Identifier $$6) {
       super($$0, $$3, $$4, $$5);
       this.owner = $$1;
       this.slot = $$2;
@@ -50,7 +49,7 @@ class ArmorSlot extends net.minecraft.world.inventory.Slot {
       return !$$1.isEmpty() && !$$0.isCreative() && EnchantmentHelper.has($$1, EnchantmentEffectComponents.PREVENT_ARMOR_CHANGE) ? false : super.mayPickup($$0);
    }
 
-   @Nullable
+   
    @Override
    public Identifier getNoItemIcon() {
       return this.emptyIcon;

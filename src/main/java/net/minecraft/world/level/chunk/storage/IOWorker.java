@@ -22,7 +22,6 @@ import net.minecraft.util.Unit;
 import net.minecraft.util.Util;
 import net.minecraft.util.thread.PriorityConsecutiveExecutor;
 import net.minecraft.util.thread.StrictQueue.RunnableWithPriority;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class IOWorker implements ChunkScanAccess, AutoCloseable {
@@ -257,15 +256,15 @@ public class IOWorker implements ChunkScanAccess, AutoCloseable {
    }
 
    static class PendingStore {
-      @Nullable
+      
       CompoundTag data;
       final CompletableFuture<Void> result = new CompletableFuture<>();
 
-      public PendingStore(@Nullable CompoundTag $$0) {
+      public PendingStore(CompoundTag $$0) {
          this.data = $$0;
       }
 
-      @Nullable
+      
       CompoundTag copyData() {
          CompoundTag $$0 = this.data;
          return $$0 == null ? null : $$0.copy();
@@ -280,7 +279,7 @@ public class IOWorker implements ChunkScanAccess, AutoCloseable {
 
    @FunctionalInterface
    interface ThrowingSupplier<T> {
-      @Nullable
+      
       T get() throws Exception;
    }
 }

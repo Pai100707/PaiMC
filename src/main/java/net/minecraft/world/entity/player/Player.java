@@ -111,7 +111,6 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.scores.PlayerTeam;
 import net.minecraft.world.scores.Team;
-import org.jspecify.annotations.Nullable;
 
 public abstract class Player extends net.minecraft.world.entity.Avatar implements net.minecraft.world.entity.ContainerUser {
    public static final int MAX_HEALTH = 20;
@@ -162,12 +161,12 @@ public abstract class Player extends net.minecraft.world.entity.Avatar implement
    private ItemStack lastItemInMainHand = ItemStack.EMPTY;
    private final ItemCooldowns cooldowns = this.createItemCooldowns();
    private Optional<GlobalPos> lastDeathLocation = Optional.empty();
-   @Nullable
+   
    public FishingHook fishing;
    protected float hurtDir;
-   @Nullable
+   
    public Vec3 currentImpulseImpactPos;
-   @Nullable
+   
    public net.minecraft.world.entity.Entity currentExplosionCause;
    private boolean ignoreFallDamageFromCurrentImpulse = false;
    private int currentImpulseContextResetGraceTime = 0;
@@ -580,7 +579,7 @@ public abstract class Player extends net.minecraft.world.entity.Avatar implement
    public void handleCreativeModeItemDrop(ItemStack $$0) {
    }
 
-   @Nullable
+   
    public ItemEntity drop(ItemStack $$0, boolean $$1) {
       return this.drop($$0, false, $$1);
    }
@@ -815,7 +814,7 @@ public abstract class Player extends net.minecraft.world.entity.Avatar implement
    public void openNautilusInventory(AbstractNautilus $$0, Container $$1) {
    }
 
-   public OptionalInt openMenu(@Nullable MenuProvider $$0) {
+   public OptionalInt openMenu(MenuProvider $$0) {
       return OptionalInt.empty();
    }
 
@@ -1652,7 +1651,7 @@ public abstract class Player extends net.minecraft.world.entity.Avatar implement
       return this.inventory.add($$0);
    }
 
-   @Nullable
+   
    public abstract GameType gameMode();
 
    @Override
@@ -1705,7 +1704,7 @@ public abstract class Player extends net.minecraft.world.entity.Avatar implement
       return (Float)this.getEntityData().get(DATA_PLAYER_ABSORPTION_ID);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SlotAccess getSlot(int $$0) {
       if ($$0 == 499) {
@@ -2049,7 +2048,7 @@ public abstract class Player extends net.minecraft.world.entity.Avatar implement
          .toString();
    }
 
-   public record BedSleepingProblem(@Nullable Component message) {
+   public record BedSleepingProblem(Component message) {
       public static final Player.BedSleepingProblem TOO_FAR_AWAY = new Player.BedSleepingProblem(Component.translatable("block.minecraft.bed.too_far_away"));
       public static final Player.BedSleepingProblem OBSTRUCTED = new Player.BedSleepingProblem(Component.translatable("block.minecraft.bed.obstructed"));
       public static final Player.BedSleepingProblem OTHER_PROBLEM = new Player.BedSleepingProblem(null);

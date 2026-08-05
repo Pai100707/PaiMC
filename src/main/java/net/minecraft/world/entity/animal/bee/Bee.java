@@ -85,7 +85,6 @@ import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class Bee extends Animal implements net.minecraft.world.entity.NeutralMob, FlyingAnimal {
    public static final float FLAP_DEGREES_PER_TICK = 120.32113F;
@@ -121,7 +120,7 @@ public class Bee extends Animal implements net.minecraft.world.entity.NeutralMob
    private static final int DEFAULT_CANNOT_ENTER_HIVE_TICKS = 0;
    private static final int DEFAULT_CROPS_GROWN_SINCE_POLLINATION = 0;
    private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
-   @Nullable
+   
    private net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> persistentAngerTarget;
    private float rollAmount;
    private float rollAmountO;
@@ -135,9 +134,9 @@ public class Bee extends Animal implements net.minecraft.world.entity.NeutralMob
    private static final int MIN_FIND_FLOWER_RETRY_COOLDOWN = 20;
    private static final int MAX_FIND_FLOWER_RETRY_COOLDOWN = 60;
    int remainingCooldownBeforeLocatingNewFlower = Mth.nextInt(this.random, 20, 60);
-   @Nullable
+   
    BlockPos savedFlowerPos;
-   @Nullable
+   
    BlockPos hivePos;
    Bee.BeePollinateGoal beePollinateGoal;
    Bee.BeeGoToHiveGoal goToHiveGoal;
@@ -289,7 +288,7 @@ public class Bee extends Animal implements net.minecraft.world.entity.NeutralMob
       }
    }
 
-   @Nullable
+   
    public BlockPos getSavedFlowerPos() {
       return this.savedFlowerPos;
    }
@@ -400,14 +399,14 @@ public class Bee extends Animal implements net.minecraft.world.entity.NeutralMob
       this.entityData.set(DATA_ANGER_END_TIME, $$0);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> getPersistentAngerTarget() {
       return this.persistentAngerTarget;
    }
 
    @Override
-   public void setPersistentAngerTarget(@Nullable net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> $$0) {
+   public void setPersistentAngerTarget(net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.LivingEntity> $$0) {
       this.persistentAngerTarget = $$0;
    }
 
@@ -427,7 +426,7 @@ public class Bee extends Animal implements net.minecraft.world.entity.NeutralMob
    }
 
    @VisibleForDebug
-   @Nullable
+   
    public BlockPos getHivePos() {
       return this.hivePos;
    }
@@ -473,7 +472,7 @@ public class Bee extends Animal implements net.minecraft.world.entity.NeutralMob
       }
    }
 
-   @Nullable
+   
    BeehiveBlockEntity getBeehiveBlockEntity() {
       if (this.hivePos == null) {
          return null;
@@ -606,7 +605,7 @@ public class Bee extends Animal implements net.minecraft.world.entity.NeutralMob
       return 0.4F;
    }
 
-   @Nullable
+   
    public Bee getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       return net.minecraft.world.entity.EntityType.BEE.create($$0, net.minecraft.world.entity.EntitySpawnReason.BREEDING);
    }
@@ -777,7 +776,7 @@ public class Bee extends Animal implements net.minecraft.world.entity.NeutralMob
       int travellingTicks;
       private static final int MAX_BLACKLISTED_TARGETS = 3;
       final List<BlockPos> blacklistedTargets = Lists.newArrayList();
-      @Nullable
+      
       private Path lastPath;
       private static final int TICKS_BEFORE_HIVE_DROP = 60;
       private int ticksStuck;
@@ -1085,7 +1084,7 @@ public class Bee extends Animal implements net.minecraft.world.entity.NeutralMob
       private int successfulPollinatingTicks;
       private int lastSoundPlayedTick;
       private boolean pollinating;
-      @Nullable
+      
       private Vec3 hoverPos;
       private int pollinatingTicks;
       private static final int MAX_POLLINATING_TICKS = 600;
@@ -1271,7 +1270,7 @@ public class Bee extends Animal implements net.minecraft.world.entity.NeutralMob
          }
       }
 
-      @Nullable
+      
       private Vec3 findPos() {
          Vec3 $$1;
          if (Bee.this.isHiveValid() && !Bee.this.closerThan(Bee.this.hivePos, this.getWanderThreshold())) {

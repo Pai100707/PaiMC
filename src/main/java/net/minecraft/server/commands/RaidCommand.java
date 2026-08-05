@@ -24,7 +24,6 @@ import net.minecraft.world.entity.raid.Raid;
 import net.minecraft.world.entity.raid.Raider;
 import net.minecraft.world.entity.raid.Raids;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class RaidCommand {
    public static void register(CommandDispatcher<CommandSourceStack> $$0, CommandBuildContext $$1) {
@@ -106,7 +105,7 @@ public class RaidCommand {
       }
    }
 
-   private static int playSound(CommandSourceStack $$0, @Nullable Component $$1) {
+   private static int playSound(CommandSourceStack $$0, Component $$1) {
       if ($$1 != null && $$1.getString().equals("local")) {
          ServerLevel $$2 = $$0.getLevel();
          Vec3 $$3 = $$0.getPosition().add(5.0, 0.0, 0.0);
@@ -176,7 +175,7 @@ public class RaidCommand {
       }
    }
 
-   @Nullable
+   
    private static Raid getRaid(ServerPlayer $$0) {
       return $$0.level().getRaidAt($$0.blockPosition());
    }

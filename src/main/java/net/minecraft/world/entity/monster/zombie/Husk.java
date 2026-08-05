@@ -15,7 +15,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
-import org.jspecify.annotations.Nullable;
 
 public class Husk extends Zombie {
    public Husk(net.minecraft.world.entity.EntityType<? extends Husk> $$0, Level $$1) {
@@ -71,13 +70,13 @@ public class Husk extends Zombie {
       }
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       RandomSource $$4 = $$0.getRandom();
       $$3 = super.finalizeSpawn($$0, $$1, $$2, $$3);

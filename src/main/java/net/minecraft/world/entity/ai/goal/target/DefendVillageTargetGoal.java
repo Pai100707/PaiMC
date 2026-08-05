@@ -9,11 +9,10 @@ import net.minecraft.world.entity.animal.golem.IronGolem;
 import net.minecraft.world.entity.npc.villager.Villager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.AABB;
-import org.jspecify.annotations.Nullable;
 
 public class DefendVillageTargetGoal extends TargetGoal {
    private final IronGolem golem;
-   @Nullable
+   
    private net.minecraft.world.entity.LivingEntity potentialTarget;
    private final TargetingConditions attackTargeting = TargetingConditions.forCombat().range(64.0);
 

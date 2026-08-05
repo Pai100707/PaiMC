@@ -13,7 +13,6 @@ import net.minecraft.world.item.crafting.display.RecipeDisplay;
 import net.minecraft.world.item.crafting.display.ShapedCraftingRecipeDisplay;
 import net.minecraft.world.item.crafting.display.SlotDisplay;
 import net.minecraft.world.level.Level;
-import org.jspecify.annotations.Nullable;
 
 public class ShapedRecipe implements CraftingRecipe {
    final ShapedRecipePattern pattern;
@@ -21,7 +20,7 @@ public class ShapedRecipe implements CraftingRecipe {
    final String group;
    final CraftingBookCategory category;
    final boolean showNotification;
-   @Nullable
+   
    private PlacementInfo placementInfo;
 
    public ShapedRecipe(String $$0, CraftingBookCategory $$1, ShapedRecipePattern $$2, net.minecraft.world.item.ItemStack $$3, boolean $$4) {

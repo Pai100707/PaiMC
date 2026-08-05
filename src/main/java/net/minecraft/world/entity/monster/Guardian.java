@@ -38,7 +38,6 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class Guardian extends Monster {
    protected static final int ATTACK_TIME = 80;
@@ -49,11 +48,11 @@ public class Guardian extends Monster {
    private float clientSideTailAnimationSpeed;
    private float clientSideSpikesAnimation;
    private float clientSideSpikesAnimationO;
-   @Nullable
+   
    private net.minecraft.world.entity.LivingEntity clientSideCachedAttackTarget;
    private int clientSideAttackTime;
    private boolean clientSideTouchedGround;
-   @Nullable
+   
    protected RandomStrollGoal randomStrollGoal;
 
    public Guardian(net.minecraft.world.entity.EntityType<? extends Guardian> $$0, Level $$1) {
@@ -120,7 +119,7 @@ public class Guardian extends Monster {
       return (Integer)this.entityData.get(DATA_ID_ATTACK_TARGET) != 0;
    }
 
-   @Nullable
+   
    public net.minecraft.world.entity.LivingEntity getActiveAttackTarget() {
       if (!this.hasActiveAttackTarget()) {
          return null;
@@ -437,7 +436,7 @@ public class Guardian extends Monster {
       }
 
       @Override
-      public boolean test(@Nullable net.minecraft.world.entity.LivingEntity $$0, ServerLevel $$1) {
+      public boolean test(net.minecraft.world.entity.LivingEntity $$0, ServerLevel $$1) {
          return ($$0 instanceof Player || $$0 instanceof Squid || $$0 instanceof Axolotl) && $$0.distanceToSqr(this.guardian) > 9.0;
       }
    }

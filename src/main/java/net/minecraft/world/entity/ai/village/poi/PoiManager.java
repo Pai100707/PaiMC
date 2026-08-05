@@ -38,7 +38,6 @@ import net.minecraft.world.level.chunk.storage.ChunkIOErrorReporter;
 import net.minecraft.world.level.chunk.storage.RegionStorageInfo;
 import net.minecraft.world.level.chunk.storage.SectionStorage;
 import net.minecraft.world.level.chunk.storage.SimpleRegionStorage;
-import org.jspecify.annotations.Nullable;
 
 public class PoiManager extends SectionStorage<PoiSection, PoiSection.Packed> {
    public static final int MAX_VILLAGE_DISTANCE = 6;
@@ -60,7 +59,7 @@ public class PoiManager extends SectionStorage<PoiSection, PoiSection.Packed> {
       this.distanceTracker = new PoiManager.DistanceTracker();
    }
 
-   @Nullable
+   
    public PoiRecord add(BlockPos $$0, Holder<PoiType> $$1) {
       return ((PoiSection)this.getOrCreate(SectionPos.asLong($$0))).add($$0, $$1);
    }
@@ -165,7 +164,7 @@ public class PoiManager extends SectionStorage<PoiSection, PoiSection.Packed> {
    }
 
    @VisibleForDebug
-   @Nullable
+   
    public DebugPoiInfo getDebugPoiInfo(BlockPos $$0) {
       return this.getOrLoad(SectionPos.asLong($$0)).flatMap($$1 -> $$1.getDebugPoiInfo($$0)).orElse(null);
    }

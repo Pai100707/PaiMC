@@ -27,7 +27,6 @@ import net.minecraft.world.level.portal.TeleportTransition;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class ItemEntity extends net.minecraft.world.entity.Entity implements net.minecraft.world.entity.TraceableEntity {
    private static final EntityDataAccessor<ItemStack> DATA_ITEM = SynchedEntityData.defineId(ItemEntity.class, EntityDataSerializers.ITEM_STACK);
@@ -42,9 +41,9 @@ public class ItemEntity extends net.minecraft.world.entity.Entity implements net
    private int age = 0;
    private int pickupDelay = 0;
    private int health = 5;
-   @Nullable
+   
    private net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.Entity> thrower;
-   @Nullable
+   
    private UUID target;
    public final float bobOffs = this.random.nextFloat() * (float) Math.PI * 2.0F;
 
@@ -69,7 +68,7 @@ public class ItemEntity extends net.minecraft.world.entity.Entity implements net
       return this.getItem().is(ItemTags.DAMPENS_VIBRATIONS);
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.Entity getOwner() {
       return net.minecraft.world.entity.EntityReference.getEntity(this.thrower, this.level());
@@ -342,7 +341,7 @@ public class ItemEntity extends net.minecraft.world.entity.Entity implements net
       return false;
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.Entity teleport(TeleportTransition $$0) {
       net.minecraft.world.entity.Entity $$1 = super.teleport($$0);
@@ -369,7 +368,7 @@ public class ItemEntity extends net.minecraft.world.entity.Entity implements net
       }
    }
 
-   public void setTarget(@Nullable UUID $$0) {
+   public void setTarget(UUID $$0) {
       this.target = $$0;
    }
 
@@ -428,7 +427,7 @@ public class ItemEntity extends net.minecraft.world.entity.Entity implements net
       return 180.0F - getSpin(this.getAge() + 0.5F, this.bobOffs) / (float) (Math.PI * 2) * 360.0F;
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SlotAccess getSlot(int $$0) {
       return $$0 == 0 ? net.minecraft.world.entity.SlotAccess.of(this::getItem, this::setItem) : super.getSlot($$0);

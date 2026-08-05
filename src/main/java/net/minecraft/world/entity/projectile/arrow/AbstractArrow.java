@@ -48,7 +48,6 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.HitResult.Type;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public abstract class AbstractArrow extends Projectile {
    private static final double ARROW_BASE_DAMAGE = 2.0;
@@ -65,7 +64,7 @@ public abstract class AbstractArrow extends Projectile {
    private static final EntityDataAccessor<Boolean> IN_GROUND = SynchedEntityData.defineId(AbstractArrow.class, EntityDataSerializers.BOOLEAN);
    private static final int FLAG_CRIT = 1;
    private static final int FLAG_NOPHYSICS = 2;
-   @Nullable
+   
    private BlockState lastState;
    protected int inGroundTime;
    public AbstractArrow.Pickup pickup = AbstractArrow.Pickup.DISALLOWED;
@@ -73,12 +72,12 @@ public abstract class AbstractArrow extends Projectile {
    private int life = 0;
    private double baseDamage = 2.0;
    private SoundEvent soundEvent = this.getDefaultHitGroundSoundEvent();
-   @Nullable
+   
    private IntOpenHashSet piercingIgnoreEntityIds;
-   @Nullable
+   
    private List<net.minecraft.world.entity.Entity> piercedAndKilledEntities;
    private ItemStack pickupItemStack = this.getDefaultPickupItem();
-   @Nullable
+   
    private ItemStack firedFromWeapon = null;
 
    protected AbstractArrow(net.minecraft.world.entity.EntityType<? extends AbstractArrow> $$0, Level $$1) {
@@ -86,7 +85,7 @@ public abstract class AbstractArrow extends Projectile {
    }
 
    protected AbstractArrow(
-      net.minecraft.world.entity.EntityType<? extends AbstractArrow> $$0, double $$1, double $$2, double $$3, Level $$4, ItemStack $$5, @Nullable ItemStack $$6
+      net.minecraft.world.entity.EntityType<? extends AbstractArrow> $$0, double $$1, double $$2, double $$3, Level $$4, ItemStack $$5, ItemStack $$6
    ) {
       this($$0, $$4);
       this.pickupItemStack = $$5.copy();
@@ -115,7 +114,7 @@ public abstract class AbstractArrow extends Projectile {
       net.minecraft.world.entity.LivingEntity $$1,
       Level $$2,
       ItemStack $$3,
-      @Nullable ItemStack $$4
+      ItemStack $$4
    ) {
       this($$0, $$1.getX(), $$1.getEyeY() - 0.1F, $$1.getZ(), $$2, $$3, $$4);
       this.setOwner($$1);
@@ -541,7 +540,7 @@ public abstract class AbstractArrow extends Projectile {
       );
    }
 
-   @Nullable
+   
    @Override
    public ItemStack getWeaponItem() {
       return this.firedFromWeapon;
@@ -558,7 +557,7 @@ public abstract class AbstractArrow extends Projectile {
    protected void doPostHurtEffects(net.minecraft.world.entity.LivingEntity $$0) {
    }
 
-   @Nullable
+   
    protected EntityHitResult findHitEntity(Vec3 $$0, Vec3 $$1) {
       return ProjectileUtil.getEntityHitResult(
          this.level(), this, $$0, $$1, this.getBoundingBox().expandTowards(this.getDeltaMovement()).inflate(1.0), this::canHitEntity
@@ -611,7 +610,7 @@ public abstract class AbstractArrow extends Projectile {
    }
 
    @Override
-   public void setOwner(@Nullable net.minecraft.world.entity.Entity $$0) {
+   public void setOwner(net.minecraft.world.entity.Entity $$0) {
       super.setOwner($$0);
 
       this.pickup = switch ($$0) {
@@ -719,7 +718,7 @@ public abstract class AbstractArrow extends Projectile {
       return super.isPickable() && !this.isInGround();
    }
 
-   @Nullable
+   
    @Override
    public net.minecraft.world.entity.SlotAccess getSlot(int $$0) {
       return $$0 == 0 ? net.minecraft.world.entity.SlotAccess.of(this::getPickupItemStackOrigin, this::setPickupItemStack) : super.getSlot($$0);

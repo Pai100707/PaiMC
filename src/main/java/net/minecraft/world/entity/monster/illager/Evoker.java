@@ -36,10 +36,9 @@ import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.scores.PlayerTeam;
-import org.jspecify.annotations.Nullable;
 
 public class Evoker extends SpellcasterIllager {
-   @Nullable
+   
    private Sheep wololoTarget;
 
    public Evoker(net.minecraft.world.entity.EntityType<? extends Evoker> $$0, Level $$1) {
@@ -101,11 +100,11 @@ public class Evoker extends SpellcasterIllager {
       return SoundEvents.EVOKER_HURT;
    }
 
-   void setWololoTarget(@Nullable Sheep $$0) {
+   void setWololoTarget(Sheep $$0) {
       this.wololoTarget = $$0;
    }
 
-   @Nullable
+   
    Sheep getWololoTarget() {
       return this.wololoTarget;
    }

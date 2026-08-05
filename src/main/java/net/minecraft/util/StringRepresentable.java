@@ -13,7 +13,6 @@ import java.util.function.Supplier;
 import java.util.function.ToIntFunction;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import org.jspecify.annotations.Nullable;
 
 public interface StringRepresentable {
    int PRE_BUILT_MAP_THRESHOLD = 16;
@@ -77,7 +76,7 @@ public interface StringRepresentable {
          this.resolver = $$1;
       }
 
-      @Nullable
+      
       public E byName(String $$0) {
          return this.resolver.apply($$0);
       }

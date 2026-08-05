@@ -9,14 +9,13 @@ import net.minecraft.util.context.ContextKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import org.jspecify.annotations.Nullable;
 
 public interface LootContextArg<R> {
    Codec<LootContextArg<Object>> ENTITY_OR_BLOCK = createArgCodec(
       $$0 -> $$0.anyOf(LootContext.EntityTarget.values()).anyOf(LootContext.BlockEntityTarget.values())
    );
 
-   @Nullable
+   
    R get(LootContext var1);
 
    ContextKey<?> contextParam();
@@ -69,13 +68,13 @@ public interface LootContextArg<R> {
    }
 
    public interface Getter<T, R> extends LootContextArg<R> {
-      @Nullable
+      
       R get(T var1);
 
       @Override
       ContextKey<? extends T> contextParam();
 
-      @Nullable
+      
       @Override
       default R get(LootContext $$0) {
          T $$1 = $$0.getOptionalParameter((ContextKey<T>)this.contextParam());
@@ -87,7 +86,7 @@ public interface LootContextArg<R> {
       @Override
       ContextKey<? extends T> contextParam();
 
-      @Nullable
+      
       @Override
       default T get(LootContext $$0) {
          return $$0.getOptionalParameter((ContextKey<T>)this.contextParam());

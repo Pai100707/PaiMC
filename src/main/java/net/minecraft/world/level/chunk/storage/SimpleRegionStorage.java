@@ -16,7 +16,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtUtils;
 import net.minecraft.nbt.Tag;
 import net.minecraft.util.datafix.DataFixTypes;
-import org.jspecify.annotations.Nullable;
 
 public class SimpleRegionStorage implements AutoCloseable {
    private final IOWorker worker;
@@ -52,7 +51,7 @@ public class SimpleRegionStorage implements AutoCloseable {
       return this.worker.store($$0, $$1);
    }
 
-   public CompoundTag upgradeChunkTag(CompoundTag $$0, int $$1, @Nullable CompoundTag $$2) {
+   public CompoundTag upgradeChunkTag(CompoundTag $$0, int $$1, CompoundTag $$2) {
       int $$3 = NbtUtils.getDataVersion($$0, $$1);
       if ($$3 == SharedConstants.getCurrentVersion().dataVersion().version()) {
          return $$0;
@@ -81,7 +80,7 @@ public class SimpleRegionStorage implements AutoCloseable {
       return new Dynamic($$0.getOps(), this.upgradeChunkTag((CompoundTag)$$0.getValue(), $$1, null));
    }
 
-   public static void injectDatafixingContext(CompoundTag $$0, @Nullable CompoundTag $$1) {
+   public static void injectDatafixingContext(CompoundTag $$0, CompoundTag $$1) {
       if ($$1 != null) {
          $$0.put("__context", $$1);
       }

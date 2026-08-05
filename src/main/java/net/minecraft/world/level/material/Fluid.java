@@ -19,7 +19,6 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public abstract class Fluid {
    public static final IdMapper<FluidState> FLUID_STATE_REGISTRY = new IdMapper();
@@ -63,7 +62,7 @@ public abstract class Fluid {
    protected void entityInside(net.minecraft.world.level.Level $$0, BlockPos $$1, Entity $$2, InsideBlockEffectApplier $$3) {
    }
 
-   @Nullable
+   
    protected ParticleOptions getDripParticle() {
       return null;
    }
@@ -105,7 +104,7 @@ public abstract class Fluid {
 
    public abstract VoxelShape getShape(FluidState var1, net.minecraft.world.level.BlockGetter var2, BlockPos var3);
 
-   @Nullable
+   
    public AABB getAABB(FluidState $$0, net.minecraft.world.level.BlockGetter $$1, BlockPos $$2) {
       if (this.isEmpty()) {
          return null;

@@ -55,7 +55,6 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
 
 public class BeehiveBlock extends BaseEntityBlock {
    public static final MapCodec<BeehiveBlock> CODEC = simpleCodec(BeehiveBlock::new);
@@ -84,7 +83,7 @@ public class BeehiveBlock extends BaseEntityBlock {
    }
 
    @Override
-   public void playerDestroy(net.minecraft.world.level.Level $$0, Player $$1, BlockPos $$2, BlockState $$3, @Nullable BlockEntity $$4, ItemStack $$5) {
+   public void playerDestroy(net.minecraft.world.level.Level $$0, Player $$1, BlockPos $$2, BlockState $$3, BlockEntity $$4, ItemStack $$5) {
       super.playerDestroy($$0, $$1, $$2, $$3, $$4, $$5);
       if (!$$0.isClientSide() && $$4 instanceof BeehiveBlockEntity $$6) {
          if (!EnchantmentHelper.hasTag($$5, EnchantmentTags.PREVENTS_BEE_SPAWNS_WHEN_MINING)) {
@@ -121,7 +120,7 @@ public class BeehiveBlock extends BaseEntityBlock {
       }
    }
 
-   public static void dropHoneycomb(ServerLevel $$0, ItemStack $$1, BlockState $$2, @Nullable BlockEntity $$3, @Nullable Entity $$4, BlockPos $$5) {
+   public static void dropHoneycomb(ServerLevel $$0, ItemStack $$1, BlockState $$2, BlockEntity $$3, Entity $$4, BlockPos $$5) {
       dropFromBlockInteractLootTable($$0, BuiltInLootTables.HARVEST_BEEHIVE, $$2, $$3, $$1, $$4, ($$1x, $$2x) -> popResource($$1x, $$5, $$2x));
    }
 
@@ -179,7 +178,7 @@ public class BeehiveBlock extends BaseEntityBlock {
    }
 
    public void releaseBeesAndResetHoneyLevel(
-      net.minecraft.world.level.Level $$0, BlockState $$1, BlockPos $$2, @Nullable Player $$3, BeehiveBlockEntity.BeeReleaseStatus $$4
+      net.minecraft.world.level.Level $$0, BlockState $$1, BlockPos $$2, Player $$3, BeehiveBlockEntity.BeeReleaseStatus $$4
    ) {
       this.resetHoneyLevel($$0, $$1, $$2);
       if ($$0.getBlockEntity($$2) instanceof BeehiveBlockEntity $$6) {
@@ -241,13 +240,13 @@ public class BeehiveBlock extends BaseEntityBlock {
       $$0.add(HONEY_LEVEL, FACING);
    }
 
-   @Nullable
+   
    @Override
    public BlockEntity newBlockEntity(BlockPos $$0, BlockState $$1) {
       return new BeehiveBlockEntity($$0, $$1);
    }
 
-   @Nullable
+   
    @Override
    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(net.minecraft.world.level.Level $$0, BlockState $$1, BlockEntityType<T> $$2) {
       return $$0.isClientSide() ? null : createTickerHelper($$2, BlockEntityType.BEEHIVE, BeehiveBlockEntity::serverTick);

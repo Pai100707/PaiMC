@@ -30,13 +30,12 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.HitResult.Type;
-import org.jspecify.annotations.Nullable;
 
 public class ShulkerBullet extends Projectile {
    private static final double SPEED = 0.15;
-   @Nullable
+   
    private net.minecraft.world.entity.EntityReference<net.minecraft.world.entity.Entity> finalTarget;
-   @Nullable
+   
    private Direction currentMoveDirection;
    private int flightSteps;
    private double targetDeltaX;
@@ -92,16 +91,16 @@ public class ShulkerBullet extends Projectile {
    protected void defineSynchedData(Builder $$0) {
    }
 
-   @Nullable
+   
    private Direction getMoveDirection() {
       return this.currentMoveDirection;
    }
 
-   private void setMoveDirection(@Nullable Direction $$0) {
+   private void setMoveDirection(Direction $$0) {
       this.currentMoveDirection = $$0;
    }
 
-   private void selectNextMoveDirection(@Nullable Axis $$0, @Nullable net.minecraft.world.entity.Entity $$1) {
+   private void selectNextMoveDirection(Axis $$0, net.minecraft.world.entity.Entity $$1) {
       double $$2 = 0.5;
       BlockPos $$3;
       if ($$1 == null) {

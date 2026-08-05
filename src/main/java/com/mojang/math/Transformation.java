@@ -13,7 +13,6 @@ import org.joml.Quaternionf;
 import org.joml.Quaternionfc;
 import org.joml.Vector3f;
 import org.joml.Vector3fc;
-import org.jspecify.annotations.Nullable;
 
 public final class Transformation {
    private final Matrix4fc matrix;
@@ -30,13 +29,13 @@ public final class Transformation {
       CODEC, ExtraCodecs.MATRIX4F.xmap(Transformation::new, Transformation::getMatrix)
    );
    private boolean decomposed;
-   @Nullable
+   
    private Vector3fc translation;
-   @Nullable
+   
    private Quaternionfc leftRotation;
-   @Nullable
+   
    private Vector3fc scale;
-   @Nullable
+   
    private Quaternionfc rightRotation;
    private static final Transformation IDENTITY = (Transformation)Util.make(() -> {
       Transformation $$0 = new Transformation(new Matrix4f());
@@ -48,7 +47,7 @@ public final class Transformation {
       return $$0;
    });
 
-   public Transformation(@Nullable Matrix4fc $$0) {
+   public Transformation(Matrix4fc $$0) {
       if ($$0 == null) {
          this.matrix = new Matrix4f();
       } else {
@@ -56,7 +55,7 @@ public final class Transformation {
       }
    }
 
-   public Transformation(@Nullable Vector3fc $$0, @Nullable Quaternionfc $$1, @Nullable Vector3fc $$2, @Nullable Quaternionfc $$3) {
+   public Transformation(Vector3fc $$0, Quaternionfc $$1, Vector3fc $$2, Quaternionfc $$3) {
       this.matrix = compose($$0, $$1, $$2, $$3);
       this.translation = (Vector3fc)($$0 != null ? $$0 : new Vector3f());
       this.leftRotation = (Quaternionfc)($$1 != null ? $$1 : new Quaternionf());
@@ -75,7 +74,7 @@ public final class Transformation {
       return new Transformation($$1);
    }
 
-   @Nullable
+   
    public Transformation inverse() {
       if (this == IDENTITY) {
          return this;
@@ -97,7 +96,7 @@ public final class Transformation {
       }
    }
 
-   private static Matrix4f compose(@Nullable Vector3fc $$0, @Nullable Quaternionfc $$1, @Nullable Vector3fc $$2, @Nullable Quaternionfc $$3) {
+   private static Matrix4f compose(Vector3fc $$0, Quaternionfc $$1, Vector3fc $$2, Quaternionfc $$3) {
       Matrix4f $$4 = new Matrix4f();
       if ($$0 != null) {
          $$4.translation($$0);

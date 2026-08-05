@@ -18,7 +18,6 @@ import java.nio.file.StandardOpenOption;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.Util;
 import net.minecraft.util.profiling.jfr.JvmProfiler;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class RegionFile implements AutoCloseable {
@@ -108,7 +107,7 @@ public class RegionFile implements AutoCloseable {
       return this.externalFileDir.resolve($$1);
    }
 
-   @Nullable
+   
    public synchronized DataInputStream getChunkDataInputStream(net.minecraft.world.level.ChunkPos $$0) throws IOException {
       int $$1 = this.getOffset($$0);
       if ($$1 == 0) {
@@ -164,7 +163,7 @@ public class RegionFile implements AutoCloseable {
       return (byte)($$0 & -129);
    }
 
-   @Nullable
+   
    private DataInputStream createChunkInputStream(net.minecraft.world.level.ChunkPos $$0, byte $$1, InputStream $$2) throws IOException {
       RegionFileVersion $$3 = RegionFileVersion.fromId($$1);
       if ($$3 == RegionFileVersion.VERSION_CUSTOM) {
@@ -185,7 +184,7 @@ public class RegionFile implements AutoCloseable {
       }
    }
 
-   @Nullable
+   
    private DataInputStream createExternalChunkInputStream(net.minecraft.world.level.ChunkPos $$0, byte $$1) throws IOException {
       Path $$2 = this.getExternalChunkPath($$0);
       if (!Files.isRegularFile($$2)) {

@@ -8,7 +8,6 @@ import net.minecraft.network.protocol.PacketType;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
-import org.jspecify.annotations.Nullable;
 
 public record ClientboundRemoveMobEffectPacket(int entityId, Holder<MobEffect> effect) implements Packet<ClientGamePacketListener> {
    public static final StreamCodec<net.minecraft.network.RegistryFriendlyByteBuf, ClientboundRemoveMobEffectPacket> STREAM_CODEC = StreamCodec.composite(
@@ -28,7 +27,7 @@ public record ClientboundRemoveMobEffectPacket(int entityId, Holder<MobEffect> e
       $$0.handleRemoveMobEffect(this);
    }
 
-   @Nullable
+   
    public Entity getEntity(Level $$0) {
       return $$0.getEntity(this.entityId);
    }

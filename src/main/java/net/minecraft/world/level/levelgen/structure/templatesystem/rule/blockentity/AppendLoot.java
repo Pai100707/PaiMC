@@ -6,7 +6,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.storage.loot.LootTable;
-import org.jspecify.annotations.Nullable;
 
 public class AppendLoot implements RuleBlockEntityModifier {
    public static final MapCodec<AppendLoot> CODEC = RecordCodecBuilder.mapCodec(
@@ -19,7 +18,7 @@ public class AppendLoot implements RuleBlockEntityModifier {
    }
 
    @Override
-   public CompoundTag apply(RandomSource $$0, @Nullable CompoundTag $$1) {
+   public CompoundTag apply(RandomSource $$0, CompoundTag $$1) {
       CompoundTag $$2 = $$1 == null ? new CompoundTag() : $$1.copy();
       $$2.store("LootTable", LootTable.KEY_CODEC, this.lootTable);
       $$2.putLong("LootTableSeed", $$0.nextLong());

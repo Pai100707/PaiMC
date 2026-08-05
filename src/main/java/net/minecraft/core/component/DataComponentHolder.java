@@ -1,12 +1,11 @@
 package net.minecraft.core.component;
 
 import java.util.stream.Stream;
-import org.jspecify.annotations.Nullable;
 
 public interface DataComponentHolder extends DataComponentGetter {
    DataComponentMap getComponents();
 
-   @Nullable
+   
    @Override
    default <T> T get(DataComponentType<? extends T> $$0) {
       return this.getComponents().get($$0);

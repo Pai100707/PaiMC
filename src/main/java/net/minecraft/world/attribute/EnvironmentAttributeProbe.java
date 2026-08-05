@@ -6,16 +6,15 @@ import java.util.function.Function;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class EnvironmentAttributeProbe {
    private final Map<net.minecraft.world.attribute.EnvironmentAttribute<?>, net.minecraft.world.attribute.EnvironmentAttributeProbe.ValueProbe<?>> valueProbes = new Reference2ObjectOpenHashMap();
    private final Function<net.minecraft.world.attribute.EnvironmentAttribute<?>, net.minecraft.world.attribute.EnvironmentAttributeProbe.ValueProbe<?>> valueProbeFactory = $$0 -> new net.minecraft.world.attribute.EnvironmentAttributeProbe.ValueProbe<>(
       $$0
    );
-   @Nullable
+   
    Level level;
-   @Nullable
+   
    Vec3 position;
    final net.minecraft.world.attribute.SpatialAttributeInterpolator biomeInterpolator = new net.minecraft.world.attribute.SpatialAttributeInterpolator();
 
@@ -46,7 +45,7 @@ public class EnvironmentAttributeProbe {
 
    class ValueProbe<Value> {
       private Value lastValue;
-      @Nullable
+      
       private Value newValue;
 
       public ValueProbe(final net.minecraft.world.attribute.EnvironmentAttribute<Value> $$0) {

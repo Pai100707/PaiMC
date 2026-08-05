@@ -11,11 +11,10 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import org.jspecify.annotations.Nullable;
 
 public interface SimpleWaterloggedBlock extends BucketPickup, LiquidBlockContainer {
    @Override
-   default boolean canPlaceLiquid(@Nullable LivingEntity $$0, net.minecraft.world.level.BlockGetter $$1, BlockPos $$2, BlockState $$3, Fluid $$4) {
+   default boolean canPlaceLiquid(LivingEntity $$0, net.minecraft.world.level.BlockGetter $$1, BlockPos $$2, BlockState $$3, Fluid $$4) {
       return $$4 == Fluids.WATER;
    }
 
@@ -34,7 +33,7 @@ public interface SimpleWaterloggedBlock extends BucketPickup, LiquidBlockContain
    }
 
    @Override
-   default ItemStack pickupBlock(@Nullable LivingEntity $$0, net.minecraft.world.level.LevelAccessor $$1, BlockPos $$2, BlockState $$3) {
+   default ItemStack pickupBlock(LivingEntity $$0, net.minecraft.world.level.LevelAccessor $$1, BlockPos $$2, BlockState $$3) {
       if ($$3.getValue(BlockStateProperties.WATERLOGGED)) {
          $$1.setBlock($$2, $$3.setValue(BlockStateProperties.WATERLOGGED, false), 3);
          if (!$$3.canSurvive($$1, $$2)) {

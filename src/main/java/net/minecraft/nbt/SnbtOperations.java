@@ -17,7 +17,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.util.parsing.packrat.DelayedException;
 import net.minecraft.util.parsing.packrat.ParseState;
 import net.minecraft.util.parsing.packrat.SuggestionSupplier;
-import org.jspecify.annotations.Nullable;
 
 public class SnbtOperations {
    static final DelayedException<CommandSyntaxException> ERROR_EXPECTED_STRING_UUID = DelayedException.create(
@@ -41,7 +40,7 @@ public class SnbtOperations {
             }
          }
 
-         @Nullable
+         
          private static <T> Boolean convert(DynamicOps<T> $$0, T $$1) {
             Optional<Boolean> $$2 = $$0.getBooleanValue($$1).result();
             if ($$2.isPresent()) {
@@ -92,7 +91,7 @@ public class SnbtOperations {
    }
 
    public interface BuiltinOperation {
-      @Nullable
+      
       <T> T run(DynamicOps<T> var1, List<T> var2, ParseState<StringReader> var3);
    }
 }

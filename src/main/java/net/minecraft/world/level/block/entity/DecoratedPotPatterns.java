@@ -7,7 +7,6 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import org.jspecify.annotations.Nullable;
 
 public class DecoratedPotPatterns {
    public static final ResourceKey<DecoratedPotPattern> BLANK = create("blank");
@@ -61,7 +60,7 @@ public class DecoratedPotPatterns {
       Map.entry(Items.SNORT_POTTERY_SHERD, SNORT)
    );
 
-   @Nullable
+   
    public static ResourceKey<DecoratedPotPattern> getPatternFromItem(Item $$0) {
       return ITEM_TO_POT_TEXTURE.get($$0);
    }

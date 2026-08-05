@@ -18,17 +18,16 @@ import net.minecraft.world.level.block.state.pattern.BlockInWorld;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.storage.TagValueInput;
 import net.minecraft.world.level.storage.TagValueOutput;
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 
 public class BlockInput implements Predicate<BlockInWorld> {
    private static final Logger LOGGER = LogUtils.getLogger();
    private final BlockState state;
    private final Set<Property<?>> properties;
-   @Nullable
+   
    private final CompoundTag tag;
 
-   public BlockInput(BlockState $$0, Set<Property<?>> $$1, @Nullable CompoundTag $$2) {
+   public BlockInput(BlockState $$0, Set<Property<?>> $$1, CompoundTag $$2) {
       this.state = $$0;
       this.properties = $$1;
       this.tag = $$2;

@@ -2,7 +2,6 @@ package net.minecraft.util;
 
 import java.util.function.IntConsumer;
 import org.apache.commons.lang3.Validate;
-import org.jspecify.annotations.Nullable;
 
 public class SimpleBitStorage implements net.minecraft.util.BitStorage {
    private static final int[] MAGIC = new int[]{
@@ -241,7 +240,7 @@ public class SimpleBitStorage implements net.minecraft.util.BitStorage {
       this($$0, $$1, (long[])null);
    }
 
-   public SimpleBitStorage(int $$0, int $$1, @Nullable long[] $$2) {
+   public SimpleBitStorage(int $$0, int $$1, long[] $$2) {
       Validate.inclusiveBetween(1L, 32L, $$0);
       this.size = $$1;
       this.bits = $$0;

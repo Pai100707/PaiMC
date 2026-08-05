@@ -16,7 +16,6 @@ import net.minecraft.network.chat.ComponentUtils;
 import net.minecraft.util.parsing.packrat.commands.CommandArgumentParser;
 import net.minecraft.util.parsing.packrat.commands.ParserBasedArgument;
 import net.minecraft.world.entity.Entity;
-import org.jspecify.annotations.Nullable;
 
 public class ComponentArgument extends ParserBasedArgument<Component> {
    private static final Collection<String> EXAMPLES = Arrays.asList("\"hello world\"", "'hello world'", "\"\"", "{text:\"hello world\"}", "[\"\"]");
@@ -34,7 +33,7 @@ public class ComponentArgument extends ParserBasedArgument<Component> {
       return (Component)$$0.getArgument($$1, Component.class);
    }
 
-   public static Component getResolvedComponent(CommandContext<net.minecraft.commands.CommandSourceStack> $$0, String $$1, @Nullable Entity $$2) throws CommandSyntaxException {
+   public static Component getResolvedComponent(CommandContext<net.minecraft.commands.CommandSourceStack> $$0, String $$1, Entity $$2) throws CommandSyntaxException {
       return ComponentUtils.updateForEntity((net.minecraft.commands.CommandSourceStack)$$0.getSource(), getRawComponent($$0, $$1), $$2, 0);
    }
 

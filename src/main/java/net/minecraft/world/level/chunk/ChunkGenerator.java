@@ -71,7 +71,6 @@ import net.minecraft.world.level.levelgen.structure.placement.RandomSpreadStruct
 import net.minecraft.world.level.levelgen.structure.placement.StructurePlacement;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 import org.apache.commons.lang3.mutable.MutableBoolean;
-import org.jspecify.annotations.Nullable;
 
 public abstract class ChunkGenerator {
    public static final Codec<ChunkGenerator> CODEC = BuiltInRegistries.CHUNK_GENERATOR.byNameCodec().dispatchStable(ChunkGenerator::codec, Function.identity());
@@ -116,7 +115,7 @@ public abstract class ChunkGenerator {
       WorldGenRegion var1, long var2, RandomState var4, BiomeManager var5, net.minecraft.world.level.StructureManager var6, ChunkAccess var7
    );
 
-   @Nullable
+   
    public Pair<BlockPos, Holder<Structure>> findNearestMapStructure(ServerLevel $$0, HolderSet<Structure> $$1, BlockPos $$2, int $$3, boolean $$4) {
       if (SharedConstants.DEBUG_DISABLE_FEATURES) {
          return null;
@@ -188,7 +187,7 @@ public abstract class ChunkGenerator {
       }
    }
 
-   @Nullable
+   
    private Pair<BlockPos, Holder<Structure>> getNearestGeneratedStructure(
       Set<Holder<Structure>> $$0,
       ServerLevel $$1,
@@ -222,7 +221,7 @@ public abstract class ChunkGenerator {
       }
    }
 
-   @Nullable
+   
    private static Pair<BlockPos, Holder<Structure>> getNearestGeneratedStructure(
       Set<Holder<Structure>> $$0,
       net.minecraft.world.level.LevelReader $$1,
@@ -256,7 +255,7 @@ public abstract class ChunkGenerator {
       return null;
    }
 
-   @Nullable
+   
    private static Pair<BlockPos, Holder<Structure>> getStructureGeneratingAt(
       Set<Holder<Structure>> $$0,
       net.minecraft.world.level.LevelReader $$1,

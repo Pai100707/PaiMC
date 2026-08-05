@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Optional;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.levelgen.feature.SpikeFeature;
-import org.jspecify.annotations.Nullable;
 
 public class SpikeConfiguration implements FeatureConfiguration {
    public static final Codec<SpikeConfiguration> CODEC = RecordCodecBuilder.create(
@@ -19,10 +18,10 @@ public class SpikeConfiguration implements FeatureConfiguration {
    );
    private final boolean crystalInvulnerable;
    private final List<SpikeFeature.EndSpike> spikes;
-   @Nullable
+   
    private final BlockPos crystalBeamTarget;
 
-   public SpikeConfiguration(boolean $$0, List<SpikeFeature.EndSpike> $$1, @Nullable BlockPos $$2) {
+   public SpikeConfiguration(boolean $$0, List<SpikeFeature.EndSpike> $$1, BlockPos $$2) {
       this($$0, $$1, Optional.ofNullable($$2));
    }
 
@@ -40,7 +39,7 @@ public class SpikeConfiguration implements FeatureConfiguration {
       return this.spikes;
    }
 
-   @Nullable
+   
    public BlockPos getCrystalBeamTarget() {
       return this.crystalBeamTarget;
    }

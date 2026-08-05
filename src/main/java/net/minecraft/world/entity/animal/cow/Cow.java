@@ -17,7 +17,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
 
 public class Cow extends AbstractCow {
    private static final EntityDataAccessor<Holder<CowVariant>> DATA_VARIANT_ID = SynchedEntityData.defineId(Cow.class, EntityDataSerializers.COW_VARIANT);
@@ -44,7 +43,7 @@ public class Cow extends AbstractCow {
       VariantUtils.<CowVariant>readVariant($$0, Registries.COW_VARIANT).ifPresent(this::setVariant);
    }
 
-   @Nullable
+   
    public Cow getBreedOffspring(ServerLevel $$0, net.minecraft.world.entity.AgeableMob $$1) {
       Cow $$2 = net.minecraft.world.entity.EntityType.COW.create($$0, net.minecraft.world.entity.EntitySpawnReason.BREEDING);
       if ($$2 != null && $$1 instanceof Cow $$3) {
@@ -59,7 +58,7 @@ public class Cow extends AbstractCow {
       ServerLevelAccessor $$0,
       DifficultyInstance $$1,
       net.minecraft.world.entity.EntitySpawnReason $$2,
-      @Nullable net.minecraft.world.entity.SpawnGroupData $$3
+      net.minecraft.world.entity.SpawnGroupData $$3
    ) {
       VariantUtils.<CowVariant>selectVariantToSpawn(SpawnContext.create($$0, this.blockPosition()), Registries.COW_VARIANT).ifPresent(this::setVariant);
       return super.finalizeSpawn($$0, $$1, $$2, $$3);
@@ -73,7 +72,7 @@ public class Cow extends AbstractCow {
       return (Holder<CowVariant>)this.entityData.get(DATA_VARIANT_ID);
    }
 
-   @Nullable
+   
    @Override
    public <T> T get(DataComponentType<? extends T> $$0) {
       return $$0 == DataComponents.COW_VARIANT ? castComponentValue((DataComponentType<T>)$$0, this.getVariant()) : super.get($$0);

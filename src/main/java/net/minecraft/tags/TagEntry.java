@@ -9,7 +9,6 @@ import java.util.function.Predicate;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.ExtraCodecs.TagOrElementLocation;
-import org.jspecify.annotations.Nullable;
 
 public class TagEntry {
    private static final Codec<net.minecraft.tags.TagEntry> FULL_CODEC = RecordCodecBuilder.create(
@@ -112,10 +111,10 @@ public class TagEntry {
    }
 
    public interface Lookup<T> {
-      @Nullable
+      
       T element(Identifier var1, boolean var2);
 
-      @Nullable
+      
       Collection<T> tag(Identifier var1);
    }
 }
