@@ -8,17 +8,21 @@ java {
     }
 }
 
+dependencies {
+
+    implementation(project(":pai-api"))
+}
+
+
 sourceSets {
+
     main {
+
         java.srcDirs(
-            "io",
             "net",
+            "io",
             "org",
             "com"
         )
     }
-}
-
-dependencies {
-    implementation(project(":pai-api"))
 }
