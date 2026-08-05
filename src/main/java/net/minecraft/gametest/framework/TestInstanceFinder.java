@@ -1,9 +1,0 @@
-package net.minecraft.gametest.framework;
-
-import java.util.stream.Stream;
-import net.minecraft.core.Holder.Reference;
-
-@FunctionalInterface
-public interface TestInstanceFinder {
-   Stream<Reference<GameTestInstance>> findTests();
-}

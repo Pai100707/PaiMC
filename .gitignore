@@ -1,7 +1,6 @@
+.git/
 .gradle/
 build/
-out/
-run/
 logs/
 *.log
 .idea/
