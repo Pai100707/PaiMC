@@ -1,8 +1,6 @@
-# PaiMC fork from [Paper](https://https://papermc.io/software/paper/) for high performance and vanilla like
-===========
+PaiMC fork from [Paper](https://papermc.io/software/paper/) for high performance and vanilla like
 
 The most widely used, high-performance Minecraft server that aims to fix gameplay and mechanics inconsistencies.
-
 
 **Support and Project Discussion:**
 - [Our forums](https://forums.papermc.io/) or [Discord](https://discord.gg/papermc)
@@ -18,7 +16,7 @@ Build Paper using
 ./gradlew applyPatches
 ./gradlew createMojmapPaperclipJar
 ```
-and your file is in [here](paper-server/build/libs/)
+and your file is in `paper-server/build/libs/`
 Run the Paperclip jar directly from your server. Just like old times
 
 * Documentation on using Paper: [docs.papermc.io](https://docs.papermc.io)
