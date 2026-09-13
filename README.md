@@ -1,5 +1,5 @@
 PaiMC fork from [Paper](https://papermc.io/software/paper/) for high performance and vanilla like
-
+------
 The most widely used, high-performance Minecraft server that aims to fix gameplay and mechanics inconsistencies.
 
 **Support and Project Discussion:**
@@ -7,7 +7,7 @@ The most widely used, high-performance Minecraft server that aims to fix gamepla
 
 How To (Server Admins)
 ------
-Paperclip is a jar file that you can build or and run just like a normal jar file.
+Paperclip is a jar file that you can build or run just like a normal jar file.
 
 Download Paper from our [downloads page](https://papermc.io/downloads/paper).
 Build Paper using
