@@ -47,5 +47,50 @@ logs/
 test-plugin.settings.gradle.kts
 paper-generator.settings.gradle.kts
 
+# SSH private keys
+.ssh/
+*.pem
+*.key
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+known_hosts
+
+.env
+
 # Don't track patched vanilla submodules
 paper-server/src/minecraft/
+
+# Build outputs
+paper-server/build/
+paper-api/build/
+paper-mojangapi/build/
+paper-server/build/libs/
+**/build/
+**/out/
+
+# Gradle cache and generated files
+.gradle/
+gradle-app.setting
+.gradletasknamecache
+
+# Generated Minecraft sources and resources
+paper-server/src/minecraft/
+paper-server/src/generated/
+paper-server/src/test/resources/
+paper-server/src/main/resources/generated/
+
+# Runtime/server files
+eula.txt
+server.properties
+server.jar
+*.log
+
+# IDE and OS files
+*.swp
+*.swo
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

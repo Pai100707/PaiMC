@@ -1,15 +1,12 @@
-PaiMC fork from [Paper](https://papermc.io/software/paper/) for high performance and vanilla like
+PaiMC fork from [Paper](https://papermc.io/software/paper/)
 ------
-The most widely used, high-performance Minecraft server that aims to fix gameplay and mechanics inconsistencies.
+PaiMC for high-performance Minecraft server and vanilla-like experience
 
-**Support and Project Discussion:**
-- [Our forums](https://forums.papermc.io/) or [Discord](https://discord.gg/papermc)
-
-How To (Server Admins)
+How To Server Admins
 ------
 Paperclip is a jar file that you can build or run just like a normal jar file.
 
-Download Paper from our [downloads page](https://papermc.io/downloads/paper).
+Download Paper from our [downloads page](https://paimc.io/downloads/paimc).
 Build Paper using
 ```bash
 ./gradlew clean
@@ -19,10 +16,9 @@ Build Paper using
 and your file is in `paper-server/build/libs/`
 Run the Paperclip jar directly from your server. Just like old times
 
-* Documentation on using Paper: [docs.papermc.io](https://docs.papermc.io)
-* For a sneak peek at upcoming features, [see here](https://github.com/PaperMC/Paper/projects)
+* Documentation on using PaiMC: [docs.paimc.io](https://docs.paimc.io)
 
-How To (Plugin Developers)
+How To Plugin Developers
 ------
 * See our API [here](paper-api)
 * See upcoming, pending, and recently added API [here](https://github.com/orgs/PaperMC/projects/2/views/4)

@@ -176,7 +176,7 @@ public class SpigotConfig {
 
     public static int timeoutTime = 60;
     public static boolean restartOnCrash = true;
-    public static String restartScript = "./start.sh";
+    public static String restartScript = "";
     public static String restartMessage;
     private static void watchdog() {
         SpigotConfig.timeoutTime = SpigotConfig.getInt("settings.timeout-time", SpigotConfig.timeoutTime);
